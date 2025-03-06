@@ -44,6 +44,9 @@ jobs:
       - name: Update RubyGems
         run: gem update --system
 
+      - name: Normalize Gemfile.lock
+        run: bundle lock --add-platform x86_64-linux
+
       - name: Install dependencies
         run: |
           sudo apt-get update

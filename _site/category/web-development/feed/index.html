@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Web Development &#8211; Gervis Bermudez | Blog</title>
+	<atom:link href="https://gervisbermudez.github.io/site/category/web-development/feed/" rel="self" type="application/rss+xml" />
+	<link>https://gervisbermudez.github.io/site</link>
+	<description>My goal is to apply my knowledge and professional experience, in addition to contributing my values and skills to organizations to contribute to their growth and continue to further strengthen my skills.</description>
+	<lastBuildDate>Mon, 15 Apr 2024 23:54:54 +0000</lastBuildDate>
+	<language>es</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.6.2</generator>
+
+<image>
+	<url>https://gervisbermudez.github.io/site/public/uploads/2024/03/Vectorized-Logo-150x150.png</url>
+	<title>Web Development &#8211; Gervis Bermudez | Blog</title>
+	<link>https://gervisbermudez.github.io/site</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Solving the Hotel Reservation Problem using Vue.js with Vite</title>
+		<link>https://gervisbermudez.github.io/site/2024/04/15/solving-the-hotel-reservation-problem-using-vue-js-with-vite/</link>
+		
+		<dc:creator><![CDATA[gervisbermudez]]></dc:creator>
+		<pubDate>Mon, 15 Apr 2024 18:57:04 +0000</pubDate>
+				<category><![CDATA[Design]]></category>
+		<category><![CDATA[Web Development]]></category>
+		<category><![CDATA[figma]]></category>
+		<category><![CDATA[vite]]></category>
+		<category><![CDATA[vue]]></category>
+		<guid isPermaLink="false">https://gervisbermudez.github.io/site/?p=662</guid>
+
+					<description><![CDATA[Solving the Hotel Reservation Problem using Vue.js with Vite: Github + Figma]]></description>
+										<content:encoded><![CDATA[		<div data-elementor-type="wp-post" data-elementor-id="662" class="elementor elementor-662">
+				<div class="elementor-element elementor-element-d172505 e-flex e-con-boxed e-con e-parent" data-id="d172505" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-eff346e elementor-widget elementor-widget-text-editor" data-id="eff346e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Hello everyone! I wanted to share how I tackled the technical test for hotel reservation, which I completed as part of a job application process. Here&#8217;s the problem:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e5bdadb e-flex e-con-boxed e-con e-parent" data-id="e5bdadb" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-8c3a2b0 elementor-widget elementor-widget-text-editor" data-id="8c3a2b0" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<blockquote><p><em>Hotel Reservation problem:</em></p><p><em>Some points we evaluate include:</em></p><ul><li><em>Solution design</em></li><li><em>Readability</em></li><li><em>Ease of installation, maintenance, and application extension</em></li><li><em>TDD (Test Driven Development)</em></li><li><em>Layout</em></li><li><em>Use of Agile best practices</em></li><li><em>Operational features</em></li><li><em>Application architecture</em></li></ul><p><em>Please consider:</em></p><ul><li><em>For the solution, we require you to use JavaScript and Vue.js.</em></li><li><em>The application must run.</em></li><li><em>There should be sufficient evidence that the solution is complete and functions correctly with the provided test data.</em></li><li><em>This is a great opportunity for us to closely assess your technical skills and potential. Please refrain from using elements not authored by you in the construction of the source code unless absolutely necessary, and if so, specify the source reference.</em></li></ul><p><em>Rules:</em></p><ul><li><em>Do not use CSS frameworks.</em></li><li><em>Send the project&#8217;s URL in a repository.</em></li><li><em>In addition to the code, please attach a README with an explanation of your solution&#8217;s design, your assumptions about the problem, and detailed instructions on how to run your application.</em></li><li><em>We request that you submit the solution to the chosen problem within three days from the time of receipt.</em></li></ul><p><em>Introduction to the Problem:</em></p><p><em>The application must run. You should provide sufficient evidence that your solution is complete by indicating that it works correctly against the supplied test data, at a minimum. Please note that you will be assessed on your judgment as well as your execution. The visual design of the app is optional.</em></p><p><em>Hotel Reservation Problem:</em></p><p><em>A hotel chain operating in Miami wants to offer room reservation services over the internet. They operate three hotels in Miami: Lakewood, Bridgewood, and Ridgewood. Each hotel has separate weekday and weekend (Saturday and Sunday) rates, with special rates for rewards customers as part of a loyalty program. Each hotel also has an assigned rating.</em></p><ul><li><em>Lakewood, with a rating of 3, has weekday rates of $110 for regular customers and $80 for rewards customers. Weekend rates are $90 for regular customers and $80 for rewards customers.</em></li><li><em>Bridgewood, with a rating of 4, has weekday rates of $160 for regular customers and $110 for rewards customers. Weekend rates are $60 for regular customers and $50 for rewards customers.</em></li><li><em>Ridgewood, with a rating of 5, has weekday rates of $220 for regular customers and $100 for rewards customers. Weekend rates are $150 for regular customers and $40 for rewards customers.</em></li></ul><p><em>Design:</em></p><ul><li><em>Input should allow entry of various dates.</em></li><li><em>Provide a toggle to allow users to select between regular and reward.</em></li><li><em>Each hotel card should contain:</em></li></ul><p><em>&#8211; Hotel name</em></p><p><em>&#8211; Rating displayed visually as stars</em></p><p><em>&#8211; Display all possible price options for regular, reward, weekday, and weekend (the output card should only display the selected date&#8217;s price)</em></p><p><em>Write a program to assist an online customer in finding the cheapest hotel. Initially, display all hotels as a grid of cards. The input can be one or more dates for a regular or rewards customer. The output should be the cheapest available hotel based on customer type and dates. In case of a tie, return the hotel with the highest rating. The answer should stand out from the list of hotels.</em></p><p><em>Input Format:</em></p><p><em>&lt;customer_type&gt; &lt;date1&gt; &lt;date2&gt; &#8230;</em></p><p><em>Output Format:</em></p><p><em>&lt;card_of_the_cheapest_hotel&gt;</em></p><p><em>Input 1:</em></p><p><em>Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)</em></p><p><em>Output 1:</em></p><p><em>Lakewood</em></p><p><em>Input 2:</em></p><p><em>Rewards: 26Mar2009(thur), 27Mar2009(fri), 28Mar2009(sat)</em></p><p><em>Output 2:</em></p><p><em>Ridgewood</em></p></blockquote>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-444fc6b e-flex e-con-boxed e-con e-parent" data-id="444fc6b" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-3a7891f elementor-widget elementor-widget-text-editor" data-id="3a7891f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h3 class="elementor-heading-title elementor-size-default elementor-inline-editing pen" contenteditable="true" data-elementor-setting-key="title" data-pen-placeholder="Teclea aquí...">Resolution</h3><p>The challenge at hand involved developing an algorithm capable of recommending the most economical option among several hotels, considering different variables such as hotel prices, user types (regular or not), and normal versus weekend rates. Below, I&#8217;ve broken down the variables:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e590147 e-flex e-con-boxed e-con e-parent" data-id="e590147" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-7c0f9ac elementor-widget elementor-widget-text-editor" data-id="7c0f9ac" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<table><thead><tr><th>Hotel</th><th>Estrellas</th><th>Normal Customer</th><th> </th><th>Rewards customers</th><th> </th></tr></thead><tbody><tr><td> </td><td> </td><td>Weekdays</td><td>Weekends</td><td>Weekdays</td><td>Weekends</td></tr><tr><td>Lakewood</td><td>3</td><td>110</td><td>90</td><td>80</td><td>80</td></tr><tr><td>Bridgewood</td><td>4</td><td>160</td><td>60</td><td>110</td><td>50</td></tr><tr><td>Ridgewood</td><td>5</td><td>220</td><td>150</td><td>100</td><td>40</td></tr></tbody></table><p><!-- notionvc: 8c5ae137-746e-4c46-8943-47a9bede1baf --></p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-fe84710 e-flex e-con-boxed e-con e-parent" data-id="fe84710" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b3c8999 elementor-widget elementor-widget-text-editor" data-id="b3c8999" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>To tackle this challenge, I decided to start by defining an interface containing relevant information for each hotel. Here&#8217;s how I structured the interface:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-663bf25 e-flex e-con-boxed e-con e-parent" data-id="663bf25" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor" data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+				<div class="elementor-widget-container">
+			<pre class='line-numbers theme-okaidia' data-show-toolbar='yes'><code class='language-javascript'>export interface Hotel {
+id: number;
+name: string;
+location: string;
+rating: number;
+weekdayRates: {
+  regular: number;
+  rewards: number;
+};
+weekendRates: {
+  regular: number;
+  rewards: number;
+};
+photos: string[];
+}</code></pre>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-54cefb2 e-flex e-con-boxed e-con e-parent" data-id="54cefb2" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2f7e5bb elementor-widget elementor-widget-text-editor" data-id="2f7e5bb" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Once the interface was established, I moved on to develop the algorithm itself. Basically, the process involved looping through each day between the start date and the end date, evaluating whether it was a weekend and whether the user had selected the rewards program. Below, I provide a detailed flowchart of the algorithm:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-842bda6 e-flex e-con-boxed e-con e-parent" data-id="842bda6" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-972d67d elementor-widget elementor-widget-image" data-id="972d67d" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img fetchpriority="high" decoding="async" width="820" height="1024" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg" class="attachment-large size-large wp-image-678" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg 820w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-240x300.jpg 240w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-768x959.jpg 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-1230x1536.jpg 1230w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-1639x2048.jpg 1639w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-410x512.jpg 410w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-950x1187.jpg 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/grafico1-hotel-reservation-1-1920x2398.jpg 1920w" sizes="(max-width: 820px) 100vw, 820px" />													</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-592f6e6 e-flex e-con-boxed e-con e-parent" data-id="592f6e6" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-fbcb563 elementor-widget elementor-widget-text-editor" data-id="fbcb563" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Translating this algorithm into code, I obtained the following:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-a105f09 e-flex e-con-boxed e-con e-parent" data-id="a105f09" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f38047f elementor-widget elementor-widget-code-block-for-elementor" data-id="f38047f" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+				<div class="elementor-widget-container">
+			<pre class='line-numbers theme-okaidia' data-show-toolbar='yes'><code class='language-javascript'>async calculateTotalCost(
+  userType: &quot;regular&quot; | &quot;rewards&quot;,
+  startDate: Date,
+  endDate: Date
+): Promise&lt;TotalCost[] | undefined&gt; {
+  this.loading = true;
+  try {
+    const response = await getHotels();
+    let hotels = response;
+    let resultByHotels: TotalCost[] = [];
+    hotels.forEach((hotel: Hotel) =&gt; {
+      let totalCost = 0;
+      let countWeekends = 0;
+      let countWeekDays = 0;
+      const currentDate = new Date(startDate);
+      while (currentDate &lt;= endDate) {
+        const isWeekend =
+          currentDate.getDay() === 0 || currentDate.getDay() === 6; // 0: Domingo, 6: S&aacute;bado
+        const rate = isWeekend
+          ? hotel.weekendRates[userType]
+          : hotel.weekdayRates[userType];
+        totalCost += rate;
+        currentDate.setDate(currentDate.getDate() + 1); // Avanzar al siguiente d&iacute;a
+        isWeekend ? countWeekends++ : countWeekDays++;
+      }
+      resultByHotels.push({
+        hotel,
+        totalCost,
+        countWeekends,
+        countWeekDays,
+      });
+    });
+    return resultByHotels.sort((a, b) =&gt; {
+      if (a.totalCost === b.totalCost) {
+        return b.hotel.rating - a.hotel.rating;
+      }
+      return a.totalCost - b.totalCost;
+    });
+  } catch (error) {
+    console.error(&quot;Error fetching data:&quot;, error);
+  } finally {
+    this.loading = false;
+  }
+}
+</code></pre>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-492dfd0 e-flex e-con-boxed e-con e-parent" data-id="492dfd0" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-f8b586c elementor-widget elementor-widget-text-editor" data-id="f8b586c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>With the function in place, it was time to embark on the most exciting part of the process: application development.</p><h3>Interface Design: Inspiration and Execution</h3><p>Since this was a web application for hotel booking, I dedicated time to analyzing current interfaces to draw inspiration from common user experiences. Here&#8217;s what I discovered:</p><p><strong>Color Palette:</strong> Interfaces in this domain often use blue tones as primary colors and yellow tones as secondary ones. Based on this observation, I selected the following color palette:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-5956d1d e-grid e-con-boxed e-con e-parent" data-id="5956d1d" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-4649e58 elementor-widget elementor-widget-image" data-id="4649e58" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-title="Untitled (1)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgxLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtMS5wbmcifQ%3D%3D">
+							<img decoding="async" width="900" height="480" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-1024x546.png" class="attachment-large size-large wp-image-681" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-1024x546.png 1024w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-300x160.png 300w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-768x409.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-1536x819.png 1536w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-512x273.png 512w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-950x506.png 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1-1920x1023.png 1920w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-1.png 2000w" sizes="(max-width: 900px) 100vw, 900px" />								</a>
+													</div>
+				</div>
+				<div class="elementor-element elementor-element-3e365c2 elementor-widget elementor-widget-image" data-id="3e365c2" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-title="Untitled (2)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgwLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtMi5wbmcifQ%3D%3D">
+							<img decoding="async" width="900" height="374" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-1024x426.png" class="attachment-large size-large wp-image-680" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-1024x426.png 1024w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-300x125.png 300w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-768x320.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-1536x640.png 1536w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-512x213.png 512w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-950x396.png 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2-1920x800.png 1920w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-2.png 2000w" sizes="(max-width: 900px) 100vw, 900px" />								</a>
+													</div>
+				</div>
+				<div class="elementor-element elementor-element-036f0f5 elementor-widget elementor-widget-image" data-id="036f0f5" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-title="Untitled (3)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6Njc5LCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtMy5wbmcifQ%3D%3D">
+							<img loading="lazy" decoding="async" width="900" height="673" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-1024x766.png" class="attachment-large size-large wp-image-679" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-1024x766.png 1024w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-300x225.png 300w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-768x575.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-1536x1150.png 1536w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-512x383.png 512w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-950x711.png 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3-1920x1437.png 1920w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-3.png 2000w" sizes="(max-width: 900px) 100vw, 900px" />								</a>
+													</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-13019d5 e-flex e-con-boxed e-con e-parent" data-id="13019d5" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-575e9ab elementor-widget elementor-widget-image" data-id="575e9ab" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-title="Untitled (4)" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgyLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtNC5wbmcifQ%3D%3D">
+							<img loading="lazy" decoding="async" width="900" height="374" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-1024x425.png" class="attachment-large size-large wp-image-682" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-1024x425.png 1024w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-300x125.png 300w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-768x319.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-1536x637.png 1536w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-512x212.png 512w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-950x394.png 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4-1920x797.png 1920w, https://gervisbermudez.github.io/site/public/uploads/2024/04/Untitled-4.png 2000w" sizes="(max-width: 900px) 100vw, 900px" />								</a>
+													</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-48c0835 e-flex e-con-boxed e-con e-parent" data-id="48c0835" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-07e23b1 elementor-widget elementor-widget-text-editor" data-id="07e23b1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>Based on the above, I selected the following colors:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-4b5a640 e-flex e-con-boxed e-con e-parent" data-id="4b5a640" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e51a535 elementor-widget elementor-widget-image" data-id="e51a535" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-title="paleta-de-colores-hotel-reservacion" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgzLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvcGFsZXRhLWRlLWNvbG9yZXMtaG90ZWwtcmVzZXJ2YWNpb24ucG5nIn0%3D">
+							<img loading="lazy" decoding="async" width="900" height="182" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-1024x207.png" class="attachment-large size-large wp-image-683" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-1024x207.png 1024w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-300x61.png 300w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-768x156.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-1536x311.png 1536w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-512x104.png 512w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-950x192.png 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-1920x389.png 1920w, https://gervisbermudez.github.io/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion.png 2000w" sizes="(max-width: 900px) 100vw, 900px" />								</a>
+													</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-4385b22 e-flex e-con-boxed e-con e-parent" data-id="4385b22" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-913b460 elementor-widget elementor-widget-text-editor" data-id="913b460" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong>Content Distribution:</strong> Booking websites typically feature a large header with images and 3 to 4 input fields for search criteria. Inspired by this common layout, I designed the following content distribution, which you can see in full on Figma: </p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-1fbef2f e-flex e-con-boxed e-con e-parent" data-id="1fbef2f" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b2573d4 elementor-widget elementor-widget-html" data-id="b2573d4" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FGUIAyDNZFzeP1pILyqUfgg%2FHotel-Booking%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DhD2egdDVF5lBH9h1-1" allowfullscreen></iframe>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-200a71a e-flex e-con-boxed e-con e-parent" data-id="200a71a" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-248e89f elementor-widget elementor-widget-text-editor" data-id="248e89f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>As you can see, I prioritized the search criteria input fields at the top of the screen, followed by the results. Initially, all hotels are displayed without any additional filtering criteria.</p><h3>Application Development: Configuration and Structure</h3><p>I started by creating a new project with Vue.js and using Pinia as the state manager. The installation details can be found in the official documentation here, and the resulting folder structure is as follows:</p><p><strong>Project Structure:</strong></p><ul><li><strong>public/:</strong> Contains the application&#8217;s static files.</li><li><strong>src/:</strong> Contains the application&#8217;s source code.<ul><li><strong>assets/:</strong> Resource files such as images, icons, etc.</li><li><strong>components/:</strong> Reusable components of the application.</li><li><strong>store/:</strong> Configuration and Pinia modules for state management.</li><li><strong>utils/:</strong> Utility and helper functions.</li><li><strong>App.vue:</strong> Main component of the application.</li><li><strong>main.ts:</strong> Entry point of the application.</li></ul></li></ul><p>Additionally, I developed common components such as buttons, cards, headers, footers, input fields, selections, loading spinners, etc., resulting in the following:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-a3307b4 e-flex e-con-boxed e-con e-parent" data-id="a3307b4" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-84a9ee0 elementor-widget elementor-widget-image" data-id="84a9ee0" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+														<a href="https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue.png" data-elementor-open-lightbox="yes" data-elementor-lightbox-title="components-vue" data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6Njg4LCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvY29tcG9uZW50cy12dWUucG5nIn0%3D">
+							<img loading="lazy" decoding="async" width="278" height="300" src="https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-278x300.png" class="attachment-medium size-medium wp-image-688" alt="" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-278x300.png 278w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-948x1024.png 948w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-768x830.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-1422x1536.png 1422w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-1895x2048.png 1895w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-474x512.png 474w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-950x1026.png 950w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue-1920x2075.png 1920w, https://gervisbermudez.github.io/site/public/uploads/2024/04/components-vue.png 2000w" sizes="(max-width: 278px) 100vw, 278px" />								</a>
+													</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-e9ba20f e-flex e-con-boxed e-con e-parent" data-id="e9ba20f" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-782e454 elementor-widget elementor-widget-text-editor" data-id="782e454" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong>Global Storage Implementation:</strong></p><p>The official state management tool of Vue.js is Pinia. Here&#8217;s how I did it:</p><p>Using <code>defineStore</code>, I initialized the global storage of the application, passing it the initial state and actions that would interact with the global state, resulting in the following:</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-ae1dc47 e-flex e-con-boxed e-con e-parent" data-id="ae1dc47" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2a365df elementor-widget elementor-widget-code-block-for-elementor" data-id="2a365df" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+				<div class="elementor-widget-container">
+			<pre class='line-numbers theme-okaidia' data-show-toolbar='yes'><code class='language-javascript'>// src/stores/hotels.store.ts
+import { defineStore } from &quot;pinia&quot;;
+import { Hotel, TotalCost } from &quot;../models/Hotels&quot;;
+import { getHotels, getReviews } from &quot;../services&quot;;
+import { Review } from &quot;../models/Review&quot;;
+
+export interface State {
+  hotels: Hotel[];
+  hotel: Hotel | null;
+  reviews: Review[];
+  loading: boolean;
+}
+
+export const useHotelsStore = defineStore(&quot;store&quot;, {
+  state: (): State =&gt; {
+    return {
+      hotels: [],
+      hotel: null,
+      reviews: [],
+      loading: false,
+    };
+  },
+  actions: {
+    async fetchData() {
+    },
+    async calculateTotalCost(
+    },
+    async fetchReviews() {
+    },
+    async fetchReviewsByHotelID(hotel_id: number) {
+    },
+  },
+});</code></pre>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7ab870c e-flex e-con-boxed e-con e-parent" data-id="7ab870c" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-4236199 elementor-widget elementor-widget-text-editor" data-id="4236199" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>This way, we were able to consume the functions provided by the global storage in our application.</p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-34bce9b e-flex e-con-boxed e-con e-parent" data-id="34bce9b" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-dd995a7 elementor-widget elementor-widget-code-block-for-elementor" data-id="dd995a7" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+				<div class="elementor-widget-container">
+			<pre class='line-numbers theme-okaidia' data-show-toolbar='yes'><code class='language-javascript'>//src/App.vue
+const store = useHotelsStore();
+const { loading } = storeToRefs(store);
+const userType = ref&lt;&quot;regular&quot; | &quot;rewards&quot;&gt;(&quot;regular&quot;);
+const hotelsList = ref&lt;Hotel[] | []&gt;([]);
+const reviews = ref&lt;Review[]&gt;([]);
+const searchResult = ref&lt;TotalCost | null&gt;(null);
+
+const dates: Dates = reactive({
+  initial_date: null,
+  final_date: null
+})
+
+onMounted(() =&gt; {
+  getHotels().then((result) =&gt; {
+    hotelsList.value = result;
+  });
+
+  getReviews().then((result) =&gt; {
+    reviews.value = result.splice(0, 6);
+  });
+
+})
+
+const handleSelectChange = (data: string) =&gt; {
+  userType.value = data as &quot;regular&quot; | &quot;rewards&quot;
+}
+
+const handleInputChange = (name: string, data: string) =&gt; {
+  dates[name] = data;
+}
+
+const handleSearchBooking = () =&gt; {
+  dates.initial_date
+    &amp;&amp; dates.final_date
+    &amp;&amp; store.calculateTotalCost(userType.value, dates.initial_date, dates.final_date).then((result) =&gt; {
+      if (result) {
+        searchResult.value = result[0];
+      }
+    })
+}
+
+const resetSearch = () =&gt; {
+  searchResult.value = null
+}</code></pre>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7a12b32 e-flex e-con-boxed e-con e-parent" data-id="7a12b32" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-4eccf3d elementor-widget elementor-widget-text-editor" data-id="4eccf3d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>For those interested in reviewing the complete code, it&#8217;s available on GitHub:  <a href="https://github.com/gervisbermudez/hotel-booking-app">https://github.com/gervisbermudez/hotel-booking-app</a><br /><br /><span style="text-align: var(--text-align); background-color: initial;">With this, I conclude my process of solving the hotel reservation technical test. It has been an exciting and enriching experience, and I look forward to continuing to develop skills and facing new challenges in the future!</span></p>						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-489cdc6 e-flex e-con-boxed e-con e-parent" data-id="489cdc6" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-61a1b77 elementor-widget elementor-widget-arter-project-banner" data-id="61a1b77" data-element_type="widget" data-widget_type="arter-project-banner.default">
+				<div class="elementor-widget-container">
+			
+		<!-- container -->
+		<div class="container-fluid">
+			<!-- row -->
+			<div class="row">
+			  <!-- col -->
+			  <div class="col-lg-12">
+
+			    <!-- call to action -->
+			    <div class="art-a art-banner" style="background-image: url(https://gervisbermudez.github.io/site/public/uploads/2024/04/final-design-hotel-reservation.png)">
+			      <!-- banner overlay -->
+			      <div class="art-banner-overlay">
+			        <!-- main title -->
+			        <div class="art-banner-title text-center">
+			          			          <!-- title -->
+			          <h1 class="art-banner-title-h mb-15">
+			          <span >
+			          	Ready to order your project?			          </span>
+			          </h1>
+			      	  			      	  			          <!-- suptitle -->
+			          <div class="art-lg-text art-code mb-25">
+			          	<span >
+				          	Let's work together!				        </span>
+			          </div>
+			          			          			          <!-- button -->
+			          <a href="https://gervisbermudez.github.io/site/contact/" class="art-btn art-btn-md">
+			            	<span >
+			          			Contact me!			          		</span>
+			          </a>
+			          			        </div>
+			        <!-- main title end -->
+			      </div>
+			      <!-- banner overlay end -->
+			    </div>
+			    <!-- banner end -->
+
+			  </div>
+			  <!-- col end -->
+			</div>
+			<!-- row end -->
+		</div>
+		<!-- container end -->
+
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Start CMS Version 2.0.0 is Here</title>
+		<link>https://gervisbermudez.github.io/site/2024/03/16/start-cms-version-2-0-0-is-here/</link>
+		
+		<dc:creator><![CDATA[gervisbermudez]]></dc:creator>
+		<pubDate>Sat, 16 Mar 2024 16:02:48 +0000</pubDate>
+				<category><![CDATA[Web Development]]></category>
+		<guid isPermaLink="false">https://gervisbermudez.github.io/site/dev/?p=348</guid>
+
+					<description><![CDATA[Get Ready to Revolutionize Your Content Management!Hi everyone, I&#8217;m thrilled to announce the release of Start CMS Version 2.0.0, the... <div class="art-el-more"><a href="https://gervisbermudez.github.io/site/2024/03/16/start-cms-version-2-0-0-is-here/" class="art-link art-color-link art-w-chevron">Read more</a></div>]]></description>
+										<content:encoded><![CDATA[
+<p class="has-medium-font-size"><strong>Get Ready to Revolutionize Your Content Management!<br></strong><br>Hi everyone,</p>
+
+
+
+<p>I&#8217;m thrilled to announce the release of Start CMS Version 2.0.0, the latest and greatest version of our lightweight content management system! This new version is packed with exciting new features that will make managing your website easier and more enjoyable than ever before.</p>
+
+
+
+<p>One of the most exciting new features in Start CMS Version 2.0.0 is the dynamic forms content. With this feature, you can now create custom forms that can capture and store any data you need. Whether you&#8217;re looking to create a contact form, a survey, or anything in between, Start CMS has you covered.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="797" height="560" src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg" alt="" class="wp-image-349" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg 797w, https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436-300x211.jpg 300w, https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436-768x540.jpg 768w, https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436-512x360.jpg 512w" sizes="(max-width: 797px) 100vw, 797px" /></figure>
+
+
+
+<p><br><strong>Redesigned Dashboard</strong><br><br>We&#8217;ve also added new widgets to the dashboard, making it even easier to manage your website. With the new widgets, you can quickly see your most recent posts, check on your site&#8217;s traffic, and more. And with the new user tracking feature, you can see exactly how your visitors are interacting with your site, giving you valuable insights into how you can improve their experience.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="332" height="134" src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/image.png" alt="" class="wp-image-350" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/03/image.png 332w, https://gervisbermudez.github.io/site/public/uploads/2024/03/image-300x121.png 300w" sizes="(max-width: 332px) 100vw, 332px" /></figure>
+
+
+
+<p><strong>Notifications</strong><br><br>Another major new feature in Start CMS Version 2.0.0 is the ability to create albums for your photos and videos. Now, you can organize your media in a way that makes sense to you, making it easier to find what you&#8217;re looking for when you need it.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="828" height="536" src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg" alt="" class="wp-image-351" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg 828w, https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435-300x194.jpg 300w, https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435-768x497.jpg 768w, https://gervisbermudez.github.io/site/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435-512x331.jpg 512w" sizes="(max-width: 828px) 100vw, 828px" /></figure>
+
+
+
+<p><br><strong>New Calendar<br></strong><br>And that&#8217;s just the tip of the iceberg! We&#8217;ve also added new categories and subcategories for your content, a new events management system, and a whole host of other improvements and optimizations that make Start CMS faster, more reliable, and easier to use than ever before.</p>
+
+
+
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="965" height="605" src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png" alt="" class="wp-image-352" srcset="https://gervisbermudez.github.io/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png 965w, https://gervisbermudez.github.io/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-300x188.png 300w, https://gervisbermudez.github.io/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-768x481.png 768w, https://gervisbermudez.github.io/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-512x321.png 512w, https://gervisbermudez.github.io/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-950x596.png 950w" sizes="(max-width: 965px) 100vw, 965px" /></figure>
+
+
+
+<p><br><strong>Export Data<br></strong><br>So, if you&#8217;re looking for a lightweight, powerful, and user-friendly content management system, look no further than Start CMS Version 2.0.0. With its powerful features, beautiful interface, and rock-solid performance, it&#8217;s the perfect choice for anyone looking to take their website to the next level.</p>
+
+
+
+<p>Thank you for choosing Start CMS, and happy building!</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Lightweight and powerful: CodeIgniter the php framework</title>
+		<link>https://gervisbermudez.github.io/site/2024/03/07/lightweight-and-powerful-codeigniter-the-php-framework/</link>
+		
+		<dc:creator><![CDATA[gervisbermudez]]></dc:creator>
+		<pubDate>Thu, 07 Mar 2024 16:58:31 +0000</pubDate>
+				<category><![CDATA[Web Development]]></category>
+		<guid isPermaLink="false">https://gervisbermudez.github.io/site/dev/?p=18</guid>
+
+					<description><![CDATA[CodeIgniter is a powerful PHP framework that is still a top choice for many web developers when it comes to... <div class="art-el-more"><a href="https://gervisbermudez.github.io/site/2024/03/07/lightweight-and-powerful-codeigniter-the-php-framework/" class="art-link art-color-link art-w-chevron">Read more</a></div>]]></description>
+										<content:encoded><![CDATA[
+<p>CodeIgniter is a powerful PHP framework that is still a top choice for many web developers when it comes to creating new websites. Despite being around for over a decade, CodeIgniter has continued to evolve and adapt to the changing landscape of web development, making it a versatile and reliable option for building modern websites.</p>
+
+
+
+<p>One of the main reasons why CodeIgniter is still an excellent choice for developing a new website is its simplicity and ease of use. Unlike other frameworks, CodeIgniter has a shallow learning curve, allowing even novice developers to quickly get up and running with the framework. This simplicity also makes it easier for developers to focus on the core functionality of their website, rather than spending time learning complex frameworks.</p>
+
+
+
+<p>Another advantage of CodeIgniter is its performance and scalability. The framework is built on a lightweight architecture, which allows for fast and efficient website development. Additionally, CodeIgniter&#8217;s modular design allows developers to easily add additional features and functionality to their website as needed, without sacrificing performance. This makes it a great option for websites that are expected to grow and evolve over time.</p>
+
+
+
+<p>CodeIgniter also has a robust and active community of developers who are constantly working to improve the framework and develop new tools and resources. This community support is a valuable resource for developers, providing them with access to a wealth of knowledge and expertise. Additionally, the CodeIgniter community is known for being welcoming and supportive, which can be especially helpful for newer developers who are just starting out with the framework.</p>
+
+
+
+<p>Finally, CodeIgniter is an open-source framework, which means that it is freely available for anyone to use and modify. This not only makes it an affordable option for web development, but it also allows developers to customize the framework to fit their specific needs. This flexibility is essential for building websites that are unique and tailored to the needs of their users.</p>
+
+
+
+<p>In conclusion, CodeIgniter is still a top choice for many web developers due to its simplicity, performance, and community support. Whether you are a seasoned developer or just starting out, CodeIgniter is an excellent option for building modern, scalable websites.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

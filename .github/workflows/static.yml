@@ -41,6 +41,9 @@ jobs:
           ruby-version: "3.1.0" # Specify the Ruby version you need
           bundler-cache: true # Enable bundler caching
 
+      - name: Update RubyGems
+        run: gem update --system
+
       - name: Install dependencies
         run: |
           sudo apt-get update

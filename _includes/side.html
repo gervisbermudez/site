@@ -16,9 +16,10 @@
         <div class="art-header">
             <!-- avatar -->
             <div class="art-avatar">
-                <a data-no-swup href="public/uploads/2024/03/IMG-20231214-WA0007-EDIT-scaled.jpg"
+                <a data-no-swup href="{{ 'public/uploads/2024/03/IMG-20231214-WA0007-EDIT-scaled.jpg' | relative_url }}"
                     class="art-avatar-curtain">
-                    <img src="public/uploads/2024/03/IMG-20231214-WA0007-EDIT-scaled.jpg" alt="avatar" />
+                    <img src="{{ 'public/uploads/2024/03/IMG-20231214-WA0007-EDIT-scaled.jpg' | relative_url }}"
+                        alt="avatar" />
                     <i class="fas fa-expand"></i>
                 </a>
                 <!-- available -->
@@ -30,7 +31,7 @@
             <!-- avatar end -->
             <!-- name -->
             <h5 class="art-name mb-10">
-                <a href="index.html">Gervis Bermudez</a>
+                <a href="{{ 'index.html' | relative_url }}">Gervis Bermudez</a>
             </h5>
             <!-- post -->
             <div class="art-sm-text">

@@ -693,6 +693,9 @@ app marcup
 .art-preloader .art-preloader-content {
 	margin-bottom: 15px;
 	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .art-preloader-load {
@@ -6370,3 +6373,4 @@ ul.product_list_widget li {
 		z-index: 100;
 	}
 }
+

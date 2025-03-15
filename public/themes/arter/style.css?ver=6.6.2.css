@@ -6374,3 +6374,11 @@ ul.product_list_widget li {
 	}
 }
 
+span.art-link.art-color-link.art-w-chevron.art-left-link.disabled {
+	display: none;
+}
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+}

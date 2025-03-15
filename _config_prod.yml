@@ -28,8 +28,8 @@ baseurl: "/site" # the subpath of your site, e.g. /blog
 url: "https://gervisbermudez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 paginate: 5 # Número de publicaciones por página
 paginate_path: "/blog/page:num/" # Ruta de las páginas de paginación
-twitter_username: @gervisbermudez
-github_username: @gervisbermudez
+twitter_username: gervisbermudez
+github_username: gervisbermudez
 permalink: /blog/:categories/:year/:month/:day/:title
 # Build settings
 # theme: minima

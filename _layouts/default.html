@@ -1,8 +1,3 @@
----
-layout: default
-title: Mi página HTML
----
-
 <!DOCTYPE html>
 <html lang="es" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 
@@ -698,6 +693,42 @@ title: Mi página HTML
             document.addEventListener(event, lazyloadRunObserver);
         });
     </script>
+
+    {% if page.url contains '/blog/' %}
+        <script type="text/javascript" src="../../../../public/plugins/code-block-for-elementor/assets/prism.js%3Fver=1.0.3"
+        id="code-block-for-elementor-prismjs-js"></script>
+        <script type="text/javascript"
+        src="../../../../public/plugins/code-block-for-elementor/assets/prism-toolbar.js%3Fver=1.0.3"
+        id="code-block-for-elementor-toolbarjs-js"></script>
+        <link rel='stylesheet' id='code-block-for-elementor-coy-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-coy.css%3Fver=1.0.3.css' type='text/css'
+        media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-dark-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-dark.css%3Fver=1.0.3.css' type='text/css'
+        media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-default-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-default.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-funky-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-funky.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-okaidia-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-okaidia.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-solarized-light-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-solarized-light.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-tomorrow-night-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-tomorrow-night.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-twilight-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-twilight.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+        <link rel='stylesheet' id='code-block-for-elementor-toolbar-css'
+        href='../../../../public/plugins/code-block-for-elementor/assets/prism-toolbar.css%3Fver=1.0.3.css'
+        type='text/css' media='all' />
+    {% endif %}
+
     <link rel="stylesheet" id="widget-text-editor-css"
         href="public/plugins/elementor/assets/css/widget-text-editor.min.css%3Fver=3.24.3.css" type="text/css"
         media="all" />

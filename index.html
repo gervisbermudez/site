@@ -494,7 +494,63 @@ title: Gervis Bermudez | Blog
 												<!-- slider container -->
 												<div class="swiper-container art-blog-slider" style="overflow: visible">
 													<!-- slider wrapper -->
-													<div class="swiper-wrapper" id="swiper-wrapper"></div>
+													<div class="swiper-wrapper" id="swiper-wrapper">
+														{% for post in site.posts limit:5 %}
+                            <div class="col-lg-6">
+                              <!-- blog post card -->
+                              <div class="art-a art-blog-card">
+                                <div
+                                  id="post-662"
+                                  class="post-662 post type-post status-publish format-standard has-post-thumbnail hentry category-design category-web-development tag-figma tag-vite tag-vue"
+                                >
+                                  <!-- post cover -->
+                                  <a
+                                    class="art-port-cover post-thumbnail"
+                                    href="{{ post.url }}"
+                                  >
+                                    <img
+                                      fetchpriority="high"
+                                      decoding="async"
+                                      width="1280"
+                                      height="768"
+                                      src="{{ post.thumbnail | relative_url }}"
+                                      class="attachment-arter_1280x768 size-arter_1280x768 wp-post-image"
+                                      alt="{{ post.title }}"
+                                    />
+                                  </a>
+
+                                  <!-- post cover end -->
+                                  <!-- post description -->
+                                  <div class="art-post-description">
+                                    <div class="art-project-category mb-15">
+                                      <a href="{{ post.url }}">
+                                        <span class="art-el-date"
+                                          >{{ post.date | date_to_string
+                                          }}</span
+                                        >
+                                      </a>
+                                      /
+                                      <span class="art-el-category"
+                                        >{{post.category}}
+                                      </span>
+                                    </div>
+                                    <!-- title -->
+                                    <a href="{{ post.url }}">
+                                      <h5 class="mb-15">{{ post.title }}</h5>
+                                    </a>
+                                    <!-- text -->
+                                    <div class="art-el-description">
+                                      <p>{{ post.description }}</p>
+                                    </div>
+                                  </div>
+                                  <!-- post description end -->
+                                </div>
+                              </div>
+                              <!-- blog post card end -->
+                            </div>
+                            {% endfor %}
+                          </div>
+													</div>
 													<!-- slider wrapper end -->
 												</div>
 												<!-- slider container end -->

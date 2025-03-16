@@ -250,68 +250,6 @@
     });
   }
 
-  // slider testimonials
-  var swiper = new Swiper(".art-testimonial-slider", {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    speed: 1400,
-    autoplay: false,
-    autoplaySpeed: 5000,
-    pagination: {
-      el: ".art-testi-swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".art-testi-swiper-next",
-      prevEl: ".art-testi-swiper-prev",
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      720: {
-        slidesPerView: 1,
-      },
-      1200: {
-        slidesPerView: 2,
-      },
-      1500: {
-        slidesPerView: 2,
-      },
-    },
-  });
-
-  // slider clients
-  var swiper = new Swiper(".art-clients-slider", {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    speed: 1400,
-    autoplay: false,
-    autoplaySpeed: 5000,
-    pagination: {
-      el: ".art-clients-swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".art-clients-swiper-next",
-      prevEl: ".art-clients-swiper-prev",
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      720: {
-        slidesPerView: 2,
-      },
-      1200: {
-        slidesPerView: 4,
-      },
-      1500: {
-        slidesPerView: 4,
-      },
-    },
-  });
-
   // slider works
   var swiper = new Swiper(".art-works-slider", {
     slidesPerView: 3,

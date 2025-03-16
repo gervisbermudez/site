@@ -11,15 +11,6 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
     <link rel="alternate" type="application/rss+xml" title="Gervis Bermudez | Blog &raquo; Feed"
         href="{{'feed.xml' | relative_url}}" />
-    <!--  <link rel="stylesheet" id="arter-plugin-frontend-widget-style-css"
-        href="{{ 'public/plugins/arter-plugin/elementor/assets/css/style.css%3Fver=1.css' | relative_url }}"
-        type="text/css" media="all" /> -->
-    <!--  <link rel="stylesheet" id="contact-form-7-css"
-        href="{{ 'public/plugins/contact-form-7/includes/css/styles.css%3Fver=5.9.8.css' | relative_url }}"
-        type="text/css" media="all" /> -->
-    <!-- <link rel="stylesheet" id="url-shortify-css"
-        href="{{ 'public/plugins/url-shortify/lite/dist/styles/url-shortify.css%3Fver=1.10.1.css' | relative_url }}"
-        type="text/css" media="all" /> -->
     <link rel="stylesheet" id="arter-fonts-css"
         href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCourier%2BPrime%3A400%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext"
         type="text/css" media="all" />
@@ -60,9 +51,6 @@
         id="jquery-core-js"></script>
     <script type="text/javascript" src="{{ 'public/js/jquery/jquery-migrate.min.js%3Fver=3.4.1' | relative_url }}"
         id="jquery-migrate-js"></script>
-    <!-- <script type="text/javascript"
-        src="{{ 'public/plugins/url-shortify/lite/dist/scripts/url-shortify.js%3Fver=1.10.1' | relative_url }}"
-        id="url-shortify-js"></script> -->
 
     <!-- Google tag (gtag.js) snippet added by Site Kit -->
 
@@ -95,28 +83,6 @@
         href="public/json/oembed/1.0/embed%3Furl=https:%252F%252Fgervisbermudez.github.io/site%252F&amp;format=xml" />
     <meta name="generator" content="Site Kit by Google 1.135.0" />
     <link rel="stylesheet" href="{{ 'public/css/styles.css' | relative_url }}" type="text/css" media="all" />
-    <style>
-        .e-con.e-parent:nth-of-type(n + 4):not(.e-lazyloaded):not(.e-no-lazyload),
-        .e-con.e-parent:nth-of-type(n + 4):not(.e-lazyloaded):not(.e-no-lazyload) * {
-            background-image: none !important;
-        }
-
-        @media screen and (max-height: 1024px) {
-
-            .e-con.e-parent:nth-of-type(n + 3):not(.e-lazyloaded):not(.e-no-lazyload),
-            .e-con.e-parent:nth-of-type(n + 3):not(.e-lazyloaded):not(.e-no-lazyload) * {
-                background-image: none !important;
-            }
-        }
-
-        @media screen and (max-height: 640px) {
-
-            .e-con.e-parent:nth-of-type(n + 2):not(.e-lazyloaded):not(.e-no-lazyload),
-            .e-con.e-parent:nth-of-type(n + 2):not(.e-lazyloaded):not(.e-no-lazyload) * {
-                background-image: none !important;
-            }
-        }
-    </style>
     <link rel="icon" href="{{'public/uploads/2024/03/Vectorized-Logo-150x150.png' | relative_url}}" sizes="32x32" />
     <link rel="icon" href="{{'public/uploads/2024/03/Vectorized-Logo-300x300.png'}} | relative_url" sizes="192x192" />
     <link rel="apple-touch-icon" href="{{'public/uploads/2024/03/Vectorized-Logo-300x300.png'}} | relative_url" />
@@ -126,19 +92,19 @@
     <!-- Facebook Open Graph -->
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Gervis Bermudez | Blog" />
-    <meta property="og:title" content="Home" />
+    <meta property="og:title" content="{{page.title}}" />
     <meta property="og:url" content="https://gervisbermudez.github.io/site" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="{{site.description}}" />
     <!-- Google+ / Schema.org -->
-    <meta itemprop="name" content="Home" />
-    <meta itemprop="headline" content="Home" />
+    <meta itemprop="name" content="{{page.title}}" />
+    <meta itemprop="headline" content="{{page.title}}" />
     <meta itemprop="description" content="{{site.description}}" />
     <meta itemprop="author" content="gervisbermudez" />
     <!--<meta itemprop="publisher" content="Gervis Bermudez | Blog"/>-->
     <!-- To solve: The attribute publisher.itemtype has an invalid value -->
     <!-- Twitter Cards -->
-    <meta name="twitter:title" content="Home" />
+    <meta name="twitter:title" content="{{page.title}}" />
     <meta name="twitter:url" content="https://gervisbermudez.github.io/site" />
     <meta name="twitter:description" content="{{site.description}}" />
     <meta name="twitter:card" content="summary_large_image" />

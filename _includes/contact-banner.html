@@ -12,7 +12,7 @@
             <div class="col-lg-12">
               <!-- call to action -->
               <div class="art-a art-banner" style="
-              background-image: url({{page.banner}});
+                background-image: url({% if page.banner %}{{ page.banner | relative_url }}{% else %}{{ site.default_banner | relative_url }}{% endif %});
             ">
                 <!-- banner overlay -->
                 <div class="art-banner-overlay">

@@ -1,0 +1,195 @@
+<script type="text/javascript">
+    const lazyloadRunObserver = () => {
+        const lazyloadBackgrounds = document.querySelectorAll(
+            `.e-con.e-parent:not(.e-lazyloaded)`
+        );
+        const lazyloadBackgroundObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        let lazyloadBackground = entry.target;
+                        if (lazyloadBackground) {
+                            lazyloadBackground.classList.add("e-lazyloaded");
+                        }
+                        lazyloadBackgroundObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { rootMargin: "200px 0px 200px 0px" }
+        );
+        lazyloadBackgrounds.forEach((lazyloadBackground) => {
+            lazyloadBackgroundObserver.observe(lazyloadBackground);
+        });
+    };
+    const events = ["DOMContentLoaded", "elementor/lazyload/observe"];
+    events.forEach((event) => {
+        document.addEventListener(event, lazyloadRunObserver);
+    });
+</script>
+
+{% if page.url contains '/blog/' %}
+<script type="text/javascript" src="{{ '/public/plugins/code-block-for-elementor/assets/prism.js' | relative_url }}"
+    id="code-block-for-elementor-prismjs-js"></script>
+<script type="text/javascript"
+    src="{{ '/public/plugins/code-block-for-elementor/assets/prism-toolbar.js' | relative_url }}"
+    id="code-block-for-elementor-toolbarjs-js"></script>
+<link rel="stylesheet" id="code-block-for-elementor-coy-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-coy.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-dark-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-dark.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-default-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-default.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-funky-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-funky.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-okaidia-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-okaidia.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-solarized-light-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-solarized-light.css" | relative_url }}'
+    type="text/css" media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-tomorrow-night-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-tomorrow-night.css" | relative_url }}'
+    type="text/css" media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-twilight-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-twilight.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-toolbar-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-toolbar.css" | relative_url }}' type="text/css"
+    media="all" />
+{% endif %}
+
+<!-- <script type="text/javascript"
+    src="{{ 'public/plugins/contact-form-7/includes/swv/js/index.js%3Fver=5.9.8' | relative_url }}"
+    id="swv-js"></script>
+<script type="text/javascript"
+    src="{{ 'public/plugins/contact-form-7/includes/js/index.js%3Fver=5.9.8' | relative_url }}"
+    id="contact-form-7-js"></script> -->
+<script type="text/javascript"
+    src="{{ 'public/themes/arter/assets/js/skip-link-focus-fix.js%3Fver=20151215' | relative_url }}"
+    id="arter-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/anime.js%3Fver=1.0.0' | relative_url }}"
+    id="anime-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/progressbar.js%3Fver=1.0.0' | relative_url }}"
+    id="progressbar-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/typing.js%3Fver=1.0.0' | relative_url }}"
+    id="typing-js"></script>
+<script type="text/javascript" src="{{ 'public/js/imagesloaded.min.js%3Fver=5.0.0' | relative_url }}"
+    id="imagesloaded-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/isotope.js%3Fver=1.0.0' | relative_url }}"
+    id="isotope-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/magnific-popup.js%3Fver=1.0.0' | relative_url }}"
+    id="magnific-popup-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/swiper.js%3Fver=1.0.0' | relative_url }}"
+    id="swiper-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/rrssb.js%3Fver=1.0.0' | relative_url }}"
+    id="rrssb-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/main.js' | relative_url }}"
+    id="arter-main-js"></script>
+<script type="text/javascript" src="{{ 'public/js/jquery/ui/core.min.js%3Fver=1.13.3' | relative_url }}"
+    id="jquery-ui-core-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+    /* <![CDATA[ */
+    var elementorFrontendConfig = {
+        environmentMode: {
+            edit: false,
+            wpPreview: false,
+            isScriptDebug: false,
+        },
+
+        is_rtl: false,
+        breakpoints: { xs: 0, sm: 480, md: 768, lg: 1025, xl: 1440, xxl: 1600 },
+        responsive: {
+            breakpoints: {
+                mobile: {
+                    label: "Mobile Portrait",
+                    value: 767,
+                    default_value: 767,
+                    direction: "max",
+                    is_enabled: true,
+                },
+                mobile_extra: {
+                    label: "Mobile Landscape",
+                    value: 880,
+                    default_value: 880,
+                    direction: "max",
+                    is_enabled: false,
+                },
+                tablet: {
+                    label: "Tablet Portrait",
+                    value: 1024,
+                    default_value: 1024,
+                    direction: "max",
+                    is_enabled: true,
+                },
+                tablet_extra: {
+                    label: "Tablet Landscape",
+                    value: 1200,
+                    default_value: 1200,
+                    direction: "max",
+                    is_enabled: false,
+                },
+                laptop: {
+                    label: "Port\u00e1til",
+                    value: 1366,
+                    default_value: 1366,
+                    direction: "max",
+                    is_enabled: false,
+                },
+                widescreen: {
+                    label: "Pantalla grande",
+                    value: 2400,
+                    default_value: 2400,
+                    direction: "min",
+                    is_enabled: false,
+                },
+            },
+        },
+        version: "3.24.3",
+        is_static: false,
+        experimentalFeatures: {
+            e_font_icon_svg: true,
+            additional_custom_breakpoints: true,
+            container: true,
+            container_grid: true,
+            e_swiper_latest: true,
+            e_nested_atomic_repeaters: true,
+            e_onboarding: true,
+            home_screen: true,
+            "ai-layout": true,
+            "landing-pages": true,
+            "link-in-bio": true,
+            "floating-buttons": true,
+        },
+        urls: {
+            assets:
+                "https:\/\/gervisbermudez.github.io/site\/wp-content\/plugins\/elementor\/assets\/",
+            ajaxurl:
+                "https:\/\/gervisbermudez.github.io/site\/wp-admin\/admin-ajax.php",
+        },
+        nonces: { floatingButtonsClickTracking: "5583279326" },
+        swiperClass: "swiper",
+        settings: { page: [], editorPreferences: [] },
+        kit: {
+            active_breakpoints: ["viewport_mobile", "viewport_tablet"],
+            global_image_lightbox: "yes",
+            lightbox_enable_counter: "yes",
+            lightbox_enable_fullscreen: "yes",
+            lightbox_enable_zoom: "yes",
+            lightbox_enable_share: "yes",
+            lightbox_title_src: "title",
+            lightbox_description_src: "description",
+        },
+        post: {
+            id: 214,
+            title:
+                "Gervis%20Bermudez%20%7C%20Blog%20%E2%80%93%20My%20goal%20is%20to%20apply%20my%20knowledge%20and%20professional%20experience%2C%20in%20addition%20to%20contributing%20my%20values%20and%20skills%20to%20organizations%20to%20contribute%20to%20their%20growth%20and%20continue%20to%20further%20strengthen%20my%20skills.",
+            excerpt: "",
+            featuredImage: false,
+        },
+    };
+    /* ]]> */
+</script>

@@ -1,5 +1,2 @@
-User-agent: *
-Disallow: /wp-admin/
-Allow: /wp-admin/admin-ajax.php
-
-Sitemap: https://gervisbermudez.github.io/site/wp-sitemap.xml
+User-agent: * 
+Sitemap: https://gervisbermudez.github.io/site/sitemap.xml

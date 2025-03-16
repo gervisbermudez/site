@@ -89,7 +89,8 @@ title: Portfolio &#8211; Gervis Bermudez | Blog
                           <div class="art-grid art-grid-2-col art-gallery art-grid-masonry">
                             {% for item in site.data.portfolio.items %}
                               <div class="art-grid-item {{ item.category }}">
-                                <a data-no-swup data-elementor-lightbox-slideshow="gallery" data-elementor-lightbox-title="{{ item.title }}" href="{{ item.image }}" class="art-a art-portfolio-item-frame">
+                                <a data-no-swup data-elementor-lightbox-slideshow="gallery" data-elementor-lightbox-title="{{ item.title }}" 
+                                href="{{ item.image  | relative_url }}" class="art-a art-portfolio-item-frame">
                                   <img decoding="async" src="{{ item.image | relative_url }}" alt="{{ item.title }}" />
                                   <span class="art-item-hover"><i class="fas fa-expand"></i></span>
                                 </a>

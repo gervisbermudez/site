@@ -1,25 +1,25 @@
 (async function ($) {
-  'use strict';
+  ("use strict");
 
   initHomeBlogSlider();
 
   /* menu custom link */
-  $('.menu-item-type-custom').each(function () {
-    $(this).find('> a').attr('data-no-swup', '');
+  $(".menu-item-type-custom").each(function () {
+    $(this).find("> a").attr("data-no-swup", "");
   });
 
-  if (!$('body').hasClass('default--scrolling')) {
+  if (!$("body").hasClass("default--scrolling")) {
     // scrollbar
     Scrollbar.use(OverscrollPlugin);
-    if ($('#scrollbar').length) {
-      var scrollbar = Scrollbar.init(document.querySelector('#scrollbar'), {
+    if ($("#scrollbar").length) {
+      var scrollbar = Scrollbar.init(document.querySelector("#scrollbar"), {
         damping: 0.05,
         renderByPixel: true,
         continuousScrolling: true,
       });
     }
-    if ($('#scrollbar2').length) {
-      var scrollbar2 = Scrollbar.init(document.querySelector('#scrollbar2'), {
+    if ($("#scrollbar2").length) {
+      var scrollbar2 = Scrollbar.init(document.querySelector("#scrollbar2"), {
         damping: 0.05,
         renderByPixel: true,
         continuousScrolling: true,
@@ -30,142 +30,165 @@
   /**
     Header Fixed
   **/
-  $(window).on('scroll', function () {
+  $(window).on("scroll", function () {
     if ($(window).scrollTop() > 40) {
-      $('body').addClass('fixed');
-    }
-    else {
-      $('body').removeClass('fixed');
+      $("body").addClass("fixed");
+    } else {
+      $("body").removeClass("fixed");
     }
   });
 
   // page loading
   $(window).on("load", function () {
     anime({
-      targets: '.art-preloader',
+      targets: ".art-preloader",
       opacity: [1, 0],
       delay: 2200,
       duration: 400,
-      easing: 'linear',
+      easing: "linear",
       complete: function (anim) {
-        $('.art-preloader').css('display', 'none');
-      }
+        $(".art-preloader").css("display", "none");
+      },
     });
     // counters
     anime({
-      targets: '.art-counter-frame',
+      targets: ".art-counter-frame",
       opacity: [0, 1],
       duration: 800,
       delay: 2300,
-      easing: 'linear',
+      easing: "linear",
     });
 
     anime({
-      targets: '.art-counter',
+      targets: ".art-counter",
       delay: 1300,
       opacity: [1, 1],
       complete: function (anim) {
-        $('.art-counter').each(function () {
-          $(this).prop('Counter', 0).animate({
-            Counter: $(this).text()
-          }, {
-            duration: 2000,
-            easing: 'linear',
-            step: function (now) {
-              $(this).text(Math.ceil(now));
-            }
-          });
+        $(".art-counter").each(function () {
+          $(this)
+            .prop("Counter", 0)
+            .animate(
+              {
+                Counter: $(this).text(),
+              },
+              {
+                duration: 2000,
+                easing: "linear",
+                step: function (now) {
+                  $(this).text(Math.ceil(now));
+                },
+              }
+            );
         });
-      }
+      },
     });
 
     // progressbars
 
     var bar_delay = 2500;
-    $('.art-skills-progress').each(function () {
-      var bar_id = $(this).attr('id');
-      var bar_val = parseInt($(this).attr('data-value')) / 100;
-      var bar_type = $(this).attr('data-type');
+    $(".art-skills-progress").each(function () {
+      var bar_id = $(this).attr("id");
+      var bar_val = parseInt($(this).attr("data-value")) / 100;
+      var bar_type = $(this).attr("data-type");
       bar_delay = bar_delay + 100;
 
-      if (bar_type == 'circles') {
-        var bar = new ProgressBar.Circle('#' + bar_id, {
+      if (bar_type == "circles") {
+        var bar = new ProgressBar.Circle("#" + bar_id, {
           strokeWidth: 7,
-          easing: 'easeInOut',
+          easing: "easeInOut",
           duration: 1400,
           delay: bar_delay,
           trailWidth: 7,
           step: function (state, circle) {
             var value = Math.round(circle.value() * 100);
             if (value === 0) {
-              circle.setText('');
+              circle.setText("");
             } else {
               circle.setText(value);
             }
-          }
+          },
         });
         bar.animate(bar_val);
       }
-      if (bar_type == 'progress') {
-        var bar = new ProgressBar.Line('#' + bar_id, {
+      if (bar_type == "progress") {
+        var bar = new ProgressBar.Line("#" + bar_id, {
           strokeWidth: 1.72,
-          easing: 'easeInOut',
+          easing: "easeInOut",
           duration: 1400,
           delay: bar_delay,
           trailWidth: 1.72,
           svgStyle: {
-            width: '100%',
-            height: '100%'
+            width: "100%",
+            height: "100%",
           },
           step: (state, bar) => {
-            bar.setText(Math.round(bar.value() * 100) + ' %');
-          }
+            bar.setText(Math.round(bar.value() * 100) + " %");
+          },
         });
         bar.animate(bar_val);
       }
     });
   });
-  $('.art-preloader-load-first').hide();
+  $(".art-preloader-load-first").hide();
   var bar = new ProgressBar.Line(preloader, {
     strokeWidth: 1.7,
-    easing: 'easeInOut',
+    easing: "easeInOut",
     duration: 1400,
     delay: 750,
     trailWidth: 1.7,
     svgStyle: {
-      width: '100%',
-      height: '100%'
+      width: "100%",
+      height: "100%",
     },
     step: (state, bar) => {
-      bar.setText(Math.round(bar.value() * 100) + ' %');
-    }
+      bar.setText(Math.round(bar.value() * 100) + " %");
+    },
   });
 
   bar.animate(1);
 
   // Contact form
-  $('.art-input').keyup(function () {
+  $(".art-input").keyup(function () {
     if ($(this).val()) {
-      $(this).addClass('art-active');
+      $(this).addClass("art-active");
     } else {
-      $(this).removeClass('art-active');
+      $(this).removeClass("art-active");
     }
   });
 
   // Selecciona el formulario por su clase
-  const form = document.querySelector('.wpcf7-form');
+  const form = document.querySelector(".wpcf7-form");
   let nombre = "";
   let email = "";
   let mensaje = "";
 
   if (form) {
     // Agrega un listener al evento submit del formulario
-    form.addEventListener('submit', function (event) {
+    form.addEventListener("submit", function (event) {
       // Prevenir el comportamiento predeterminado del submit
       nombre = document.querySelector('input[name="your-name"]').value;
       email = document.querySelector('input[name="your-email"]').value;
       mensaje = document.querySelector('textarea[name="your-message"]').value;
       event.preventDefault();
+
+      // Eliminar la clase "invalid" si existe
+      form.classList.remove("invalid");
+
+      // Validaciones de campos
+      let isValid = true; // Variable para rastrear la validez del formulario
+
+      if (!nombre || !email || !mensaje) {
+        isValid = false;
+      }
+
+      if (!isValidEmail(email)) {
+        isValid = false;
+      }
+
+      if (!isValid) {
+        form.classList.add("invalid"); // Agrega la clase "invalid"
+        return; // Detiene la ejecución si hay campos inválidos
+      }
 
       // Tu función personalizada
       customSubmitFunction(event);
@@ -177,34 +200,35 @@
 
   // Definición de la función personalizada
   const customSubmitFunction = (event) => {
-
     setTimeout(() => {
-      console.log($(form).hasClass('invalid'));
-      if (!$(form).hasClass('invalid')) {
+      console.log($(form).hasClass("invalid"));
+      if (!$(form).hasClass("invalid")) {
         // Aquí va tu lógica personalizada
-        console.log('Formulario enviado. Realizando lógica personalizada.');
-        console.log({
-          nombre,
-          email,
-          mensaje
-        });
+        console.log("Formulario enviado. Realizando lógica personalizada.");
+        // Formato de enlace de WhatsApp
+        const numeroTelefono = "1540342342"; // Reemplaza con tu número de teléfono, incluyendo el código de país
+        const mensajeWhatsApp = `Nombre: ${nombre}%0AEmail: ${email}%0AMensaje: ${mensaje}`;
+        const enlaceWhatsApp = `https://wa.me/${numeroTelefono}?text=${mensajeWhatsApp}`;
 
-        // Formato de mailto
-        const mailtoLink = `mailto:gervisbermudez@outlook.com?subject=Mensaje de ${nombre}&body=Nombre: ${nombre}%0AEmail: ${email}%0AMensaje: ${mensaje}`;
-        window.location.href = mailtoLink;
+        window.open(enlaceWhatsApp, "_blank"); // Abre WhatsApp en una nueva pestaña
       }
-    }, 500)
+    }, 500);
+  };
 
+  // Función para validar el formato de correo electrónico
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
   // portfolio filter
-  $('.art-filter a').on('click', function () {
-    $('.art-filter .art-current').removeClass('art-current');
-    $(this).addClass('art-current');
+  $(".art-filter a").on("click", function () {
+    $(".art-filter .art-current").removeClass("art-current");
+    $(this).addClass("art-current");
 
-    var selector = $(this).data('filter');
-    $('.art-grid').isotope({
-      filter: selector
+    var selector = $(this).data("filter");
+    $(".art-grid").isotope({
+      filter: selector,
     });
     return false;
   });
@@ -212,84 +236,22 @@
   /*
     Initialize portfolio items
   */
-  if ($('.art-grid').length) {
-    var $container = $('.art-grid');
+  if ($(".art-grid").length) {
+    var $container = $(".art-grid");
     $container.imagesLoaded(function () {
       $container.isotope({
-        filter: '*',
-        itemSelector: '.art-grid-item',
-        transitionDuration: '.6s',
+        filter: "*",
+        itemSelector: ".art-grid-item",
+        transitionDuration: ".6s",
       });
-      $(document).on('lazyloaded', function (e) {
-        $container.isotope('reloadItems').isotope();
+      $(document).on("lazyloaded", function (e) {
+        $container.isotope("reloadItems").isotope();
       });
     });
   }
 
-  // slider testimonials
-  var swiper = new Swiper('.art-testimonial-slider', {
-    slidesPerView: 3,
-    spaceBetween: 30,
-    speed: 1400,
-    autoplay: false,
-    autoplaySpeed: 5000,
-    pagination: {
-      el: '.art-testi-swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.art-testi-swiper-next',
-      prevEl: '.art-testi-swiper-prev',
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      720: {
-        slidesPerView: 1,
-      },
-      1200: {
-        slidesPerView: 2,
-      },
-      1500: {
-        slidesPerView: 2,
-      },
-    },
-  });
-
-  // slider clients
-  var swiper = new Swiper('.art-clients-slider', {
-    slidesPerView: 4,
-    spaceBetween: 30,
-    speed: 1400,
-    autoplay: false,
-    autoplaySpeed: 5000,
-    pagination: {
-      el: '.art-clients-swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.art-clients-swiper-next',
-      prevEl: '.art-clients-swiper-prev',
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      720: {
-        slidesPerView: 2,
-      },
-      1200: {
-        slidesPerView: 4,
-      },
-      1500: {
-        slidesPerView: 4,
-      },
-    },
-  });
-
   // slider works
-  var swiper = new Swiper('.art-works-slider', {
+  var swiper = new Swiper(".art-works-slider", {
     slidesPerView: 3,
     spaceBetween: 30,
     speed: 1400,
@@ -298,12 +260,12 @@
     },
     autoplaySpeed: 5000,
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
     },
     navigation: {
-      nextEl: '.art-works-swiper-next',
-      prevEl: '.art-works-swiper-prev',
+      nextEl: ".art-works-swiper-next",
+      prevEl: ".art-works-swiper-prev",
     },
     breakpoints: {
       0: {
@@ -324,203 +286,230 @@
   /*
     Magnific Popups
   */
-  if (/\.(?:jpg|jpeg|gif|png)$/i.test($('.wp-block-gallery .blocks-gallery-item:first a').attr('href'))) {
-    $('.wp-block-gallery a').magnificPopup({
+  if (
+    /\.(?:jpg|jpeg|gif|png)$/i.test(
+      $(".wp-block-gallery .art-grid-item:first a").attr("href")
+    )
+  ) {
+    $(".wp-block-gallery a").magnificPopup({
       gallery: {
-        enabled: true
+        enabled: true,
       },
-      type: 'image',
+      type: "image",
       closeOnContentClick: false,
       fixedContentPos: false,
       closeBtnInside: false,
       callbacks: {
         beforeOpen: function () {
           // just a hack that adds mfp-anim class to markup
-          this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-          this.st.mainClass = 'mfp-zoom-in';
-        }
+          this.st.image.markup = this.st.image.markup.replace(
+            "mfp-figure",
+            "mfp-figure mfp-with-anim"
+          );
+          this.st.mainClass = "mfp-zoom-in";
+        },
       },
     });
   }
-  $('[data-magnific-inline]').magnificPopup({
-    type: 'inline',
-    overflowY: 'auto',
+  $("[data-magnific-inline]").magnificPopup({
+    type: "inline",
+    overflowY: "auto",
     preloader: false,
     callbacks: {
       beforeOpen: function () {
-        this.st.mainClass = 'mfp-zoom-in';
-      }
+        this.st.mainClass = "mfp-zoom-in";
+      },
     },
   });
-  $('[data-magnific-image]').magnificPopup({
-    type: 'image',
+  $("[data-magnific-image]").magnificPopup({
+    type: "image",
     closeOnContentClick: true,
     fixedContentPos: false,
     closeBtnInside: false,
     callbacks: {
       beforeOpen: function () {
         // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-        this.st.mainClass = 'mfp-zoom-in';
-      }
+        this.st.image.markup = this.st.image.markup.replace(
+          "mfp-figure",
+          "mfp-figure mfp-with-anim"
+        );
+        this.st.mainClass = "mfp-zoom-in";
+      },
     },
   });
-  if (!$('body').hasClass('elementor-page')) {
-    $("a").each(function (i, el) {
-      var href_value = el.href;
-      if (/\.(jpg|png|gif)$/.test(href_value)) {
-        $(el).magnificPopup({
-          type: 'image',
-          closeOnContentClick: true,
-          fixedContentPos: false,
-          closeBtnInside: false,
-          callbacks: {
-            beforeOpen: function () {
-              // just a hack that adds mfp-anim class to markup
-              this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-              this.st.mainClass = 'mfp-zoom-in';
-            }
+  $("a").each(function (i, el) {
+    var href_value = el.href;
+    if (/\.(jpg|png|gif)$/.test(href_value)) {
+      $(el).magnificPopup({
+        type: "image",
+        closeOnContentClick: true,
+        fixedContentPos: false,
+        closeBtnInside: false,
+        callbacks: {
+          beforeOpen: function () {
+            // just a hack that adds mfp-anim class to markup
+            this.st.image.markup = this.st.image.markup.replace(
+              "mfp-figure",
+              "mfp-figure mfp-with-anim"
+            );
+            this.st.mainClass = "mfp-zoom-in";
           },
-        });
-      }
-    });
-  }
-  $('[data-magnific-video]').magnificPopup({
-    type: 'iframe',
+        },
+      });
+    }
+  });
+  $("[data-magnific-video]").magnificPopup({
+    type: "iframe",
     iframe: {
       patterns: {
         youtube_short: {
-          index: 'youtu.be/',
-          id: 'youtu.be/',
-          src: 'https://www.youtube.com/embed/%id%?autoplay=1'
-        }
-      }
+          index: "youtu.be/",
+          id: "youtu.be/",
+          src: "https://www.youtube.com/embed/%id%?autoplay=1",
+        },
+      },
     },
     preloader: false,
     fixedContentPos: false,
     callbacks: {
       markupParse: function (template, values, item) {
-        template.find('iframe').attr('allow', 'autoplay');
+        template.find("iframe").attr("allow", "autoplay");
       },
       beforeOpen: function () {
         // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-        this.st.mainClass = 'mfp-zoom-in';
-      }
+        this.st.image.markup = this.st.image.markup.replace(
+          "mfp-figure",
+          "mfp-figure mfp-with-anim"
+        );
+        this.st.mainClass = "mfp-zoom-in";
+      },
     },
   });
-  $('[data-magnific-music]').magnificPopup({
-    type: 'iframe',
+  $("[data-magnific-music]").magnificPopup({
+    type: "iframe",
     preloader: false,
     fixedContentPos: false,
     closeBtnInside: true,
     callbacks: {
       beforeOpen: function () {
         // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-        this.st.mainClass = 'mfp-zoom-in';
-      }
+        this.st.image.markup = this.st.image.markup.replace(
+          "mfp-figure",
+          "mfp-figure mfp-with-anim"
+        );
+        this.st.mainClass = "mfp-zoom-in";
+      },
     },
   });
-  $('[data-magnific-gallery]').magnificPopup({
+  $("[data-magnific-gallery]").magnificPopup({
     gallery: {
-      enabled: true
+      enabled: true,
     },
-    type: 'image',
+    type: "image",
     closeOnContentClick: false,
     fixedContentPos: false,
     closeBtnInside: false,
     callbacks: {
       beforeOpen: function () {
         // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-        this.st.mainClass = 'mfp-zoom-in';
-      }
+        this.st.image.markup = this.st.image.markup.replace(
+          "mfp-figure",
+          "mfp-figure mfp-with-anim"
+        );
+        this.st.mainClass = "mfp-zoom-in";
+      },
     },
   });
 
-  $('.current-menu-item a').clone().appendTo('.art-current-page');
+  $(".current-menu-item a").clone().appendTo(".art-current-page");
 
-  $('.art-map-overlay').on('click', function () {
-    $(this).addClass('art-active');
+  $(".art-map-overlay").on("click", function () {
+    $(this).addClass("art-active");
   });
 
-  $('.art-info-bar-btn').on('click', function () {
-    $('.art-info-bar').toggleClass('art-active');
-    $('.art-menu-bar-btn').toggleClass('art-disabled');
+  $(".art-info-bar-btn").on("click", function () {
+    $(".art-info-bar").toggleClass("art-active");
+    $(".art-menu-bar-btn").toggleClass("art-disabled");
   });
 
-  $('.art-menu-bar-btn').on('click', function () {
-    $('.art-menu-bar-btn , .art-menu-bar').toggleClass("art-active");
-    $('.art-info-bar-btn').toggleClass('art-disabled');
+  $(".art-menu-bar-btn").on("click", function () {
+    $(".art-menu-bar-btn , .art-menu-bar").toggleClass("art-active");
+    $(".art-info-bar-btn").toggleClass("art-disabled");
   });
 
-  $('.art-info-bar-btn , .art-menu-bar-btn').on('click', function () {
-    $('.art-content').toggleClass('art-active');
+  $(".art-info-bar-btn , .art-menu-bar-btn").on("click", function () {
+    $(".art-content").toggleClass("art-active");
   });
 
-  $('.art-curtain , .art-mobile-top-bar').on('click', function () {
-    $('.art-menu-bar-btn , .art-menu-bar , .art-info-bar , .art-content , .art-menu-bar-btn , .art-info-bar-btn').removeClass('art-active , art-disabled');
+  $(".art-curtain , .art-mobile-top-bar").on("click", function () {
+    $(
+      ".art-menu-bar-btn , .art-menu-bar , .art-info-bar , .art-content , .art-menu-bar-btn , .art-info-bar-btn"
+    ).removeClass("art-active , art-disabled");
   });
 
-  $('.menu-item a').on('click', function () {
-    if ($(this).parent().hasClass('menu-item-has-children')) {
-      $(this).parent().children('.sub-menu').toggleClass('art-active');
-      if ($(this).attr('href') != '' && $(this).attr('href') != '#' && $(this).attr('href') != '#.') {
-        if ($(this).parent().hasClass('opened')) {
-          $(this).parent().removeClass('opened');
+  $(".menu-item a").on("click", function () {
+    if ($(this).parent().hasClass("menu-item-has-children")) {
+      $(this).parent().children(".sub-menu").toggleClass("art-active");
+      if (
+        $(this).attr("href") != "" &&
+        $(this).attr("href") != "#" &&
+        $(this).attr("href") != "#."
+      ) {
+        if ($(this).parent().hasClass("opened")) {
+          $(this).parent().removeClass("opened");
         } else {
-          $(this).parent().addClass('opened');
+          $(this).parent().addClass("opened");
           return false;
         }
       } else {
         return false;
       }
     } else {
-      $('.art-menu-bar-btn , .art-menu-bar , .art-info-bar , .art-content , .art-menu-bar-btn , .art-info-bar-btn').removeClass('art-active , art-disabled');
+      $(
+        ".art-menu-bar-btn , .art-menu-bar , .art-info-bar , .art-content , .art-menu-bar-btn , .art-info-bar-btn"
+      ).removeClass("art-active , art-disabled");
     }
 
-    if ($(this).attr('href') != '' && $(this).attr('href') != undefined) {
-      if ($(this).attr('href').charAt(0) == "#") {
-        var section_id = $(this).attr('href');
+    if ($(this).attr("href") != "" && $(this).attr("href") != undefined) {
+      if ($(this).attr("href").charAt(0) == "#") {
+        var section_id = $(this).attr("href");
 
-        if ($(section_id).length && !$('body').hasClass('default--scrolling')) {
-          var section_top = scrollbar.scrollTop + $(section_id).offset().top - 30;
+        if ($(section_id).length && !$("body").hasClass("default--scrolling")) {
+          var section_top =
+            scrollbar.scrollTop + $(section_id).offset().top - 30;
           scrollbar.scrollTo(0, section_top, 500);
         }
       }
     }
   });
 
-  $('.art-price-list li').each(function () {
-    if ($(this).find('del').text()) {
-      $(this).addClass('art-empty-item');
-      $(this).html($(this).find('del').text());
+  $(".art-price-list li").each(function () {
+    if ($(this).find("del").text()) {
+      $(this).addClass("art-empty-item");
+      $(this).html($(this).find("del").text());
     }
   });
 
-  $('.art-input').on('focusin', function () {
-    $(this).parent().next('label').addClass('focused');
+  $(".art-input").on("focusin", function () {
+    $(this).parent().next("label").addClass("focused");
   });
-  $('.art-input').on('focusout', function () {
-    $(this).parent().next('label').removeClass('focused');
+  $(".art-input").on("focusout", function () {
+    $(this).parent().next("label").removeClass("focused");
   });
 
   /* Cart Popup */
-  $('.cart-btn .cart-icon').on('click', function () {
-    if ($(this).closest('.cart-btn').hasClass('opened')) {
-      $(this).closest('.cart-btn').removeClass('opened');
+  $(".cart-btn .cart-icon").on("click", function () {
+    if ($(this).closest(".cart-btn").hasClass("opened")) {
+      $(this).closest(".cart-btn").removeClass("opened");
     } else {
-      $(this).closest('.cart-btn').addClass('opened');
+      $(this).closest(".cart-btn").addClass("opened");
     }
     return false;
   });
-
 })(jQuery);
 
-
 function initHomeBlogSlider() {
-  return new Swiper('.art-blog-slider', {
+  return new Swiper(".art-blog-slider", {
     slidesPerView: 3,
     spaceBetween: 30,
     speed: 1400,
@@ -529,12 +518,12 @@ function initHomeBlogSlider() {
     },
     autoplaySpeed: 5000,
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
     },
     navigation: {
-      nextEl: '.art-blog-swiper-next',
-      prevEl: '.art-blog-swiper-prev',
+      nextEl: ".art-blog-swiper-next",
+      prevEl: ".art-blog-swiper-prev",
     },
     breakpoints: {
       0: {
@@ -552,4 +541,3 @@ function initHomeBlogSlider() {
     },
   });
 }
-

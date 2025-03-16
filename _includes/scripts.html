@@ -1,0 +1,86 @@
+<script type="text/javascript">
+    const lazyloadRunObserver = () => {
+        const lazyloadBackgrounds = document.querySelectorAll(
+            `.e-con.e-parent:not(.e-lazyloaded)`
+        );
+        const lazyloadBackgroundObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        let lazyloadBackground = entry.target;
+                        if (lazyloadBackground) {
+                            lazyloadBackground.classList.add("e-lazyloaded");
+                        }
+                        lazyloadBackgroundObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { rootMargin: "200px 0px 200px 0px" }
+        );
+        lazyloadBackgrounds.forEach((lazyloadBackground) => {
+            lazyloadBackgroundObserver.observe(lazyloadBackground);
+        });
+    };
+    const events = ["DOMContentLoaded", "elementor/lazyload/observe"];
+    events.forEach((event) => {
+        document.addEventListener(event, lazyloadRunObserver);
+    });
+</script>
+
+{% if page.url contains '/blog/' %}
+<script type="text/javascript" src="{{ '/public/plugins/code-block-for-elementor/assets/prism.js' | relative_url }}"
+    id="code-block-for-elementor-prismjs-js"></script>
+<script type="text/javascript"
+    src="{{ '/public/plugins/code-block-for-elementor/assets/prism-toolbar.js' | relative_url }}"
+    id="code-block-for-elementor-toolbarjs-js"></script>
+<link rel="stylesheet" id="code-block-for-elementor-coy-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-coy.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-dark-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-dark.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-default-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-default.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-funky-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-funky.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-okaidia-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-okaidia.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-solarized-light-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-solarized-light.css" | relative_url }}'
+    type="text/css" media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-tomorrow-night-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-tomorrow-night.css" | relative_url }}'
+    type="text/css" media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-twilight-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-twilight.css" | relative_url }}' type="text/css"
+    media="all" />
+<link rel="stylesheet" id="code-block-for-elementor-toolbar-css"
+    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-toolbar.css" | relative_url }}' type="text/css"
+    media="all" />
+{% endif %}
+<script type="text/javascript"
+    src="{{ 'public/themes/arter/assets/js/skip-link-focus-fix.js%3Fver=20151215' | relative_url }}"
+    id="arter-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/anime.js%3Fver=1.0.0' | relative_url }}"
+    id="anime-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/progressbar.js%3Fver=1.0.0' | relative_url }}"
+    id="progressbar-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/typing.js%3Fver=1.0.0' | relative_url }}"
+    id="typing-js"></script>
+<script type="text/javascript" src="{{ 'public/js/imagesloaded.min.js%3Fver=5.0.0' | relative_url }}"
+    id="imagesloaded-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/isotope.js%3Fver=1.0.0' | relative_url }}"
+    id="isotope-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/magnific-popup.js%3Fver=1.0.0' | relative_url }}"
+    id="magnific-popup-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/swiper.js%3Fver=1.0.0' | relative_url }}"
+    id="swiper-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/rrssb.js%3Fver=1.0.0' | relative_url }}"
+    id="rrssb-js"></script>
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/main.js' | relative_url }}"
+    id="arter-main-js"></script>
+<script type="text/javascript" src="{{ 'public/js/jquery/ui/core.min.js%3Fver=1.13.3' | relative_url }}"
+    id="jquery-ui-core-js"></script>

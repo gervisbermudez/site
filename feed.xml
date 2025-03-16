@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-15T19:41:29+00:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>My goal is to apply my knowledge and professional experience, in addition to contributing  my values and skills to organizations to contribute to their growth and  continue to further strengthen my skills.</subtitle><entry><title type="html">Solving the Hotel Reservation Problem using Vue.js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue.js with Vite" /><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-16T19:53:21+00:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>My goal is to apply my knowledge and professional experience, in addition to contributing  my values and skills to organizations to contribute to their growth and  continue to further strengthen my skills.</subtitle><entry><title type="html">Solving the Hotel Reservation Problem using Vue.js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue.js with Vite" /><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
   <div
     data-elementor-type="wp-post"
     data-elementor-id="662"
@@ -345,20 +345,20 @@
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>export interface Hotel {
-                                id: number;
-                                name: string;
-                                location: string;
-                                rating: number;
-                                weekdayRates: {
-                                regular: number;
-                                rewards: number;
-                                };
-                                weekendRates: {
-                                regular: number;
-                                rewards: number;
-                                };
-                                photos: string[];
-                                }</code></pre>
+id: number;
+name: string;
+location: string;
+rating: number;
+weekdayRates: {
+regular: number;
+rewards: number;
+};
+weekendRates: {
+regular: number;
+rewards: number;
+};
+photos: string[];
+}</code></pre>
           </div>
         </div>
       </div>
@@ -461,50 +461,50 @@
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>async calculateTotalCost(
-                            userType: &quot;regular&quot; | &quot;rewards&quot;,
-                            startDate: Date,
-                            endDate: Date
-                            ): Promise&lt;TotalCost[] | undefined&gt; {
-                            this.loading = true;
-                            try {
-                            const response = await getHotels();
-                            let hotels = response;
-                            let resultByHotels: TotalCost[] = [];
-                            hotels.forEach((hotel: Hotel) =&gt; {
-                            let totalCost = 0;
-                            let countWeekends = 0;
-                            let countWeekDays = 0;
-                            const currentDate = new Date(startDate);
-                            while (currentDate &lt;= endDate) {
-                            const isWeekend =
-                            currentDate.getDay() === 0 || currentDate.getDay() === 6; // 0: Domingo, 6: S&aacute;bado
-                            const rate = isWeekend
-                            ? hotel.weekendRates[userType]
-                            : hotel.weekdayRates[userType];
-                            totalCost += rate;
-                            currentDate.setDate(currentDate.getDate() + 1); // Avanzar al siguiente d&iacute;a
-                            isWeekend ? countWeekends++ : countWeekDays++;
-                            }
-                            resultByHotels.push({
-                            hotel,
-                            totalCost,
-                            countWeekends,
-                            countWeekDays,
-                            });
-                            });
-                            return resultByHotels.sort((a, b) =&gt; {
-                            if (a.totalCost === b.totalCost) {
-                            return b.hotel.rating - a.hotel.rating;
-                            }
-                            return a.totalCost - b.totalCost;
-                            });
-                            } catch (error) {
-                            console.error(&quot;Error fetching data:&quot;, error);
-                            } finally {
-                            this.loading = false;
-                            }
-                            }
-                            </code></pre>
+userType: &quot;regular&quot; | &quot;rewards&quot;,
+startDate: Date,
+endDate: Date
+): Promise&lt;TotalCost[] | undefined&gt; {
+this.loading = true;
+try {
+const response = await getHotels();
+let hotels = response;
+let resultByHotels: TotalCost[] = [];
+hotels.forEach((hotel: Hotel) =&gt; {
+let totalCost = 0;
+let countWeekends = 0;
+let countWeekDays = 0;
+const currentDate = new Date(startDate);
+while (currentDate &lt;= endDate) {
+const isWeekend =
+currentDate.getDay() === 0 || currentDate.getDay() === 6; // 0: Domingo, 6: S&aacute;bado
+const rate = isWeekend
+? hotel.weekendRates[userType]
+: hotel.weekdayRates[userType];
+totalCost += rate;
+currentDate.setDate(currentDate.getDate() + 1); // Avanzar al siguiente d&iacute;a
+isWeekend ? countWeekends++ : countWeekDays++;
+}
+resultByHotels.push({
+hotel,
+totalCost,
+countWeekends,
+countWeekDays,
+});
+});
+return resultByHotels.sort((a, b) =&gt; {
+if (a.totalCost === b.totalCost) {
+return b.hotel.rating - a.hotel.rating;
+}
+return a.totalCost - b.totalCost;
+});
+} catch (error) {
+console.error(&quot;Error fetching data:&quot;, error);
+} finally {
+this.loading = false;
+}
+}
+</code></pre>
           </div>
         </div>
       </div>
@@ -915,38 +915,36 @@
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>// src/stores/hotels.store.ts
-                            import { defineStore } from &quot;pinia&quot;;
-                            import { Hotel, TotalCost } from &quot;../models/Hotels&quot;;
-                            import { getHotels, getReviews } from &quot;../services&quot;;
-                            import { Review } from &quot;../models/Review&quot;;
-
-                            export interface State {
-                            hotels: Hotel[];
-                            hotel: Hotel | null;
-                            reviews: Review[];
-                            loading: boolean;
-                            }
-
-                            export const useHotelsStore = defineStore(&quot;store&quot;, {
-                            state: (): State =&gt; {
-                            return {
-                            hotels: [],
-                            hotel: null,
-                            reviews: [],
-                            loading: false,
-                            };
-                            },
-                            actions: {
-                            async fetchData() {
-                            },
-                            async calculateTotalCost(
-                            },
-                            async fetchReviews() {
-                            },
-                            async fetchReviewsByHotelID(hotel_id: number) {
-                            },
-                            },
-                            });</code></pre>
+import { defineStore } from &quot;pinia&quot;;
+import { Hotel, TotalCost } from &quot;../models/Hotels&quot;;
+import { getHotels, getReviews } from &quot;../services&quot;;
+import { Review } from &quot;../models/Review&quot;;
+export interface State {
+hotels: Hotel[];
+hotel: Hotel | null;
+reviews: Review[];
+loading: boolean;
+}
+export const useHotelsStore = defineStore(&quot;store&quot;, {
+state: (): State =&gt; {
+return {
+hotels: [],
+hotel: null,
+reviews: [],
+loading: false,
+};
+},
+actions: {
+async fetchData() {
+},
+async calculateTotalCost(
+},
+async fetchReviews() {
+},
+async fetchReviewsByHotelID(hotel_id: number) {
+},
+},
+});</code></pre>
           </div>
         </div>
       </div>
@@ -989,50 +987,42 @@
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>//src/App.vue
-                                const store = useHotelsStore();
-                                const { loading } = storeToRefs(store);
-                                const userType = ref&lt;&quot;regular&quot; | &quot;rewards&quot;&gt;(&quot;regular&quot;);
-                                const hotelsList = ref&lt;Hotel[] | []&gt;([]);
-                                const reviews = ref&lt;Review[]&gt;([]);
-                                const searchResult = ref&lt;TotalCost | null&gt;(null);
-
-                                const dates: Dates = reactive({
-                                initial_date: null,
-                                final_date: null
-                                })
-
-                                onMounted(() =&gt; {
-                                getHotels().then((result) =&gt; {
-                                hotelsList.value = result;
-                                });
-
-                                getReviews().then((result) =&gt; {
-                                reviews.value = result.splice(0, 6);
-                                });
-
-                                })
-
-                                const handleSelectChange = (data: string) =&gt; {
-                                userType.value = data as &quot;regular&quot; | &quot;rewards&quot;
-                                }
-
-                                const handleInputChange = (name: string, data: string) =&gt; {
-                                dates[name] = data;
-                                }
-
-                                const handleSearchBooking = () =&gt; {
-                                dates.initial_date
-                                &amp;&amp; dates.final_date
-                                &amp;&amp; store.calculateTotalCost(userType.value, dates.initial_date, dates.final_date).then((result) =&gt; {
-                                if (result) {
-                                searchResult.value = result[0];
-                                }
-                                })
-                                }
-
-                                const resetSearch = () =&gt; {
-                                searchResult.value = null
-                                }</code>
+const store = useHotelsStore();
+const { loading } = storeToRefs(store);
+const userType = ref&lt;&quot;regular&quot; | &quot;rewards&quot;&gt;(&quot;regular&quot;);
+const hotelsList = ref&lt;Hotel[] | []&gt;([]);
+const reviews = ref&lt;Review[]&gt;([]);
+const searchResult = ref&lt;TotalCost | null&gt;(null);
+const dates: Dates = reactive({
+initial_date: null,
+final_date: null
+})
+onMounted(() =&gt; {
+getHotels().then((result) =&gt; {
+hotelsList.value = result;
+});
+getReviews().then((result) =&gt; {
+reviews.value = result.splice(0, 6);
+});
+})
+const handleSelectChange = (data: string) =&gt; {
+userType.value = data as &quot;regular&quot; | &quot;rewards&quot;
+}
+const handleInputChange = (name: string, data: string) =&gt; {
+dates[name] = data;
+}
+const handleSearchBooking = () =&gt; {
+dates.initial_date
+&amp;&amp; dates.final_date
+&amp;&amp; store.calculateTotalCost(userType.value, dates.initial_date, dates.final_date).then((result) =&gt; {
+if (result) {
+searchResult.value = result[0];
+}
+})
+}
+const resetSearch = () =&gt; {
+searchResult.value = null
+}</code>
 </pre>
           </div>
         </div>

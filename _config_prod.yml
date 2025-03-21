@@ -31,7 +31,7 @@ paginate_path: "/blog/page:num/" # Ruta de las páginas de paginación
 twitter_username: gervisbermudez
 github_username: gervisbermudez
 default_banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
-permalink: /blog/:categories/:year/:month/:day/:title
+permalink: /site/blog/:categories/:year/:month/:day/:title
 # Build settings
 # theme: minima
 plugins:

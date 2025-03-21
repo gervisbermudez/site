@@ -512,7 +512,7 @@ banner: https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&#038;w
                                 <div id="post-662"
                                   class="post-662 post type-post status-publish format-standard has-post-thumbnail hentry {{post.tags}}">
                                   <!-- post cover -->
-                                  <a class="art-port-cover post-thumbnail" href="{{ post.url }}">
+                                  <a class="art-port-cover post-thumbnail" href="{{ post.url | relative_url }}">
                                     <img fetchpriority="high" decoding="async" width="1280" height="768"
                                       src="{{ post.thumbnail | relative_url }}"
                                       class="attachment-arter_1280x768 size-arter_1280x768 wp-post-image"
@@ -522,7 +522,7 @@ banner: https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&#038;w
                                   <!-- post description -->
                                   <div class="art-post-description">
                                     <div class="art-project-category mb-15">
-                                      <a href="{{ post.url }}">
+                                      <a href="{{ post.url | relative_url }}">
                                         <span class="art-el-date">{{ post.date | date_to_string
                                           }}</span>
                                       </a>
@@ -532,7 +532,7 @@ banner: https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&#038;w
                                       </span>
                                     </div>
                                     <!-- title -->
-                                    <a href="{{ post.url }}">
+                                    <a href="{{ post.url | relative_url }}">
                                       <h5 class="mb-15">{{ post.title }}</h5>
                                     </a>
                                     <!-- text -->

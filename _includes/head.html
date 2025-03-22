@@ -70,8 +70,8 @@
         /* ]]> */
     </script>
 
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    <link rel="shortlink" href="{{ site.url }}{{ page.url }}" />
+    <link rel="canonical" href="{{site.url}}{{ site.baseurl }}{{page.url}}" />
+    <link rel="shortlink" href="{{site.url}}{{ site.baseurl }}{{page.url}}" />
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/styles.css" type="text/css" media="all" />
     <link rel="icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-150x150.png" sizes="32x32" />
     <link rel="icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" sizes="192x192" />
@@ -81,7 +81,7 @@
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Gervis Bermudez | Blog" />
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:url" content="{{site.url}}{{ site.baseurl }}{{page.url}}" />
     <meta property="og:type" content="website" />
     <meta property="og:description"
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
@@ -91,7 +91,7 @@
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta itemprop="author" content="gervisbermudez" />
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
-    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+    <meta name="twitter:url" content="{{site.url}}{{ site.baseurl }}{{page.url}}" />
     <meta name="twitter:description"
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta name="twitter:card" content="summary_large_image" />

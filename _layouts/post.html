@@ -109,7 +109,7 @@ layout: default
                       jQuery(document).ready(function ($) {
                         $(".social-share").rrssb({
                           title: "{{page.title}}",
-                          url: "{{site.url}}{{page.url}}",
+                          url: "{{site.url}}{{ site.baseurl }}{{page.url}}",
                         });
                       });
                     </script>
@@ -130,30 +130,22 @@ layout: default
         <div class="row">
           <div class="col-lg-12">
             <div class="art-a art-pagination">
+
               {% if page.previous %}
               <a href="{{ page.previous.url  | relative_url}}"
                 class="art-link art-color-link art-w-chevron art-left-link">
                 <span>Previous</span>
               </a>
-              {% else %}
-              <span class="art-link art-color-link art-w-chevron art-left-link disabled">
-                <span>Previous</span>
-              </span>
               {% endif %}
-
               <div class="art-pagination-center art-m-hidden">
                 <a class="art-link" href="{{ '/blog/' | relative_url}}">All posts</a>
               </div>
-
               {% if page.next %}
               <a href="{{ page.next.url | relative_url }}" class="art-link art-color-link art-w-chevron">
                 <span>Next</span>
               </a>
-              {% else %}
-              <span class="art-link art-color-link art-w-chevron disabled">
-                <span>Next</span>
-              </span>
               {% endif %}
+
             </div>
           </div>
         </div>

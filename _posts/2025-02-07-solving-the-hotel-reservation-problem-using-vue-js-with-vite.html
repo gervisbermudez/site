@@ -2,8 +2,8 @@
 layout: post
 date: 2025-02-07
 author: Gervis Bermudez
-title: Solving the Hotel Reservation Problem using Vue.js with Vite
-description: A detailed guide on solving the hotel reservation problem using Vue.js and Vite.
+title: Solving the Hotel Reservation Problem using Vue js with Vite
+description: A detailed guide on solving the hotel reservation problem using Vue js and Vite 
 thumbnail: /public/uploads/2024/04/Banner-Blog-Post-Hotel-Reservation-_20240415_205239_0000-1920x1080.png
 banner: /public/uploads/2024/04/Banner-Blog-Post-Hotel-Reservation-_20240415_205239_0000-1920x1080.png
 category: Web Development
@@ -236,10 +236,8 @@ tags: ["Vue.js", "Vite", "Hotel Reservation"]
         >
           <div class="elementor-widget-container">
             <h3
-              class="elementor-heading-title elementor-size-default elementor-inline-editing pen"
-              contenteditable="true"
-              data-elementor-setting-key="title"
-              data-pen-placeholder="Teclea aquí..."
+              class="elementor-heading-title elementor-size-default"
+
             >
               Resolution
             </h3>
@@ -357,20 +355,22 @@ tags: ["Vue.js", "Vite", "Hotel Reservation"]
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>export interface Hotel {
-id: number;
-name: string;
-location: string;
-rating: number;
-weekdayRates: {
-regular: number;
-rewards: number;
-};
-weekendRates: {
-regular: number;
-rewards: number;
-};
-photos: string[];
-}</code></pre>
+  id: number;
+  name: string;
+  location: string;
+  rating: number;
+  weekdayRates: {
+    regular: number;
+    rewards: number;
+  };
+  weekendRates: {
+    regular: number;
+    rewards: number;
+  };
+  photos: string[];
+}
+
+</code></pre>
           </div>
         </div>
       </div>
@@ -417,20 +417,9 @@ photos: string[];
               decoding="async"
               width="820"
               height="1024"
-              src="../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg"
+              src="{{'public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg' | relative_url}}"
               class="attachment-large size-large wp-image-678"
               alt=""
-              srcset="
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg   820w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-240x300.jpg    240w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-768x959.jpg    768w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-1230x1536.jpg 1230w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-1639x2048.jpg 1639w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-410x512.jpg    410w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-950x1187.jpg   950w,
-                ../../../../public/uploads/2024/04/grafico1-hotel-reservation-1-1920x2398.jpg 1920w
-              "
-              sizes="(max-width: 820px) 100vw, 820px"
             />
           </div>
         </div>
@@ -473,48 +462,48 @@ photos: string[];
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>async calculateTotalCost(
-userType: &quot;regular&quot; | &quot;rewards&quot;,
-startDate: Date,
-endDate: Date
-): Promise&lt;TotalCost[] | undefined&gt; {
-this.loading = true;
-try {
-const response = await getHotels();
-let hotels = response;
-let resultByHotels: TotalCost[] = [];
-hotels.forEach((hotel: Hotel) =&gt; {
-let totalCost = 0;
-let countWeekends = 0;
-let countWeekDays = 0;
-const currentDate = new Date(startDate);
-while (currentDate &lt;= endDate) {
-const isWeekend =
-currentDate.getDay() === 0 || currentDate.getDay() === 6; // 0: Domingo, 6: S&aacute;bado
-const rate = isWeekend
-? hotel.weekendRates[userType]
-: hotel.weekdayRates[userType];
-totalCost += rate;
-currentDate.setDate(currentDate.getDate() + 1); // Avanzar al siguiente d&iacute;a
-isWeekend ? countWeekends++ : countWeekDays++;
-}
-resultByHotels.push({
-hotel,
-totalCost,
-countWeekends,
-countWeekDays,
-});
-});
-return resultByHotels.sort((a, b) =&gt; {
-if (a.totalCost === b.totalCost) {
-return b.hotel.rating - a.hotel.rating;
-}
-return a.totalCost - b.totalCost;
-});
-} catch (error) {
-console.error(&quot;Error fetching data:&quot;, error);
-} finally {
-this.loading = false;
-}
+    userType: "regular" | "rewards",
+    startDate: Date,
+    endDate: Date
+): Promise<TotalCost[] | undefined> {
+    this.loading = true;
+    try {
+        const response = await getHotels();
+        let hotels = response;
+        let resultByHotels: TotalCost[] = [];
+        hotels.forEach((hotel: Hotel) => {
+            let totalCost = 0;
+            let countWeekends = 0;
+            let countWeekDays = 0;
+            const currentDate = new Date(startDate);
+            while (currentDate <= endDate) {
+                const isWeekend =
+                    currentDate.getDay() === 0 || currentDate.getDay() === 6; // 0: Sunday, 6: Saturday
+                const rate = isWeekend
+                    ? hotel.weekendRates[userType]
+                    : hotel.weekdayRates[userType];
+                totalCost += rate;
+                currentDate.setDate(currentDate.getDate() + 1); // Move to the next day
+                isWeekend ? countWeekends++ : countWeekDays++;
+            }
+            resultByHotels.push({
+                hotel,
+                totalCost,
+                countWeekends,
+                countWeekDays,
+            });
+        });
+        return resultByHotels.sort((a, b) => {
+            if (a.totalCost === b.totalCost) {
+                return b.hotel.rating - a.hotel.rating;
+            }
+            return a.totalCost - b.totalCost;
+        });
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    } finally {
+        this.loading = false;
+    }
 }
 </code></pre>
           </div>
@@ -629,20 +618,9 @@ this.loading = false;
                 decoding="async"
                 width="900"
                 height="673"
-                src="../../../../public/uploads/2024/04/Untitled-3-1024x766.png"
+                src="{{'/public/uploads/2024/04/Untitled-3-1024x766.png' | relative_url}}"
                 class="attachment-large size-large wp-image-679"
                 alt=""
-                srcset="
-                  ../../../../public/uploads/2024/04/Untitled-3-1024x766.png  1024w,
-                  ../../../../public/uploads/2024/04/Untitled-3-300x225.png    300w,
-                  ../../../../public/uploads/2024/04/Untitled-3-768x575.png    768w,
-                  ../../../../public/uploads/2024/04/Untitled-3-1536x1150.png 1536w,
-                  ../../../../public/uploads/2024/04/Untitled-3-512x383.png    512w,
-                  ../../../../public/uploads/2024/04/Untitled-3-950x711.png    950w,
-                  ../../../../public/uploads/2024/04/Untitled-3-1920x1437.png 1920w,
-                  ../../../../public/uploads/2024/04/Untitled-3.png           2000w
-                "
-                sizes="(max-width: 900px) 100vw, 900px"
               />
             </a>
           </div>
@@ -927,35 +905,41 @@ this.loading = false;
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
             ><code class='language-javascript'>// src/stores/hotels.store.ts
-import { defineStore } from &quot;pinia&quot;;
-import { Hotel, TotalCost } from &quot;../models/Hotels&quot;;
-import { getHotels, getReviews } from &quot;../services&quot;;
-import { Review } from &quot;../models/Review&quot;;
+import { defineStore } from "pinia";
+import { Hotel, TotalCost } from "../models/Hotels";
+import { getHotels, getReviews } from "../services";
+import { Review } from "../models/Review";
+
 export interface State {
-hotels: Hotel[];
-hotel: Hotel | null;
-reviews: Review[];
-loading: boolean;
+    hotels: Hotel[];
+    hotel: Hotel | null;
+    reviews: Review[];
+    loading: boolean;
 }
-export const useHotelsStore = defineStore(&quot;store&quot;, {
-state: (): State =&gt; {
-return {
-hotels: [],
-hotel: null,
-reviews: [],
-loading: false,
-};
-},
-actions: {
-async fetchData() {
-},
-async calculateTotalCost(
-},
-async fetchReviews() {
-},
-async fetchReviewsByHotelID(hotel_id: number) {
-},
-},
+
+export const useHotelsStore = defineStore("store", {
+    state: (): State => {
+        return {
+            hotels: [],
+            hotel: null,
+            reviews: [],
+            loading: false,
+        };
+    },
+    actions: {
+        async fetchData() {
+            // Implementation here
+        },
+        async calculateTotalCost() {
+            // Implementation here
+        },
+        async fetchReviews() {
+            // Implementation here
+        },
+        async fetchReviewsByHotelID(hotel_id: number) {
+            // Implementation here
+        },
+    },
 });</code></pre>
           </div>
         </div>
@@ -998,43 +982,51 @@ async fetchReviewsByHotelID(hotel_id: number) {
             <pre
               class="line-numbers theme-okaidia"
               data-show-toolbar="yes"
-            ><code class='language-javascript'>//src/App.vue
+            ><code class='language-javascript'>// src/App.vue
 const store = useHotelsStore();
 const { loading } = storeToRefs(store);
-const userType = ref&lt;&quot;regular&quot; | &quot;rewards&quot;&gt;(&quot;regular&quot;);
-const hotelsList = ref&lt;Hotel[] | []&gt;([]);
-const reviews = ref&lt;Review[]&gt;([]);
-const searchResult = ref&lt;TotalCost | null&gt;(null);
+const userType = ref<"regular" | "rewards">("regular");
+const hotelsList = ref<Hotel[] | []>([]);
+const reviews = ref<Review[]>([]);
+const searchResult = ref<TotalCost | null>(null);
 const dates: Dates = reactive({
-initial_date: null,
-final_date: null
-})
-onMounted(() =&gt; {
-getHotels().then((result) =&gt; {
-hotelsList.value = result;
+  initial_date: null,
+  final_date: null,
 });
-getReviews().then((result) =&gt; {
-reviews.value = result.splice(0, 6);
+
+onMounted(() => {
+  getHotels().then((result) => {
+    hotelsList.value = result;
+  });
+  getReviews().then((result) => {
+    reviews.value = result.splice(0, 6);
+  });
 });
-})
-const handleSelectChange = (data: string) =&gt; {
-userType.value = data as &quot;regular&quot; | &quot;rewards&quot;
-}
-const handleInputChange = (name: string, data: string) =&gt; {
-dates[name] = data;
-}
-const handleSearchBooking = () =&gt; {
-dates.initial_date
-&amp;&amp; dates.final_date
-&amp;&amp; store.calculateTotalCost(userType.value, dates.initial_date, dates.final_date).then((result) =&gt; {
-if (result) {
-searchResult.value = result[0];
-}
-})
-}
-const resetSearch = () =&gt; {
-searchResult.value = null
-}</code>
+
+const handleSelectChange = (data: string) => {
+  userType.value = data as "regular" | "rewards";
+};
+
+const handleInputChange = (name: string, data: string) => {
+  dates[name] = data;
+};
+
+const handleSearchBooking = () => {
+  if (dates.initial_date && dates.final_date) {
+    store
+      .calculateTotalCost(userType.value, dates.initial_date, dates.final_date)
+      .then((result) => {
+        if (result) {
+          searchResult.value = result[0];
+        }
+      });
+  }
+};
+
+const resetSearch = () => {
+  searchResult.value = null;
+};
+</code>
 </pre>
           </div>
         </div>

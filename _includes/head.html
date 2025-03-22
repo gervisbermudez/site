@@ -70,46 +70,29 @@
         /* ]]> */
     </script>
 
-    <!-- End Google tag (gtag.js) snippet added by Site Kit -->
-    <link rel="https://api.w.org/" href="public/json/index.html" />
-    <link rel="alternate" title="JSON" type="application/json" href="public/json/wp/v2/pages/214" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc.php%3Frsd" />
-    <meta name="generator" content="WordPress 6.6.2" />
-    <link rel="canonical" href="index.html" />
-    <link rel="shortlink" href="index.html" />
-    <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
-        href="public/json/oembed/1.0/embed%3Furl=https:%252F%252Fgervisbermudez.github.io/site%252F" />
-    <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
-        href="public/json/oembed/1.0/embed%3Furl=https:%252F%252Fgervisbermudez.github.io/site%252F&amp;format=xml" />
-    <meta name="generator" content="Site Kit by Google 1.135.0" />
-    <link rel="stylesheet" href="{{ 'public/css/styles.css' | relative_url }}" type="text/css" media="all" />
-    <link rel="icon" href="{{'public/uploads/2024/03/Vectorized-Logo-150x150.png' | relative_url}}" sizes="32x32" />
-    <link rel="icon" href="{{'public/uploads/2024/03/Vectorized-Logo-300x300.png'}} | relative_url" sizes="192x192" />
-    <link rel="apple-touch-icon" href="{{'public/uploads/2024/03/Vectorized-Logo-300x300.png'}} | relative_url" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="shortlink" href="{{ site.url }}{{ page.url }}" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/styles.css" type="text/css" media="all" />
+    <link rel="icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-150x150.png" sizes="32x32" />
+    <link rel="icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" />
     <meta name="msapplication-TileImage"
-        content="{{'public/uploads/2024/03/Vectorized-Logo-300x300.png'}} | relative_url" />
-    <!-- START - Open Graph and Twitter Card Tags 3.3.3 -->
-    <!-- Facebook Open Graph -->
+        content="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Gervis Bermudez | Blog" />
-    <meta property="og:title" content="{{page.title}}" />
-    <meta property="og:url" content="https://gervisbermudez.github.io/site" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="{{site.description}}" />
-    <!-- Google+ / Schema.org -->
-    <meta itemprop="name" content="{{page.title}}" />
-    <meta itemprop="headline" content="{{page.title}}" />
-    <meta itemprop="description" content="{{site.description}}" />
+    <meta property="og:description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
+    <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
+    <meta itemprop="headline" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
+    <meta itemprop="description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta itemprop="author" content="gervisbermudez" />
-    <!--<meta itemprop="publisher" content="Gervis Bermudez | Blog"/>-->
-    <!-- To solve: The attribute publisher.itemtype has an invalid value -->
-    <!-- Twitter Cards -->
-    <meta name="twitter:title" content="{{page.title}}" />
-    <meta name="twitter:url" content="https://gervisbermudez.github.io/site" />
-    <meta name="twitter:description" content="{{site.description}}" />
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+    <meta name="twitter:description"
+        content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- SEO -->
-    <!-- Misc. tags -->
-    <!-- is_singular -->
-    <!-- END - Open Graph and Twitter Card Tags 3.3.3 -->
 </head>

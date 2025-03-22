@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-21T21:47:51+00:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>My goal is to apply my knowledge and professional experience, in addition to contributing  my values and skills to organizations to contribute to their growth and  continue to further strengthen my skills.</subtitle><entry><title type="html">Solving the Hotel Reservation Problem using Vue.js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue.js with Vite" /><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-22T01:53:03+00:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>My goal is to apply my knowledge and professional experience, in addition to contributing  my values and skills to organizations to contribute to their growth and  continue to further strengthen my skills.</subtitle><entry><title type="html">Solving the Hotel Reservation Problem using Vue.js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue.js with Vite" /><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
   <div
     data-elementor-type="wp-post"
     data-elementor-id="662"
@@ -1059,132 +1059,118 @@ searchResult.value = null
       </div>
     </div>
   </div>
-</div>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="Vue.js" /><category term="Vite" /><category term="Hotel Reservation" /><summary type="html"><![CDATA[A detailed guide on solving the hotel reservation problem using Vue.js and Vite.]]></summary></entry><entry><title type="html">Start CMS Version 2.0.0 is Here</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/start-cms-version-2-0-0-is-here" rel="alternate" type="text/html" title="Start CMS Version 2.0.0 is Here" /><published>2024-12-07T00:00:00+00:00</published><updated>2024-12-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/start-cms-version-2-0-0-is-here</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/start-cms-version-2-0-0-is-here"><![CDATA[<p class="has-medium-font-size">
-  <strong>Get Ready to Revolutionize Your Content Management!<br /></strong
-  ><br />Hi everyone,
+</div>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="Vue.js" /><category term="Vite" /><category term="Hotel Reservation" /><summary type="html"><![CDATA[A detailed guide on solving the hotel reservation problem using Vue.js and Vite.]]></summary></entry><entry><title type="html">Building a Custom CMS - From Figma to CodeIgniter with Materialize</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize" rel="alternate" type="text/html" title="Building a Custom CMS - From Figma to CodeIgniter with Materialize" /><published>2024-12-07T00:00:00+00:00</published><updated>2024-12-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize"><![CDATA[<p class="has-medium-font-size">
+  <strong>From Concept to Creation: My Journey Building a Custom CMS<br /></strong><br />Hello everyone,
 </p>
 
 <p>
-  I&#8217;m thrilled to announce the release of Start CMS Version 2.0.0, the
-  latest and greatest version of our lightweight content management system! This
-  new version is packed with exciting new features that will make managing your
-  website easier and more enjoyable than ever before.
+  I'd like to share my experience in designing and developing a custom Content Management System (CMS). This project was
+  a comprehensive exercise in full-stack development, combining my design skills with robust backend implementation. I
+  aimed to create a flexible, user-friendly CMS tailored to specific content management needs.
 </p>
 
 <p>
-  One of the most exciting new features in Start CMS Version 2.0.0 is the
-  dynamic forms content. With this feature, you can now create custom forms that
-  can capture and store any data you need. Whether you&#8217;re looking to
-  create a contact form, a survey, or anything in between, Start CMS has you
-  covered.
+  The process began with meticulous planning and design in Figma. I focused on creating an intuitive user interface that
+  would streamline content management. This included designing dynamic forms, a customizable dashboard, media
+  organization tools, and an event management system.
 </p>
 
 <figure class="wp-block-image size-full">
-  <img
-    decoding="async"
-    width="797"
-    height="560"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg"
-    alt=""
-    class="wp-image-349"
-    srcset="
-      ../../../../public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg         797w,
-      ../../../../public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436-300x211.jpg 300w,
-      ../../../../public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436-768x540.jpg 768w,
-      ../../../../public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436-512x360.jpg 512w
-    "
-    sizes="(max-width: 797px) 100vw, 797px"
-  />
+  <img decoding="async" width="797" height="560"
+    src="/site/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg"
+    alt="Dashboard Widgets" class="wp-image-349" />
+  <figcaption>Dashboard Widgets</figcaption>
 </figure>
 
 <p>
-  <br /><strong>Redesigned Dashboard</strong><br /><br />We&#8217;ve also added
-  new widgets to the dashboard, making it even easier to manage your website.
-  With the new widgets, you can quickly see your most recent posts, check on
-  your site&#8217;s traffic, and more. And with the new user tracking feature,
-  you can see exactly how your visitors are interacting with your site, giving
-  you valuable insights into how you can improve their experience.
+  <br /><strong>Backend Development with CodeIgniter</strong><br /><br />For the backend, I chose PHP CodeIgniter for
+  its lightweight framework and robust features. This allowed me to efficiently implement the core functionalities,
+  including user authentication, data management, and API integrations. Key features include:
 </p>
+
+<ul>
+  <li><strong>Dynamic Forms:</strong> Enabling users to create and manage custom forms for data collection.</li>
+  <li><strong>Redesigned Dashboard:</strong> Providing an overview of key metrics and recent activities, enhanced with
+    customizable widgets.</li>
+  <li><strong>User Tracking:</strong> Implementing analytics to understand user interactions and improve site
+    engagement.</li>
+</ul>
 
 <figure class="wp-block-image size-full">
-  <img
-    decoding="async"
-    width="332"
-    height="134"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/image.png"
-    alt=""
-    class="wp-image-350"
-    srcset="
-      ../../../../public/uploads/2024/03/image.png         332w,
-      ../../../../public/uploads/2024/03/image-300x121.png 300w
-    "
-    sizes="(max-width: 332px) 100vw, 332px"
-  />
+  <img decoding="async" width="332" height="134" src="/site/public/uploads/2024/03/image.png"
+    alt="Notifications" class="wp-image-350" />
+  <figcaption>Notifications</figcaption>
 </figure>
 
 <p>
-  <strong>Notifications</strong><br /><br />Another major new feature in Start
-  CMS Version 2.0.0 is the ability to create albums for your photos and videos.
-  Now, you can organize your media in a way that makes sense to you, making it
-  easier to find what you&#8217;re looking for when you need it.
+  <strong>Styling with Materialize.css</strong><br /><br />To ensure a clean and responsive design, I utilized
+  Materialize.css, a modern responsive front-end framework based on Material Design. This choice facilitated the
+  creation of a visually appealing and user-friendly interface. Features styled with Materialize.css include:
 </p>
+
+<ul>
+  <li><strong>Media Management:</strong> Organizing photos and videos into albums for easy access.</li>
+  <li><strong>Calendar and Event Management:</strong> Providing a structured system for managing events.</li>
+  <li><strong>Data Export:</strong> Allowing users to export data for analysis and reporting.</li>
+</ul>
 
 <figure class="wp-block-image size-full">
-  <img
-    loading="lazy"
-    decoding="async"
-    width="828"
-    height="536"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg"
-    alt=""
-    class="wp-image-351"
-    srcset="
-      ../../../../public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg         828w,
-      ../../../../public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435-300x194.jpg 300w,
-      ../../../../public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435-768x497.jpg 768w,
-      ../../../../public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435-512x331.jpg 512w
-    "
-    sizes="(max-width: 828px) 100vw, 828px"
-  />
+  <img loading="lazy" decoding="async" width="828" height="536"
+    src="/site/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg"
+    alt="Calendar and Event Management" class="wp-image-351" />
+  <figcaption>Calendar and Event Management</figcaption>
 </figure>
 
 <p>
-  <br /><strong>New Calendar<br /></strong><br />And that&#8217;s just the tip
-  of the iceberg! We&#8217;ve also added new categories and subcategories for
-  your content, a new events management system, and a whole host of other
-  improvements and optimizations that make Start CMS faster, more reliable, and
-  easier to use than ever before.
+  <br /><strong>Advanced Features and Scalability<br /></strong><br />Beyond the core functionalities, I integrated
+  features like:
 </p>
+
+<ul>
+  <li><strong>Categorization and Subcategorization:</strong> Enhancing content organization.</li>
+  <li><strong>Notification System:</strong> Keeping users informed of important updates.</li>
+  <li><strong>Role-Based Access Control:</strong> Implementing a user role system to manage permissions and access to
+    different sections of the CMS.</li>
+  <li><strong>SEO Optimization:</strong> Integrating tools to optimize content for search engines, including metadata
+    management and sitemap generation.</li>
+  <li><strong>Backup and Restore System:</strong> Ensuring data integrity with backup and restore functionalities.</li>
+</ul>
 
 <figure class="wp-block-image size-full">
-  <img
-    loading="lazy"
-    decoding="async"
-    width="965"
-    height="605"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png"
-    alt=""
-    class="wp-image-352"
-    srcset="
-      ../../../../public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png         965w,
-      ../../../../public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-300x188.png 300w,
-      ../../../../public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-768x481.png 768w,
-      ../../../../public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-512x321.png 512w,
-      ../../../../public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433-950x596.png 950w
-    "
-    sizes="(max-width: 965px) 100vw, 965px"
-  />
+  <img loading="lazy" decoding="async" width="965" height="605"
+    src="/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png"
+    alt="Data Export Functionality" class="wp-image-352" />
+  <figcaption>Data Export Interface</figcaption>
 </figure>
 
 <p>
-  <br /><strong>Export Data<br /></strong><br />So, if you&#8217;re looking for
-  a lightweight, powerful, and user-friendly content management system, look no
-  further than Start CMS Version 2.0.0. With its powerful features, beautiful
-  interface, and rock-solid performance, it&#8217;s the perfect choice for
-  anyone looking to take their website to the next level.
+  <br /><strong>Conclusion and Reflections<br /></strong><br />This project demonstrates my ability to handle the entire
+  development lifecycle, from initial design to final implementation. By leveraging Figma, CodeIgniter, and
+  Materialize.css, I created a robust and user-friendly CMS. The choice of CodeIgniter allowed me to structure the
+  backend efficiently, while Materialize.css helped me achieve a modern and responsive user interface.
 </p>
 
-<p>Thank you for choosing Start CMS, and happy building!</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="Start CMS" /><category term="Version 2.0.0" /><category term="Content Management" /><summary type="html"><![CDATA[Announcing the release of Start CMS Version 2.0.0 with exciting new features for better content management.]]></summary></entry><entry><title type="html">Boosting Productivity in Web Development with Microsoft 365 Copilot</title><link href="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot" rel="alternate" type="text/html" title="Boosting Productivity in Web Development with Microsoft 365 Copilot" /><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot"><![CDATA[<p>
+<p>
+  Throughout the development, I faced several challenges, including implementing dynamic forms and optimizing
+  performance for large data volumes. Each challenge was an opportunity to learn and improve my skills. I am
+  particularly proud of the data export functionality, which provides users with the flexibility to analyze and utilize
+  their data outside the CMS.
+</p>
+
+<p>
+  For more detailed information about this project, please visit: <a title="Start CMS Project" href="/site/portfolio/start-cms/">Start CMS Project</a>
+</p>
+
+<p>
+  I am passionate about building scalable and efficient web solutions, and I am eager to contribute my skills to
+  challenging projects. I believe my experience in full-stack design and development allows me to approach complex
+  projects with a comprehensive perspective, ensuring that both functionality and user experience are top-notch.
+</p>
+
+<p>
+  Thank you for taking the time to review my work. I look forward to potential opportunities where I can apply my
+  expertise to create impactful web applications.
+</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="CMS" /><category term="PHP" /><category term="CodeIgniter" /><category term="Figma" /><category term="Materialize.css" /><category term="Web Development" /><category term="Portfolio" /><summary type="html"><![CDATA[Announcing the release of Start CMS Version 2.0.0 with exciting new features for better content management.]]></summary></entry><entry><title type="html">Boosting Productivity in Web Development with Microsoft 365 Copilot</title><link href="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot" rel="alternate" type="text/html" title="Boosting Productivity in Web Development with Microsoft 365 Copilot" /><published>2024-10-07T00:00:00+00:00</published><updated>2024-10-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot"><![CDATA[<p>
   Taking Web Development to the Next Level with Microsoft 365 Copilot&#8217;s
 </p>
 
@@ -1338,94 +1324,58 @@ searchResult.value = null
     >freelance projects</a
   >, so feel free to reach out if you&#8217;re in need of development
   assistance. Looking forward to hearing from you!
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Technology" /><category term="Microsoft 365" /><category term="Copilot" /><category term="Web Development" /><category term="Productivity" /><summary type="html"><![CDATA[Exploring how Microsoft 365 Copilot can enhance productivity in web development through code generation, user input analysis, and content creation.]]></summary></entry><entry><title type="html">Meet Material Design, the Design System of Google</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google" rel="alternate" type="text/html" title="Meet Material Design, the Design System of Google" /><published>2024-06-08T00:00:00+00:00</published><updated>2024-06-08T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google"><![CDATA[<p>Google&#8217;s Design System: Material Design</p>
+</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Technology" /><category term="Microsoft 365" /><category term="Copilot" /><category term="Web Development" /><category term="Productivity" /><summary type="html"><![CDATA[Exploring how Microsoft 365 Copilot can enhance productivity in web development through code generation, user input analysis, and content creation.]]></summary></entry><entry><title type="html">Designing a Note-Taking Web App with Google Material Design</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google" rel="alternate" type="text/html" title="Designing a Note-Taking Web App with Google Material Design" /><published>2024-06-08T00:00:00+00:00</published><updated>2024-06-08T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google"><![CDATA[<p>Designing with Material Design: A Note-Taking Web App in Figma</p>
 
 <p>
-  As a designer, one of the biggest challenges is staying current with the
-  latest design trends and technologies. Material Design, which was introduced
-  by Google in 2014, has quickly become a popular choice for designers looking
-  to create intuitive, user-friendly apps and websites.
+  As a designer, I'm always looking for ways to create intuitive and user-friendly interfaces. Recently, I embarked on a
+  project to design a note-taking web application, leveraging the power of Google's Material Design system within Figma.
 </p>
 
 <p>
-  But why is Material Design still a great option for designing apps and
-  websites? Here are a few reasons:
+  Material Design, with its emphasis on clean aesthetics and user-centric principles, provided a solid foundation for
+  this project. Its structured approach to layout, typography, and interaction design helped me create a consistent and
+  visually appealing user experience.
 </p>
 
 <p>
-  Material Design is intuitive and user-friendly. The design principles behind
-  Material Design are based on the physical properties of real-world objects,
-  such as how light and shadows interact with objects. This creates a familiar
-  and intuitive experience for users, making it easy for them to navigate and
-  interact with your app or website.
+  One of the key aspects of Material Design is its focus on real-world metaphors, using concepts like elevation and
+  depth to create a sense of familiarity for users. This translated well into the design of my note-taking app, where I
+  utilized cards and subtle shadows to organize and prioritize content.
 </p>
 
 <figure class="wp-block-image size-large">
-  <img
-    decoding="async"
-    width="1024"
-    height="542"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/material-design-image-01-design-system-2022-12-16-103334-1024x542.webp"
-    alt=""
-    class="wp-image-15"
-    srcset="
-      ../../../../public/uploads/2024/03/material-design-image-01-design-system-2022-12-16-103334-1024x542.webp 1024w,
-      ../../../../public/uploads/2024/03/material-design-image-01-design-system-2022-12-16-103334-300x159.webp   300w,
-      ../../../../public/uploads/2024/03/material-design-image-01-design-system-2022-12-16-103334-768x406.webp   768w,
-      ../../../../public/uploads/2024/03/material-design-image-01-design-system-2022-12-16-103334.webp          1281w
-    "
-    sizes="(max-width: 1024px) 100vw, 1024px"
-  />
+  <img decoding="async" width="1024" height="542"
+    src="/public/uploads/2024/03/vuenote_www.figma.com.jpeg"
+    alt="Figma Design of Note-Taking Web App" class="wp-image-15" />
+  <figcaption>Design of Note-Taking Web App in Figma</figcaption>
 </figure>
 
 <p>
-  Material Design is responsive. With the increasing number of devices and
-  screen sizes, it&#8217;s important for your app or website to be responsive
-  and adaptable to different devices. Material Design uses flexible grids and
-  responsive animations, allowing your design to adjust seamlessly to different
-  screen sizes and resolutions.
+  Material Design's responsiveness was also crucial in ensuring that the app would adapt seamlessly to various screen
+  sizes. Figma's auto-layout features allowed me to create flexible components that could easily adjust to different
+  viewports.
 </p>
 
 <p>
-  Material Design is consistent. Material Design uses a consistent visual
-  language across all platforms and devices, ensuring that your brand and design
-  elements are consistent and recognizable no matter where they are viewed. This
-  creates a cohesive user experience and helps to establish trust and
-  credibility with your users.
-</p>
-
-<figure class="wp-block-image size-full">
-  <img
-    decoding="async"
-    width="720"
-    height="360"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/unnamed-2022-12-16-103633.png"
-    alt=""
-    class="wp-image-16"
-    srcset="
-      ../../../../public/uploads/2024/03/unnamed-2022-12-16-103633.png         720w,
-      ../../../../public/uploads/2024/03/unnamed-2022-12-16-103633-300x150.png 300w
-    "
-    sizes="(max-width: 720px) 100vw, 720px"
-  />
-</figure>
-
-<p>
-  Material Design is versatile. The design principles behind Material Design are
-  flexible and can be applied to a wide variety of designs, from simple, flat
-  designs to more complex, layered designs. This allows designers to create
-  unique and engaging experiences that are tailored to their specific needs and
-  goals.
+  Consistency was another key factor in this project. Material Design's predefined components and styles helped me
+  maintain a cohesive visual language throughout the app. This not only improved the user experience but also
+  streamlined the design process.
 </p>
 
 <p>
-  In conclusion, Material Design is still a great option for designing apps and
-  websites because it is intuitive, responsive, consistent, and versatile.
-  Whether you&#8217;re a designer looking to create a new app or website, or a
-  business owner looking to update your existing design, Material Design is a
-  solid choice that will help you create a user-friendly, engaging, and cohesive
-  experience for your users.
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Material Design" /><category term="Google" /><category term="Web Design" /><category term="Design System" /><category term="Responsive Design" /><summary type="html"><![CDATA[A comprehensive guide to understanding Google's Material Design system, its principles, and why it remains a popular choice for creating intuitive, responsive, and consistent user interfaces.]]></summary></entry><entry><title type="html">Lightweight and powerful - CodeIgniter the php framework</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework" rel="alternate" type="text/html" title="Lightweight and powerful - CodeIgniter the php framework" /><published>2024-05-07T00:00:00+00:00</published><updated>2024-05-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework"><![CDATA[<div class="single-post-text">
+  The versatility of Material Design allowed me to explore different layout options and interaction patterns. I was able
+  to create a clean and intuitive interface that prioritized content and user flow.
+</p>
+
+<p>
+  In conclusion, using Material Design in Figma proved to be an effective approach for designing a user-friendly
+  note-taking web application. Its principles and components provided a solid foundation for creating a consistent,
+  responsive, and visually appealing interface.
+</p>
+
+<p>
+  For more details on this project, please visit: <a href="/site/portfolio/vuenotes-app-proposal/">VueNotes App Proposal</a>
+</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Material Design" /><category term="Google" /><category term="Web Design" /><category term="Design System" /><category term="Responsive Design" /><summary type="html"><![CDATA[Exploring the process of designing a user-friendly note-taking web application using Google's Material Design principles within Figma]]></summary></entry><entry><title type="html">Lightweight and powerful - CodeIgniter the php framework</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework" rel="alternate" type="text/html" title="Lightweight and powerful - CodeIgniter the php framework" /><published>2024-05-07T00:00:00+00:00</published><updated>2024-05-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework"><![CDATA[<div class="single-post-text">
   <p>
     CodeIgniter is a powerful PHP framework that is still a top choice for many
     web developers when it comes to creating new websites. Despite being around

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-22T01:53:03+00:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>My goal is to apply my knowledge and professional experience, in addition to contributing  my values and skills to organizations to contribute to their growth and  continue to further strengthen my skills.</subtitle><entry><title type="html">Solving the Hotel Reservation Problem using Vue.js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue.js with Vite" /><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-22T03:02:57+00:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>My goal is to apply my knowledge and professional experience, in addition to contributing  my values and skills to organizations to contribute to their growth and  continue to further strengthen my skills.</subtitle><entry><title type="html">Solving the Hotel Reservation Problem using Vue.js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue.js with Vite" /><published>2025-02-07T00:00:00+00:00</published><updated>2025-02-07T00:00:00+00:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
   <div
     data-elementor-type="wp-post"
     data-elementor-id="662"
@@ -1088,6 +1088,19 @@ searchResult.value = null
   including user authentication, data management, and API integrations. Key features include:
 </p>
 
+<p>
+  <strong>Choosing CodeIgniter and MVC:</strong> I opted for PHP CodeIgniter for its simplicity, speed, and robust
+  community support. Its Model-View-Controller (MVC) architecture provided a clear separation of concerns, making the
+  codebase more organized and maintainable. This architectural pattern allowed me to develop features efficiently while
+  ensuring scalability and ease of future modifications.
+</p>
+
+<p>
+  <strong>Blade Templating:</strong> To enhance the rendering of views, I integrated Blade templating. Blade's
+  expressive syntax and template inheritance features significantly streamlined the process of creating dynamic and
+  reusable views, improving both development speed and code readability.
+</p>
+
 <ul>
   <li><strong>Dynamic Forms:</strong> Enabling users to create and manage custom forms for data collection.</li>
   <li><strong>Redesigned Dashboard:</strong> Providing an overview of key metrics and recent activities, enhanced with
@@ -1142,6 +1155,159 @@ searchResult.value = null
     alt="Data Export Functionality" class="wp-image-352" />
   <figcaption>Data Export Interface</figcaption>
 </figure>
+
+<p>
+  <strong>Database Design and Architecture: The Core of the Custom CMS</strong>
+</p>
+
+<p>
+  A critical component in the development of my custom CMS was the database design. I opted for a relational database,
+  using <strong>MySQL (MariaDB)</strong>, for its ability to ensure data integrity and efficiency in handling complex
+  data. The main objective was to create a robust structure capable of efficiently managing user information, posts, and
+  associated content.
+</p>
+
+<p>
+  The data model was carefully designed, following normalization principles, to avoid redundancy and optimize
+  performance. The main tables include:
+</p>
+
+<ul>
+  <li><strong>Users:</strong> Stores user information, including credentials and access roles.</li>
+  <li><strong>Posts:</strong> Contains post data, such as titles, content, categories, and publication dates.</li>
+  <li><strong>Content:</strong> Stores detailed post content, allowing flexible structure for different content types
+    (text, images, videos, etc.).</li>
+  <li><strong>Categories:</strong> Organizes posts into categories and subcategories for better management and
+    navigation.</li>
+  <li><strong>Tags:</strong> Allows tagging posts with keywords for easy searching and organization.</li>
+</ul>
+
+<p>
+  Relationships between these tables are crucial for CMS functionality. For example, the 'Users' table relates to the
+  'Posts' table in a one-to-many relationship, as one user can create multiple posts. The 'Posts' table relates to
+  'Categories' and 'Tags' tables in many-to-many relationships, enabling flexible content categorization and tagging.
+</p>
+
+<p>
+  Indexes were implemented on key columns to optimize queries and improve CMS performance. Foreign keys were defined to
+  ensure referential integrity and maintain consistency of related data.
+</p>
+
+<figure class="wp-block-image size-full">
+  <a href="/site/public/uploads/2024/03/gervisbermudez_db_prod-db.png">
+    <img loading="lazy" decoding="async" src="/site/public/uploads/2024/03/gervisbermudez_db_prod-db.png"
+     alt="Data Export Functionality" class="wp-image-352" />
+  </a>
+  <figcaption>Data Diagram</figcaption>
+</figure>
+
+<p>
+  The database diagram, generated with <strong>ChartDB</strong>, provides a clear visual representation of the structure
+  and relationships between tables. This diagram was an invaluable tool during development, allowing visualization and
+  optimization of the database architecture.
+</p>
+
+<p>
+  This database design not only supports the CMS's core functionalities but is also designed to be scalable, allowing
+  for future expansions and improvements.
+</p>
+
+<p>
+  <strong>API Architecture: The Engine of the CMS Frontend! </strong>
+</p>
+
+<p>
+  To provide a seamless and dynamic user experience, the CMS incorporates a robust RESTful API, designed to power the
+  frontend and enable efficient data management. This API, built with CodeIgniter, follows a logical structure and
+  exposes a comprehensive set of endpoints, allowing the frontend to interact with the CMS's core functionalities.
+</p>
+
+<p>
+  The API is organized into several key modules, each addressing a specific aspect of content and user management.
+  Here's a breakdown of the main modules and their functionalities:
+</p>
+
+<ul>
+  <li>
+    <strong>Users: </strong> This module handles user-related operations, including user creation, retrieval, and
+    deletion. It also manages user groups and permissions, ensuring secure access control.
+    <ul>
+      <li><code>GET /api/v1/users/:user_id</code>: Retrieves user information.</li>
+      <li><code>POST /api/v1/users/</code>: Creates a new user.</li>
+      <li><code>DELETE /api/v1/users/:id</code>: Deletes a user.</li>
+      <li><code>GET /api/v1/users/usergroups/:usergroup_id</code>: Retrieves user group information.</li>
+      <li><code>GET /api/v1/users/permissions</code>: Retrieves user permissions.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Login: </strong> Manages user authentication, allowing users to log in and log out securely.
+    <ul>
+      <li><code>POST /api/v1/login</code>: Authenticates a user.</li>
+      <li><code>GET /api/v1/login/logout</code>: Logs out a user.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Config: ⚙️</strong> Handles CMS configuration settings, including theme management, updates, database
+    backups, and system logging.
+    <ul>
+      <li><code>GET /api/v1/config/</code>: Retrieves CMS configuration.</li>
+      <li><code>GET /api/v1/config/themes</code>: Retrieves installed themes.</li>
+      <li><code>GET /api/v1/config/backup_database</code>: Creates a database backup.</li>
+      <li><code>GET /api/v1/config/systemlogger</code>: Retrieves system logs.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Files: </strong> Manages file uploads, retrieval, and deletion within the CMS's file manager.
+    <ul>
+      <li><code>GET /api/v1/files/:id?path</code>: Retrieves files.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Pages: </strong> Handles page creation, retrieval, and management, including page types and templates.
+    <ul>
+      <li><code>GET /api/v1/pages/:id</code>: Retrieves page information.</li>
+      <li><code>GET /api/v1/pages/types/:id</code>: Retrieves page types.</li>
+      <li><code>GET /api/v1/pages/templates</code>: Retrieves page templates.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Forms: </strong> Manages dynamic forms and form data, allowing users to create and retrieve form
+    submissions.
+    <ul>
+      <li><code>GET /api/v1/models/:form_id</code>: Retrieves form definitions.</li>
+      <li><code>GET /api/v1/models/data/:form_id</code>: Retrieves form data.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Categories: ️</strong> Manages content categories and subcategories, providing endpoints for filtering and
+    retrieving category data.
+    <ul>
+      <li><code>GET /api/v1/categorie/:categorie_id</code>: Retrieves category information.</li>
+      <li><code>GET /api/v1/categorie/type/:type_id</code>: Filters categories by type.</li>
+      <li><code>GET /api/v1/categorie/filter/?name=Web Design</code>: Filters categories by name.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Albums: ️</strong> Manages media albums, allowing retrieval of album data.
+    <ul>
+      <li><code>GET /api/v1/albumes/:album_id</code>: Retrieves album information.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Menus: ☰</strong> Handles menu creation, retrieval, and deletion, including menu templates.
+    <ul>
+      <li><code>GET /api/v1/menus/:menu_id</code>: Retrieves menu information.</li>
+      <li><code>GET /api/v1/menus/templates</code>: Retrieves menu templates.</li>
+      <li><code>DELETE /api/v1/menus/:id</code>: Deletes a menu.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+  This API architecture ensures that the CMS is not only functional but also highly extensible, allowing for future
+  enhancements and integrations. By exposing these endpoints, the CMS provides a flexible and powerful interface for
+  frontend developers to build rich and interactive user experiences.
+</p>
 
 <p>
   <br /><strong>Conclusion and Reflections<br /></strong><br />This project demonstrates my ability to handle the entire

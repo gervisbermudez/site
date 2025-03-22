@@ -110,6 +110,10 @@ layout: default
                         $(".social-share").rrssb({
                           title: "{{page.title}}",
                           url: "{{site.url}}{{ site.baseurl }}{{page.url}}",
+                          description: "{{page.description}}",
+                          emailBody: "{{page.description}}",
+                          emailSubject: "{{page.title}}",
+                          imageUrl: "{{site.url}}{{ site.baseurl }}{{page.banner | default: site.default_banner}}"
                         });
                       });
                     </script>

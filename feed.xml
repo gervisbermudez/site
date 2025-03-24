@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-24T14:51:16-03:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.</subtitle><entry><title type="html">From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker" rel="alternate" type="text/html" title="From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind" /><published>2025-03-24T00:00:00-03:00</published><updated>2025-03-24T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker"><![CDATA[<div class="page-body">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2025-03-24T18:32:38-03:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.</subtitle><entry><title type="html">From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker" rel="alternate" type="text/html" title="From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind" /><published>2025-03-24T00:00:00-03:00</published><updated>2025-03-24T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker"><![CDATA[<div class="page-body">
     <p class="">
         I everyone, I recently undertook a fascinating project: building a
         SpaceX launch tracker using Next.js and Tailwind CSS. The aim was to
@@ -1463,33 +1463,21 @@ const resetSearch = () => {
 <p>
   Thank you for taking the time to review my work. I look forward to potential opportunities where I can apply my
   expertise to create impactful web applications.
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="CMS" /><category term="PHP" /><category term="CodeIgniter" /><category term="Figma" /><category term="Materialize.css" /><category term="Web Development" /><category term="Portfolio" /><summary type="html"><![CDATA[A comprehensive guide on building a custom CMS from Figma designs to a CodeIgniter-powered backend, styled with Materialize.css.]]></summary></entry><entry><title type="html">Boosting Productivity in Web Development with Microsoft 365 Copilot</title><link href="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot" rel="alternate" type="text/html" title="Boosting Productivity in Web Development with Microsoft 365 Copilot" /><published>2024-10-07T00:00:00-03:00</published><updated>2024-10-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/boosting-productivity-in-web-development-with-microsoft-365-copilot"><![CDATA[<p>
-  Taking Web Development to the Next Level with Microsoft 365 Copilot&#8217;s
+</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="CMS" /><category term="PHP" /><category term="CodeIgniter" /><category term="Figma" /><category term="Materialize.css" /><category term="Web Development" /><category term="Portfolio" /><summary type="html"><![CDATA[A comprehensive guide on building a custom CMS from Figma designs to a CodeIgniter-powered backend, styled with Materialize.css.]]></summary></entry><entry><title type="html">The Developer’s Superpower: AI + GitHub Copilot = Unstoppable Code</title><link href="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code" rel="alternate" type="text/html" title="The Developer’s Superpower: AI + GitHub Copilot = Unstoppable Code" /><published>2024-10-07T00:00:00-03:00</published><updated>2024-10-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code"><![CDATA[<p>
+  Hey everyone! 🤠 <br /><br /> As a front-end developer, I'm always looking for ways to optimize my workflow and be
+  more efficient.
+  Recently, I thoroughly explored Microsoft 365 Copilot and was amazed by its potential. But that was just the
+  beginning!
+  I discovered an arsenal of AI tools that have revolutionized my way of working: GitHub Copilot, ChatGPT, and Gemini.
+  Get
+  ready for a journey through my experience and how these tools have quadrupled my productivity!
 </p>
 
 <figure class="wp-block-image size-full">
-  <img
-    decoding="async"
-    width="1000"
-    height="563"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/m365copilot-business-1920x1080-web-2023-03-16-213513.jpg"
-    alt=""
-    class="wp-image-21"
-    srcset="
-      ../../../../public/uploads/2024/03/m365copilot-business-1920x1080-web-2023-03-16-213513.jpg         1000w,
-      ../../../../public/uploads/2024/03/m365copilot-business-1920x1080-web-2023-03-16-213513-300x169.jpg  300w,
-      ../../../../public/uploads/2024/03/m365copilot-business-1920x1080-web-2023-03-16-213513-768x432.jpg  768w
-    "
-    sizes="(max-width: 1000px) 100vw, 1000px"
-  />
+  <img decoding="async" width="1000" height="563" src="/site/public/uploads/2024/03/github-copilot.png"
+    alt="" class="wp-image-21" />
 </figure>
 
-<p>
-  As a front-end developer, I&#8217;m always looking for ways to improve my
-  productivity and streamline my workflow. That&#8217;s why I was excited to
-  learn about Microsoft 365 Copilot and its potential applications in web
-  development.
-</p>
 
 <p>
   One of the main benefits of Copilot is its ability to generate code snippets
@@ -1509,6 +1497,12 @@ const resetSearch = () => {
   better meet their needs.
 </p>
 
+<figure class="wp-block-image size-large">
+  <img decoding="async" width="1024" height="576"
+    src="/site/public/uploads/2024/03/m365copilot-business-1920x1080-web-2023-03-16-213513.jpg" alt=""
+    class="wp-image-22" />
+</figure>
+
 <p>
   Overall, I&#8217;m excited to continue exploring the potential applications of
   Microsoft 365 Copilot in web development. With its ability to generate code
@@ -1517,24 +1511,6 @@ const resetSearch = () => {
   levels of experience.
 </p>
 
-<figure class="wp-block-image size-large">
-  <img
-    decoding="async"
-    width="1024"
-    height="576"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/hero-image-m365copilot-herobanner-wordapp-prompt-1920x1080-2023-03-16-213514-1024x576.png"
-    alt=""
-    class="wp-image-22"
-    srcset="
-      ../../../../public/uploads/2024/03/hero-image-m365copilot-herobanner-wordapp-prompt-1920x1080-2023-03-16-213514-1024x576.png 1024w,
-      ../../../../public/uploads/2024/03/hero-image-m365copilot-herobanner-wordapp-prompt-1920x1080-2023-03-16-213514-300x169.png   300w,
-      ../../../../public/uploads/2024/03/hero-image-m365copilot-herobanner-wordapp-prompt-1920x1080-2023-03-16-213514-768x432.png   768w,
-      ../../../../public/uploads/2024/03/hero-image-m365copilot-herobanner-wordapp-prompt-1920x1080-2023-03-16-213514-1536x864.png 1536w,
-      ../../../../public/uploads/2024/03/hero-image-m365copilot-herobanner-wordapp-prompt-1920x1080-2023-03-16-213514.png          1921w
-    "
-    sizes="(max-width: 1024px) 100vw, 1024px"
-  />
-</figure>
 
 <p>
   As a web developer, I can see how Microsoft 365 Copilot can be a game-changer
@@ -1542,6 +1518,9 @@ const resetSearch = () => {
   summarize, and edit text based on prompts, I can easily generate content for
   web pages and blog posts. Copilot can also help me improve my writing by
   suggesting ways to strengthen my arguments or make my language more concise.
+
+  <br /><br />
+
   For example, I could prompt Copilot to create a landing page draft based on
   certain data or to summarize a blog post for me. Copilot&#8217;s ability to
   suggest different tones, from professional to casual, can also help me tailor
@@ -1550,74 +1529,63 @@ const resetSearch = () => {
   development.
 </p>
 
-<p><strong>Microsoft 365 Copilot &#8211; Excel</strong></p>
 
 <figure class="wp-block-image size-large">
-  <img
-    loading="lazy"
-    decoding="async"
-    width="1024"
-    height="576"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/2023-03-16t221842-2023-03-16-213513-1024x576.jpg"
-    alt=""
-    class="wp-image-23"
-    srcset="
-      ../../../../public/uploads/2024/03/2023-03-16t221842-2023-03-16-213513-1024x576.jpg 1024w,
-      ../../../../public/uploads/2024/03/2023-03-16t221842-2023-03-16-213513-300x169.jpg   300w,
-      ../../../../public/uploads/2024/03/2023-03-16t221842-2023-03-16-213513-768x432.jpg   768w,
-      ../../../../public/uploads/2024/03/2023-03-16t221842-2023-03-16-213513.jpg          1280w
-    "
-    sizes="(max-width: 1024px) 100vw, 1024px"
-  />
+  <img loading="lazy" decoding="async" width="1024" height="576"
+    src="/site/public/uploads/2024/03/chat-gpt.png" alt="" class="wp-image-23" />
 </figure>
 
 <p>
-  The potential uses of Copilot in Excel for web development are vast. As a
-  developer, I often work with large sets of data that I need to analyze and
-  visualize to make informed decisions. With Copilot, I can ask natural language
-  questions about my data and get insights into correlations, trends, and
-  potential outcomes. I can quickly create powerful visualizations to present my
-  findings to stakeholders and make data-driven decisions. Copilot&#8217;s
-  ability to generate new formulas based on my questions can save me valuable
-  time by automating the data analysis process. With Copilot, I can take my web
-  development projects to the next level by leveraging the power of AI to
-  enhance my data analysis capabilities.
+  ChatGPT has become my personal assistant for everything. Do I need to research a complex technical topic? ChatGPT
+  provides me with clear and concise information. Do I need to generate content for a landing page? ChatGPT helps me
+  write persuasive and engaging texts. Do I need to debug an error? ChatGPT gives me suggestions and potential
+  solutions. It's
+  like having an expert in any area at my disposal, 24/7!
 </p>
 
-<p><strong>Microsoft 365 &#8211; PowerPoint</strong></p>
-
+<h2>
+  Gemini: The Ultimate Multitasker 🪄
+</h2>
 <p>
-  While Copilot in PowerPoint may not seem like an obvious tool for web
-  development, its potential for creating stunning presentations can be useful
-  for showcasing website designs or pitching website ideas to clients. With
-  Copilot&#8217;s ability to transform written documents into presentations and
-  adjust layouts with natural language commands, developers can quickly create
-  visually appealing presentations to showcase their work and communicate their
-  ideas effectively. Additionally, Copilot&#8217;s feature to perfectly time
-  animations can be useful for demonstrating website functionality and user
-  experience. Overall, Copilot in PowerPoint can be a valuable tool for
-  front-end developers in presenting their work and ideas to clients or team
-  members.
+
+  Gemini has been a fantastic addition to my workflow, especially for tasks that involve integrating various types of
+  information. Its ability to analyze data, generate visualizations, and create presentations has allowed me to save
+  time
+  and effort. It's like having a multifunctional assistant who helps me connect the dots and present my ideas
+  effectively!
+
+  <br />
+
+  For a presentation on website performance, I used Gemini to analyze Google Analytics data, generate charts, and create
+  slides with relevant content. All in one place!
 </p>
 
+
 <p>
-  I hope you found this post on Microsoft 365 Copilot helpful and informative.
+
+  The combination of Microsoft Copilot, GitHub Copilot, ChatGPT, and Gemini has transformed my workflow and allowed me
+  to
+  increase my productivity exponentially. Now, I can focus on the more creative and strategic tasks, while AI takes care
+  of the repetitive and tedious ones. If you are a developer, I invite you to explore these tools and discover how they
+  can revolutionize your way of working!
+</p>
+
+
+<p>
   If you have any questions or want to learn more about how this tool can be
-  utilized in your development projects, please don&#8217;t hesitate to <a
-    href="../../../../contact/index.html"
-    data-type="page"
-    data-id="25"
-    >contact me</a
-  >. As a frontend developer, I&#8217;m always excited to explore new tools and
+  utilized in your development projects, please don&#8217;t hesitate to <a href="/site/contact"
+    data-type="page" data-id="25">contact me</a>. As a frontend developer, I&#8217;m always excited to explore new tools
+  and
   technologies that can help streamline and improve the development process.
-  I&#8217;m also available for <a
-    href="../../../../portfolio/index.html"
-    data-type="page"
-    data-id="162"
-    >freelance projects</a
-  >, so feel free to reach out if you&#8217;re in need of development
+</p>
+<p>
+  I&#8217;m also available for <a href="/site/portfolio/" data-type="page" data-id="162">freelance
+    projects</a>, so feel free to reach out if you&#8217;re in need of development
   assistance. Looking forward to hearing from you!
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Technology" /><category term="Microsoft 365" /><category term="Copilot" /><category term="Web Development" /><category term="Productivity" /><summary type="html"><![CDATA[Exploring how Microsoft 365 Copilot can enhance productivity in web development through code generation, user input analysis, and content creation.]]></summary></entry><entry><title type="html">Designing a Note-Taking Web App with Google Material Design</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google" rel="alternate" type="text/html" title="Designing a Note-Taking Web App with Google Material Design" /><published>2024-06-08T00:00:00-03:00</published><updated>2024-06-08T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google"><![CDATA[<p>Designing with Material Design: A Note-Taking Web App in Figma</p>
+</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Technology" /><category term="Microsoft 365" /><category term="Copilot" /><category term="Web Development" /><category term="Productivity" /><summary type="html"><![CDATA[Discover how AI tools like GitHub Copilot, ChatGPT, and Gemini have revolutionized my web development workflow, boosting productivity and creativity 🚀]]></summary></entry><entry><title type="html">Designing a Note-Taking Web App with Google Material Design</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google" rel="alternate" type="text/html" title="Designing a Note-Taking Web App with Google Material Design" /><published>2024-06-08T00:00:00-03:00</published><updated>2024-06-08T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google"><![CDATA[<p>Hey there! 😎
+  
+  <br /><br />
+  Today, I’m super excited to walk you through how I designed a note-taking web app using Google’s Material Design in Figma. Let’s dive in and see how to make clean and user-friendly interfaces together!</p>
 
 <p>
   As a designer, I'm always looking for ways to create intuitive and user-friendly interfaces. Recently, I embarked on a
@@ -1661,6 +1629,14 @@ const resetSearch = () => {
 </p>
 
 <p>
+  See the result of the design implementation below:
+</p>
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+  src="https://embed.figma.com/design/sePMgmi0kFBaQbzrOYLaCn/VueNotes?node-id=6-2&embed-host=share"
+  allowfullscreen></iframe>
+
+<p>
   In conclusion, using Material Design in Figma proved to be an effective approach for designing a user-friendly
   note-taking web application. Its principles and components provided a solid foundation for creating a consistent,
   responsive, and visually appealing interface.
@@ -1668,7 +1644,7 @@ const resetSearch = () => {
 
 <p>
   For more details on this project, please visit: <a href="/site/portfolio/vuenotes-app-proposal/">VueNotes App Proposal</a>
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Material Design" /><category term="Google" /><category term="Web Design" /><category term="Design System" /><category term="Responsive Design" /><summary type="html"><![CDATA[Exploring the process of designing a user-friendly note-taking web application using Google's Material Design principles within Figma]]></summary></entry><entry><title type="html">Lightweight and powerful - CodeIgniter the php framework</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework" rel="alternate" type="text/html" title="Lightweight and powerful - CodeIgniter the php framework" /><published>2024-05-07T00:00:00-03:00</published><updated>2024-05-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework"><![CDATA[<div class="single-post-text">
+</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Material Design" /><category term="Google" /><category term="Web Design" /><category term="Design System" /><category term="Responsive Design" /><summary type="html"><![CDATA[Exploring the process of designing a user-friendly note-taking web application using Google's Material Design principles within Figma 🤖]]></summary></entry><entry><title type="html">Lightweight and powerful - CodeIgniter the php framework</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework" rel="alternate" type="text/html" title="Lightweight and powerful - CodeIgniter the php framework" /><published>2024-05-07T00:00:00-03:00</published><updated>2024-05-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework"><![CDATA[<div class="single-post-text">
   <p>
     CodeIgniter is a powerful PHP framework that is still a top choice for many
     web developers when it comes to creating new websites. Despite being around

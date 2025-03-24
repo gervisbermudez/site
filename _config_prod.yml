@@ -23,7 +23,7 @@ email: gervisbermudez@outlook.com
 description: 'I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.'
 baseurl: "/site" # the subpath of your site, e.g. /blog
 url: "https://gervisbermudez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-paginate: 5 # Número de publicaciones por página
+paginate: 6 # Número de publicaciones por página
 paginate_path: "/blog/page:num/" # Ruta de las páginas de paginación
 twitter_username: gervisbermudez
 github_username: gervisbermudez

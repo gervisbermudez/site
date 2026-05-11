@@ -582,8 +582,8 @@ document.addEventListener('click', async (e) => {
       return;
     }
 
-    // 2. Iniciar la transición con el nuevo contenido ya en memoria
-    document.startViewTransition(() => {
+    // 2. Iniciar la transición — el callback solo hace el swap del DOM (debe ser sincrónico y rápido)
+    const transition = document.startViewTransition(() => {
       document.title = doc.title;
 
       const currentContent = document.querySelector('.art-content');
@@ -598,20 +598,19 @@ document.addEventListener('click', async (e) => {
 
       history.pushState({}, '', url);
 
-      // Re-initialize scripts
-      window.reinitScripts();
-
-      // Reset scroll al top
-      if (typeof Scrollbar !== 'undefined' && !$("body").hasClass("default--scrolling")) {
-        if (document.querySelector("#scrollbar")) {
-          const scrollbarInstance = Scrollbar.init(document.querySelector("#scrollbar"), { damping: 0.05, renderByPixel: true, continuousScrolling: true });
-          scrollbarInstance.setPosition(0, 0);
-        }
-      } else {
-        window.scrollTo(0, 0);
-        const scrollFrame = document.querySelector("#scrollbar");
-        if (scrollFrame) scrollFrame.scrollTop = 0;
+      // Reset scroll DENTRO del callback para que el nuevo contenido arranque desde arriba
+      const scrollbarEl = document.querySelector('#scrollbar');
+      if (typeof Scrollbar !== 'undefined' && scrollbarEl) {
+        const sb = Scrollbar.get(scrollbarEl);
+        if (sb) sb.setPosition(0, 0);
       }
+      window.scrollTo(0, 0);
+      if (scrollbarEl) scrollbarEl.scrollTop = 0;
+    });
+
+    // 3. Después de que termine la animación, re-inicializar scripts y hacer scroll al top
+    transition.finished.then(() => {
+      window.reinitScripts();
     });
 
   } catch (err) {

@@ -35,33 +35,13 @@ a,
 .art-link,
 .art-preloader .art-preloader-content .art-preloader-load .progressbar-text,
 .art-info-bar .art-header .art-avatar .art-lamp-light .art-available-lamp:after,
-.art-info-bar
-  .art-lang-skills
-  .art-lang-skills-item
-  .art-cirkle-progress
-  .progressbar-text,
-.art-info-bar
-  .art-hard-skills
-  .art-hard-skills-item
-  .art-line-progress
-  .progressbar-text,
+.art-info-bar .art-lang-skills .art-lang-skills-item .art-cirkle-progress .progressbar-text,
+.art-info-bar .art-hard-skills .art-hard-skills-item .art-line-progress .progressbar-text,
 .art-info-bar .art-knowledge-list li,
 .art-info-bar .art-ls-social a,
 .art-menu-bar nav .main-menu .menu-item a,
-.art-menu-bar
-  nav
-  .main-menu
-  .menu-item.current-menu-item
-  .sub-menu
-  .menu-item
-  a,
-.art-menu-bar
-  nav
-  .main-menu
-  .menu-item.current-menu-parent
-  .sub-menu
-  .menu-item
-  a,
+.art-menu-bar nav .main-menu .menu-item.current-menu-item .sub-menu .menu-item a,
+.art-menu-bar nav .main-menu .menu-item.current-menu-parent .sub-menu .menu-item a,
 .art-contact-form label,
 .art-pagination span.dots,
 .footer,
@@ -94,15 +74,14 @@ a,
 .art-info-bar .art-header .art-avatar .art-lamp-light .art-available-lamp,
 .art-menu-bar .art-language-change li.art-active-lang,
 .art-price.art-popular-price:before,
-.art-slider-navigation
-  .swiper-pagination-bullet.swiper-pagination-bullet-active,
-.art-contact-form .art-input.art-active + label,
-.art-contact-form .art-input:focus + label,
+.art-slider-navigation .swiper-pagination-bullet.swiper-pagination-bullet-active,
+.art-contact-form .art-input.art-active+label,
+.art-contact-form .art-input:focus+label,
 .art-contact-form label.focused,
 .content-sidebar td#today,
 .single-post-text table td#today,
-.single-post-text ul > li:before,
-.comment-text ul > li:before,
+.single-post-text ul>li:before,
+.comment-text ul>li:before,
 .comment-form .btn.fill,
 form.post-password-form input[type="submit"],
 .sticky:before,
@@ -119,11 +98,7 @@ form.post-password-form input[type="submit"],
 .woocommerce #respond input#submit:hover,
 .woocommerce a.button:hover,
 .woocommerce button.button:hover,
-.woocommerce
-  input.button:hover
-  .woocommerce-mini-cart__buttons
-  #respond
-  input#submit:hover,
+.woocommerce input.button:hover .woocommerce-mini-cart__buttons #respond input#submit:hover,
 .woocommerce-mini-cart__buttons a.button:hover,
 .woocommerce-mini-cart__buttons button.button:hover,
 .woocommerce-mini-cart__buttons input.button:hover,
@@ -133,10 +108,8 @@ form.post-password-form input[type="submit"],
 .woocommerce button.button.alt,
 .woocommerce input.button.alt,
 .woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
-.woocommerce-MyAccount-navigation
-  li.woocommerce-MyAccount-navigation-link.is-active
-  a {
-  background-color: #149ddd;
+.woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a {
+  background-color: #61CE70;
 }
 
 .art-link.art-color-link,
@@ -200,6 +173,7 @@ form.post-password-form input[type="submit"],
 }
 
 @media screen and (max-height: 1024px) {
+
   .e-con.e-parent:nth-of-type(n + 3):not(.e-lazyloaded):not(.e-no-lazyload),
   .e-con.e-parent:nth-of-type(n + 3):not(.e-lazyloaded):not(.e-no-lazyload) * {
     background-image: none !important;
@@ -207,6 +181,7 @@ form.post-password-form input[type="submit"],
 }
 
 @media screen and (max-height: 640px) {
+
   .e-con.e-parent:nth-of-type(n + 2):not(.e-lazyloaded):not(.e-no-lazyload),
   .e-con.e-parent:nth-of-type(n + 2):not(.e-lazyloaded):not(.e-no-lazyload) * {
     background-image: none !important;
@@ -233,19 +208,304 @@ form.post-password-form input[type="submit"],
 }
 
 @keyframes fade-out {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) {
     animation: none !important;
+  }
+}
+
+/* ============================================================
+   Contact Hub — Direct Contact Center
+   ============================================================ */
+
+/* Intro paragraph */
+.contact-hub-intro {
+  margin-bottom: 2rem;
+}
+
+.contact-hub-lead {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #8c8c8e;
+  max-width: 680px;
+}
+
+/* Cards grid */
+.contact-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Individual card */
+.contact-hub-card {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  text-decoration: none !important;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hub-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.contact-hub-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  text-decoration: none !important;
+}
+
+/* Icon wrapper */
+.contact-hub-card__icon-wrap {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: transform 0.28s ease;
+}
+
+.contact-hub-card:hover .contact-hub-card__icon-wrap {
+  transform: scale(1.1);
+}
+
+/* Text body */
+.contact-hub-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.contact-hub-card__platform {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.contact-hub-card__copy {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  color: #8c8c8e;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+/* Arrow icon */
+.contact-hub-card__arrow {
+  flex-shrink: 0;
+  color: #8c8c8e;
+  font-size: 0.9rem;
+  transition: transform 0.28s ease, color 0.28s ease;
+}
+
+.contact-hub-card:hover .contact-hub-card__arrow {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+/* ---- Per-platform accent colors ---- */
+
+/* WhatsApp */
+.contact-hub-card--whatsapp .contact-hub-card__icon-wrap {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.contact-hub-card--whatsapp {
+  border-color: rgba(37, 211, 102, 0.18);
+}
+
+.contact-hub-card--whatsapp:hover {
+  border-color: rgba(37, 211, 102, 0.45);
+  background: rgba(37, 211, 102, 0.06);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.12);
+}
+
+/* Calendly / Schedule */
+.contact-hub-card--calendly .contact-hub-card__icon-wrap {
+  background: linear-gradient(135deg, #149ddd, #0f7ab0);
+}
+
+.contact-hub-card--calendly {
+  border-color: rgba(20, 157, 221, 0.18);
+}
+
+.contact-hub-card--calendly:hover {
+  border-color: rgba(20, 157, 221, 0.45);
+  background: rgba(20, 157, 221, 0.06);
+  box-shadow: 0 12px 40px rgba(20, 157, 221, 0.14);
+}
+
+/* LinkedIn */
+.contact-hub-card--linkedin .contact-hub-card__icon-wrap {
+  background: linear-gradient(135deg, #0077B5, #004f8b);
+}
+
+.contact-hub-card--linkedin {
+  border-color: rgba(0, 119, 181, 0.18);
+}
+
+.contact-hub-card--linkedin:hover {
+  border-color: rgba(0, 119, 181, 0.45);
+  background: rgba(0, 119, 181, 0.06);
+  box-shadow: 0 12px 40px rgba(0, 119, 181, 0.14);
+}
+
+/* GitHub */
+.contact-hub-card--github .contact-hub-card__icon-wrap {
+  background: linear-gradient(135deg, #6e40c9, #3a1f87);
+}
+
+.contact-hub-card--github {
+  border-color: rgba(110, 64, 201, 0.18);
+}
+
+.contact-hub-card--github:hover {
+  border-color: rgba(110, 64, 201, 0.45);
+  background: rgba(110, 64, 201, 0.06);
+  box-shadow: 0 12px 40px rgba(110, 64, 201, 0.14);
+}
+
+/* Email */
+.contact-hub-card--email .contact-hub-card__icon-wrap {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+}
+
+.contact-hub-card--email {
+  border-color: rgba(245, 158, 11, 0.18);
+}
+
+.contact-hub-card--email:hover {
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(245, 158, 11, 0.06);
+  box-shadow: 0 12px 40px rgba(245, 158, 11, 0.13);
+}
+
+/* Phone */
+.contact-hub-card--phone .contact-hub-card__icon-wrap {
+  background: linear-gradient(135deg, #06b6d4, #0e7490);
+}
+
+.contact-hub-card--phone {
+  border-color: rgba(6, 182, 212, 0.18);
+}
+
+.contact-hub-card--phone:hover {
+  border-color: rgba(6, 182, 212, 0.45);
+  background: rgba(6, 182, 212, 0.06);
+  box-shadow: 0 12px 40px rgba(6, 182, 212, 0.13);
+}
+
+/* ---- Availability footer ---- */
+.contact-hub-footer {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.contact-hub-availability {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  color: #8c8c8e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Pulsing green dot */
+.contact-hub-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #25D366;
+  flex-shrink: 0;
+  animation: contact-hub-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes contact-hub-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(37, 211, 102, 0);
+  }
+}
+
+.contact-hub-email {
+  color: #149ddd !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.contact-hub-email:hover {
+  color: #ffffff !important;
+}
+
+/* ---- Responsive — single column on mobile ---- */
+@media (max-width: 768px) {
+  .contact-hub-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-hub-card {
+    padding: 1.1rem 1.2rem;
+  }
+
+  .contact-hub-card__icon-wrap {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hub-card__copy {
+    display: none;
   }
 }

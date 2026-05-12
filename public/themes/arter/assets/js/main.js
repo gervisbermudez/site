@@ -55,7 +55,7 @@
       targets: ".art-counter-frame",
       opacity: [0, 1],
       duration: 800,
-      delay: 2300,
+      delay: 200,
       easing: "linear",
     });
 
@@ -651,7 +651,7 @@ window.addEventListener('popstate', () => {
   });
 });
 
-window.reinitScripts = function() {
+window.reinitScripts = function () {
   // portfolio filter
   $(".art-filter a").off("click").on("click", function () {
     $(".art-filter .art-current").removeClass("art-current");
@@ -667,7 +667,7 @@ window.reinitScripts = function() {
   // Initialize portfolio items
   if ($(".art-grid").length) {
     var $container = $(".art-grid");
-    
+
     // Layout sincrónico para evitar parpadeos en View Transitions
     $container.isotope({
       filter: "*",
@@ -730,10 +730,10 @@ window.reinitScripts = function() {
 
   // menu active update
   $(".main-menu .menu-item").removeClass("current-menu-item current_page_item");
-  $(".main-menu .menu-item a").each(function() {
-      if ($(this).prop("href") === location.href) {
-          $(this).parent().addClass("current-menu-item current_page_item");
-      }
+  $(".main-menu .menu-item a").each(function () {
+    if ($(this).prop("href") === location.href) {
+      $(this).parent().addClass("current-menu-item current_page_item");
+    }
   });
   $(".art-current-page").empty();
   $(".current-menu-item a").clone().appendTo(".art-current-page");

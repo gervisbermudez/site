@@ -199,11 +199,12 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
               </div>
             </div>
           </section>
-          <div class="elementor-element elementor-element-464b9c9 e-flex e-con-boxed e-con e-parent" data-id="464b9c9"
+          <div class="elementor-element elementor-element-04cc0ce e-flex e-con-boxed e-con e-parent" data-id="04cc0ce"
             data-element_type="container">
             <div class="e-con-inner">
-              <div class="elementor-element elementor-element-0bc20e2 elementor-widget elementor-widget-arter-portfolio"
-                data-id="0bc20e2" data-element_type="widget" data-widget_type="arter-portfolio.default">
+              <div
+                class="elementor-element elementor-element-3c3f5d1 elementor-widget elementor-widget-arter-blog-carousel"
+                data-id="3c3f5d1" data-element_type="widget" data-widget_type="arter-blog-carousel.default">
                 <div class="elementor-widget-container">
                   <!-- container -->
                   <div class="container-fluid">
@@ -217,7 +218,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                           <div class="art-title-frame">
                             <!-- title -->
                             <h4 class="art-title-h">
-                              <span> Portfolio </span>
+                              <span> Recent Posts </span>
                             </h4>
                           </div>
                           <!-- title frame end -->
@@ -228,41 +229,97 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
 
                       <!-- col -->
                       <div class="col-lg-12">
-                        <!-- filter -->
-                        <div class="art-filter mb-30">
-                          {% for category in site.data.portfolio.categories %}
-                          <a href="#" data-filter="{{ category.filter }}" class="art-link">{{ category.name }}</a>
-                          {% endfor %}
+                        <!-- slider container -->
+                        <div class="swiper-container art-blog-slider" style="overflow: visible">
+                          <!-- slider wrapper -->
+                          <div class="swiper-wrapper" id="swiper-wrapper">
+                            {% for post in site.posts limit:5 %}
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5"
+                              style="width: 310px; margin-right: 30px">
+                              <!-- blog post card -->
+                              <div class="art-a art-blog-card">
+                                <div id="post-662"
+                                  class="post-662 post type-post status-publish format-standard has-post-thumbnail hentry {{post.tags}}">
+                                  <!-- post cover -->
+                                  <a class="art-port-cover post-thumbnail" href="{{ post.url | relative_url }}">
+                                    <img fetchpriority="high" decoding="async" width="1280" height="768"
+                                      src="{{ post.thumbnail | relative_url }}"
+                                      class="attachment-arter_1280x768 size-arter_1280x768 wp-post-image"
+                                      alt="{{ post.title }}" />
+                                  </a>
+                                  <!-- post cover end -->
+                                  <!-- post description -->
+                                  <div class="art-post-description">
+                                    <div class="art-project-category mb-15">
+                                      <a href="{{ post.url | relative_url }}">
+                                        <span class="art-el-date">{{ post.date | date_to_string
+                                          }}</span>
+                                      </a>
+                                      /
+                                      <span class="art-el-category">
+                                        {{ post.category }}
+                                      </span>
+                                    </div>
+                                    <!-- title -->
+                                    <a href="{{ post.url | relative_url }}">
+                                      <h5 class="mb-15">{{ post.title }}</h5>
+                                    </a>
+                                    <!-- text -->
+                                    <div class="art-el-description">
+                                      <p>{{ post.description }}</p>
+                                    </div>
+                                  </div>
+                                  <!-- post description end -->
+                                </div>
+                              </div>
+                              <!-- blog post card end -->
+                            </div>
+                            {% endfor %}
+                          </div>
+                          <!-- slider wrapper end -->
                         </div>
-                        <!-- filter end -->
+                        <!-- slider container end -->
                       </div>
                       <!-- col end -->
 
-                      <div class="art-grid art-grid-3-col art-gallery">
-                        {% for item in site.data.portfolio.items %}
-                        <div class="art-grid-item {{ item.category }}">
-                          <a data-no-swup data-elementor-lightbox-slideshow="gallery"
-                            data-elementor-lightbox-title="{{ item.title }}" href="{{ item.image }}"
-                            class="art-a art-portfolio-item-frame">
-                            <img decoding="async" src="{{ item.image | relative_url }}" alt="{{ item.title }}" />
-                            <span class="art-item-hover"><i class="fas fa-expand"></i></span>
-                          </a>
-                          <div class="art-item-description">
-                            <h5 class="mb-15">{{ item.title }}</h5>
-                            <div class="mb-15">{{ item.description }}</div>
-                            <a href="{{ item.link | relative_url }}" class="art-link art-color-link art-w-chevron">Read
-                              more</a>
+                      <!-- col -->
+                      <div class="col-lg-12">
+                        <!-- slider navigation -->
+                        <div class="art-slider-navigation">
+                          <!-- left side -->
+                          <div class="art-sn-left">
+                            <!-- slider pagination -->
+                            <div class="swiper-pagination"></div>
                           </div>
+                          <!-- left side end -->
+
+                          <!-- right side -->
+                          <div class="art-sn-right">
+                            <!-- slider navigation -->
+                            <div class="art-slider-nav-frame">
+                              <!-- prev -->
+                              <div class="art-slider-nav art-blog-swiper-prev">
+                                <i class="fas fa-chevron-left"></i>
+                              </div>
+                              <!-- next -->
+                              <div class="art-slider-nav art-blog-swiper-next">
+                                <i class="fas fa-chevron-right"></i>
+                              </div>
+                            </div>
+                            <!-- slider navigation -->
+                          </div>
+                          <!-- right side end -->
                         </div>
-                        {% endfor %}
+                        <!-- slider navigation end -->
                       </div>
+                      <!-- col end -->
+                    </div>
+                    <!-- row end -->
+                    <div class="row">
                       <div class="col-md-12">
-                        <a class="art-link art-color-link art-w-chevron" href="portfolio/index.html">See my entire
-                          portfolio</a>
+                        <a class="art-link art-color-link art-w-chevron" href="blog/index.html">See all my posts</a>
                       </div>
                     </div>
-
-                    <!-- row end -->
                   </div>
                   <!-- container end -->
                 </div>
@@ -471,12 +528,11 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
               </div>
             </div>
           </section>
-          <div class="elementor-element elementor-element-04cc0ce e-flex e-con-boxed e-con e-parent" data-id="04cc0ce"
+          <div class="elementor-element elementor-element-464b9c9 e-flex e-con-boxed e-con e-parent" data-id="464b9c9"
             data-element_type="container">
             <div class="e-con-inner">
-              <div
-                class="elementor-element elementor-element-3c3f5d1 elementor-widget elementor-widget-arter-blog-carousel"
-                data-id="3c3f5d1" data-element_type="widget" data-widget_type="arter-blog-carousel.default">
+              <div class="elementor-element elementor-element-0bc20e2 elementor-widget elementor-widget-arter-portfolio"
+                data-id="0bc20e2" data-element_type="widget" data-widget_type="arter-portfolio.default">
                 <div class="elementor-widget-container">
                   <!-- container -->
                   <div class="container-fluid">
@@ -490,7 +546,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                           <div class="art-title-frame">
                             <!-- title -->
                             <h4 class="art-title-h">
-                              <span> Recent Posts </span>
+                              <span> Portfolio </span>
                             </h4>
                           </div>
                           <!-- title frame end -->
@@ -501,97 +557,41 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
 
                       <!-- col -->
                       <div class="col-lg-12">
-                        <!-- slider container -->
-                        <div class="swiper-container art-blog-slider" style="overflow: visible">
-                          <!-- slider wrapper -->
-                          <div class="swiper-wrapper" id="swiper-wrapper">
-                            {% for post in site.posts limit:5 %}
-                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5"
-                              style="width: 310px; margin-right: 30px">
-                              <!-- blog post card -->
-                              <div class="art-a art-blog-card">
-                                <div id="post-662"
-                                  class="post-662 post type-post status-publish format-standard has-post-thumbnail hentry {{post.tags}}">
-                                  <!-- post cover -->
-                                  <a class="art-port-cover post-thumbnail" href="{{ post.url | relative_url }}">
-                                    <img fetchpriority="high" decoding="async" width="1280" height="768"
-                                      src="{{ post.thumbnail | relative_url }}"
-                                      class="attachment-arter_1280x768 size-arter_1280x768 wp-post-image"
-                                      alt="{{ post.title }}" />
-                                  </a>
-                                  <!-- post cover end -->
-                                  <!-- post description -->
-                                  <div class="art-post-description">
-                                    <div class="art-project-category mb-15">
-                                      <a href="{{ post.url | relative_url }}">
-                                        <span class="art-el-date">{{ post.date | date_to_string
-                                          }}</span>
-                                      </a>
-                                      /
-                                      <span class="art-el-category">
-                                        {{ post.category }}
-                                      </span>
-                                    </div>
-                                    <!-- title -->
-                                    <a href="{{ post.url | relative_url }}">
-                                      <h5 class="mb-15">{{ post.title }}</h5>
-                                    </a>
-                                    <!-- text -->
-                                    <div class="art-el-description">
-                                      <p>{{ post.description }}</p>
-                                    </div>
-                                  </div>
-                                  <!-- post description end -->
-                                </div>
-                              </div>
-                              <!-- blog post card end -->
-                            </div>
-                            {% endfor %}
-                          </div>
-                          <!-- slider wrapper end -->
+                        <!-- filter -->
+                        <div class="art-filter mb-30">
+                          {% for category in site.data.portfolio.categories %}
+                          <a href="#" data-filter="{{ category.filter }}" class="art-link">{{ category.name }}</a>
+                          {% endfor %}
                         </div>
-                        <!-- slider container end -->
+                        <!-- filter end -->
                       </div>
                       <!-- col end -->
 
-                      <!-- col -->
-                      <div class="col-lg-12">
-                        <!-- slider navigation -->
-                        <div class="art-slider-navigation">
-                          <!-- left side -->
-                          <div class="art-sn-left">
-                            <!-- slider pagination -->
-                            <div class="swiper-pagination"></div>
+                      <div class="art-grid art-grid-3-col art-gallery">
+                        {% for item in site.data.portfolio.items %}
+                        <div class="art-grid-item {{ item.category }}">
+                          <a data-no-swup data-elementor-lightbox-slideshow="gallery"
+                            data-elementor-lightbox-title="{{ item.title }}" href="{{ item.image }}"
+                            class="art-a art-portfolio-item-frame">
+                            <img decoding="async" src="{{ item.image | relative_url }}" alt="{{ item.title }}" />
+                            <span class="art-item-hover"><i class="fas fa-expand"></i></span>
+                          </a>
+                          <div class="art-item-description">
+                            <h5 class="mb-15">{{ item.title }}</h5>
+                            <div class="mb-15">{{ item.description }}</div>
+                            <a href="{{ item.link | relative_url }}" class="art-link art-color-link art-w-chevron">Read
+                              more</a>
                           </div>
-                          <!-- left side end -->
-
-                          <!-- right side -->
-                          <div class="art-sn-right">
-                            <!-- slider navigation -->
-                            <div class="art-slider-nav-frame">
-                              <!-- prev -->
-                              <div class="art-slider-nav art-blog-swiper-prev">
-                                <i class="fas fa-chevron-left"></i>
-                              </div>
-                              <!-- next -->
-                              <div class="art-slider-nav art-blog-swiper-next">
-                                <i class="fas fa-chevron-right"></i>
-                              </div>
-                            </div>
-                            <!-- slider navigation -->
-                          </div>
-                          <!-- right side end -->
                         </div>
-                        <!-- slider navigation end -->
+                        {% endfor %}
                       </div>
-                      <!-- col end -->
-                    </div>
-                    <!-- row end -->
-                    <div class="row">
                       <div class="col-md-12">
-                        <a class="art-link art-color-link art-w-chevron" href="blog/index.html">See all my posts</a>
+                        <a class="art-link art-color-link art-w-chevron" href="portfolio/index.html">See my entire
+                          portfolio</a>
                       </div>
                     </div>
+
+                    <!-- row end -->
                   </div>
                   <!-- container end -->
                 </div>

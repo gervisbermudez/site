@@ -20,18 +20,17 @@
 
 title: Gervis Bermudez | Blog
 email: gervisbermudez@outlook.com
-description: >- # this means to ignore newlines until "baseurl:"
-  My goal is to apply my knowledge and professional experience, in addition to contributing 
-  my values and skills to organizations to contribute to their growth and 
-  continue to further strengthen my skills.
+description: 'I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.'
 baseurl: "/site" # the subpath of your site, e.g. /blog
 url: "https://gervisbermudez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-paginate: 5 # Número de publicaciones por página
+paginate: 6 # Número de publicaciones por página
 paginate_path: "/blog/page:num/" # Ruta de las páginas de paginación
 twitter_username: gervisbermudez
 github_username: gervisbermudez
 default_banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
-permalink: /site/blog/:categories/:year/:month/:day/:title
+timezone: America/Argentina/Buenos_Aires
+permalink: /blog/:categories/:year/:month/:day/:title
+default_author: Gervis Bermudez
 # Build settings
 # theme: minima
 plugins:

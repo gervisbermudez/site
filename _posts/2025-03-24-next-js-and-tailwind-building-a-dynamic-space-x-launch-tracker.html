@@ -1,0 +1,440 @@
+---
+layout: post
+date: 2025-03-24
+author: Gervis Bermudez
+title: "From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind"
+description: A detailed guide on building a SpaceX launch tracker using Next.js and Tailwind CSS
+thumbnail: /public/uploads/2025/03/SpaceX-blog-post-thumbnail.png
+banner: /public/uploads/2025/03/SpaceX-blog-post-banner.jpg
+contact_banner: /public/uploads/2025/03/spacex-contact-banner.jpg
+category: Web Development
+tags: ["Next.js", "Tailwind CSS", "SpaceX", "API Integration"]
+---
+<div class="page-body">
+    <p class="">
+        I everyone, I recently undertook a fascinating project: building a
+        SpaceX launch tracker using Next.js and Tailwind CSS. The aim was to
+        create a clean, responsive application that pulls data from the SpaceX
+        API, enabling users to explore launch information and curate their
+        favorite launches. This project provided a fantastic opportunity to
+        delve deeper into Next.js&#x27;s app router and the utility-first
+        approach of Tailwind. Let&#x27;s explore the development process and
+        some key insights gained.<br /><br />
+    </p>
+    <h2 class="">
+        The technical test:
+    </h2>
+    <p class=""></p>
+    <p>
+        <strong>FRONTEND EXERCISE</strong><br />
+        The exercise consists of building an
+        application to view Spacex’s latest launches, and being able to
+        add them to a “favourite” list to revisit them later.<br />The
+        application should be developed using React 16.8.4 or further.
+        <br />
+        <br />
+        <strong>Expectations</strong><br />On the first app load the candidate should hit the following endpoints
+        from SpaceX to retrieve information about rockets and
+        launches:<br /><br />
+        <a href="https://api.spacexdata.com/v3/rockets">https://api.spacexdata.com/v3/rockets</a>
+        <a href="https://api.spacexdata.com/v3/launches">https://api.spacexdata.com/v3/launches</a>
+
+        <br /><br />
+        Information about API usage can be found here:<br />
+        <a href="https://docs.spacexdata.com/">https://docs.spacexdata.com</a><br /><br />
+        
+        The candidate should combine the information to get a result similar to the following:<br />
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class='language-javascript'>{
+	flight_number: 39,
+	mission_name: &quot;NROL-76&quot;,
+	launch_date_unix: 1493637300,
+	details: &quot;launch details&quot;,
+	mission_patch: &lt;image_URL&gt;,
+	rocket: {
+		rocket_id: &quot;falcon1&quot;,
+		rocket_name: &quot;Falcon 1&quot;,
+		active: true,
+		cost_per_launch: 6700000,
+		company: &quot;SpaceX&quot;
+	}
+}</code></pre>
+        </div>
+    </div>
+    <br />
+    This is a list of functionality the candidate needs to include in
+    the app order by priority,<br />there’s no need to do everything,
+    let’s include as much as you can: <br />
+
+    <p class=""></p>
+    <ul class="bulleted-list">
+        <li>
+            Fetch endpoints and merge arrays (we need to populate the rocket
+            data of the<br />launches with the rockets array) <br />
+        </li>
+        <li>Display launches</li>
+        <li>
+            Favourite functionality (persist them on local storage)
+        </li>
+        <li>Search by mission name</li>
+        <li>
+            Inspect a specific launch detail
+        </li>
+        <li>Pagination<br /></li>
+    </ul>
+    <p class="">
+        Wireframes: <a href="https://www.figma.com/file/QRhWGaLdAzle61hLRUFW3L/SpaceX?node-id=354%3A1"><i class="fab fa-figma"></i> SpaceX Figma</a>
+    </p>
+  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
+    src="https://embed.figma.com/design/MEn0A0HsDA6PBwoTyFvtfH/SpaceX?node-id=234-766&embed-host=share"
+    allowfullscreen></iframe>
+    <p class="">
+        Let&#x27;s break down how we&#x27;ll implement this SpaceX launch
+        tracker using NextJS and Tailwind CSS. We&#x27;ll follow the
+        wireframes as a guide while adding our own modern touches to create an
+        engaging user experience. Our focus will be on building a responsive,
+        performant application that makes it easy to explore and track SpaceX
+        launches.
+    </p>
+    <h2 class="">
+        Setting Up the Foundation - Tech Stack and Initial Steps
+    </h2>
+    <p class="">
+        <br />I started by setting up a fresh Next.js project with TypeScript
+        and ESLint, following the official documentation. Then came the
+        integration of Tailwind CSS, which proved to be incredibly efficient
+        for styling. I extended the Tailwind theme to match the color palette
+        specified in the Figma wireframes, ensuring a consistent and visually
+        appealing design. For custom fonts, I leveraged Next.js&#x27;s <code>localFont</code> package to include the D-DIN font
+        family.<br /><br />
+    </p>
+    <p class="">
+        Let&#x27;s start from the beginning, Installing the NextJs and
+        Tailwind with dependencies, as it’s described by the documentation in
+    </p>
+    <p class="">
+        <a
+            href="https://nextjs.org/docs/app/getting-started/installation">https://nextjs.org/docs/app/getting-started/installation</a>
+    </p>
+    <p class="">
+        <a
+            href="https://tailwindcss.com/docs/installation/framework-guides/nextjs">https://tailwindcss.com/docs/installation/framework-guides/nextjs</a>
+    </p>
+    <p class=""></p>
+        <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+            data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+            <div class="elementor-widget-container">
+                <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+ <code class="language-bash">npx create-next-app@latest spacex-launches-webapp --typescript --eslint --app
+ cd spacex-launches-webapp</code></pre>
+            </div></div>
+    <p class="">
+        At this point we get the initial scaffolding of a nextjs app, so the
+        next steps is install tailwind
+    </p>
+        <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+            data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+            <div class="elementor-widget-container">
+                <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class="language-bash">npm install tailwindcss @tailwindcss/postcss postcss</code></pre></div></div>
+    <h2 class="">
+        Component-Driven UI Development
+    </h2>
+    <p class="">
+        I adopted a component-driven architecture, building reusable
+        components like buttons, icons, paginators, and tabs. This approach
+        not only made the code more maintainable but also accelerated the UI
+        development process. Tailwind&#x27;s utility classes were instrumental
+        in creating a clean and responsive design, allowing me to translate
+        the Figma wireframes into reality efficiently. I paid close attention
+        to the details of the UI, to make it as close as possible to the figma
+        design, and still keep it responsive
+    </p>
+    <p class=""></p>
+    <p class="">
+        Updating the tailwind config json and add the colors describe in the
+        figma components to maintain an consisten palete color - theme:
+    </p>
+    <figure class="image">
+        <a href="{{'/public/uploads/2025/03/SpaceX-blog-post-colors.png' | relative_url}}">
+            <img src="{{'/public/uploads/2025/03/SpaceX-blog-post-colors.png' | relative_url}}"
+                title="colors in figma" />
+        </a>
+        <figcaption>colors in figma</figcaption>
+    </figure>
+    <p class="">
+        The tailwind theme result:
+    </p>
+    <p class=""></p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class='language-javascript'> colors: {
+      &quot;app-bg&quot;: &quot;#121212&quot;,
+      &quot;app-surface&quot;: &quot;#2C2C2E&quot;,
+      &quot;app-white&quot;: &quot;#ffffffde&quot;,
+      &quot;app-gray&quot;: {
+        100: &quot;rgba(255, 255, 255, 0.77)&quot;,
+        200: &quot;rgba(255, 255, 255, 0.67)&quot;,
+        300: &quot;rgba(255, 255, 255, 0.57)&quot;,
+        400: &quot;rgba(255, 255, 255, 0.47)&quot;,
+        500: &quot;rgba(255, 255, 255, 0.37)&quot;,
+        600: &quot;rgba(255, 255, 255, 0.27)&quot;,
+        700: &quot;rgba(255, 255, 255, 0.17)&quot;,
+      },
+      &quot;app-dp&quot;: {
+        100: &quot;rgba(30, 30, 30, 1)&quot;,
+        200: &quot;rgba(35, 35, 35, 1)&quot;,
+        600: &quot;rgba(63, 63, 63, 1)&quot;,
+        280: &quot;rgba(70, 70, 70, 1)&quot;,
+        300: &quot;rgba(75, 75, 75, 1)&quot;,
+      },
+    },
+    extend: {
+      backgroundImage: {
+        &quot;app-gradient&quot;: &quot;linear-gradient(180deg, #121212 64.11%, #1E1E1E 100%)&quot;,
+        &quot;detail-gradient&quot;: &quot;linear-gradient(0deg, #00000075, #ffffff26)&quot;,
+      }</code></pre>
+        </div>
+    </div>
+    <p class="">
+        <br /><br />To implement the fonts specified in the Figma design, use
+        the Next.js localFont package as shown below: <br /><br />
+    </p>
+    <figure class="image">
+        <a href="{{'/public/uploads/2025/03/SpaceX-blog-post-fonts.png' | relative_url}}"><img
+                src="{{'/public/uploads/2025/03/SpaceX-blog-post-fonts.png' | relative_url}}"
+                alt="fonts in figma" /></a>
+        <figcaption>fonts in figma</figcaption>
+    </figure>
+    <p class="">
+        Son we need to set the D-Din Regular and Bold font, so we are going to
+        use the nextjs font package, as following:
+    </p>
+    <p class=""></p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class='language-javascript'>import localFont from "@next/font/local";
+
+// Font files can be colocated inside of `assets`
+
+const dDinFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/d-din/D-DIN.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/d-din/D-DIN-Bold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+});
+</code></pre>
+        </div>
+    </div>
+    <p class="">
+        <br />We have to define the global context to manage and transversal
+        state, here we have the minimum defined stated that the app need to
+        works as MVP:<br />
+    </p>
+    <p class=""></p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-javascript">export interface LaunchesContextProps {
+  launches: Launch[];
+  paginatedLaunches: Launch[];
+  setLaunches: React.Dispatch<React.SetStateAction<Launch[]>>;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  totalPages: number;
+  isLoading: boolean;
+  favorites: Launch[];
+  setFavorites: React.Dispatch<React.SetStateAction<Launch[]>>;
+  addFavorite: (launch: Launch) => void;
+  removeFavorite: (flightNumber: number) => void;
+}
+
+const LaunchesContext = createContext<LaunchesContextProps | undefined>(
+  undefined
+);
+
+export const useLaunches = () => {
+  const context = useContext(LaunchesContext);
+  if (!context) {
+    throw new Error("useLaunches must be used within a LaunchesProvider");
+  }
+  return context;
+};</code></pre>
+        </div>
+    </div>
+    <p class=""></p>
+    <h2 class="">
+        API Integration and Data Management: 🚀
+    </h2>
+    <p class="">
+        A crucial part of the project was fetching and merging data from
+        the SpaceX API. I created a dedicated <code>fetchLaunches</code>
+        function with flexible query parameters to handle various API
+        requests. To manage the application&#x27;s state, I implemented a
+        global context using React&#x27;s <code>useContext</code> hook. This
+        allowed for seamless data sharing across components, including launch
+        data, pagination, and favorites.
+    </p>
+    <p class="">
+        I defined and single function to access to the api of SpaceX:
+    </p>
+    <p class=""></p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-javascript">export const fetchLaunches = async (
+  options: FetchLaunchesOptions = {}
+): Promise&lt;FetchLaunchesResponse&gt; =&gt; {
+  const { id, limit, offset, sort, order } = options;
+  const queryParams = new URLSearchParams();
+
+  if (id !== undefined) queryParams.append(&quot;id&quot;, String(id));
+  if (limit !== undefined) queryParams.append(&quot;limit&quot;, String(limit));
+  if (offset !== undefined) queryParams.append(&quot;offset&quot;, String(offset));
+  if (sort !== undefined) queryParams.append(&quot;sort&quot;, sort);
+  if (order !== undefined) queryParams.append(&quot;order&quot;, order);
+
+  const queryString = queryParams.toString();
+  const url = `${config.API_URL}/launches${
+    queryString ? `?${queryString}` : &quot;&quot;
+  }`;
+
+  try {
+    const response = await fetch(url);
+    const data: Launch[] = await response.json();
+    const totalPages = Math.ceil(190 / (limit ?? 1));
+    return { launches: data, totalPages };
+  } catch (error) {
+    console.error(&quot;Failed to fetch launches&quot;, error);
+    throw error;
+  }
+};</code></pre>
+        </div>
+    </div>
+    <p class="">
+        One of the main challenges was handling API errors gracefully
+        and implementing robust loading states. I added error handling to the
+        <code>fetchLaunches</code> function and implemented loading
+        indicators to provide a smooth user experience. Additionally, I
+        focused on optimizing the pagination logic and search functionality to
+        ensure efficient data retrieval and filtering. Managing local storage
+        for favorites was another key aspect, requiring careful serialization
+        and deserialization of data.
+    </p>
+    <h2 class="">Components</h2>
+    <p class="">
+        I develop the commons components for this app, that includes Buttons,
+        Icons, Paginator, Tabs, ect.<br />
+    </p>
+    <figure class="image">
+        <a href="{{'/public/uploads/2025/03/SpaceX-blog-post-components.png' | relative_url}}"><img
+                src="{{'/public/uploads/2025/03/SpaceX-blog-post-components.png' | relative_url}}" /></a>
+        <figcaption>The components</figcaption>
+    </figure>
+    <p class=""></p>
+    <p class="">
+        At this point we have everything that we need to start the UI
+        development, so I define 2 main pages: Home with the list of Launches
+        that we obtain from the API with a search input to filter the results,
+        pagination and two tabs with results and favorites and the Details
+        Page to show the details of the Rocket of the Launch selected.
+    </p>
+    <p class=""></p>
+    <figure class="image" style="text-align: left">
+        <a href="{{'/public/uploads/2025/03/SpaceX-blog-post-folders.png' | relative_url}}"><img
+                src="{{'/public/uploads/2025/03/SpaceX-blog-post-folders.png' | relative_url}}" /></a>
+    </figure>
+    <p class=""></p>
+    <h2 class="">
+        Using Tailwind to define the UI
+    </h2>
+    <p class="">
+        The most important thing I learned this time is just get fun while use
+        predefined tailwind classes to develop the UI of the app, it’s fun and
+        easy (Once you understand it lol), for example look at how I define
+        the background defined on theme config: <br />
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class="language-jsx">return (
+    &lt;header className=&quot;relative&quot; style=&#123;&#123; aspectRatio: "1440 / 555" &#125;&#125; &gt;
+      &lt;nav className=&quot;container flex justify-between items-center relative z-30 h-20&quot;&gt;
+        &lt;button
+          className=&quot;rounded-full w-10 h-10 bg-app-surface flex justify-center items-center&quot;
+          onClick={goBack}
+        &gt;
+          &lt;ArrowBackIcon /&gt;
+        &lt;/button&gt;
+        &lt;button
+          className=&quot;rounded-full w-10 h-10 bg-app-surface flex justify-center items-center&quot;
+          onClick={handleFavoriteClick}
+        &gt;
+          &lt;StarIcon isActive={isFavorite} /&gt;
+        &lt;/button&gt;
+      &lt;/nav&gt;
+      &lt;div className=&quot;container m-auto max-w-3xl top-64 relative z-30 text-white mt-20&quot;&gt;
+        &lt;div className=&quot;launch-date&quot;&gt;{launchDate}&lt;/div&gt;
+        &lt;h1 className=&quot;text-4xl font-bold text-white uppercase&quot;&gt;
+          {launchName}
+        &lt;/h1&gt;
+        &lt;div className=&quot;text-2xl max-w-3xl overflow-hidden text-ellipsis whitespace-nowrap max-h-12&quot;&gt;
+          {launchDescription}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div className=&quot;absolute w-full h-full bg-detail-gradient z-20 top-0&quot;&gt;&lt;/div&gt;
+      &lt;div
+        className=&quot;launch-image absolute w-full h-full bg-cover bg-center z-10 top-0&quot;
+    style=&#123;&#123; backgroundImage: `url(&#123;&#123;launchImage&#125;&#125;)` &#125;&#125;
+      &gt;&lt;/div&gt;
+    &lt;/header&gt;
+  );</code></pre>
+        </div>
+    </div>
+    <p class=""></p>
+    <h2 class="">
+        Learnings and Takeaways:
+    </h2>
+    <p class="">
+        <br />This project reinforced the power of Next.js and Tailwind CSS in
+        building modern web applications. The app router of Nextjs is very
+        powerful, and easy to use. I also gained valuable experience in API
+        integration, state management, and component-driven development. I
+        learned that having a well defined type system using typescript is
+        very important to avoid bugs. I also learned to use tailwind
+        efficiently, and how fast I can create a UI that looks great. I&#x27;m
+        excited to apply these learnings to future projects.<br />
+    </p>
+    <p class="">
+        Feel free to explore the project on
+        <a
+            href="https://github.com/gervisbermudez/spacex-launches-webapp"><i class="fab fa-github"></i> spacex-launches-webapp</a>.
+        <br />
+        I deployed the app on Vercel, you can check it out <a href="https://spacex-launches-webapp.vercel.app/"><i class="fas fa-rocket"></i> here</a>.
+        <br />
+        <br />
+            
+        I&#x27;m always open to feedback and collaboration. If you&#x27;re
+        a recruiter or potential client looking for a developer with
+        experience in Next.js, Tailwind CSS, and API integration, let&#x27;s
+        connect!
+    </p>
+    <p class=""></p>
+</div>

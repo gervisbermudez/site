@@ -1,0 +1,290 @@
+---
+layout: post
+date: 2024-12-07
+author: Gervis Bermudez
+title: Building a Custom CMS - From Figma to CodeIgniter with Materialize
+description: 'A comprehensive guide on building a custom CMS from Figma designs to a CodeIgniter-powered backend, styled with Materialize.css.'
+thumbnail: /public/uploads/2024/03/start-cms-thumbnail.png
+banner: /public/uploads/2024/03/start-cms-banner.jpg
+category: Web Development
+tags: ["CMS", "PHP", "CodeIgniter", "Figma", "Materialize.css", "Web Development", "Portfolio"]
+---
+<p class="has-medium-font-size">
+  <strong>From Concept to Creation: My Journey Building a Custom CMS<br /></strong><br />Hello everyone,
+</p>
+
+<p>
+  I'd like to share my experience in designing and developing a custom Content Management System (CMS). This project was
+  a comprehensive exercise in full-stack development, combining my design skills with robust backend implementation. I
+  aimed to create a flexible, user-friendly CMS tailored to specific content management needs.
+</p>
+
+<p>
+  The process began with meticulous planning and design in Figma. I focused on creating an intuitive user interface that
+  would streamline content management. This included designing dynamic forms, a customizable dashboard, media
+  organization tools, and an event management system.
+</p>
+
+<figure class="wp-block-image size-full">
+  <img decoding="async" width="797" height="560"
+    src="{{'/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg' | relative_url}}"
+    alt="Dashboard Widgets" class="wp-image-349" />
+  <figcaption>Dashboard Widgets</figcaption>
+</figure>
+
+<p>
+  <br /><strong>Backend Development with CodeIgniter</strong><br /><br />For the backend, I chose PHP CodeIgniter for
+  its lightweight framework and robust features. This allowed me to efficiently implement the core functionalities,
+  including user authentication, data management, and API integrations. Key features include:
+</p>
+
+<p>
+  <strong>Choosing CodeIgniter and MVC:</strong> I opted for PHP CodeIgniter for its simplicity, speed, and robust
+  community support. Its Model-View-Controller (MVC) architecture provided a clear separation of concerns, making the
+  codebase more organized and maintainable. This architectural pattern allowed me to develop features efficiently while
+  ensuring scalability and ease of future modifications.
+</p>
+
+<p>
+  <strong>Blade Templating:</strong> To enhance the rendering of views, I integrated Blade templating. Blade's
+  expressive syntax and template inheritance features significantly streamlined the process of creating dynamic and
+  reusable views, improving both development speed and code readability.
+</p>
+
+<ul>
+  <li><strong>Dynamic Forms:</strong> Enabling users to create and manage custom forms for data collection.</li>
+  <li><strong>Redesigned Dashboard:</strong> Providing an overview of key metrics and recent activities, enhanced with
+    customizable widgets.</li>
+  <li><strong>User Tracking:</strong> Implementing analytics to understand user interactions and improve site
+    engagement.</li>
+</ul>
+
+<figure class="wp-block-image size-full">
+  <img decoding="async" width="332" height="134" src="{{'/public/uploads/2024/03/image.png' | relative_url}}"
+    alt="Notifications" class="wp-image-350" />
+  <figcaption>Notifications</figcaption>
+</figure>
+
+<p>
+  <strong>Styling with Materialize.css</strong><br /><br />To ensure a clean and responsive design, I utilized
+  Materialize.css, a modern responsive front-end framework based on Material Design. This choice facilitated the
+  creation of a visually appealing and user-friendly interface. Features styled with Materialize.css include:
+</p>
+
+<ul>
+  <li><strong>Media Management:</strong> Organizing photos and videos into albums for easy access.</li>
+  <li><strong>Calendar and Event Management:</strong> Providing a structured system for managing events.</li>
+  <li><strong>Data Export:</strong> Allowing users to export data for analysis and reporting.</li>
+</ul>
+
+<figure class="wp-block-image size-full">
+  <img loading="lazy" decoding="async" width="828" height="536"
+    src="{{'/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg' | relative_url}}"
+    alt="Calendar and Event Management" class="wp-image-351" />
+  <figcaption>Calendar and Event Management</figcaption>
+</figure>
+
+<p>
+  <br /><strong>Advanced Features and Scalability<br /></strong><br />Beyond the core functionalities, I integrated
+  features like:
+</p>
+
+<ul>
+  <li><strong>Categorization and Subcategorization:</strong> Enhancing content organization.</li>
+  <li><strong>Notification System:</strong> Keeping users informed of important updates.</li>
+  <li><strong>Role-Based Access Control:</strong> Implementing a user role system to manage permissions and access to
+    different sections of the CMS.</li>
+  <li><strong>SEO Optimization:</strong> Integrating tools to optimize content for search engines, including metadata
+    management and sitemap generation.</li>
+  <li><strong>Backup and Restore System:</strong> Ensuring data integrity with backup and restore functionalities.</li>
+</ul>
+
+<figure class="wp-block-image size-full">
+  <img loading="lazy" decoding="async" width="965" height="605"
+    src="{{'/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png' | relative_url}}"
+    alt="Data Export Functionality" class="wp-image-352" />
+  <figcaption>Data Export Interface</figcaption>
+</figure>
+
+<p>
+  <strong>Database Design and Architecture: The Core of the Custom CMS</strong>
+</p>
+
+<p>
+  A critical component in the development of my custom CMS was the database design. I opted for a relational database,
+  using <strong>MySQL (MariaDB)</strong>, for its ability to ensure data integrity and efficiency in handling complex
+  data. The main objective was to create a robust structure capable of efficiently managing user information, posts, and
+  associated content.
+</p>
+
+<p>
+  The data model was carefully designed, following normalization principles, to avoid redundancy and optimize
+  performance. The main tables include:
+</p>
+
+<ul>
+  <li><strong>Users:</strong> Stores user information, including credentials and access roles.</li>
+  <li><strong>Posts:</strong> Contains post data, such as titles, content, categories, and publication dates.</li>
+  <li><strong>Content:</strong> Stores detailed post content, allowing flexible structure for different content types
+    (text, images, videos, etc.).</li>
+  <li><strong>Categories:</strong> Organizes posts into categories and subcategories for better management and
+    navigation.</li>
+  <li><strong>Tags:</strong> Allows tagging posts with keywords for easy searching and organization.</li>
+</ul>
+
+<p>
+  Relationships between these tables are crucial for CMS functionality. For example, the 'Users' table relates to the
+  'Posts' table in a one-to-many relationship, as one user can create multiple posts. The 'Posts' table relates to
+  'Categories' and 'Tags' tables in many-to-many relationships, enabling flexible content categorization and tagging.
+</p>
+
+<p>
+  Indexes were implemented on key columns to optimize queries and improve CMS performance. Foreign keys were defined to
+  ensure referential integrity and maintain consistency of related data.
+</p>
+
+<figure class="wp-block-image size-full">
+  <a href="{{'/public/uploads/2024/03/gervisbermudez_db_prod-db.png' | relative_url}}">
+    <img loading="lazy" decoding="async" src="{{'/public/uploads/2024/03/gervisbermudez_db_prod-db.png' | relative_url}}"
+     alt="Data Export Functionality" class="wp-image-352" />
+  </a>
+  <figcaption>Data Diagram</figcaption>
+</figure>
+
+<p>
+  The database diagram, generated with <strong>ChartDB</strong>, provides a clear visual representation of the structure
+  and relationships between tables. This diagram was an invaluable tool during development, allowing visualization and
+  optimization of the database architecture.
+</p>
+
+<p>
+  This database design not only supports the CMS's core functionalities but is also designed to be scalable, allowing
+  for future expansions and improvements.
+</p>
+
+<p>
+  <strong>API Architecture: The Engine of the CMS Frontend! </strong>
+</p>
+
+<p>
+  To provide a seamless and dynamic user experience, the CMS incorporates a robust RESTful API, designed to power the
+  frontend and enable efficient data management. This API, built with CodeIgniter, follows a logical structure and
+  exposes a comprehensive set of endpoints, allowing the frontend to interact with the CMS's core functionalities.
+</p>
+
+<p>
+  The API is organized into several key modules, each addressing a specific aspect of content and user management.
+  Here's a breakdown of the main modules and their functionalities:
+</p>
+
+<ul>
+  <li>
+    <strong>Users: </strong> This module handles user-related operations, including user creation, retrieval, and
+    deletion. It also manages user groups and permissions, ensuring secure access control.
+    <ul>
+      <li><code>GET /api/v1/users/:user_id</code>: Retrieves user information.</li>
+      <li><code>POST /api/v1/users/</code>: Creates a new user.</li>
+      <li><code>DELETE /api/v1/users/:id</code>: Deletes a user.</li>
+      <li><code>GET /api/v1/users/usergroups/:usergroup_id</code>: Retrieves user group information.</li>
+      <li><code>GET /api/v1/users/permissions</code>: Retrieves user permissions.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Login: </strong> Manages user authentication, allowing users to log in and log out securely.
+    <ul>
+      <li><code>POST /api/v1/login</code>: Authenticates a user.</li>
+      <li><code>GET /api/v1/login/logout</code>: Logs out a user.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Config: ⚙️</strong> Handles CMS configuration settings, including theme management, updates, database
+    backups, and system logging.
+    <ul>
+      <li><code>GET /api/v1/config/</code>: Retrieves CMS configuration.</li>
+      <li><code>GET /api/v1/config/themes</code>: Retrieves installed themes.</li>
+      <li><code>GET /api/v1/config/backup_database</code>: Creates a database backup.</li>
+      <li><code>GET /api/v1/config/systemlogger</code>: Retrieves system logs.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Files: </strong> Manages file uploads, retrieval, and deletion within the CMS's file manager.
+    <ul>
+      <li><code>GET /api/v1/files/:id?path</code>: Retrieves files.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Pages: </strong> Handles page creation, retrieval, and management, including page types and templates.
+    <ul>
+      <li><code>GET /api/v1/pages/:id</code>: Retrieves page information.</li>
+      <li><code>GET /api/v1/pages/types/:id</code>: Retrieves page types.</li>
+      <li><code>GET /api/v1/pages/templates</code>: Retrieves page templates.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Forms: </strong> Manages dynamic forms and form data, allowing users to create and retrieve form
+    submissions.
+    <ul>
+      <li><code>GET /api/v1/models/:form_id</code>: Retrieves form definitions.</li>
+      <li><code>GET /api/v1/models/data/:form_id</code>: Retrieves form data.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Categories: ️</strong> Manages content categories and subcategories, providing endpoints for filtering and
+    retrieving category data.
+    <ul>
+      <li><code>GET /api/v1/categorie/:categorie_id</code>: Retrieves category information.</li>
+      <li><code>GET /api/v1/categorie/type/:type_id</code>: Filters categories by type.</li>
+      <li><code>GET /api/v1/categorie/filter/?name=Web Design</code>: Filters categories by name.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Albums: ️</strong> Manages media albums, allowing retrieval of album data.
+    <ul>
+      <li><code>GET /api/v1/albumes/:album_id</code>: Retrieves album information.</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Menus: ☰</strong> Handles menu creation, retrieval, and deletion, including menu templates.
+    <ul>
+      <li><code>GET /api/v1/menus/:menu_id</code>: Retrieves menu information.</li>
+      <li><code>GET /api/v1/menus/templates</code>: Retrieves menu templates.</li>
+      <li><code>DELETE /api/v1/menus/:id</code>: Deletes a menu.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+  This API architecture ensures that the CMS is not only functional but also highly extensible, allowing for future
+  enhancements and integrations. By exposing these endpoints, the CMS provides a flexible and powerful interface for
+  frontend developers to build rich and interactive user experiences.
+</p>
+
+<p>
+  <br /><strong>Conclusion and Reflections<br /></strong><br />This project demonstrates my ability to handle the entire
+  development lifecycle, from initial design to final implementation. By leveraging Figma, CodeIgniter, and
+  Materialize.css, I created a robust and user-friendly CMS. The choice of CodeIgniter allowed me to structure the
+  backend efficiently, while Materialize.css helped me achieve a modern and responsive user interface.
+</p>
+
+<p>
+  Throughout the development, I faced several challenges, including implementing dynamic forms and optimizing
+  performance for large data volumes. Each challenge was an opportunity to learn and improve my skills. I am
+  particularly proud of the data export functionality, which provides users with the flexibility to analyze and utilize
+  their data outside the CMS.
+</p>
+
+<p>
+  For more detailed information about this project, please visit: <a title="Start CMS Project" href="{{ '/portfolio/start-cms/' |
+  relative_url }}">Start CMS Project</a>
+</p>
+
+<p>
+  I am passionate about building scalable and efficient web solutions, and I am eager to contribute my skills to
+  challenging projects. I believe my experience in full-stack design and development allows me to approach complex
+  projects with a comprehensive perspective, ensuring that both functionality and user experience are top-notch.
+</p>
+
+<p>
+  Thank you for taking the time to review my work. I look forward to potential opportunities where I can apply my
+  expertise to create impactful web applications.
+</p>

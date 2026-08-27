@@ -1,0 +1,25 @@
+---
+description: Use Jekyll relative_url/absolute_url filters; never hardcode /site or nested ../public paths.
+globs: "**/*.{html,md,yml}"
+alwaysApply: false
+---
+
+# Liquid URLs
+
+Every internal href, src, and CSS url must go through `| relative_url` or `| absolute_url`. Never hardcode `/site`. Local `baseurl` is empty; prod `baseurl` is `/site`. The filter is what prefixes correctly.
+
+Canonical and share URLs: `{{ site.url }}{{ site.baseurl }}{{ page.url }}` (already in `_includes/head.html`).
+
+Nested pages (`about-me/`, `blog/`, `portfolio/<slug>/`) break if assets use `../public/...`. Root-absolute Liquid paths are depth-safe.
+
+```html
+<!-- BAD: hardcoded /site; nested ../public breaks on about-me/, blog/, portfolio/ -->
+<link href="/site/public/css/styles.css" />
+<img src="../../public/uploads/2024/03/hero.jpg" />
+
+<!-- GOOD -->
+<link href="{{ '/public/css/styles.css' | relative_url }}" />
+<img src="{{ '/public/uploads/2024/03/hero.jpg' | relative_url }}" />
+```
+
+`_includes/top-banner.html` still uses a nested `../../../../public/...` background. New code must not copy that pattern; use `relative_url`.

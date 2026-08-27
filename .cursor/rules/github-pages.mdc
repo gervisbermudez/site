@@ -1,0 +1,17 @@
+---
+description: Production Jekyll build uses _config_prod.yml; do not hardcode /site to fix GitHub Pages 404s.
+globs: ".github/workflows/**,_config.yml,_config_prod.yml,Gemfile*"
+alwaysApply: false
+---
+
+# GitHub Pages
+
+Production build must use `_config_prod.yml` (`url=https://gervisbermudez.github.io`, `baseurl=/site`). CI: `.github/workflows/static.yml` runs `bundle exec jekyll build --config _config_prod.yml` then deploys `_site` to `gh-pages`.
+
+Local `_config.yml` keeps `url` and `baseurl` empty. Do not copy prod `baseurl` into the local config.
+
+CSS/asset 404s on github.io are almost always missing `| relative_url`, not a missing `/site` prefix. Hardcoding `/site` “fixes” prod and breaks local (and can double-prefix).
+
+Plugins (do not drop; listed in both configs + Gemfile): `jekyll-feed`, `jekyll-paginate`, `jekyll-seo-tag`, `jekyll-sitemap`.
+
+Do not add gems or change the deploy workflow unless the user asked.

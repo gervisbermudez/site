@@ -37,3 +37,8 @@ next-env.d.ts
 
 _site/
 vendor
+vendor/
+
+# graphify (keep graph.json and GRAPH_REPORT.md trackable)
+graphify-out/.graphify_*
+graphify-out/.graphify_python

@@ -1,0 +1,21 @@
+---
+description: Arter/Elementor UI changes stay in styles.css; keep art-* markup; verify shared chrome.
+globs: "public/css/**,_includes/**,_layouts/**"
+alwaysApply: false
+---
+
+# Arter CSS and shared UI
+
+Visual overrides belong in `public/css/styles.css` only. Keep `art-*` and `elementor-*` classes. Do not modernize or restyle markup to a new system.
+
+Do not edit `public/themes/arter/**` or `public/plugins/**` unless a one-off bug is justified.
+
+Shared chrome (default layout + sidebar + menu) is used site-wide. After any include/layout/CSS change, verify these six surfaces: Home, About, Blog, one post, Portfolio, Contact. Check desktop ~1440 and mobile ~390.
+
+```css
+/* BAD: restyle by replacing Arter class names in HTML */
+.hero-v2 { ... }
+
+/* GOOD: override the existing Arter selector */
+.art-banner .art-banner-overlay .art-banner-title h1 { color: #ffffff; }
+```

@@ -1,0 +1,31 @@
+---
+description: Stack, deploy, folder layout, brand voice, and hard prohibitions for this Jekyll site.
+alwaysApply: true
+---
+
+# Site context
+
+Personal site of Gervis Bermudez. Jekyll 4.4.1 + Liquid. Static HTML/CSS/JS. Visual theme is Arter exported from WordPress/Elementor (`art-*`, `elementor-*` classes). CSS overrides live only in `public/css/styles.css`.
+
+## Deploy
+
+- Local (`_config.yml`): `url` and `baseurl` empty. Serve: `bundle exec jekyll serve`
+- Prod (`_config_prod.yml`): `url=https://gervisbermudez.github.io` `baseurl=/site`. Live: https://gervisbermudez.github.io/site
+- CI: push `main` → `bundle exec jekyll build --config _config_prod.yml` → `_site` to `gh-pages`
+
+## Layout
+
+- Pages: `index.html`, `about-me/`, `contact/`, `portfolio/`, `blog/`
+- Posts: `_posts/`. Portfolio: `_data/portfolio.yml` + `portfolio/<slug>/index.html`
+- Shared chrome: `_layouts/default.html`, `_includes/side.html`, `_includes/menu.html`
+
+## Voice
+
+English copy. Keep `<html lang="es">` and `og:locale es_ES`. Do not translate the site.
+
+## Do not
+
+- Convert to Next/React
+- Delete or rewrite Arter markup, `public/themes/arter/**`, or `public/plugins/**`
+- Hardcode `/site` in links (use `| relative_url` / `| absolute_url`)
+- Commit or regenerate `_site/` as source

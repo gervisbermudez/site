@@ -1,0 +1,30 @@
+---
+description: Required Jekyll post front matter, layout, image placeholders, and clone-from-recent workflow.
+globs: "_posts/**"
+alwaysApply: false
+---
+
+# Jekyll posts
+
+Filename: `_posts/YYYY-MM-DD-slug.html`. Always `layout: post` (wraps `_layouts/post.html` → `default`).
+
+Required front matter (clone a recent post, e.g. `_posts/2025-03-24-*.html`):
+
+```yaml
+layout: post
+date: YYYY-MM-DD
+author: Gervis Bermudez
+title: "..."
+description: ...
+thumbnail: /public/uploads/YYYY/MM/...
+banner: /public/uploads/YYYY/MM/...
+contact_banner: /public/uploads/YYYY/MM/...
+category: Web Development
+tags: ["Tag"]
+```
+
+Do not invent image paths. Placeholders go in `public/uploads/YYYY/MM/` matching `date`. Pipe body images with `| relative_url`.
+
+`_layouts/post.html` already `{% include contact-banner.html %}`. Do not paste that block into the post body. Set `contact_banner` in front matter only.
+
+Permalink comes from `_config.yml`: `/blog/:categories/:year/:month/:day/:title`. Prod URL is that path under `baseurl` `/site`. Do not hardcode `/site` in the post.

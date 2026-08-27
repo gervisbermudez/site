@@ -1,0 +1,248 @@
+{
+  ".cursor/skills/arter-ui-change/SKILL.md": {
+    "mtime": 1787800387.71845,
+    "seen": 1787801014.791993,
+    "ast_hash": "d87df74c3a3f2c366dcdf392124cfa31",
+    "semantic_hash": "d87df74c3a3f2c366dcdf392124cfa31"
+  },
+  ".cursor/skills/arter-ui-change/reference.md": {
+    "mtime": 1787800392.3577614,
+    "seen": 1787801014.791997,
+    "ast_hash": "b4d470c53f96d8115116275403ddcf15",
+    "semantic_hash": "b4d470c53f96d8115116275403ddcf15"
+  },
+  ".cursor/skills/jekyll-pages-deploy/SKILL.md": {
+    "mtime": 1787800376.7594883,
+    "seen": 1787801014.7919981,
+    "ast_hash": "4fb31ff503fd66c8e76f86aa36c590e4",
+    "semantic_hash": "4fb31ff503fd66c8e76f86aa36c590e4"
+  },
+  ".cursor/skills/jekyll-pages-deploy/reference.md": {
+    "mtime": 1787800380.9740887,
+    "seen": 1787801014.7919993,
+    "ast_hash": "83067536f9d27f8016bda42444ddc9f9",
+    "semantic_hash": "83067536f9d27f8016bda42444ddc9f9"
+  },
+  ".cursor/skills/new-blog-post/SKILL.md": {
+    "mtime": 1787800350.2353942,
+    "seen": 1787801014.7919998,
+    "ast_hash": "cf1213ffd330761b89cee903e29d0794",
+    "semantic_hash": "cf1213ffd330761b89cee903e29d0794"
+  },
+  ".cursor/skills/new-blog-post/reference.md": {
+    "mtime": 1787800355.936133,
+    "seen": 1787801014.7920003,
+    "ast_hash": "24a75d0ff57ae4a83568a658c2c094b2",
+    "semantic_hash": "24a75d0ff57ae4a83568a658c2c094b2"
+  },
+  ".cursor/skills/new-portfolio-item/SKILL.md": {
+    "mtime": 1787800362.788345,
+    "seen": 1787801014.7920008,
+    "ast_hash": "c25d32baf6780da203396abd82a5297e",
+    "semantic_hash": "c25d32baf6780da203396abd82a5297e"
+  },
+  ".cursor/skills/new-portfolio-item/reference.md": {
+    "mtime": 1787800368.9469914,
+    "seen": 1787801014.7920012,
+    "ast_hash": "0831a7ebe4ec220babc594e5515cac19",
+    "semantic_hash": "0831a7ebe4ec220babc594e5515cac19"
+  },
+  ".github/workflows/static.yml": {
+    "mtime": 1787799734.4908895,
+    "seen": 1787801014.7920015,
+    "ast_hash": "2110fc21fff6a9db03c4a3ac684af50e",
+    "semantic_hash": "2110fc21fff6a9db03c4a3ac684af50e"
+  },
+  "AGENTS.md": {
+    "mtime": 1787800392.4943156,
+    "seen": 1787801014.792002,
+    "ast_hash": "beae36e640f37b16119c8f218364aa46",
+    "semantic_hash": "beae36e640f37b16119c8f218364aa46"
+  },
+  "_config.yml": {
+    "mtime": 1787799848.997843,
+    "seen": 1787801014.7920027,
+    "ast_hash": "1c8763dd3ec190d13e9c262f747bb449",
+    "semantic_hash": "1c8763dd3ec190d13e9c262f747bb449"
+  },
+  "_config_prod.yml": {
+    "mtime": 1787799848.997843,
+    "seen": 1787801014.7920034,
+    "ast_hash": "411f985b9404cc46636fc5dd849a84a1",
+    "semantic_hash": "411f985b9404cc46636fc5dd849a84a1"
+  },
+  "_data/portfolio.yml": {
+    "mtime": 1787799734.4908895,
+    "seen": 1787801014.7920039,
+    "ast_hash": "3803c54ab037aba91d3bf4216a820537",
+    "semantic_hash": "3803c54ab037aba91d3bf4216a820537"
+  },
+  "_includes/contact-banner.html": {
+    "mtime": 1787799848.9982846,
+    "seen": 1787801014.7920043,
+    "ast_hash": "d8362424ff7cb56b615b2653561f392f",
+    "semantic_hash": "d8362424ff7cb56b615b2653561f392f"
+  },
+  "_includes/footer.html": {
+    "mtime": 1787799734.4928021,
+    "seen": 1787801014.7920048,
+    "ast_hash": "28c8db07c20d1e0d642a0ca035b01566",
+    "semantic_hash": "28c8db07c20d1e0d642a0ca035b01566"
+  },
+  "_includes/head.html": {
+    "mtime": 1787799848.998469,
+    "seen": 1787801014.792005,
+    "ast_hash": "c460b1353c34ed649fce025f2f780ab9",
+    "semantic_hash": "c460b1353c34ed649fce025f2f780ab9"
+  },
+  "_includes/menu.html": {
+    "mtime": 1787799734.4928021,
+    "seen": 1787801014.7920055,
+    "ast_hash": "d1b069018b00d80d7f5ef2fa53f76179",
+    "semantic_hash": "d1b069018b00d80d7f5ef2fa53f76179"
+  },
+  "_includes/portfolio-navigator.html": {
+    "mtime": 1787799734.4928021,
+    "seen": 1787801014.7920065,
+    "ast_hash": "fb1f69a1f714443a59678e2083efa27b",
+    "semantic_hash": "fb1f69a1f714443a59678e2083efa27b"
+  },
+  "_includes/scripts.html": {
+    "mtime": 1787799734.4928021,
+    "seen": 1787801014.792007,
+    "ast_hash": "b60702aa540a00146eb4a81fe4484489",
+    "semantic_hash": "b60702aa540a00146eb4a81fe4484489"
+  },
+  "_includes/side.html": {
+    "mtime": 1787799848.9990208,
+    "seen": 1787801014.7920074,
+    "ast_hash": "945da12813b85b3d3d995cda9a61ef13",
+    "semantic_hash": "945da12813b85b3d3d995cda9a61ef13"
+  },
+  "_includes/top-banner.html": {
+    "mtime": 1787799734.4928021,
+    "seen": 1787801014.792008,
+    "ast_hash": "1daf84d05fa7a3f051747fc114bdf8f8",
+    "semantic_hash": "1daf84d05fa7a3f051747fc114bdf8f8"
+  },
+  "_layouts/default.html": {
+    "mtime": 1787799848.9992917,
+    "seen": 1787801014.7920086,
+    "ast_hash": "75fbd5f156b735b0b457c56f01b3240c",
+    "semantic_hash": "75fbd5f156b735b0b457c56f01b3240c"
+  },
+  "_layouts/post.html": {
+    "mtime": 1787799848.9995077,
+    "seen": 1787801014.792009,
+    "ast_hash": "05e37e15ca38563f2a916c363320326b",
+    "semantic_hash": "05e37e15ca38563f2a916c363320326b"
+  },
+  "_posts/2024-03-07-materialize-css-the-little-library-for-material-design.html": {
+    "mtime": 1787799734.4938426,
+    "seen": 1787801014.79201,
+    "ast_hash": "a853d603cc00d17bd2982e664de8fcc6",
+    "semantic_hash": "a853d603cc00d17bd2982e664de8fcc6"
+  },
+  "_posts/2024-06-08-meet-material-design-the-design-system-of-google.html": {
+    "mtime": 1787799848.9996665,
+    "seen": 1787801014.7920103,
+    "ast_hash": "4e1300f4b97f108261d73292ac94a691",
+    "semantic_hash": "4e1300f4b97f108261d73292ac94a691"
+  },
+  "_posts/2024-08-07-lightweight-and-powerful-codeigniter-the-php-framework.html": {
+    "mtime": 1787799734.4944901,
+    "seen": 1787801014.7920108,
+    "ast_hash": "af3f9e38e713ecf00a721c2bb85de099",
+    "semantic_hash": "af3f9e38e713ecf00a721c2bb85de099"
+  },
+  "_posts/2024-10-07-the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code.html": {
+    "mtime": 1787799848.9997509,
+    "seen": 1787801014.7920113,
+    "ast_hash": "71f043fedba2589090501f21a9989798",
+    "semantic_hash": "71f043fedba2589090501f21a9989798"
+  },
+  "_posts/2024-12-07-building-a-custom-cms-from-figma-to-code-igniter-with-materialize.html": {
+    "mtime": 1787799848.9999037,
+    "seen": 1787801014.7920117,
+    "ast_hash": "fc0152e0c347a8a2877721cfd2908da3",
+    "semantic_hash": "fc0152e0c347a8a2877721cfd2908da3"
+  },
+  "_posts/2025-02-07-solving-the-hotel-reservation-problem-using-vue-js-with-vite.html": {
+    "mtime": 1787799849.000206,
+    "seen": 1787801014.792012,
+    "ast_hash": "51ce1e59b7adb023dad58864cfd5d38e",
+    "semantic_hash": "51ce1e59b7adb023dad58864cfd5d38e"
+  },
+  "_posts/2025-03-24-next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker.html": {
+    "mtime": 1787799849.0003474,
+    "seen": 1787801014.7920125,
+    "ast_hash": "c25f393bf6da5ed41111dacdeb247b91",
+    "semantic_hash": "c25f393bf6da5ed41111dacdeb247b91"
+  },
+  "about-me/index.html": {
+    "mtime": 1787799849.0006592,
+    "seen": 1787801014.7920132,
+    "ast_hash": "ec4e0c4a93dbbdda2bd533d617ef93f5",
+    "semantic_hash": "ec4e0c4a93dbbdda2bd533d617ef93f5"
+  },
+  "blog/index.html": {
+    "mtime": 1787799849.0025816,
+    "seen": 1787801014.7920136,
+    "ast_hash": "5047e3d7f8a33d34b680f4b5acc3b4e3",
+    "semantic_hash": "5047e3d7f8a33d34b680f4b5acc3b4e3"
+  },
+  "contact/index.html": {
+    "mtime": 1787799849.0027425,
+    "seen": 1787801014.7920141,
+    "ast_hash": "79ef5d7cc24e4e5098ada0eb6e5918ae",
+    "semantic_hash": "79ef5d7cc24e4e5098ada0eb6e5918ae"
+  },
+  "index.html": {
+    "mtime": 1787799849.003022,
+    "seen": 1787801014.7920144,
+    "ast_hash": "07769146bcfe85a4b5120602ad7adc28",
+    "semantic_hash": "07769146bcfe85a4b5120602ad7adc28"
+  },
+  "portfolio/bidfinder-app-proposal/index.html": {
+    "mtime": 1787799849.0032756,
+    "seen": 1787801014.7920148,
+    "ast_hash": "f6cb0fb3ed6cb76a506f21fae0dbd754",
+    "semantic_hash": "f6cb0fb3ed6cb76a506f21fae0dbd754"
+  },
+  "portfolio/bridgestone-mobile-app-proposal/index.html": {
+    "mtime": 1787799849.0035434,
+    "seen": 1787801014.7920153,
+    "ast_hash": "b2fd9e712844e30c39bf4b820df245db",
+    "semantic_hash": "b2fd9e712844e30c39bf4b820df245db"
+  },
+  "portfolio/gervis-bermudez-brand/index.html": {
+    "mtime": 1787799849.0037396,
+    "seen": 1787801014.7920158,
+    "ast_hash": "dff1ad768659183c436e340798df763f",
+    "semantic_hash": "dff1ad768659183c436e340798df763f"
+  },
+  "portfolio/index.html": {
+    "mtime": 1787799734.4976974,
+    "seen": 1787801014.7920163,
+    "ast_hash": "9528115fea21777259884628a9d6b8c0",
+    "semantic_hash": "9528115fea21777259884628a9d6b8c0"
+  },
+  "portfolio/loanadmin/index.html": {
+    "mtime": 1787799849.0039477,
+    "seen": 1787801014.7920167,
+    "ast_hash": "c43238038cd653653e1e31bea955e071",
+    "semantic_hash": "c43238038cd653653e1e31bea955e071"
+  },
+  "portfolio/start-cms/index.html": {
+    "mtime": 1787799849.0040467,
+    "seen": 1787801014.7920172,
+    "ast_hash": "7a20270efe440bb98b5d1395a04075a4",
+    "semantic_hash": "7a20270efe440bb98b5d1395a04075a4"
+  },
+  "portfolio/vuenotes-app-proposal/index.html": {
+    "mtime": 1787799849.004128,
+    "seen": 1787801014.7920177,
+    "ast_hash": "b8259edde2846e269c4aa30b3884b48d",
+    "semantic_hash": "b8259edde2846e269c4aa30b3884b48d"
+  }
+}

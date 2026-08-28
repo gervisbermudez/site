@@ -10,24 +10,6 @@ h6,
   color: #ffffff;
 }
 
-@media (max-width: 1600px) {
-  .art-banner .art-banner-overlay .art-banner-title h1 {
-    color: #ffffff;
-  }
-}
-
-@media (max-width: 1400px) {
-  .art-banner .art-banner-overlay .art-banner-title h1 {
-    color: #ffffff;
-  }
-}
-
-@media (max-width: 920px) {
-  .art-banner .art-banner-overlay .art-banner-title h1 {
-    color: #ffffff;
-  }
-}
-
 /* Text Color */
 body,
 a,
@@ -86,29 +68,7 @@ a,
 form.post-password-form input[type="submit"],
 .sticky:before,
 .wp-block-button a.wp-block-button__link,
-.wp-block-button.is-style-outline a.wp-block-button__link,
-.art-menu-bar .cart-btn .cart-icon .cart-count,
-.woocommerce #respond input#submit,
-.woocommerce a.button,
-.woocommerce button.button,
-.woocommerce input.button .woocommerce-mini-cart__buttons #respond input#submit,
-.woocommerce-mini-cart__buttons a.button,
-.woocommerce-mini-cart__buttons button.button,
-.woocommerce-mini-cart__buttons input.button,
-.woocommerce #respond input#submit:hover,
-.woocommerce a.button:hover,
-.woocommerce button.button:hover,
-.woocommerce input.button:hover .woocommerce-mini-cart__buttons #respond input#submit:hover,
-.woocommerce-mini-cart__buttons a.button:hover,
-.woocommerce-mini-cart__buttons button.button:hover,
-.woocommerce-mini-cart__buttons input.button:hover,
-.woocommerce span.onsale,
-.woocommerce #respond input#submit.alt,
-.woocommerce a.button.alt,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt,
-.woocommerce div.product .woocommerce-tabs ul.tabs li.active a,
-.woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a {
+.wp-block-button.is-style-outline a.wp-block-button__link {
   background-color: #61CE70;
 }
 
@@ -139,12 +99,6 @@ form.post-password-form input[type="submit"],
 .content-sidebar a:hover,
 .wp-block-button.is-style-outline a.wp-block-button__link,
 .error-page__num,
-.woocommerce-mini-cart__buttons #respond input#submit,
-.woocommerce-mini-cart__buttons a.button,
-.woocommerce-mini-cart__buttons button.button,
-.woocommerce-mini-cart__buttons input.button,
-.woocommerce .star-rating,
-.woocommerce p.stars a,
 .art-info-bar .art-knowledge-list li i {
   color: #149ddd;
 }

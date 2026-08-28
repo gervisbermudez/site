@@ -10,13 +10,7 @@ description: "StartCMS is a user-friendly content management system (CMS) design
   <div class="art-curtain"></div>
 
   <!-- top background -->
-  <div class="art-top-bg" style="
-      background-image: url('{{ site.default_banner | relative_url }}');
-    ">
-    <!-- overlay -->
-    <div class="art-top-bg-overlay"></div>
-    <!-- overlay end -->
-  </div>
+  {% include top-banner.html %}
   <!-- top background end -->
 
   <!-- swup container -->

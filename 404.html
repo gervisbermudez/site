@@ -6,9 +6,7 @@ permalink: /404.html
 
 <div class="art-content">
   <div class="art-curtain"></div>
-  <div class="art-top-bg" style="background-image: url('{{ site.default_banner | relative_url }}');">
-    <div class="art-top-bg-overlay"></div>
-  </div>
+  {% include top-banner.html %}
   <div class="transition-fade" id="swup">
     <div id="scrollbar" class="art-scroll-frame">
       <div class="container-fluid">

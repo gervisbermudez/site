@@ -42,3 +42,4 @@ vendor/
 # graphify (keep graph.json and GRAPH_REPORT.md trackable)
 graphify-out/.graphify_*
 graphify-out/.graphify_python
+graphify-out/cache/

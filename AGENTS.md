@@ -14,7 +14,7 @@ Local `_config.yml`: empty `url` / `baseurl`. Prod `_config_prod.yml`: `url=http
 ## Cursor
 
 - Rules: `.cursor/rules/*.mdc` (site context always on; others glob-scoped)
-- Skills: `.cursor/skills/*/SKILL.md` — `new-blog-post`, `new-portfolio-item`, `jekyll-pages-deploy`, `arter-ui-change`
+- Skills: `.cursor/skills/*/SKILL.md` — `new-blog-post`, `new-portfolio-item`, `jekyll-pages-deploy`, `arter-ui-change`, `site-audit-cleanup`, `pre-commit-review`
 
 ## Graphify
 

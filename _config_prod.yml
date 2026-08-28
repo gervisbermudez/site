@@ -20,7 +20,7 @@
 
 title: Gervis Bermudez | Blog
 email: gervisbermudez@outlook.com
-description: 'I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.'
+description: 'I develop creative solutions to complex problems, from technical tests to custom CMSs, turning code and design into working products.'
 baseurl: "/site" # the subpath of your site, e.g. /blog
 url: "https://gervisbermudez.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 paginate: 6 # Número de publicaciones por página
@@ -46,14 +46,10 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - graphify-out
+defaults:
+  - scope:
+      path: "public"
+    values:
+      sitemap: false

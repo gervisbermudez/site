@@ -1,9 +1,24 @@
+{% assign prev_link = '' %}
+{% assign next_link = '' %}
+{% assign seen_current = false %}
+{% for item in site.data.portfolio.items %}
+  {% assign item_path = item.link | prepend: '/' %}
+  {% if page.url == item_path %}
+    {% assign seen_current = true %}
+  {% elsif seen_current %}
+    {% if next_link == '' %}
+      {% assign next_link = item.link %}
+    {% endif %}
+  {% else %}
+    {% assign prev_link = item.link %}
+  {% endif %}
+{% endfor %}
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
             <div class="art-a art-pagination">
-                {% if page.previous %}
-                <a href="{{ page.previous.url | relative_url }}"
+                {% if prev_link != '' %}
+                <a href="{{ prev_link | relative_url }}"
                     class="art-link art-color-link art-w-chevron art-left-link">
                     <span>Previous project</span>
                 </a>
@@ -11,10 +26,10 @@
                 <div class="art-empty-space"></div>
                 {% endif %}
                 <div class="art-pagination-center">
-                    <a class="art-link" href="{{ '/portfolio/index.html' | relative_url }}">All projects</a>
+                    <a class="art-link" href="{{ '/portfolio/' | relative_url }}">All projects</a>
                 </div>
-                {% if page.next %}
-                <a href="{{ page.next.url | relative_url }}" class="art-link art-color-link art-w-chevron">
+                {% if next_link != '' %}
+                <a href="{{ next_link | relative_url }}" class="art-link art-color-link art-w-chevron">
                     <span>Next project</span>
                 </a>
                 {% else %}

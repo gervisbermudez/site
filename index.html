@@ -10,7 +10,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
 
   <!-- top background -->
   <div class="art-top-bg" style="
-      background-image: url(public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg);
+      background-image: url('{{ site.default_banner | relative_url }}');
     ">
     <!-- overlay -->
     <div class="art-top-bg-overlay"></div>
@@ -43,9 +43,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                           <!-- col -->
                           <div class="col-lg-12">
                             <!-- banner -->
-                            <div class="art-a art-banner" style="
-                                background-image: url(https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&#038;w=2070&#038;auto=format&#038;fit=crop&#038;ixlib=rb-4.0.3&#038;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-                              ">
+                            <div class="art-a art-banner" style="background-image: url('{{ '/public/uploads/2024/03/hero-code.jpg' | relative_url }}');">
                               <!-- banner back -->
                               <div class="art-banner-back"></div>
                               <!-- banner dec -->
@@ -69,7 +67,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                                   </div>
                                   <div class="art-buttons-frame">
                                     <!-- button -->
-                                    <a href="contact/index.html" class="art-btn art-btn-md"><span>Contact me</span></a>
+                                    <a href="{{ '/contact/' | relative_url }}" class="art-btn art-btn-md"><span>Contact me</span></a>
                                   </div>
                                 </div>
                                 <!-- main title end -->
@@ -104,7 +102,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                     product vision to create solid, maintainable solutions,
                     while incorporating AI-assisted tools to optimize
                     development processes and productivity.<br /><br /><a class="art-link art-color-link art-w-chevron"
-                      href="about-me/index.html">See my full profile</a>
+                      href="{{ '/about-me/' | relative_url }}">See my full profile</a>
                   </p>
                 </div>
               </div>
@@ -238,7 +236,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                               style="width: 310px; margin-right: 30px">
                               <!-- blog post card -->
                               <div class="art-a art-blog-card">
-                                <div id="post-662"
+                                <div id="{{ post.path | slugify }}"
                                   class="post-662 post type-post status-publish format-standard has-post-thumbnail hentry {{post.tags}}">
                                   <!-- post cover -->
                                   <a class="art-port-cover post-thumbnail" href="{{ post.url | relative_url }}">
@@ -317,7 +315,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                     <!-- row end -->
                     <div class="row">
                       <div class="col-md-12">
-                        <a class="art-link art-color-link art-w-chevron" href="blog/index.html">See all my posts</a>
+                        <a class="art-link art-color-link art-w-chevron" href="{{ '/blog/' | relative_url }}">See all my posts</a>
                       </div>
                     </div>
                   </div>
@@ -571,7 +569,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                         {% for item in site.data.portfolio.items %}
                         <div class="art-grid-item {{ item.category }}">
                           <a data-no-swup data-elementor-lightbox-slideshow="gallery"
-                            data-elementor-lightbox-title="{{ item.title }}" href="{{ item.image }}"
+                            data-elementor-lightbox-title="{{ item.title }}" href="{{ item.image | relative_url }}"
                             class="art-a art-portfolio-item-frame">
                             <img decoding="async" src="{{ item.image | relative_url }}" alt="{{ item.title }}" />
                             <span class="art-item-hover"><i class="fas fa-expand"></i></span>
@@ -586,7 +584,7 @@ banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
                         {% endfor %}
                       </div>
                       <div class="col-md-12">
-                        <a class="art-link art-color-link art-w-chevron" href="portfolio/index.html">See my entire
+                        <a class="art-link art-color-link art-w-chevron" href="{{ '/portfolio/' | relative_url }}">See my entire
                           portfolio</a>
                       </div>
                     </div>

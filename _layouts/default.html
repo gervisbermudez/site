@@ -3,7 +3,7 @@
 {% include head.html %}
 
 <body
-  class="home page-template page-template-template-layout-builder page-template-template-layout-builder-php page page-id-214 wp-custom-logo default--scrolling elementor-default elementor-kit-45 elementor-page elementor-page-214">
+  class="{% if page.url == '/' %}home {% endif %}page-template page-template-template-layout-builder page-template-template-layout-builder-php page page-id-214 wp-custom-logo default--scrolling elementor-default elementor-kit-45 elementor-page elementor-page-214">
   <!-- app -->
   <div class="art-app">
     <!-- mobile top bar -->

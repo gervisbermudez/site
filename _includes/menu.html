@@ -2,19 +2,19 @@
     <!-- menu list -->
     <ul id="menu-main-menu" class="main-menu">
         <li id="menu-item-194"
-            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-214 current_page_item">
+            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home{% if page.url == '/' %} current-menu-item page_item page-item-214 current_page_item{% endif %}">
             <a href="{{ '/' | relative_url }}">Home</a>
         </li>
-        <li id="menu-item-547" class="menu-item menu-item-type-post_type menu-item-object-page">
+        <li id="menu-item-547" class="menu-item menu-item-type-post_type menu-item-object-page{% if page.url contains '/contact' %} current-menu-item current_page_item{% endif %}">
             <a href="{{ 'contact/' | relative_url }}">Contact</a>
         </li>
-        <li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page">
+        <li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page{% if page.url contains '/portfolio' %} current-menu-item current_page_item{% endif %}">
             <a href="{{ 'portfolio/' | relative_url }}">Portfolio</a>
         </li>
-        <li id="menu-item-199" class="menu-item menu-item-type-post_type menu-item-object-page">
+        <li id="menu-item-199" class="menu-item menu-item-type-post_type menu-item-object-page{% if page.url contains '/about-me' %} current-menu-item current_page_item{% endif %}">
             <a href="{{ 'about-me/' | relative_url }}">About</a>
         </li>
-        <li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-page">
+        <li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-page{% if page.url contains '/blog' %} current-menu-item current_page_item{% endif %}">
             <a href="{{ 'blog/' | relative_url }}">Blog</a>
         </li>
     </ul>

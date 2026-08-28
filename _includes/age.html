@@ -1,0 +1,11 @@
+{%- assign age = site.time | date: "%Y" | plus: 0 | minus: 1993 -%}
+{%- assign birth_month = site.time | date: "%m" | plus: 0 -%}
+{%- assign birth_day = site.time | date: "%d" | plus: 0 -%}
+{%- if birth_month < 4 -%}
+  {%- assign age = age | minus: 1 -%}
+{%- elsif birth_month == 4 -%}
+  {%- if birth_day < 6 -%}
+    {%- assign age = age | minus: 1 -%}
+  {%- endif -%}
+{%- endif -%}
+{{- age -}}

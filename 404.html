@@ -1,0 +1,42 @@
+---
+layout: default
+title: Page not found &#8211; Gervis Bermudez
+permalink: /404.html
+---
+
+<div class="art-content">
+  <div class="art-curtain"></div>
+  <div class="art-top-bg" style="background-image: url('{{ site.default_banner | relative_url }}');">
+    <div class="art-top-bg-overlay"></div>
+  </div>
+  <div class="transition-fade" id="swup">
+    <div id="scrollbar" class="art-scroll-frame">
+      <div class="container-fluid">
+        <div class="row p-30-0">
+          <div class="col-lg-12">
+            <div class="art-section-title">
+              <div class="art-title-frame">
+                <h1>Page not found</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="art-a art-card">
+              <p>That page does not exist. It may have moved, or the link might be outdated.</p>
+              <p>
+                <a class="art-link art-color-link art-w-chevron" href="{{ '/' | relative_url }}">Back to home</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        {% include footer.html %}
+      </div>
+    </div>
+  </div>
+</div>

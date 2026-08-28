@@ -63,7 +63,7 @@
         function gtag() {
             dataLayer.push(arguments);
         }
-        gtag("set", "linker", { domains: ["gervisbermudez.github.io/site"] });
+        gtag("set", "linker", { domains: ["gervisbermudez.github.io"] });
         gtag("js", new Date());
         gtag("set", "developer_id.dZTNiMT", true);
         gtag("config", "GT-WFMP3PT");
@@ -72,17 +72,21 @@
 
     <link rel="canonical" href="{{site.url}}{{ site.baseurl }}{{page.url}}" />
     <link rel="shortlink" href="{{site.url}}{{ site.baseurl }}{{page.url}}" />
-    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/styles.css" type="text/css" media="all" />
-    <link rel="icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-150x150.png" sizes="32x32" />
-    <link rel="icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" />
+    <link rel="stylesheet" href="{{ '/public/css/styles.css' | relative_url }}" type="text/css" media="all" />
+    <link rel="icon" href="{{ '/public/uploads/2024/03/Vectorized-Logo-150x150.png' | relative_url }}" sizes="32x32" />
+    <link rel="icon" href="{{ '/public/uploads/2024/03/Vectorized-Logo-300x300.png' | relative_url }}" sizes="192x192" />
+    <link rel="apple-touch-icon" href="{{ '/public/uploads/2024/03/Vectorized-Logo-300x300.png' | relative_url }}" />
     <meta name="msapplication-TileImage"
-        content="{{ site.baseurl }}/public/uploads/2024/03/Vectorized-Logo-300x300.png" />
+        content="{{ '/public/uploads/2024/03/Vectorized-Logo-300x300.png' | relative_url }}" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="{{site.title}}" />
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
     <meta property="og:url" content="{{site.url}}{{ site.baseurl }}{{page.url}}" />
+    {% if page.layout == 'post' %}
+    <meta property="og:type" content="article" />
+    {% else %}
     <meta property="og:type" content="website" />
+    {% endif %}
     <meta property="og:description"
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
@@ -98,8 +102,7 @@
 
     <meta property="og:image" content="{{site.url}}{{ site.baseurl }}{{page.banner | default: site.default_banner}}" />
     <meta name="twitter:image" content="{{site.url}}{{ site.baseurl }}{{page.banner | default: site.default_banner}}" />
-{% if page.url contains '/blog/' %}
-    <meta property="og:type" content="article" />
+{% if page.layout == 'post' %}
     <meta property="article:author" content="{% if page.author %}{{ page.author }}{% else %}{{site.default_author}}{% endif %}" />
     <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
 {% endif %}

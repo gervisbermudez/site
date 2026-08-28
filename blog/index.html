@@ -9,7 +9,7 @@ title: Blog &#8211; Gervis Bermudez
 
   <!-- top background -->
   <div class="art-top-bg" style="
-      background-image: url(../public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg);
+      background-image: url('{{ site.default_banner | relative_url }}');
     ">
     <!-- overlay -->
     <div class="art-top-bg-overlay"></div>
@@ -55,12 +55,12 @@ title: Blog &#8211; Gervis Bermudez
                             <!-- section title end -->
                           </div>
                           <!-- col end -->
-                          <div id="" class="row">
+                          <div class="row">
                             {% for post in paginator.posts %}
                             <div class="col-lg-6">
                               <!-- blog post card -->
                               <div class="art-a art-blog-card">
-                                <div id="post-662"
+                                <div id="{{ post.path | slugify }}"
                                   class="post-662 post type-post status-publish format-standard has-post-thumbnail hentry category-design category-web-development tag-figma tag-vite tag-vue">
                                   <!-- post cover -->
                                   <a class="art-port-cover post-thumbnail" href="{{ post.url | relative_url }}">
@@ -116,21 +116,23 @@ title: Blog &#8211; Gervis Bermudez
                               <div class="pagination">
                                 <div>
                                   {% if paginator.previous_page %}
-                                  <a href="{{ paginator.previous_page_path }}" class="previous art-link art-color-link art-w-chevron art-left-link">Anterior</a>
+                                  <a href="{{ paginator.previous_page_path | relative_url }}" class="previous art-link art-color-link art-w-chevron art-left-link">Anterior</a>
                                 {% endif %}
                                 </div>
                                 <div>
-                                  {% for page in (1..paginator.total_pages) %}
-                                  {% if page == paginator.page %}
-                                    <span class="current">{{ page }}</span>
+                                  {% for pagenum in (1..paginator.total_pages) %}
+                                  {% if pagenum == paginator.page %}
+                                    <span class="current">{{ pagenum }}</span>
+                                  {% elsif pagenum == 1 %}
+                                    <a href="{{ '/blog/' | relative_url }}">{{ pagenum }}</a>
                                   {% else %}
-                                    <a href="{{ paginator.page_path | replace: ':num', page }}">{{ page }}</a>
+                                    <a href="{{ site.paginate_path | replace: ':num', pagenum | relative_url }}">{{ pagenum }}</a>
                                   {% endif %}
                                 {% endfor %}
                                 </div>
                                 <div>
                                   {% if paginator.next_page %}
-                                  <a href="{{ paginator.next_page_path }}" class="next art-link art-color-link art-w-chevron"">Siguiente</a>
+                                  <a href="{{ paginator.next_page_path | relative_url }}" class="next art-link art-color-link art-w-chevron">Siguiente</a>
                                 {% endif %}
                                 </div>
                               </div>

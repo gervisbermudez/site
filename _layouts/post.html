@@ -70,7 +70,7 @@ layout: default
           <!-- col -->
           <div class="col-lg-12">
             <div class="art-a art-card">
-              <div id="post-8"
+              <div id="{{ page.path | slugify }}"
                 class="post-8 post type-post status-publish format-standard has-post-thumbnail hentry category-web-design">
                 <div class="content-box">
                   <div class="single-post-text">
@@ -92,11 +92,10 @@ layout: default
                   </div>
                   <div class="post-text-bottom">
                     <span class="cat-links">Posted in
-                      <a href="/category/{{page.category}}/index.html" rel="category tag"></a></span><span
+                      <a href="{{ '/blog/' | relative_url }}" rel="category tag">{{ page.category }}</a></span><span
                       class="byline">
                       by
-                      <span class="author vcard"><a class="url fn n"
-                          href="/author/{{page.author}}/index.html">{{page.author}}</a></span></span>
+                      <span class="author vcard">{{ page.author }}</span></span>
                     <div class="social-share">
                       <span>Share:</span>
                       <a class="share-btn share-btn-facebook" title="Share on Facebook"><i

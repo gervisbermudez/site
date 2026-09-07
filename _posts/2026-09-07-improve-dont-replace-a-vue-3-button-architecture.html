@@ -1,0 +1,323 @@
+---
+layout: post
+date: 2026-09-07
+author: Gervis Bermudez
+title: "Technical Challenge: Vue 3 Button Architecture with TypeScript"
+subtitle: "Improve, Don't Replace"
+description: "Improve, don't replace: a technical-test walkthrough of a Vue 3 + TypeScript button that keeps native HTML behavior, then ships it as an ESM package beside the demo."
+thumbnail: /public/uploads/2026/09/improve-dont-replace-vue-3-typescript-button-architecture-thumbnail.png
+banner: /public/uploads/2026/09/improve-dont-replace-vue-3-typescript-button-architecture-banner.png
+category: Web Development
+tags: ["Vue.js", "TypeScript", "Vite", "Accessibility", "Component Design"]
+---
+<div class="page-body">
+    <p class="">
+        Hello everyone! I wanted to share how I tackled a technical test for a
+        job application: a reusable <code>&lt;MyButton&gt;</code> in Vue 3 and
+        TypeScript.<br /><br />
+        I&#8217;ll be honest: at first I sat there staring at a point in space.
+        Enable, disable, change the color. It looked too simple, and that felt
+        strange. I thought maybe I was missing something. So I decided not to
+        take it lightly.<br /><br />
+        My thesis was this: build a quality component by extending the APIs
+        Vue already gives you. I did not want to overcomplicate the button that
+        already exists in HTML. A regular HTML button already has properties,
+        events, keyboard behavior. It is already accessible. It is already
+        battle-tested.<br /><br />
+        The brief was small. Vue 3, TypeScript, enable and disable, change
+        color, extras welcome. I think what they wanted to see was how I use
+        TypeScript, accessibility, UX, and tests — not a circus of variants.
+        I could have done many things: animations, thousands of colors, a
+        Storybook. The reality is that we developers often build things nobody
+        asked for. I wanted to keep it simple.
+    </p>
+    <h2 class="">
+        Improve, don&#8217;t replace
+    </h2>
+    <p class="">
+        Everything a developer already knows about
+        <code>&lt;button&gt;</code> has to keep working. Focus, keyboard,
+        <code>disabled</code>, <code>type</code>, form, <code>aria-*</code>,
+        <code>@click</code>. My own API sits on top:
+        <code>variant</code>, <code>size</code>, <code>loading</code>, and an
+        <code>#icon</code> slot.<br /><br />
+        The less we overwrite native behavior, the less probability we have of
+        shipping a bug. That is why the root is a real
+        <code>&lt;button&gt;</code>, not a
+        <code>&lt;div role=&quot;button&quot;&gt;</code>.
+    </p>
+    <h2 class="">
+        How I structured the component
+    </h2>
+    <p class="">
+        Let me show you a bit of the code. No big dependencies: Vue,
+        TypeScript, Vite, Vitest. One folder per component.
+        <code>MyButton.types.ts</code> is the contract,
+        <code>MyButton.vue</code> is the native button,
+        <code>MyButton.test.ts</code> is what cannot break.<br /><br />
+        <code>App.vue</code> is not the component. I used it as a living
+        catalog, with a few SVG icons — an arrow, a trash can, a bookmark —
+        so you can see every capability without reading the source first.
+        Vue 3 already forwards undeclared attrs and native listeners to that
+        single root. I did not proxy <code>$attrs</code> by hand.
+    </p>
+    <figure class="image">
+        <a href="{{'/public/uploads/2026/09/vue-3-mybutton-architecture.svg' | relative_url}}">
+            <img src="{{'/public/uploads/2026/09/vue-3-mybutton-architecture.svg' | relative_url}}"
+                alt="MyButton architecture: App.vue catalog, types, native button, tests, defineProps versus Vue 3 fallthrough"
+                title="MyButton architecture" />
+        </a>
+        <figcaption>One folder. Three files. A real HTML button.</figcaption>
+    </figure>
+    <h2 class="">
+        TypeScript: extend the native API, don&#8217;t swallow it
+    </h2>
+    <p class="">
+        I imported <code>ButtonHTMLAttributes</code> from Vue and extended
+        that. I did not copy the HTML catalog by hand. On top I added what I
+        thought was enough: three sizes, an icon slot left or right, four
+        colors. Primary is a pretty standard blue.<br /><br />
+        There is a trap. If you do
+        <code>defineProps&lt;ButtonHTMLAttributes &amp; …&gt;()</code>, Vue
+        treats <code>onClick</code> as a prop, and <code>@click</code> stops
+        being a native listener. So I split the types. I also did not
+        <code>defineEmits([&#x27;click&#x27;])</code>: a custom emit can fire
+        even when the native button is disabled.
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-typescript">export interface MyButtonOwnProps {
+  variant?: ButtonVariant
+  size?: ButtonSize
+  loading?: boolean
+  iconPosition?: ButtonIconPosition
+}
+
+export interface MyButtonProps extends MyButtonOwnProps {
+  disabled?: boolean
+  type?: NativeButtonProps[&#x27;type&#x27;]
+}
+
+export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code></pre>
+        </div>
+    </div>
+    <p class="">
+        <code>MyButtonProps</code> goes to <code>defineProps</code>.
+        <code>MyButtonPublicProps</code> is the conceptual contract — including
+        <code>id</code>, <code>aria-*</code>, <code>@click</code>. I do not
+        pass that one to <code>defineProps</code>. In the template the thesis
+        has to be visible:
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-vue">const isDisabled = computed(() =&gt; !!props.disabled || props.loading)
+
+&lt;button
+  :type=&quot;type&quot;
+  :disabled=&quot;isDisabled&quot;
+  :aria-busy=&quot;loading ? true : undefined&quot;
+&gt;
+  &lt;span v-if=&quot;hasIconSlot&quot; class=&quot;my-button__icon&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;slot name=&quot;icon&quot; :loading=&quot;loading&quot; /&gt;
+  &lt;/span&gt;
+  &lt;span v-if=&quot;hasContentSlot&quot; class=&quot;my-button__content&quot;&gt;
+    &lt;slot /&gt;
+  &lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+    </div>
+    <h2 class="">
+        Loading is a state, not a spinner
+    </h2>
+    <p class="">
+        <code>loading</code> disables the native button, sets
+        <code>aria-busy</code>, and leaves the text on the button. A screen
+        reader still has a name — &quot;Guardar&quot; — not an anonymous
+        glyph. The drawing lives in <code>#icon=&quot;{ loading }&quot;</code>.
+        If I baked one spinner into MyButton, I would couple the component to
+        one idea of loading.<br /><br />
+        In the catalog I have a Save button I like a lot. It simulates a call
+        with <code>setTimeout</code>. Native <code>@click</code>. No custom
+        event.
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-vue">&lt;MyButton
+  variant=&quot;primary&quot;
+  :loading=&quot;isSaving&quot;
+  @click=&quot;simulateSave&quot;
+&gt;
+  &lt;template #icon=&quot;{ loading }&quot;&gt;
+    &lt;span v-if=&quot;loading&quot; class=&quot;docs-spinner&quot; /&gt;
+    &lt;DocsIcon v-else :d=&quot;iconPaths.bookmark&quot; /&gt;
+  &lt;/template&gt;
+  &#123;&#123; isSaving ? &#x27;Guardando…&#x27; : &#x27;Guardar (2s)&#x27; &#125;&#125;
+&lt;/MyButton&gt;</code></pre>
+        </div>
+    </div>
+    <h2 class="">
+        Why the default type is &quot;button&quot;
+    </h2>
+    <p class="">
+        This is the only place where I lie to HTML on purpose. In HTML, a
+        <code>&lt;button&gt;</code> without <code>type</code> is
+        <code>submit</code>. In a reusable component that is a trap: Cancel
+        inside a form would send the form.<br /><br />
+        So MyButton defaults to <code>type=&quot;button&quot;</code>. Enviar
+        asks for <code>type=&quot;submit&quot;</code>. Cancelar does not
+        declare <code>type</code>, and the form does not send. You can try it
+        in the live playground:
+        <a href="https://btn-arq-challenge.vercel.app/"><i class="fas fa-rocket"></i> btn-arq-challenge.vercel.app</a>.
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-vue">&lt;form @submit=&quot;handleSubmit&quot;&gt;
+  &lt;MyButton type=&quot;submit&quot;&gt;Enviar&lt;/MyButton&gt;
+  &lt;MyButton variant=&quot;secondary&quot; @click=&quot;handleCancel&quot;&gt;
+    Cancelar
+  &lt;/MyButton&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+    </div>
+    <figure class="image">
+        <iframe
+            style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; height: 450px;"
+            src="https://btn-arq-challenge.vercel.app/"
+            title="Form playground with Enviar submit and Cancelar default type button"
+            allowfullscreen></iframe>
+        <figcaption>
+            Live playground:
+            <a href="https://btn-arq-challenge.vercel.app/">Enviar vs Cancelar</a>
+        </figcaption>
+    </figure>
+    <h2 class="">
+        Tests, and testing it myself in the browser
+    </h2>
+    <p class="">
+        There are 27 tests. They cover the contract, not the paint: the root
+        is a <code>&lt;button&gt;</code>, <code>loading</code> disables for
+        real, <code>variant</code> does not leak as an HTML attribute, the
+        default <code>type</code> does not submit a form.<br /><br />
+        Vue Test Utils <code>trigger(&#x27;click&#x27;)</code> on a disabled
+        button, in jsdom, still fires. In the browser it does not. So when
+        the real block matters, I use <code>element.click()</code>.
+    </p>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-typescript">it(&#x27;does not invoke the native click listener when disabled&#x27;, async () =&gt; {
+  const onClick = vi.fn()
+  const wrapper = mount(MyButton, {
+    props: { disabled: true },
+    attrs: { onClick },
+    slots: { default: &#x27;Guardar&#x27; },
+    attachTo: document.body,
+  })
+
+  wrapper.get(&#x27;button&#x27;).element.click()
+  await wrapper.vm.$nextTick()
+
+  expect(onClick).not.toHaveBeenCalled()
+  wrapper.unmount()
+})</code></pre>
+        </div>
+    </div>
+    <p class="">
+        I also tested it in the browser myself: Enviar and Cancelar, mouse
+        and keyboard. Accessibility is not a badge. Native controls already
+        work with keyboards, screen readers, people who confuse colors, people
+        who cannot see the screen. Overwriting that is how you ship bugs.
+        Maybe a full a11y pass was a bit outside the scope. I still did not
+        want to skip it: <code>:focus-visible</code>,
+        <code>prefers-reduced-motion</code>, <code>aria-busy</code> only when
+        loading is true.
+    </p>
+    <h2 class="">
+        How I used AI
+    </h2>
+    <p class="">
+        I could have pasted the brief into a model and sent whatever it
+        generated. That is not the idea. I&#8217;ll be honest: I used AI to
+        help me approach the problem. Cursor is my editor right now. I wanted
+        a clear perspective before installing anything.<br /><br />
+        Specs first. Then implement. Then another agent, with a different
+        context, code-reviews. Then fixes, tests, and a pass for UX and
+        accessibility. What I keep checking is that the AI does not break the
+        thesis. A built-in spinner or a custom click emit looks helpful. It
+        is not. I also commit in small steps, so if I hit a bug I can isolate
+        it.
+    </p>
+    <h2 class="">
+        The extra: a module you can install
+    </h2>
+    <p class="">
+        The brief also asked to share the component with other developers. I
+        did not want to overcomplicate the main solution, so I put this extra
+        on another branch: <code>feat/library-package</code>. Same source, two
+        outputs: the playground in <code>dist-app/</code>, and an ESM module
+        in <code>dist/</code>. Vue is a peer dependency. CSS is a separate
+        import. Types are flattened into one <code>index.d.ts</code> so a
+        consumer <code>declare module &#x27;*.vue&#x27;</code> does not
+        clobber the props. <code>private: true</code> so I do not publish by
+        accident.
+    </p>
+    <figure class="image">
+        <a href="{{'/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg' | relative_url}}">
+            <img src="{{'/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg' | relative_url}}"
+                alt="Dual Vite build to dist-app playground and dist ESM package, then npm pack or npm publish"
+                title="Build, pack, publish" />
+        </a>
+        <figcaption>Playground to Vercel. Library to a tarball. Registry only if I drop private.</figcaption>
+    </figure>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+<code class="language-json">{
+  &quot;exports&quot;: {
+    &quot;.&quot;: {
+      &quot;types&quot;: &quot;./dist/index.d.ts&quot;,
+      &quot;import&quot;: &quot;./dist/my-button.js&quot;
+    },
+    &quot;./style.css&quot;: &quot;./dist/my-button.css&quot;
+  },
+  &quot;peerDependencies&quot;: {
+    &quot;vue&quot;: &quot;^3.5.0&quot;
+  }
+}</code></pre>
+        </div>
+    </div>
+    <p class="">
+        <code>import { MyButton } from &#x27;btn-arq-challenge&#x27;</code><br />
+        <code>import &#x27;btn-arq-challenge/style.css&#x27;</code><br /><br />
+        If you skip the CSS, the button still works. It just has no styles.
+        For the test, <code>npm pack</code> was enough to prove the extra. I
+        could have added Storybook, tokens, infinite variants. The requirement
+        was a reusable button, not a design system. Keep it simple.
+    </p>
+    <h2 class="">
+        Takeaways
+    </h2>
+    <p class="">
+        Improve the native control. Do not replace it. TypeScript should
+        extend what Vue already typed. Loading is state. Events are the DOM
+        events. Tests should match the browser.<br /><br />
+        The library lives on
+        <a href="https://github.com/gervisbermudez/btn-arq-challenge/tree/feat/library-package"><i class="fab fa-github"></i> feat/library-package</a>
+        until I merge it to <code>main</code>. The playground is
+        <a href="https://btn-arq-challenge.vercel.app/"><i class="fas fa-rocket"></i> here</a>.<br /><br />
+        I had a good time with this one, even if it started looking too easy.
+        I&#8217;m always open to feedback. If you&#8217;re a recruiter or a
+        potential client looking for a developer with experience in Vue,
+        TypeScript, and this kind of component work, let&#8217;s connect.
+    </p>
+</div>

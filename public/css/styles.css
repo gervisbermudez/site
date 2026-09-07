@@ -509,3 +509,31 @@ form.post-password-form input[type="submit"],
     display: none;
   }
 }
+
+.art-title-frame .art-post-subtitle {
+  margin: 6px 0 0;
+  color: #8c8c8e;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.page-body figure.image {
+  margin: 1.5rem 0 2rem;
+}
+
+.page-body figure.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #f4f7fb;
+}
+
+.page-body figure.image figcaption {
+  margin-top: 0.6rem;
+  color: #8c8c8e;
+  font-size: 13px;
+  font-style: italic;
+}

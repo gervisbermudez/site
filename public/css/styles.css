@@ -523,6 +523,11 @@ form.post-password-form input[type="submit"],
   margin: 1.5rem 0 2rem;
 }
 
+.page-body figure.image > a {
+  cursor: zoom-in;
+  display: block;
+}
+
 .page-body figure.image img {
   display: block;
   width: 100%;
@@ -536,4 +541,20 @@ form.post-password-form input[type="submit"],
   color: #8c8c8e;
   font-size: 13px;
   font-style: italic;
+}
+
+.mfp-svg .mfp-iframe-scaler,
+.mfp-svg-scaler {
+  padding-top: 0 !important;
+  height: 85vh;
+  width: min(1040px, 92vw);
+  max-width: 92vw;
+  overflow: hidden;
+  background: #f4f7fb;
+  border-radius: 8px;
+}
+
+.mfp-svg .mfp-iframe-scaler iframe,
+.mfp-svg-scaler iframe {
+  background: #f4f7fb;
 }

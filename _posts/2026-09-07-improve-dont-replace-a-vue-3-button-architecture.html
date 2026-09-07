@@ -4,11 +4,11 @@ date: 2026-09-07
 author: Gervis Bermudez
 title: "Technical Challenge: Vue 3 Button Architecture with TypeScript"
 subtitle: "Improve, Don't Replace"
-description: "Improve, don't replace: a technical-test walkthrough of a Vue 3 + TypeScript button that keeps native HTML behavior, then ships it as an ESM package beside the demo."
+description: "Spec-driven development with AI: a Vue 3 + TypeScript button that improves native HTML instead of replacing it, then ships as an ESM package."
 thumbnail: /public/uploads/2026/09/improve-dont-replace-vue-3-typescript-button-architecture-thumbnail.png
 banner: /public/uploads/2026/09/improve-dont-replace-vue-3-typescript-button-architecture-banner.png
 category: Web Development
-tags: ["Vue.js", "TypeScript", "Vite", "Accessibility", "Component Design"]
+tags: ["Vue.js", "TypeScript", "AI", "Accessibility", "Component Design"]
 ---
 <div class="page-body">
     <p class="">
@@ -26,10 +26,14 @@ tags: ["Vue.js", "TypeScript", "Vite", "Accessibility", "Component Design"]
         battle-tested.<br /><br />
         The brief was small. Vue 3, TypeScript, enable and disable, change
         color, extras welcome. I think what they wanted to see was how I use
-        TypeScript, accessibility, UX, and tests — not a circus of variants.
+        TypeScript, accessibility, UX, tests, and how I work with AI — not a
+        circus of variants.
         I could have done many things: animations, thousands of colors, a
         Storybook. The reality is that we developers often build things nobody
-        asked for. I wanted to keep it simple.
+        asked for. I wanted to keep it simple.<br /><br />
+        The button looks small. What I want to show is the process: spec-driven
+        development with AI. Specs first. Then the agents. I did not paste the
+        brief into a model and send whatever it generated.
     </p>
     <h2 class="">
         Improve, don&#8217;t replace
@@ -47,6 +51,40 @@ tags: ["Vue.js", "TypeScript", "Vite", "Accessibility", "Component Design"]
         <code>&lt;div role=&quot;button&quot;&gt;</code>.
     </p>
     <h2 class="">
+        Spec-driven development, with AI
+    </h2>
+    <p class="">
+        I&#8217;ll be honest: I used AI to help me approach the problem.
+        Cursor is my editor right now. I wanted a clear perspective before
+        installing anything.<br /><br />
+        The method has a name I like: spec-driven development, SDD. Specs
+        first. Then implement. The spec is not a forty-page document. It is
+        the thesis, and the things that cannot move: a real HTML
+        <code>&lt;button&gt;</code>, no custom click emit, loading is state
+        not a spinner, TypeScript extends what Vue already typed.<br /><br />
+        I wrote the requirements as a template for the agents. Then I went in
+        stages. One agent implements against the spec. Another agent, with a
+        different context, reviews the diff. Then fixes. Then tests. Then a
+        pass for UX and accessibility. I do not let the same chat do all of
+        it. Fresh context is the point. The first agent is proud of the
+        spinner it invented. The second one can see that the spinner breaks
+        the thesis.
+    </p>
+    <figure class="image">
+        <a href="{{'/public/uploads/2026/09/vue-3-spec-driven-ai-flow.svg' | relative_url}}" data-magnific-image data-no-swup>
+            <img src="{{'/public/uploads/2026/09/vue-3-spec-driven-ai-flow.svg' | relative_url}}"
+                alt="Spec-driven AI flow: brief, spec, implement, review with fresh context, fixes, tests, accessibility, then me in the browser"
+                title="Spec-driven development with AI" />
+        </a>
+        <figcaption>The spec is the steering wheel. The agents are not.</figcaption>
+    </figure>
+    <p class="">
+        What I keep checking is that the AI does not break the thesis. A
+        built-in spinner or a custom click emit looks helpful. It is not. I
+        also commit in small steps, so if I hit a bug I can isolate it. And I
+        still open the browser myself. Specs do not replace that.
+    </p>
+    <h2 class="">
         How I structured the component
     </h2>
     <p class="">
@@ -62,7 +100,7 @@ tags: ["Vue.js", "TypeScript", "Vite", "Accessibility", "Component Design"]
         single root. I did not proxy <code>$attrs</code> by hand.
     </p>
     <figure class="image">
-        <a href="{{'/public/uploads/2026/09/vue-3-mybutton-architecture.svg' | relative_url}}">
+        <a href="{{'/public/uploads/2026/09/vue-3-mybutton-architecture.svg' | relative_url}}" data-magnific-image data-no-swup>
             <img src="{{'/public/uploads/2026/09/vue-3-mybutton-architecture.svg' | relative_url}}"
                 alt="MyButton architecture: App.vue catalog, types, native button, tests, defineProps versus Vue 3 fallthrough"
                 title="MyButton architecture" />
@@ -242,21 +280,6 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
         loading is true.
     </p>
     <h2 class="">
-        How I used AI
-    </h2>
-    <p class="">
-        I could have pasted the brief into a model and sent whatever it
-        generated. That is not the idea. I&#8217;ll be honest: I used AI to
-        help me approach the problem. Cursor is my editor right now. I wanted
-        a clear perspective before installing anything.<br /><br />
-        Specs first. Then implement. Then another agent, with a different
-        context, code-reviews. Then fixes, tests, and a pass for UX and
-        accessibility. What I keep checking is that the AI does not break the
-        thesis. A built-in spinner or a custom click emit looks helpful. It
-        is not. I also commit in small steps, so if I hit a bug I can isolate
-        it.
-    </p>
-    <h2 class="">
         The extra: a module you can install
     </h2>
     <p class="">
@@ -271,7 +294,7 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
         accident.
     </p>
     <figure class="image">
-        <a href="{{'/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg' | relative_url}}">
+        <a href="{{'/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg' | relative_url}}" data-magnific-image data-no-swup>
             <img src="{{'/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg' | relative_url}}"
                 alt="Dual Vite build to dist-app playground and dist ESM package, then npm pack or npm publish"
                 title="Build, pack, publish" />
@@ -308,7 +331,8 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
         Takeaways
     </h2>
     <p class="">
-        Improve the native control. Do not replace it. TypeScript should
+        Improve the native control. Do not replace it. Specs first. Then the
+        agents. Then I still test it in the browser. TypeScript should
         extend what Vue already typed. Loading is state. Events are the DOM
         events. Tests should match the browser.<br /><br />
         The library lives on
@@ -318,6 +342,7 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
         I had a good time with this one, even if it started looking too easy.
         I&#8217;m always open to feedback. If you&#8217;re a recruiter or a
         potential client looking for a developer with experience in Vue,
-        TypeScript, and this kind of component work, let&#8217;s connect.
+        TypeScript, and this kind of AI-assisted component work, let&#8217;s
+        connect.
     </p>
 </div>

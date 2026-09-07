@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 820" role="img" aria-labelledby="buildTitle buildDesc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="820" viewBox="0 0 1000 820" role="img" aria-labelledby="buildTitle buildDesc">
   <title id="buildTitle">Same source, two outputs, then npm pack or publish</title>
   <desc id="buildDesc">MyButton is built twice: a playground in dist-app and an ESM library in dist. Vue stays a peer. Types flatten to one index.d.ts. npm pack proves the extra. npm publish needs private set to false.</desc>
   <defs>

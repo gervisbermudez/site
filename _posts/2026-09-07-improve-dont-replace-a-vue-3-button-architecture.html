@@ -125,7 +125,7 @@ tags: ["Vue.js", "TypeScript", "AI", "Accessibility", "Component Design"]
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
 <code class="language-typescript">export interface MyButtonOwnProps {
   variant?: ButtonVariant
   size?: ButtonSize
@@ -151,10 +151,15 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-vue">const isDisabled = computed(() =&gt; !!props.disabled || props.loading)
-
-&lt;button
+            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
+<code class="language-typescript">const isDisabled = computed(() =&gt; !!props.disabled || props.loading)</code></pre>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
+<code class="language-html">&lt;button
   :type=&quot;type&quot;
   :disabled=&quot;isDisabled&quot;
   :aria-busy=&quot;loading ? true : undefined&quot;
@@ -185,8 +190,8 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-vue">&lt;MyButton
+            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
+<code class="language-html">&lt;MyButton
   variant=&quot;primary&quot;
   :loading=&quot;isSaving&quot;
   @click=&quot;simulateSave&quot;
@@ -216,8 +221,8 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-vue">&lt;form @submit=&quot;handleSubmit&quot;&gt;
+            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
+<code class="language-html">&lt;form @submit=&quot;handleSubmit&quot;&gt;
   &lt;MyButton type=&quot;submit&quot;&gt;Enviar&lt;/MyButton&gt;
   &lt;MyButton variant=&quot;secondary&quot; @click=&quot;handleCancel&quot;&gt;
     Cancelar
@@ -251,7 +256,7 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
 <code class="language-typescript">it(&#x27;does not invoke the native click listener when disabled&#x27;, async () =&gt; {
   const onClick = vi.fn()
   const wrapper = mount(MyButton, {
@@ -304,7 +309,7 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+            <pre class="line-numbers theme-okaidia language-json" data-show-toolbar="yes">
 <code class="language-json">{
   &quot;exports&quot;: {
     &quot;.&quot;: {

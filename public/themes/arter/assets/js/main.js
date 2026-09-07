@@ -8,6 +8,47 @@
     $(this).find("> a").attr("data-no-swup", "");
   });
 
+  function bindMagnificImageLinks() {
+    $("[data-magnific-image]").each(function () {
+      var href = this.getAttribute("href") || "";
+      var isSvg = /\.svg(\?|#|$)/i.test(href);
+      if (isSvg) {
+        $(this).magnificPopup({
+          type: "iframe",
+          closeOnContentClick: false,
+          callbacks: {
+            beforeOpen: function () {
+              this.st.mainClass = "mfp-zoom-in mfp-svg";
+            },
+          },
+          iframe: {
+            markup:
+              '<div class="mfp-iframe-scaler mfp-svg-scaler">' +
+              '<div class="mfp-close"></div>' +
+              '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
+              "</div>",
+          },
+        });
+      } else {
+        $(this).magnificPopup({
+          type: "image",
+          closeOnContentClick: true,
+          fixedContentPos: false,
+          closeBtnInside: false,
+          callbacks: {
+            beforeOpen: function () {
+              this.st.image.markup = this.st.image.markup.replace(
+                "mfp-figure",
+                "mfp-figure mfp-with-anim"
+              );
+              this.st.mainClass = "mfp-zoom-in";
+            },
+          },
+        });
+      }
+    });
+  }
+
   if (!$("body").hasClass("default--scrolling")) {
     // scrollbar
     Scrollbar.use(OverscrollPlugin);
@@ -321,22 +362,7 @@
       },
     },
   });
-  $("[data-magnific-image]").magnificPopup({
-    type: "image",
-    closeOnContentClick: true,
-    fixedContentPos: false,
-    closeBtnInside: false,
-    callbacks: {
-      beforeOpen: function () {
-        // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace(
-          "mfp-figure",
-          "mfp-figure mfp-with-anim"
-        );
-        this.st.mainClass = "mfp-zoom-in";
-      },
-    },
-  });
+  bindMagnificImageLinks();
   $("a").each(function (i, el) {
     var href_value = el.href;
     if (/\.(jpg|png|gif)$/.test(href_value)) {
@@ -551,8 +577,11 @@ document.addEventListener('click', async (e) => {
   const hrefAttr = link.getAttribute('href');
   if (!hrefAttr || hrefAttr === '#' || hrefAttr.startsWith('#')) return;
 
-  // Ignorar enlaces externos, nuevas pestañas, o enlaces excluidos explícitamente
+  // Ignorar enlaces externos, nuevas pestañas, lightbox, o archivos de imagen
   if (link.origin !== location.origin || link.target === '_blank' || link.hasAttribute('data-no-swup')) return;
+  if (e.defaultPrevented) return;
+  if (link.hasAttribute('data-magnific-image') || link.hasAttribute('data-magnific-inline') || link.hasAttribute('data-magnific-video')) return;
+  if (/\.(svg|png|jpe?g|gif|webp)(\?|#|$)/i.test(link.pathname)) return;
 
   e.preventDefault();
   const url = link.href;
@@ -704,15 +733,7 @@ window.reinitScripts = function () {
     type: "inline", overflowY: "auto", preloader: false,
     callbacks: { beforeOpen: function () { this.st.mainClass = "mfp-zoom-in"; } },
   });
-  $("[data-magnific-image]").magnificPopup({
-    type: "image", closeOnContentClick: true, fixedContentPos: false, closeBtnInside: false,
-    callbacks: {
-      beforeOpen: function () {
-        this.st.image.markup = this.st.image.markup.replace("mfp-figure", "mfp-figure mfp-with-anim");
-        this.st.mainClass = "mfp-zoom-in";
-      },
-    },
-  });
+  bindMagnificImageLinks();
   $("a").each(function (i, el) {
     var href_value = el.href;
     if (/\.(jpg|png|gif)$/.test(href_value)) {

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="820" viewBox="0 0 1000 820" role="img" aria-labelledby="buildTitle buildDesc">
+  <title id="buildTitle">Same source, two outputs, then npm pack or publish</title>
+  <desc id="buildDesc">MyButton is built twice: a playground in dist-app and an ESM library in dist. Vue stays a peer. Types flatten to one index.d.ts. npm pack proves the extra. npm publish needs private set to false.</desc>
+  <defs>
+    <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6b7c"/>
+    </marker>
+    <filter id="shadowB" x="-2%" y="-2%" width="104%" height="108%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1d2a3a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1000" height="820" rx="16" fill="#f4f7fb"/>
+  <text x="40" y="48" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="22" font-weight="700" fill="#1d2a3a">Build, pack, publish</text>
+  <text x="40" y="76" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" fill="#5b6b7c">Same source. Two outputs. Vue stays a peer.</text>
+
+  <!-- source -->
+  <rect x="200" y="100" width="600" height="78" rx="10" fill="#fff" stroke="#42b883" stroke-width="2" filter="url(#shadowB)"/>
+  <text x="500" y="132" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#1d2a3a">src/index.ts + MyButton.vue + types</text>
+  <text x="500" y="156" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#5b6b7c">feat/library-package  /  one component, two Vite configs</text>
+
+  <line x1="500" y1="178" x2="500" y2="214" stroke="#5b6b7c" stroke-width="2"/>
+  <line x1="250" y1="214" x2="750" y2="214" stroke="#5b6b7c" stroke-width="2"/>
+  <line x1="250" y1="214" x2="250" y2="234" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrowB)"/>
+  <line x1="750" y1="214" x2="750" y2="234" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- build demo -->
+  <rect x="40" y="244" width="420" height="196" rx="12" fill="#fff" stroke="#d7dee8" filter="url(#shadowB)"/>
+  <rect x="40" y="244" width="8" height="196" rx="4" fill="#42b883"/>
+  <text x="250" y="280" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#2f855a">npm run build</text>
+  <text x="250" y="312" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="700" fill="#1d2a3a">dist-app/</text>
+  <text x="250" y="340" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#5b6b7c">Playground. App.vue catalog.</text>
+  <text x="250" y="366" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="13" fill="#5b6b7c">Deploy to Vercel.</text>
+  <text x="250" y="404" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#3178c6">btn-arq-challenge.vercel.app</text>
+
+  <!-- build lib -->
+  <rect x="540" y="244" width="420" height="196" rx="12" fill="#fff" stroke="#d7dee8" filter="url(#shadowB)"/>
+  <rect x="540" y="244" width="8" height="196" rx="4" fill="#3178c6"/>
+  <text x="750" y="280" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="700" fill="#3178c6">npm run build:lib</text>
+  <text x="750" y="312" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="16" font-weight="700" fill="#1d2a3a">dist/</text>
+  <text x="750" y="340" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#1d2a3a">my-button.js  /  my-button.css</text>
+  <text x="750" y="362" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#1d2a3a">index.d.ts  (flattened)</text>
+  <text x="750" y="396" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#5b6b7c">ESM only. Vue external / peer.</text>
+
+  <line x1="750" y1="440" x2="750" y2="478" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- pack -->
+  <rect x="540" y="488" width="420" height="100" rx="10" fill="#fff8f6" stroke="#cb3837" filter="url(#shadowB)"/>
+  <text x="750" y="528" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#cb3837">npm pack</text>
+  <text x="750" y="554" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#1d2a3a">What I used for the test. prepack runs build:lib.</text>
+  <text x="750" y="574" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#5b6b7c">btn-arq-challenge-0.0.0.tgz</text>
+
+  <line x1="750" y1="588" x2="750" y2="624" stroke="#5b6b7c" stroke-width="2" marker-end="url(#arrowB)"/>
+
+  <!-- publish -->
+  <rect x="540" y="634" width="420" height="88" rx="10" fill="#fff" stroke="#d7dee8" stroke-dasharray="6 4" filter="url(#shadowB)"/>
+  <text x="750" y="670" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15" font-weight="700" fill="#1d2a3a">npm publish</text>
+  <text x="750" y="696" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#5b6b7c">Registry later. Drop private: true first.</text>
+
+  <!-- consumer -->
+  <rect x="40" y="488" width="420" height="234" rx="12" fill="#1d2a3a" filter="url(#shadowB)"/>
+  <text x="250" y="528" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">Consumer app</text>
+  <text x="250" y="568" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c5d0dc">import { MyButton }</text>
+  <text x="250" y="588" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c5d0dc">from 'btn-arq-challenge'</text>
+  <text x="250" y="620" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#c5d0dc">import 'btn-arq-challenge/style.css'</text>
+  <text x="250" y="662" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#8fa0b3">Skip the CSS and it still works.</text>
+  <text x="250" y="682" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#8fa0b3">It just has no styles.</text>
+
+  <line x1="540" y1="538" x2="472" y2="538" stroke="#cb3837" stroke-width="2" marker-end="url(#arrowB)"/>
+  <text x="506" y="528" text-anchor="middle" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="10" fill="#cb3837">install .tgz</text>
+
+  <text x="40" y="760" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#5b6b7c">private: true so I do not publish by accident. The extra lives on feat/library-package.</text>
+  <text x="40" y="782" font-family="Segoe UI, Helvetica Neue, Arial, sans-serif" font-size="12" fill="#5b6b7c">A reusable button, not a design system.</text>
+</svg>

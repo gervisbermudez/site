@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2026-09-07T15:13:31-03:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.</subtitle><entry><title type="html">Technical Challenge: Vue 3 Button Architecture with TypeScript</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture" rel="alternate" type="text/html" title="Technical Challenge: Vue 3 Button Architecture with TypeScript" /><published>2026-09-07T00:00:00-03:00</published><updated>2026-09-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture"><![CDATA[<div class="page-body">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2026-09-07T20:35:03-03:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.</subtitle><entry><title type="html">Technical Challenge: Vue 3 Button Architecture with TypeScript</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture" rel="alternate" type="text/html" title="Technical Challenge: Vue 3 Button Architecture with TypeScript" /><published>2026-09-07T00:00:00-03:00</published><updated>2026-09-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture"><![CDATA[<div class="page-body">
     <p class="">
         Hello everyone! I wanted to share how I tackled a technical test for a
         job application: a reusable <code>&lt;MyButton&gt;</code> in Vue 3 and
@@ -113,7 +113,7 @@
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
 <code class="language-typescript">export interface MyButtonOwnProps {
   variant?: ButtonVariant
   size?: ButtonSize
@@ -139,10 +139,15 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-vue">const isDisabled = computed(() =&gt; !!props.disabled || props.loading)
-
-&lt;button
+            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
+<code class="language-typescript">const isDisabled = computed(() =&gt; !!props.disabled || props.loading)</code></pre>
+        </div>
+    </div>
+    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
+        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
+        <div class="elementor-widget-container">
+            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
+<code class="language-html">&lt;button
   :type=&quot;type&quot;
   :disabled=&quot;isDisabled&quot;
   :aria-busy=&quot;loading ? true : undefined&quot;
@@ -173,8 +178,8 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-vue">&lt;MyButton
+            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
+<code class="language-html">&lt;MyButton
   variant=&quot;primary&quot;
   :loading=&quot;isSaving&quot;
   @click=&quot;simulateSave&quot;
@@ -204,8 +209,8 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-vue">&lt;form @submit=&quot;handleSubmit&quot;&gt;
+            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
+<code class="language-html">&lt;form @submit=&quot;handleSubmit&quot;&gt;
   &lt;MyButton type=&quot;submit&quot;&gt;Enviar&lt;/MyButton&gt;
   &lt;MyButton variant=&quot;secondary&quot; @click=&quot;handleCancel&quot;&gt;
     Cancelar
@@ -239,7 +244,7 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
 <code class="language-typescript">it(&#x27;does not invoke the native click listener when disabled&#x27;, async () =&gt; {
   const onClick = vi.fn()
   const wrapper = mount(MyButton, {
@@ -292,7 +297,7 @@ export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code
     <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
         data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
         <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
+            <pre class="line-numbers theme-okaidia language-json" data-show-toolbar="yes">
 <code class="language-json">{
   &quot;exports&quot;: {
     &quot;.&quot;: {

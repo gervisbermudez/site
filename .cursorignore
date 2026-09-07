@@ -1,0 +1,11 @@
+# Build output and Bundler cache
+_site/
+vendor/
+.jekyll-cache/
+.sass-cache/
+
+# WordPress plugin dumps — do not search unless the user asks
+public/plugins/
+
+# Large generated Elementor per-post CSS
+public/uploads/elementor/

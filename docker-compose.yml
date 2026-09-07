@@ -1,0 +1,18 @@
+services:
+  site:
+    image: jekyll/jekyll:latest
+    container_name: jekyll-site
+    command: bundle exec jekyll serve --host 0.0.0.0 --port 4000 --livereload --force_polling
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - .:/srv/jekyll
+      - jekyll_gems:/usr/local/bundle
+    environment:
+      - JEKYLL_ENV=development
+    restart: unless-stopped
+
+volumes:
+  jekyll_gems:
+    external: true

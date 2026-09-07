@@ -1,0 +1,16 @@
+---
+description: Core conventions for this Jekyll personal site
+alwaysApply: true
+---
+
+# Site conventions
+
+This is Gervis Bermudez's Jekyll 4.4 blog/portfolio (Arter + Elementor HTML). Production lives at `https://gervisbermudez.github.io/site` with `baseurl: /site`.
+
+- Read `AGENTS.md` before large changes.
+- Do not rewrite Elementor/Arter class soup or `public/plugins/`.
+- Posts are HTML in `_posts/`, not Markdown.
+- New CSS belongs in `public/css/styles.css`.
+- Every internal URL and asset must use Liquid `| relative_url`.
+- Use `_config.yml` locally; production builds use `_config_prod.yml`.
+- Content voice: English, first person. Do not “correct” existing Spanish UI strings.

@@ -1,0 +1,13 @@
+---
+description: Site-specific CSS belongs in public/css/styles.css
+globs: public/css/**
+alwaysApply: false
+---
+
+# CSS
+
+`public/css/styles.css` is the override layer on top of Arter. Do not edit minified Elementor/plugin CSS.
+
+- Match existing Arter tokens (text `#8c8c8e`, headings `#ffffff`).
+- Prefer additive rules with Arter class selectors over new global resets.
+- Keep changes scoped. Do not restyle the whole theme for a one-off post.

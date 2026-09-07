@@ -1,0 +1,15 @@
+---
+description: Conventions when editing portfolio case studies or the grid data file
+globs: "{portfolio/**,_data/portfolio.yml}"
+alwaysApply: false
+---
+
+# Portfolio
+
+Grid data lives in `_data/portfolio.yml`. Case studies are `portfolio/<slug>/index.html`. Follow skill `add-portfolio-item`.
+
+Categories must be one or more of: `category-web`, `category-design`, `category-apps` (space-separated if combined).
+
+- Add a new YAML item **and** a matching folder page. Do not add only one of them.
+- Copy an existing case study (`portfolio/start-cms/index.html`) instead of simplifying the Elementor markup.
+- `link` in YAML is a site-relative path such as `portfolio/start-cms/` (no leading slash). Images in YAML do not use a leading slash; posts do.

@@ -1,0 +1,17 @@
+---
+description: Front matter and HTML shape for Jekyll blog posts
+globs: _posts/**
+alwaysApply: false
+---
+
+# Blog posts
+
+Follow skill `write-blog-post`. Copy the latest `_posts/*.html` rather than inventing a layout.
+
+Required front matter: `layout: post`, `date`, `author: Gervis Bermudez`, `title`, `description`, `thumbnail`, `banner`, `category`, `tags`. Optional: `subtitle`, `contact_banner`.
+
+- Filename: `_posts/YYYY-MM-DD-kebab-slug.html`
+- Images: `/public/uploads/YYYY/MM/...` (leading slash)
+- Body: wrap in `<div class="page-body">`. Paragraphs are `<p class="">` with `<br /><br />` between beats. Headings are `<h2 class="">`.
+- In code blocks, HTML-encode `<`, `>`, `&`, quotes (`&lt;`, `&amp;`, `&quot;`, `&#x27;`).
+- Do not use Markdown. Do not strip Elementor code-block wrappers.

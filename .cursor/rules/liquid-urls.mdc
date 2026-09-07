@@ -1,0 +1,19 @@
+---
+description: Always use relative_url so GitHub Pages baseurl works
+globs: "**/*.{html,yml}"
+alwaysApply: false
+---
+
+# Liquid URLs
+
+Production `baseurl` is `/site`. Hardcoded `/public/...` and `../public/...` break in prod or locally depending on depth.
+
+```liquid
+{{ 'public/uploads/2026/09/example.png' | relative_url }}
+{{ post.url | relative_url }}
+<a href="{{ '/contact/' | relative_url }}">Contact</a>
+```
+
+- Lightbox / full-page assets: `data-magnific-image` and `data-no-swup`.
+- Prefer `| relative_url` on new markup even if a nearby page uses a raw relative path.
+- Never put `https://gervisbermudez.github.io` in templates; `site.url` + `site.baseurl` already do that in `_includes/head.html`.

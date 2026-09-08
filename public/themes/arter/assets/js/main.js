@@ -8,6 +8,16 @@
     $(this).find("> a").attr("data-no-swup", "");
   });
 
+  var magnificZoomCallbacks = {
+    beforeOpen: function () {
+      this.st.image.markup = this.st.image.markup.replace(
+        "mfp-figure",
+        "mfp-figure mfp-with-anim"
+      );
+      this.st.mainClass = "mfp-zoom-in";
+    },
+  };
+
   function bindMagnificImageLinks() {
     $("[data-magnific-image]").each(function () {
       var href = this.getAttribute("href") || "";
@@ -35,19 +45,196 @@
           closeOnContentClick: true,
           fixedContentPos: false,
           closeBtnInside: false,
-          callbacks: {
-            beforeOpen: function () {
-              this.st.image.markup = this.st.image.markup.replace(
-                "mfp-figure",
-                "mfp-figure mfp-with-anim"
-              );
-              this.st.mainClass = "mfp-zoom-in";
-            },
-          },
+          callbacks: magnificZoomCallbacks,
         });
       }
     });
   }
+
+  function bindGalleryLinks($links) {
+    if (!$links || !$links.length) return;
+    $links.magnificPopup({
+      gallery: { enabled: true },
+      type: "image",
+      closeOnContentClick: false,
+      fixedContentPos: false,
+      closeBtnInside: false,
+      callbacks: magnificZoomCallbacks,
+    });
+  }
+
+  function bindMagnificPopups() {
+    $(".wp-block-gallery, .journey-gallery").each(function () {
+      bindGalleryLinks($(this).find("a"));
+    });
+
+    bindGalleryLinks(
+      $("[data-magnific-gallery]").filter(function () {
+        return $(this).closest(".wp-block-gallery, .journey-gallery").length === 0;
+      })
+    );
+
+    $("[data-magnific-inline]").magnificPopup({
+      type: "inline",
+      overflowY: "auto",
+      preloader: false,
+      callbacks: {
+        beforeOpen: function () {
+          this.st.mainClass = "mfp-zoom-in";
+        },
+      },
+    });
+    bindMagnificImageLinks();
+    $("[data-magnific-video]").magnificPopup({
+      type: "iframe",
+      iframe: {
+        patterns: {
+          youtube_short: {
+            index: "youtu.be/",
+            id: "youtu.be/",
+            src: "https://www.youtube.com/embed/%id%?autoplay=1",
+          },
+        },
+      },
+      preloader: false,
+      fixedContentPos: false,
+      callbacks: {
+        markupParse: function (template, values, item) {
+          template.find("iframe").attr("allow", "autoplay");
+        },
+        beforeOpen: magnificZoomCallbacks.beforeOpen,
+      },
+    });
+    $("[data-magnific-music]").magnificPopup({
+      type: "iframe",
+      preloader: false,
+      fixedContentPos: false,
+      closeBtnInside: true,
+      callbacks: magnificZoomCallbacks,
+    });
+
+    $("a").each(function (i, el) {
+      if (
+        el.hasAttribute("data-magnific-gallery") ||
+        el.hasAttribute("data-magnific-image") ||
+        el.hasAttribute("data-magnific-inline") ||
+        el.hasAttribute("data-magnific-video") ||
+        el.hasAttribute("data-magnific-music") ||
+        $(el).closest(".wp-block-gallery, .journey-gallery").length
+      ) {
+        return;
+      }
+      if (!/\.(jpe?g|png|gif|webp)$/i.test(el.pathname || "")) return;
+      $(el).magnificPopup({
+        type: "image",
+        closeOnContentClick: true,
+        fixedContentPos: false,
+        closeBtnInside: false,
+        callbacks: magnificZoomCallbacks,
+      });
+    });
+  }
+
+  window.bindMagnificImageLinks = bindMagnificImageLinks;
+  window.bindMagnificPopups = bindMagnificPopups;
+
+  function initCounters(instant) {
+    var $frames = $(".art-counter-frame");
+    if (!$frames.length) return;
+
+    if (typeof anime === "function") {
+      anime({
+        targets: ".art-counter-frame",
+        opacity: [0, 1],
+        duration: instant ? 400 : 800,
+        delay: instant ? 0 : 200,
+        easing: "linear",
+      });
+    } else {
+      $frames.css("opacity", 1);
+    }
+
+    var startCount = function () {
+      $(".art-counter").each(function () {
+        var $el = $(this);
+        var target = parseInt($el.text(), 10);
+        if (isNaN(target)) return;
+        $el.stop(true, true).prop("Counter", 0).text("0").animate(
+          { Counter: target },
+          {
+            duration: 2000,
+            easing: "linear",
+            step: function (now) {
+              $el.text(Math.ceil(now));
+            },
+          }
+        );
+      });
+    };
+
+    if (instant) {
+      startCount();
+      return;
+    }
+
+    if (typeof anime === "function") {
+      anime({
+        targets: ".art-counter",
+        delay: 1300,
+        opacity: [1, 1],
+        complete: startCount,
+      });
+    } else {
+      startCount();
+    }
+  }
+
+  function initSkillBars() {
+    var bar_delay = 100;
+    $(".art-skills-progress").each(function () {
+      if (this.querySelector("svg")) return;
+      var bar_id = $(this).attr("id");
+      var bar_val = parseInt($(this).attr("data-value"), 10) / 100;
+      var bar_type = $(this).attr("data-type");
+      bar_delay = bar_delay + 100;
+      if (!bar_id || typeof ProgressBar === "undefined") return;
+
+      if (bar_type == "circles") {
+        var circleBar = new ProgressBar.Circle("#" + bar_id, {
+          strokeWidth: 7,
+          easing: "easeInOut",
+          duration: 1400,
+          delay: bar_delay,
+          trailWidth: 7,
+          step: function (state, circle) {
+            var value = Math.round(circle.value() * 100);
+            circle.setText(value === 0 ? "" : value);
+          },
+        });
+        circleBar.animate(bar_val);
+      }
+      if (bar_type == "progress") {
+        var lineBar = new ProgressBar.Line("#" + bar_id, {
+          strokeWidth: 1.72,
+          easing: "easeInOut",
+          duration: 1400,
+          delay: bar_delay,
+          trailWidth: 1.72,
+          svgStyle: {
+            width: "100%",
+            height: "100%",
+          },
+          step: function (state, bar) {
+            bar.setText(Math.round(bar.value() * 100) + " %");
+          },
+        });
+        lineBar.animate(bar_val);
+      }
+    });
+  }
+
+  window.initCounters = initCounters;
+  window.initSkillBars = initSkillBars;
 
   if (!$("body").hasClass("default--scrolling")) {
     // scrollbar
@@ -91,84 +278,8 @@
         $(".art-preloader").css("display", "none");
       },
     });
-    // counters
-    anime({
-      targets: ".art-counter-frame",
-      opacity: [0, 1],
-      duration: 800,
-      delay: 200,
-      easing: "linear",
-    });
-
-    anime({
-      targets: ".art-counter",
-      delay: 1300,
-      opacity: [1, 1],
-      complete: function (anim) {
-        $(".art-counter").each(function () {
-          $(this)
-            .prop("Counter", 0)
-            .animate(
-              {
-                Counter: $(this).text(),
-              },
-              {
-                duration: 2000,
-                easing: "linear",
-                step: function (now) {
-                  $(this).text(Math.ceil(now));
-                },
-              }
-            );
-        });
-      },
-    });
-
-    // progressbars
-
-    var bar_delay = 100;
-    $(".art-skills-progress").each(function () {
-      var bar_id = $(this).attr("id");
-      var bar_val = parseInt($(this).attr("data-value")) / 100;
-      var bar_type = $(this).attr("data-type");
-      bar_delay = bar_delay + 100;
-
-      if (bar_type == "circles") {
-        var bar = new ProgressBar.Circle("#" + bar_id, {
-          strokeWidth: 7,
-          easing: "easeInOut",
-          duration: 1400,
-          delay: bar_delay,
-          trailWidth: 7,
-          step: function (state, circle) {
-            var value = Math.round(circle.value() * 100);
-            if (value === 0) {
-              circle.setText("");
-            } else {
-              circle.setText(value);
-            }
-          },
-        });
-        bar.animate(bar_val);
-      }
-      if (bar_type == "progress") {
-        var bar = new ProgressBar.Line("#" + bar_id, {
-          strokeWidth: 1.72,
-          easing: "easeInOut",
-          duration: 1400,
-          delay: bar_delay,
-          trailWidth: 1.72,
-          svgStyle: {
-            width: "100%",
-            height: "100%",
-          },
-          step: (state, bar) => {
-            bar.setText(Math.round(bar.value() * 100) + " %");
-          },
-        });
-        bar.animate(bar_val);
-      }
-    });
+    initCounters(false);
+    initSkillBars();
   });
   /* $(".art-preloader-load-first").hide();
   var bar = new ProgressBar.Line(preloader, {
@@ -327,125 +438,7 @@
   /*
     Magnific Popups
   */
-  if (
-    /\.(?:jpg|jpeg|gif|png)$/i.test(
-      $(".wp-block-gallery .art-grid-item:first a").attr("href")
-    )
-  ) {
-    $(".wp-block-gallery a").magnificPopup({
-      gallery: {
-        enabled: true,
-      },
-      type: "image",
-      closeOnContentClick: false,
-      fixedContentPos: false,
-      closeBtnInside: false,
-      callbacks: {
-        beforeOpen: function () {
-          // just a hack that adds mfp-anim class to markup
-          this.st.image.markup = this.st.image.markup.replace(
-            "mfp-figure",
-            "mfp-figure mfp-with-anim"
-          );
-          this.st.mainClass = "mfp-zoom-in";
-        },
-      },
-    });
-  }
-  $("[data-magnific-inline]").magnificPopup({
-    type: "inline",
-    overflowY: "auto",
-    preloader: false,
-    callbacks: {
-      beforeOpen: function () {
-        this.st.mainClass = "mfp-zoom-in";
-      },
-    },
-  });
-  bindMagnificImageLinks();
-  $("a").each(function (i, el) {
-    var href_value = el.href;
-    if (/\.(jpg|png|gif)$/.test(href_value)) {
-      $(el).magnificPopup({
-        type: "image",
-        closeOnContentClick: true,
-        fixedContentPos: false,
-        closeBtnInside: false,
-        callbacks: {
-          beforeOpen: function () {
-            // just a hack that adds mfp-anim class to markup
-            this.st.image.markup = this.st.image.markup.replace(
-              "mfp-figure",
-              "mfp-figure mfp-with-anim"
-            );
-            this.st.mainClass = "mfp-zoom-in";
-          },
-        },
-      });
-    }
-  });
-  $("[data-magnific-video]").magnificPopup({
-    type: "iframe",
-    iframe: {
-      patterns: {
-        youtube_short: {
-          index: "youtu.be/",
-          id: "youtu.be/",
-          src: "https://www.youtube.com/embed/%id%?autoplay=1",
-        },
-      },
-    },
-    preloader: false,
-    fixedContentPos: false,
-    callbacks: {
-      markupParse: function (template, values, item) {
-        template.find("iframe").attr("allow", "autoplay");
-      },
-      beforeOpen: function () {
-        // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace(
-          "mfp-figure",
-          "mfp-figure mfp-with-anim"
-        );
-        this.st.mainClass = "mfp-zoom-in";
-      },
-    },
-  });
-  $("[data-magnific-music]").magnificPopup({
-    type: "iframe",
-    preloader: false,
-    fixedContentPos: false,
-    closeBtnInside: true,
-    callbacks: {
-      beforeOpen: function () {
-        // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace(
-          "mfp-figure",
-          "mfp-figure mfp-with-anim"
-        );
-        this.st.mainClass = "mfp-zoom-in";
-      },
-    },
-  });
-  $("[data-magnific-gallery]").magnificPopup({
-    gallery: {
-      enabled: true,
-    },
-    type: "image",
-    closeOnContentClick: false,
-    fixedContentPos: false,
-    closeBtnInside: false,
-    callbacks: {
-      beforeOpen: function () {
-        // just a hack that adds mfp-anim class to markup
-        this.st.image.markup = this.st.image.markup.replace(
-          "mfp-figure",
-          "mfp-figure mfp-with-anim"
-        );
-        this.st.mainClass = "mfp-zoom-in";
-      },
-    },
-  });
+  bindMagnificPopups();
 
   $(".current-menu-item a").clone().appendTo(".art-current-page");
 
@@ -522,8 +515,6 @@
   $(".art-input").on("focusout", function () {
     $(this).parent().next("label").removeClass("focused");
   });
-
-  window.bindMagnificImageLinks = bindMagnificImageLinks;
 
   /* Cart Popup */
   $(".cart-btn .cart-icon").on("click", function () {
@@ -771,7 +762,7 @@ document.addEventListener("click", async function (e) {
 
   if (link.origin !== location.origin || link.target === "_blank" || link.hasAttribute("data-no-swup")) return;
   if (link.hasAttribute("download") || hrefAttr.startsWith("mailto:") || hrefAttr.startsWith("tel:")) return;
-  if (link.hasAttribute("data-magnific-image") || link.hasAttribute("data-magnific-inline") || link.hasAttribute("data-magnific-video")) return;
+  if (link.hasAttribute("data-magnific-image") || link.hasAttribute("data-magnific-inline") || link.hasAttribute("data-magnific-video") || link.hasAttribute("data-magnific-gallery")) return;
   if (/\.(svg|png|jpe?g|gif|webp)(\?|#|$)/i.test(link.pathname)) return;
 
   e.preventDefault();
@@ -798,6 +789,19 @@ window.reinitScripts = function () {
     reinitPageWidgets();
   } catch (err) {
     console.error("Error reinitializing page scripts:", err);
+  }
+
+  if (typeof window.bindMagnificPopups === "function") {
+    window.bindMagnificPopups();
+  } else if (typeof window.bindMagnificImageLinks === "function") {
+    window.bindMagnificImageLinks();
+  }
+
+  if (typeof window.initCounters === "function") {
+    window.initCounters(true);
+  }
+  if (typeof window.initSkillBars === "function") {
+    window.initSkillBars();
   }
 
   highlightCodeBlocks();
@@ -837,44 +841,6 @@ function reinitPageWidgets() {
       });
     });
   }
-
-  // Magnific Popups
-  if (/\.(?:jpg|jpeg|gif|png)$/i.test($(".wp-block-gallery .art-grid-item:first a").attr("href"))) {
-    $(".wp-block-gallery a").magnificPopup({
-      gallery: { enabled: true },
-      type: "image",
-      closeOnContentClick: false,
-      fixedContentPos: false,
-      closeBtnInside: false,
-      callbacks: {
-        beforeOpen: function () {
-          this.st.image.markup = this.st.image.markup.replace("mfp-figure", "mfp-figure mfp-with-anim");
-          this.st.mainClass = "mfp-zoom-in";
-        },
-      },
-    });
-  }
-  $("[data-magnific-inline]").magnificPopup({
-    type: "inline", overflowY: "auto", preloader: false,
-    callbacks: { beforeOpen: function () { this.st.mainClass = "mfp-zoom-in"; } },
-  });
-  if (typeof window.bindMagnificImageLinks === "function") {
-    window.bindMagnificImageLinks();
-  }
-  $("a").each(function (i, el) {
-    var href_value = el.href;
-    if (/\.(jpg|png|gif)$/.test(href_value)) {
-      $(el).magnificPopup({
-        type: "image", closeOnContentClick: true, fixedContentPos: false, closeBtnInside: false,
-        callbacks: {
-          beforeOpen: function () {
-            this.st.image.markup = this.st.image.markup.replace("mfp-figure", "mfp-figure mfp-with-anim");
-            this.st.mainClass = "mfp-zoom-in";
-          },
-        },
-      });
-    }
-  });
 
   // menu active update
   $(".main-menu .menu-item").removeClass("current-menu-item current_page_item");

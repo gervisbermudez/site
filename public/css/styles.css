@@ -629,3 +629,459 @@ form.post-password-form input[type="submit"],
   --display: flex;
   --background-transition: 0.3s;
 }
+
+/* ============================================================
+   Journey — personal timeline gallery
+   ============================================================ */
+
+.journey-intro {
+  margin-bottom: 2rem;
+}
+
+.journey-lead {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #8c8c8e;
+  max-width: 720px;
+  margin: 0;
+}
+
+.journey-timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+.journey-timeline::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 24px;
+  left: 6px;
+  width: 2px;
+  background: #191923;
+}
+
+.journey-chapter {
+  position: relative;
+  margin-bottom: 2.75rem;
+}
+
+.journey-chapter:last-child {
+  margin-bottom: 0;
+}
+
+.journey-chapter__mark {
+  position: absolute;
+  top: 8px;
+  left: -28px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 3px solid #149ddd;
+  background: #1e1e28;
+  box-shadow: 0 3px 8px 0 rgba(15, 15, 20, 0.2);
+}
+
+.journey-chapter__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.journey-chapter__heading {
+  min-width: 0;
+}
+
+.journey-chapter__title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.journey-chapter__emoji {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.journey-chapter__role {
+  margin: 0;
+  color: #8c8c8e;
+  font-size: 0.85rem;
+}
+
+.journey-chapter__period {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 15px;
+  background: rgba(20, 157, 221, 0.12);
+  color: #149ddd;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.journey-chapter__story {
+  color: #8c8c8e;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+.journey-chapter__story p {
+  margin: 0 0 0.85rem;
+}
+
+.journey-chapter__story p:last-child {
+  margin-bottom: 0;
+}
+
+.journey-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.15rem;
+}
+
+.journey-stack__tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+}
+
+.journey-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+.journey-gallery .art-grid-item {
+  width: auto;
+  margin: 0;
+}
+
+.journey-gallery__item {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #191923;
+}
+
+.journey-gallery__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.journey-gallery__zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  background: rgba(15, 15, 20, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.journey-gallery__item:hover img {
+  transform: scale(1.06);
+}
+
+.journey-gallery__item:hover .journey-gallery__zoom {
+  opacity: 1;
+}
+
+.journey-about-cta {
+  margin-top: 0.75rem;
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .journey-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .journey-chapter__title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-timeline {
+    padding-left: 22px;
+  }
+}
+
+/* Home Interests: bento cards */
+.home-interests__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+.home-interest-card {
+  --interest-accent: #149ddd;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 1.45rem 1.5rem 1.35rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  box-shadow: none;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+}
+
+.home-interest-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 58%);
+  pointer-events: none;
+}
+
+.home-interest-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--interest-accent);
+  opacity: 0.85;
+}
+
+.home-interest-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.home-interest-card__icon {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #149ddd, #0f7ab0);
+  transition: transform 0.28s ease;
+}
+
+.home-interest-card:hover .home-interest-card__icon {
+  transform: scale(1.08);
+}
+
+.home-interest-card .home-interest-card__body {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.home-interest-card__kicker {
+  display: inline-block;
+  margin-bottom: 0.45rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--interest-accent);
+}
+
+.home-interest-card h5 {
+  margin: 0 0 0.65rem;
+  color: #ffffff;
+}
+
+.home-interest-card p {
+  margin: 0 0 1rem;
+  color: #8c8c8e;
+  line-height: 1.65;
+}
+
+.home-interest-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.home-interest-card__tags span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #d8d8dc;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-interest-card__link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+}
+
+.home-interest-card a.art-link {
+  color: var(--interest-accent);
+}
+
+.home-interest-card--ai {
+  --interest-accent: #8b5cf6;
+}
+
+.home-interest-card--ai .home-interest-card__icon {
+  background: linear-gradient(135deg, #8b5cf6, #5b21b6);
+}
+
+.home-interest-card--cloud {
+  --interest-accent: #06b6d4;
+}
+
+.home-interest-card--cloud .home-interest-card__icon {
+  background: linear-gradient(135deg, #06b6d4, #0e7490);
+}
+
+.home-interest-card--web {
+  --interest-accent: #149ddd;
+}
+
+.home-interest-card--web .home-interest-card__icon {
+  background: linear-gradient(135deg, #149ddd, #0f7ab0);
+}
+
+.home-interest-card--design {
+  --interest-accent: #f59e0b;
+}
+
+.home-interest-card--design .home-interest-card__icon {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+}
+
+.home-interest-card--product {
+  --interest-accent: #25d366;
+}
+
+.home-interest-card--product .home-interest-card__icon {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.home-interest-card--ai:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.16);
+}
+
+.home-interest-card--cloud:hover {
+  border-color: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 12px 40px rgba(6, 182, 212, 0.14);
+}
+
+.home-interest-card--web:hover {
+  border-color: rgba(20, 157, 221, 0.45);
+  box-shadow: 0 12px 40px rgba(20, 157, 221, 0.14);
+}
+
+.home-interest-card--design:hover {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 12px 40px rgba(245, 158, 11, 0.13);
+}
+
+.home-interest-card--product:hover {
+  border-color: rgba(37, 211, 102, 0.45);
+  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.12);
+}
+
+@media (min-width: 768px) {
+  .home-interests__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-interest-card--ai {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.7rem 1.75rem 1.5rem;
+  }
+
+  .home-interest-card--ai .home-interest-card__icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .home-interests__grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .home-interest-card--ai {
+    grid-column: span 4;
+  }
+
+  .home-interest-card--cloud,
+  .home-interest-card--web,
+  .home-interest-card--design,
+  .home-interest-card--product {
+    grid-column: span 2;
+  }
+}

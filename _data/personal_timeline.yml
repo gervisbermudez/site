@@ -1,0 +1,235 @@
+title: "The journey behind the commits"
+lead: "The CV is the résumé version. This is the hallway version — offices, teammates, late deploys, and the stuff I actually learned along the way. Captions are still a WIP; the photos are the first draft. 📸"
+
+chapters:
+  - id: webfindyou
+    emoji: "🚀"
+    title: "WebFindYou"
+    period: "Jun 2015 — Apr 2018"
+    role: "Team Leader | Frontend"
+    stack:
+      - React
+      - Responsive UI
+      - Agency CMS
+      - SEO
+    story: |
+      First real arena. Agency speed, a proprietary CMS, and more landing pages than I can count. I went from shipping layouts to leading a frontend crew — React components, mobile-first, and keeping marketing sites fast enough that SEO didn't hate us.
+
+      Also: a lot of late nights, a lot of clients, and the first time I understood that "the CMS is the product."
+    photos:
+      - file: "webfindyou-IMG_20161220_062507.jpg"
+        caption: ""
+      - file: "webfindyou-IMG-20171111-WA0057.jpg"
+        caption: ""
+      - file: "webfindyou-IMG-20171128-WA0007.jpg"
+        caption: ""
+      - file: "webfindyou-IMG-20180316-WA0003.jpg"
+        caption: ""
+
+  - id: xyclon
+    emoji: "🌍"
+    title: "Xyclon"
+    period: "Aug 2018 — Sep 2019"
+    role: "Full Stack Web Developer"
+    stack:
+      - PHP
+      - Laravel
+      - React
+      - MySQL
+    story: |
+      Full stack, for real. Laravel on the back, React on the front, and international accounts like Natura. Database migrations, UI rewrites, and that satisfying moment when the platform stops feeling like a museum.
+
+      A couple of these shots are later hangouts (2022). Once a team, always a WhatsApp group. 😄
+    photos:
+      - file: "xyclon-.jpg"
+        caption: ""
+      - file: "xyclon-IMAG0123.jpg"
+        caption: ""
+      - file: "xyclon-19-02-01-14-38-05-152_deco.jpg"
+        caption: ""
+      - file: "xyclon-20221222_231947.jpg"
+        caption: "Later hangout — 2022"
+      - file: "xyclon-IMG-20221223-WA0020.jpg"
+        caption: "Later hangout — 2022"
+
+  - id: quares
+    emoji: "⚡"
+    title: "Quares IT Solutions"
+    period: "Sep 2019 — Jul 2020"
+    role: "Frontend Developer"
+    stack:
+      - Frontend
+      - Agile
+      - UI/UX
+      - Performance
+    story: |
+      Experta Seguros and other "please don't break production" accounts. Agile cadence, product sitting next to engineering, and a 20% speed bump that came from sweating the UI instead of adding another library.
+
+      Short chapter, dense photos — this team took a lot of pictures. I'm not complaining.
+    photos:
+      - file: "Quares-IMG-20190917-WA0002.jpeg"
+        caption: ""
+      - file: "Quares-IMG-20190917-WA0004.jpeg"
+        caption: ""
+      - file: "Quares-IMG-20190917-WA0006.jpeg"
+        caption: ""
+      - file: "Quares-IMG-20190930-WA0048.jpg"
+        caption: ""
+      - file: "Quares-IMG_20191023_202800.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191126-WA0064.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191127-WA0093.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191128-WA0047.jpeg"
+        caption: ""
+      - file: "Quares-IMG-20191216-WA0018.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191216-WA0020.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191217-WA0041.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191218-WA0033.jpg"
+        caption: ""
+      - file: "Quares-IMG-20191220-WA0066.jpg"
+        caption: ""
+      - file: "Quares-IMG_20200228_150408.jpg"
+        caption: ""
+
+  - id: netglobal
+    emoji: "🛰️"
+    title: "Netglobal Solutions"
+    period: "Jul 2020 — Oct 2021"
+    role: "Software Engineer / Frontend"
+    stack:
+      - React
+      - Angular
+      - TypeScript
+      - Figma
+    story: |
+      DirecTV's fleet dashboard, Figma to pixels. React + Angular + TypeScript, a CSS renovation that the legacy stylesheets did not ask for, and a ~30% load-time win that made the ops team slightly less grumpy.
+
+      A few photos leaked into 2022/2024. Some crews don't really end when the contract does.
+    photos:
+      - file: "netglobal-IMG-20200409-WA0027.jpeg"
+        caption: ""
+      - file: "netglobal-IMG_20200430_183555.jpg"
+        caption: ""
+      - file: "netglobal-IMG-20200617-WA0050.jpeg"
+        caption: ""
+      - file: "netglobal-IMG_20210121_090804.jpg"
+        caption: ""
+      - file: "netglobal-20211029_101416.jpg"
+        caption: ""
+      - file: "netglobal-20211101_113507.jpg"
+        caption: ""
+      - file: "netglobal-20220909_225831.jpg"
+        caption: "Later — 2022"
+      - file: "netglobal-20220909_230241.jpg"
+        caption: "Later — 2022"
+      - file: "netglobal-20240503_171807.jpg"
+        caption: "Later — 2024"
+
+  - id: tsoft-telefonica
+    emoji: "📱"
+    title: "Tsoft × Telefónica / Tuenti"
+    period: "Oct 2021 — Sep 2023"
+    role: "Frontend Web Developer"
+    stack:
+      - React
+      - React Native
+      - TypeScript
+      - Node.js
+      - OpenShift
+    story: |
+      Tsoft was the badge; Tuenti (Telefónica) was the product. Official app, React + React Native, TypeScript everywhere, Node APIs, and CI/CD on OpenShift/Kubernetes. First time "enterprise infra" stopped being a slide and started being my Tuesday.
+
+      Two folders of photos, one chapter — that's how contractor life looks from the inside.
+    photos:
+      - file: "telefonica-20220214_150740.jpg"
+        caption: ""
+      - file: "telefonica-20220617_214727.jpg"
+        caption: ""
+      - file: "telefonica-20220617_223744.jpg"
+        caption: ""
+      - file: "telefonica-20220908_161743.jpg"
+        caption: ""
+      - file: "tsoft-20221004_200746.jpg"
+        caption: ""
+      - file: "tsoft-20221130_211426.jpg"
+        caption: ""
+      - file: "tsoft-20221130_234127.jpg"
+        caption: ""
+      - file: "telefonica-20221221_220740.jpg"
+        caption: ""
+      - file: "telefonica-IMG-20221221-WA0057(1).jpg"
+        caption: ""
+      - file: "telefonica-20230419_174256.jpg"
+        caption: ""
+      - file: "telefonica-20230419_174308.jpg"
+        caption: ""
+      - file: "telefonica-20230630_204424.jpg"
+        caption: ""
+
+  - id: santander
+    emoji: "🏦"
+    title: "Santander Tecnología"
+    period: "Sep 2023 — May 2026"
+    role: "Software Engineer · Investments tribe"
+    stack:
+      - React
+      - TypeScript
+      - Microfrontends
+      - OpenShift
+      - Kubernetes
+    story: |
+      Investments tribe, microfrontends, and a lot of coffee. React + TypeScript at bank scale — corporate funds, a digital-signature flow that could not go down, plus the people who made OpenShift, Grafana, and Dynatrace feel less scary.
+
+      Observability stopped being optional. Neither did the after-office photos.
+    photos:
+      - file: "santander-tecnologia-23-09-04-15-23-50-802_deco.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230904_090655.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230904_103550.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230904_142832.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230919_140947.jpg"
+        caption: ""
+      - file: "santander-tecnolsogia-20230929_094511.jpg"
+        caption: ""
+      - file: "20230929_100146.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230929_103821.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230929_104327.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230929_104342.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230929_113141.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20230929_114629~2.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20231115_135743.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20231115_182304.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20231123_205549.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20231123_210035.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20250521_202107.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20250724_142948.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20251127_222740.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20251127_225446.jpg"
+        caption: ""
+      - file: "santander-tecnologia-20251127_234201.jpg"
+        caption: ""
+      - file: "santander-tecnologia-Image.jpg"
+        caption: ""
+      - file: "santander-tecnologia-Multimedia.jpg"
+        caption: ""

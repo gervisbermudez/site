@@ -1,0 +1,31 @@
+{
+  "name": "gervis-bermudez-site",
+  "private": true,
+  "scripts": {
+    "predev": "node scripts/sync-arter-css.mjs",
+    "prebuild": "node scripts/sync-arter-css.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "marked": "^15.0.12",
+    "next": "^15.5.2",
+    "prismjs": "^1.30.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "swiper": "^11.2.10",
+    "yet-another-react-lightbox": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.18.0",
+    "@types/prismjs": "^1.26.5",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "typescript": "^5.9.2"
+  }
+}

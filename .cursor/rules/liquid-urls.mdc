@@ -1,19 +1,19 @@
 ---
-description: Always use relative_url so GitHub Pages baseurl works
+description: Asset URLs for posts and case-study HTML
 globs: "**/*.{html,yml}"
 alwaysApply: false
 ---
 
-# Liquid URLs
+# Asset URLs
 
-Production `baseurl` is `/site`. Hardcoded `/public/...` and `../public/...` break in prod or locally depending on depth.
+Next.js serves files from `public/` at `/`. A rewrite also keeps Jekyll-style `/public/...` working.
+
+In **post/case-study HTML**, keep Liquid so `lib/html.ts` can resolve it:
 
 ```liquid
 {{ 'public/uploads/2026/09/example.png' | relative_url }}
-{{ post.url | relative_url }}
-<a href="{{ '/contact/' | relative_url }}">Contact</a>
 ```
 
-- Lightbox / full-page assets: `data-magnific-image` and `data-no-swup`.
-- Prefer `| relative_url` on new markup even if a nearby page uses a raw relative path.
-- Never put `https://gervisbermudez.github.io` in templates; `site.url` + `site.baseurl` already do that in `_includes/head.html`.
+In **React**, use `next/image` with `/uploads/...` (no `public/` prefix).
+
+Lightbox: `data-magnific-image` (posts) and `data-magnific-gallery` (Journey).

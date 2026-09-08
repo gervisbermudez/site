@@ -38,5 +38,24 @@ next-env.d.ts
 _site/
 vendor
 
+# generated Arter CSS copies (from WordPress ?ver= filenames)
+public/themes/arter/style.css
+public/themes/arter/assets/css/bootstrap.css
+public/themes/arter/assets/fonts/font-awesome/css/font-awesome.css
+public/plugins/elementor/assets/css/frontend.min.css
+public/plugins/elementor/assets/css/conditionals/e-swiper.min.css
+public/plugins/elementor/assets/css/widget-heading.min.css
+public/plugins/elementor/assets/css/widget-image.min.css
+public/plugins/elementor/assets/css/widget-text-editor.min.css
+public/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css
+public/plugins/elementor/assets/js/
+public/plugins/arter-plugin/inc/social-share/js/rrssb.js
+public/plugins/contact-form-7/includes/css/styles.css
+public/plugins/contact-form-7/includes/js/index.js
+public/plugins/contact-form-7/includes/swv/js/index.js
+public/plugins/url-shortify/lite/dist/scripts/url-shortify.js
+public/plugins/url-shortify/lite/dist/styles/url-shortify.css
+public/uploads/elementor/css/post-*.css
+
 # graphify knowledge graph
 graphify-out/

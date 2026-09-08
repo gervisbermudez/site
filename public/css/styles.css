@@ -510,6 +510,16 @@ form.post-password-form input[type="submit"],
   }
 }
 
+/* Arter hides counters until anime.js fades them in; we don't load that script. */
+.art-counter-frame {
+  opacity: 1;
+}
+
+.art-counter-frame .art-counter-box .art-counter,
+.art-counter-frame .art-counter-box .art-counter-plus {
+  font-weight: 400;
+}
+
 .art-title-frame .art-post-subtitle {
   margin: 6px 0 0;
   color: #8c8c8e;

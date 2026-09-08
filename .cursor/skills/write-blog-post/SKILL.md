@@ -1,14 +1,14 @@
 ---
 name: write-blog-post
 description: >-
-  Draft or edit a Jekyll HTML blog post for this site, including front matter,
-  Elementor/Prism code blocks, figures, and upload paths. Use when the user
-  wants a new post, to publish to the blog, or to edit files in _posts/.
+  Draft or edit an HTML blog post for this Next.js site, including front matter,
+  Prism code blocks, figures, and upload paths. Use when the user wants a new
+  post, to publish to the blog, or to edit files in _posts/.
 ---
 
 # Write a blog post
 
-Posts are **HTML**, not Markdown. Copy `_posts/2026-09-07-improve-dont-replace-a-vue-3-button-architecture.html` as the canonical shape.
+Posts are **HTML**, not Markdown. Copy `_posts/2026-09-07-improve-dont-replace-a-vue-3-button-architecture.html` as the canonical shape. Next.js reads `_posts/` via `lib/posts.ts`.
 
 ## Checklist
 
@@ -18,7 +18,7 @@ Posts are **HTML**, not Markdown. Copy `_posts/2026-09-07-improve-dont-replace-a
 - [ ] thumbnail + banner under public/uploads/YYYY/MM/
 - [ ] Body wrapped in <div class="page-body">
 - [ ] Code HTML-encoded inside Prism wrappers
-- [ ] Images use relative_url + magnific + data-no-swup
+- [ ] Images use relative_url + data-magnific-image
 - [ ] Verify /blog/ card + post URL
 ```
 
@@ -42,7 +42,7 @@ tags: ["Vue.js", "TypeScript"]
 
 `thumbnail` is the blog grid image. `banner` is the post cover. `contact_banner` is optional (falls back to `banner`). Paths **start with** `/public/uploads/`.
 
-`category` is a display string (existing: `Web Development`). `tags` is a YAML list.
+Permalink is `/blog/YYYY/MM/DD/slug/` from the filename (not Jekyll `:title` Liquid).
 
 ## Body
 
@@ -77,15 +77,13 @@ Always this wrapper (Prism `theme-okaidia`). Change `language-*` to match (`java
 </div>
 ```
 
-Encode inside `<code>`: `<` → `&lt;`, `>` → `&gt;`, `&` → `&amp;`, `"` → `&quot;`, `'` → `&#x27;`. Do not put raw `<script>` or unescaped tags in the snippet.
-
-Liquid in the post body must not collide with Vue/JS `{{ }}`. For example text that looks like mustache, use HTML entities: `&#123;&#123;`.
+Encode inside `<code>`: `<` → `&lt;`, `>` → `&gt;`, `&` → `&amp;`, `"` → `&quot;`, `'` → `&#x27;`.
 
 ## Figures
 
 ```html
 <figure class="image">
-    <a href="{{'/public/uploads/YYYY/MM/file.svg' | relative_url}}" data-magnific-image data-no-swup>
+    <a href="{{'/public/uploads/YYYY/MM/file.svg' | relative_url}}" data-magnific-image>
         <img src="{{'/public/uploads/YYYY/MM/file.svg' | relative_url}}"
             alt="Describe the diagram"
             title="Short title" />
@@ -94,16 +92,12 @@ Liquid in the post body must not collide with Vue/JS `{{ }}`. For example text t
 </figure>
 ```
 
-Embed a live demo with `<iframe>` inside `<figure class="image">` when there is a public URL. Keep `data-no-swup` on asset links so Swup does not intercept them.
-
-## Assets
-
-Put files in `public/uploads/YYYY/MM/`. Prefer SVG for diagrams, PNG/JPG for photo banners. If generating images, write them to that folder and point `thumbnail`/`banner` at them.
+`lib/html.ts` resolves `| relative_url` to `/public/...` (rewritten to files in `public/`).
 
 ## After writing
 
-1. Confirm the post appears in `blog/index.html` via `paginator.posts` (no extra wiring).
-2. Serve or build (skill `local-preview`) and open the post URL plus `/blog/`.
+1. Confirm the post appears on `/blog/` (paginated, 6 per page).
+2. Serve (`npm run dev`) and open the post URL plus `/blog/`.
 3. Check OG tags: `description`, `banner`, title.
 
 See [examples.md](examples.md) for encoded snippets.

@@ -2,13 +2,13 @@
 name: add-portfolio-item
 description: >-
   Add or update a portfolio case study: YAML grid entry plus portfolio/<slug>/index.html
-  in the Arter/Elementor layout. Use when the user adds a project, case study,
-  or edits _data/portfolio.yml or files under portfolio/.
+  in the Arter layout. Use when the user adds a project, case study, or edits
+  _data/portfolio.yml or files under portfolio/.
 ---
 
 # Add a portfolio item
 
-Two files must stay in sync: `_data/portfolio.yml` (grid) and `portfolio/<slug>/index.html` (detail). Copy `portfolio/start-cms/index.html` instead of inventing a simpler page.
+Two files must stay in sync: `_data/portfolio.yml` (grid) and `portfolio/<slug>/index.html` (detail HTML). Copy `portfolio/start-cms/index.html` instead of inventing a simpler page. Next.js reads both via `lib/portfolio.ts`.
 
 ## Checklist
 
@@ -45,10 +45,10 @@ description: "Longer SEO description."
 ---
 ```
 
-Keep the Arter/Elementor shell from an existing case study: `art-content`, curtain, top background, `art-section-title`, cover frame, project body, `{% include contact-banner.html %}`, footer. Do not strip `elementor-*` wrappers.
+Keep the Arter/Elementor **body** from an existing case study (`art-section-title`, cover/slider, project description). Next wraps it in the React chrome (sidebar, menu, contact banner, navigator, footer). Do not strip `elementor-*` wrappers inside the body.
 
-Use `| relative_url` for every new image and internal link. For the top background, prefer the Liquid form used in `portfolio/index.html`, not `../../public/...`.
+Use `| relative_url` or `/public/uploads/...` for images. Relative `../../public/...` is rewritten to `/public/`.
 
 ## After writing
 
-Open `/portfolio/` and confirm the card shows under the right filter, then open the case study URL and check banner, copy, and Contact CTA.
+Open `/portfolio/` and confirm the card shows under the right filter, then open `/portfolio/<slug>/` and check banner, copy, and Contact CTA.

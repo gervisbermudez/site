@@ -1,5 +1,5 @@
 ---
-description: Front matter and HTML shape for Jekyll blog posts
+description: Front matter and HTML shape for blog posts
 globs: _posts/**
 alwaysApply: false
 ---

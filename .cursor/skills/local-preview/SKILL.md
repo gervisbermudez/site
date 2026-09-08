@@ -1,51 +1,37 @@
 ---
 name: local-preview
 description: >-
-  Run or build this Jekyll site locally with Docker Compose or Bundler, then
-  verify changed pages. Use when previewing, serving, building, or checking
-  that relative_url and GitHub Pages baseurl still work.
+  Run or build this Next.js site locally, then verify changed pages. Use when
+  previewing, serving, building, or checking that /public and /uploads URLs work.
 ---
 
 # Local preview
 
-Prefer Docker when Compose is available. The gem volume is **external**.
+This branch is Next.js. Do not start Jekyll/`docker compose` unless you are working on `main`.
 
-## Docker
-
-```bash
-docker volume create jekyll_gems
-docker compose up
-```
-
-Site: `http://localhost:4000` (livereload on `35729`). Uses `_config.yml` (`baseurl` empty).
-
-If gems fail to install inside the container, recreate the volume only after confirming with the user:
+## Dev server
 
 ```bash
-docker volume rm jekyll_gems
-docker volume create jekyll_gems
+npm install
+npm run dev
 ```
 
-## Bundler (no Docker)
+Site: `http://localhost:3000`. `predev` copies Arter CSS files that have `?ver=` in the filename to clean names so Next can serve them.
+
+## Production-like build
 
 ```bash
-bundle install
-bundle exec jekyll serve --livereload
+npm run build
+npm start
 ```
 
-Production-like build (this is what CI runs):
-
-```bash
-bundle exec jekyll build --config _config_prod.yml
-```
-
-Output is `_site/`. With prod config, asset URLs must start with `/site/`. Do not commit `_site/`.
+Do not use `output: 'export'` and do not deploy `_site/` from this branch.
 
 ## Verify after a change
 
-- New post: `/blog/` (thumbnail + description) and the post permalink.
-- New case study: `/portfolio/` (filter + card) and `portfolio/<slug>/`.
+- New post: `/blog/` (thumbnail + description) and `/blog/YYYY/MM/DD/slug/`.
+- New case study: `/portfolio/` (filter + card) and `/portfolio/<slug>/`.
 - Layout/CSS: home, blog, one post, portfolio, contact — Arter chrome (sidebar + menu) still renders.
-- Broken images almost always mean a missing `| relative_url` or a path without `/public/uploads/...`.
+- Images: `next/image` uses `/uploads/...`. Post HTML still uses `/public/uploads/...` (rewrite).
 
-Do not start a second `jekyll serve` if port 4000 is already in use. Reuse the running container or process.
+Do not start a second `next dev` if port 3000 is already in use.

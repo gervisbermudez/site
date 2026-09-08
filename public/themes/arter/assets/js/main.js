@@ -523,6 +523,8 @@
     $(this).parent().next("label").removeClass("focused");
   });
 
+  window.bindMagnificImageLinks = bindMagnificImageLinks;
+
   /* Cart Popup */
   $(".cart-btn .cart-icon").on("click", function () {
     if ($(this).closest(".cart-btn").hasClass("opened")) {
@@ -568,119 +570,242 @@ function initHomeBlogSlider() {
   });
 }
 
-// --- View Transitions API Fallback ---
-document.addEventListener('click', async (e) => {
-  const link = e.target.closest('a');
+function assetUrlKey(el, baseUrl) {
+  const raw = el.getAttribute("src") || el.getAttribute("href") || "";
+  try {
+    return new URL(raw, baseUrl || location.href).pathname;
+  } catch (err) {
+    return raw;
+  }
+}
 
-  // Ignorar si no es un enlace, no tiene href, o es un enlace vacío/ancla
+function waitForStylesheet(link) {
+  return new Promise(function (resolve) {
+    if (!link.href) {
+      resolve();
+      return;
+    }
+    if (link.sheet) {
+      resolve();
+      return;
+    }
+    link.addEventListener("load", resolve, { once: true });
+    link.addEventListener("error", resolve, { once: true });
+  });
+}
+
+function adoptPageStyles(doc, pageUrl) {
+  const pending = [];
+  const existingHrefs = new Set();
+  const existingIds = new Set();
+
+  document.querySelectorAll('link[rel="stylesheet"]').forEach(function (link) {
+    existingHrefs.add(assetUrlKey(link));
+    if (link.id) existingIds.add(link.id);
+  });
+
+  doc.querySelectorAll('link[rel="stylesheet"]').forEach(function (link) {
+    const hrefAttr = link.getAttribute("href");
+    if (!hrefAttr) return;
+    const hrefKey = assetUrlKey(link, pageUrl);
+    if ((link.id && existingIds.has(link.id)) || existingHrefs.has(hrefKey)) {
+      return;
+    }
+    const clone = document.createElement("link");
+    clone.rel = "stylesheet";
+    clone.href = new URL(hrefAttr, pageUrl).href;
+    if (link.id) clone.id = link.id;
+    clone.setAttribute("data-instant-page-asset", "");
+    document.head.appendChild(clone);
+    pending.push(waitForStylesheet(clone));
+  });
+
+  document.querySelectorAll("style[data-instant-page-asset]").forEach(function (style) {
+    style.remove();
+  });
+
+  const newContent = doc.querySelector(".art-content");
+  doc.querySelectorAll("style").forEach(function (style) {
+    if (newContent && newContent.contains(style)) return;
+    const clone = document.createElement("style");
+    clone.textContent = style.textContent;
+    if (style.id) clone.id = style.id;
+    clone.setAttribute("data-instant-page-asset", "");
+    document.head.appendChild(clone);
+  });
+
+  return Promise.all(pending);
+}
+
+function adoptPageScripts(doc, pageUrl) {
+  window.Prism = window.Prism || {};
+  window.Prism.manual = true;
+
+  const existing = new Set();
+  document.querySelectorAll("script[src]").forEach(function (script) {
+    existing.add(assetUrlKey(script));
+    if (script.id) existing.add(script.id);
+  });
+
+  const scriptsToLoad = [];
+  doc.querySelectorAll("script[src]").forEach(function (script) {
+    const srcAttr = script.getAttribute("src");
+    if (!srcAttr) return;
+    const srcKey = assetUrlKey(script, pageUrl);
+    if (srcKey.indexOf("/main.js") !== -1) return;
+    if (existing.has(srcKey) || (script.id && existing.has(script.id))) return;
+    scriptsToLoad.push(script);
+  });
+
+  return scriptsToLoad.reduce(function (chain, script) {
+    return chain.then(function () {
+      return new Promise(function (resolve) {
+        const clone = document.createElement("script");
+        clone.src = new URL(script.getAttribute("src"), pageUrl).href;
+        if (script.id) clone.id = script.id;
+        clone.setAttribute("data-instant-page-asset", "");
+        clone.onload = resolve;
+        clone.onerror = resolve;
+        document.body.appendChild(clone);
+      });
+    });
+  }, Promise.resolve());
+}
+
+function resetPageScroll() {
+  const scrollbarEl = document.querySelector("#scrollbar");
+  if (typeof Scrollbar !== "undefined" && scrollbarEl) {
+    const sb = Scrollbar.get(scrollbarEl);
+    if (sb) sb.setPosition(0, 0);
+  }
+  window.scrollTo(0, 0);
+  if (scrollbarEl) scrollbarEl.scrollTop = 0;
+}
+
+function reactivateInlineStyles(root) {
+  if (!root) return;
+  root.querySelectorAll("style").forEach(function (style) {
+    const fresh = document.createElement("style");
+    fresh.textContent = style.textContent;
+    Array.from(style.attributes).forEach(function (attr) {
+      fresh.setAttribute(attr.name, attr.value);
+    });
+    style.replaceWith(fresh);
+  });
+}
+
+function highlightCodeBlocks() {
+  if (window.Prism && typeof window.Prism.highlightAll === "function") {
+    window.Prism.highlightAll();
+  }
+  if (window.jQuery) {
+    window.jQuery('pre[data-show-toolbar="no"]').siblings("div.toolbar").hide();
+  }
+}
+
+function swapPageContent(doc, url, push) {
+  const currentContent = document.querySelector(".art-content");
+  const newContent = doc.querySelector(".art-content");
+  if (!currentContent || !newContent) return false;
+
+  document.title = doc.title;
+  if (doc.body && doc.body.className) {
+    document.body.className = doc.body.className;
+  }
+
+  if (push) {
+    history.pushState({}, "", url);
+  }
+
+  // Re-parse in the live document so <style> tags actually apply (DOMParser nodes often don't).
+  currentContent.outerHTML = newContent.outerHTML;
+  const liveContent = document.querySelector(".art-content");
+  reactivateInlineStyles(liveContent);
+  highlightCodeBlocks();
+  resetPageScroll();
+  return true;
+}
+
+async function navigateWithFetchedPage(url, push) {
+  const response = await fetch(url, { credentials: "same-origin" });
+  if (!response.ok) throw new Error("Error al cargar la página");
+
+  const html = await response.text();
+  const doc = new DOMParser().parseFromString(html, "text/html");
+
+  await adoptPageStyles(doc, url);
+  await adoptPageScripts(doc, url);
+
+  const applySwap = function () {
+    if (!swapPageContent(doc, url, push)) {
+      window.location.href = url;
+    }
+  };
+
+  if (!document.startViewTransition) {
+    applySwap();
+    window.reinitScripts();
+    return;
+  }
+
+  const transition = document.startViewTransition(applySwap);
+  transition.finished.then(
+    function () {
+      window.reinitScripts();
+    },
+    function () {
+      window.reinitScripts();
+    }
+  );
+}
+
+// --- View Transitions / instant navigation ---
+document.addEventListener("click", async function (e) {
+  const link = e.target.closest("a");
+
   if (!link) return;
-  const hrefAttr = link.getAttribute('href');
-  if (!hrefAttr || hrefAttr === '#' || hrefAttr.startsWith('#')) return;
-
-  // Ignorar enlaces externos, nuevas pestañas, lightbox, o archivos de imagen
-  if (link.origin !== location.origin || link.target === '_blank' || link.hasAttribute('data-no-swup')) return;
+  const hrefAttr = link.getAttribute("href");
+  if (!hrefAttr || hrefAttr === "#" || hrefAttr.startsWith("#")) return;
   if (e.defaultPrevented) return;
-  if (link.hasAttribute('data-magnific-image') || link.hasAttribute('data-magnific-inline') || link.hasAttribute('data-magnific-video')) return;
+  if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+  if (link.origin !== location.origin || link.target === "_blank" || link.hasAttribute("data-no-swup")) return;
+  if (link.hasAttribute("download") || hrefAttr.startsWith("mailto:") || hrefAttr.startsWith("tel:")) return;
+  if (link.hasAttribute("data-magnific-image") || link.hasAttribute("data-magnific-inline") || link.hasAttribute("data-magnific-video")) return;
   if (/\.(svg|png|jpe?g|gif|webp)(\?|#|$)/i.test(link.pathname)) return;
 
   e.preventDefault();
   const url = link.href;
 
   try {
-    // 1. Fetch de la página ANTES de iniciar la transición para evitar parpadeos/congelamientos
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('Error al cargar la página');
-
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-
-    if (!document.startViewTransition) {
-      // Fallback si no hay View Transitions
-      document.title = doc.title;
-      const currentContent = document.querySelector('.art-content');
-      const newContent = doc.querySelector('.art-content');
-      if (currentContent && newContent) {
-        currentContent.replaceWith(newContent);
-        history.pushState({}, '', url);
-        window.reinitScripts();
-        window.scrollTo(0, 0);
-      } else {
-        window.location.href = url;
-      }
-      return;
-    }
-
-    // 2. Iniciar la transición — el callback solo hace el swap del DOM (debe ser sincrónico y rápido)
-    const transition = document.startViewTransition(() => {
-      document.title = doc.title;
-
-      const currentContent = document.querySelector('.art-content');
-      const newContent = doc.querySelector('.art-content');
-
-      if (currentContent && newContent) {
-        currentContent.replaceWith(newContent);
-      } else {
-        window.location.href = url;
-        return;
-      }
-
-      history.pushState({}, '', url);
-
-      // Reset scroll DENTRO del callback para que el nuevo contenido arranque desde arriba
-      const scrollbarEl = document.querySelector('#scrollbar');
-      if (typeof Scrollbar !== 'undefined' && scrollbarEl) {
-        const sb = Scrollbar.get(scrollbarEl);
-        if (sb) sb.setPosition(0, 0);
-      }
-      window.scrollTo(0, 0);
-      if (scrollbarEl) scrollbarEl.scrollTop = 0;
-    });
-
-    // 3. Después de que termine la animación, re-inicializar scripts y hacer scroll al top
-    transition.finished.then(() => {
-      window.reinitScripts();
-    });
-
+    await navigateWithFetchedPage(url, true);
   } catch (err) {
-    console.error('Error en transición:', err);
+    console.error("Error en transición:", err);
     window.location.href = url;
   }
 });
 
-window.addEventListener('popstate', () => {
-  if (!document.startViewTransition) {
+window.addEventListener("popstate", async function () {
+  try {
+    await navigateWithFetchedPage(location.href, false);
+  } catch (err) {
     window.location.reload();
-    return;
   }
-
-  document.startViewTransition(async () => {
-    try {
-      const response = await fetch(location.href);
-      const html = await response.text();
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-
-      document.title = doc.title;
-
-      const currentContent = document.querySelector('.art-content');
-      const newContent = doc.querySelector('.art-content');
-
-      if (currentContent && newContent) {
-        currentContent.replaceWith(newContent);
-      } else {
-        window.location.reload();
-      }
-
-      // Re-initialize scripts
-      window.reinitScripts();
-    } catch (err) {
-      window.location.reload();
-    }
-  });
 });
 
 window.reinitScripts = function () {
+  try {
+    reinitPageWidgets();
+  } catch (err) {
+    console.error("Error reinitializing page scripts:", err);
+  }
+
+  highlightCodeBlocks();
+  document.dispatchEvent(new Event("swup:contentReplaced"));
+  document.dispatchEvent(new Event("elementor/lazyload/observe"));
+};
+
+function reinitPageWidgets() {
   // portfolio filter
   $(".art-filter a").off("click").on("click", function () {
     $(".art-filter .art-current").removeClass("art-current");
@@ -733,7 +858,9 @@ window.reinitScripts = function () {
     type: "inline", overflowY: "auto", preloader: false,
     callbacks: { beforeOpen: function () { this.st.mainClass = "mfp-zoom-in"; } },
   });
-  bindMagnificImageLinks();
+  if (typeof window.bindMagnificImageLinks === "function") {
+    window.bindMagnificImageLinks();
+  }
   $("a").each(function (i, el) {
     var href_value = el.href;
     if (/\.(jpg|png|gif)$/.test(href_value)) {
@@ -752,7 +879,7 @@ window.reinitScripts = function () {
   // menu active update
   $(".main-menu .menu-item").removeClass("current-menu-item current_page_item");
   $(".main-menu .menu-item a").each(function () {
-    if ($(this).prop("href") === location.href) {
+    if ($(this).prop("href") === location.href || $(this).prop("href") === location.href.replace(/\/$/, "") + "/") {
       $(this).parent().addClass("current-menu-item current_page_item");
     }
   });
@@ -760,12 +887,12 @@ window.reinitScripts = function () {
   $(".current-menu-item a").clone().appendTo(".art-current-page");
 
   // reset form
-  $(".art-input").keyup(function () {
+  $(".art-input").off("keyup.instantNav").on("keyup.instantNav", function () {
     if ($(this).val()) { $(this).addClass("art-active"); }
     else { $(this).removeClass("art-active"); }
   });
-  $(".art-input").on("focusin", function () { $(this).parent().next("label").addClass("focused"); });
-  $(".art-input").on("focusout", function () { $(this).parent().next("label").removeClass("focused"); });
+  $(".art-input").off("focusin.instantNav").on("focusin.instantNav", function () { $(this).parent().next("label").addClass("focused"); });
+  $(".art-input").off("focusout.instantNav").on("focusout.instantNav", function () { $(this).parent().next("label").removeClass("focused"); });
 
   // slider works
   if ($(".art-works-slider").length) {
@@ -785,4 +912,4 @@ window.reinitScripts = function () {
   if ($(".art-blog-slider").length) {
     initHomeBlogSlider();
   }
-};
+}

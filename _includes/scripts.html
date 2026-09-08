@@ -27,40 +27,11 @@
     });
 </script>
 
-{% if page.url contains '/blog/' %}
 <script type="text/javascript" src="{{ '/public/plugins/code-block-for-elementor/assets/prism.js' | relative_url }}"
     id="code-block-for-elementor-prismjs-js"></script>
 <script type="text/javascript"
     src="{{ '/public/plugins/code-block-for-elementor/assets/prism-toolbar.js' | relative_url }}"
     id="code-block-for-elementor-toolbarjs-js"></script>
-<link rel="stylesheet" id="code-block-for-elementor-coy-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-coy.css" | relative_url }}' type="text/css"
-    media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-dark-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-dark.css" | relative_url }}' type="text/css"
-    media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-default-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-default.css" | relative_url }}' type="text/css"
-    media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-funky-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-funky.css" | relative_url }}' type="text/css"
-    media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-okaidia-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-okaidia.css" | relative_url }}' type="text/css"
-    media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-solarized-light-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-solarized-light.css" | relative_url }}'
-    type="text/css" media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-tomorrow-night-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-tomorrow-night.css" | relative_url }}'
-    type="text/css" media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-twilight-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-twilight.css" | relative_url }}' type="text/css"
-    media="all" />
-<link rel="stylesheet" id="code-block-for-elementor-toolbar-css"
-    href='{{ "/public/plugins/code-block-for-elementor/assets/prism-toolbar.css" | relative_url }}' type="text/css"
-    media="all" />
-{% endif %}
 <script type="text/javascript"
     src="{{ 'public/themes/arter/assets/js/skip-link-focus-fix.js%3Fver=20151215' | relative_url }}"
     id="arter-skip-link-focus-fix-js"></script>
@@ -80,7 +51,7 @@
     id="swiper-js"></script>
 <script type="text/javascript" src="{{ 'public/themes/arter/assets/js/rrssb.js%3Fver=1.0.0' | relative_url }}"
     id="rrssb-js"></script>
-<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/main.js' | relative_url }}"
+<script type="text/javascript" src="{{ 'public/themes/arter/assets/js/main.js' | relative_url }}?v=20260908"
     id="arter-main-js"></script>
 <script type="text/javascript" src="{{ 'public/js/jquery/ui/core.min.js%3Fver=1.13.3' | relative_url }}"
     id="jquery-ui-core-js"></script>

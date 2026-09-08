@@ -37,3 +37,6 @@ next-env.d.ts
 
 _site/
 vendor
+
+# graphify knowledge graph
+graphify-out/

@@ -1,0 +1,24 @@
+# Third-party Arter theme — fonts, icons, vendor JS
+public/themes/
+
+# WordPress-style resized derivatives; keep full-size originals
+**/*-150x150.*
+**/*-240x*.*
+**/*-278x*.*
+**/*-300x*.*
+**/*-410x*.*
+**/*-474x*.*
+**/*-512x*.*
+**/*-768x*.*
+**/*-820x*.*
+**/*-948x*.*
+**/*-950x*.*
+**/*-1024x*.*
+**/*-1230x*.*
+**/*-1280x*.*
+**/*-1422x*.*
+**/*-1536x*.*
+**/*-1639x*.*
+**/*-1895x*.*
+**/*-1920x*.*
+**/*-2048x*.*

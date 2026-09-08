@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="es" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+    <!-- Meta Data -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="profile" href="https://gmpg.org/xfn/11" />
+
+    <title>The journey behind the commits &#8211; Gervis Bermudez</title>
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+    <link rel="alternate" type="application/rss+xml" title="The journey behind the commits &#8211; Gervis Bermudez &#8211; Feed"
+        href="/site/feed.xml" />
+    <link rel="stylesheet" id="arter-fonts-css"
+        href="https://fonts.googleapis.com/css?family=Poppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCourier%2BPrime%3A400%2C400italic%2C700%2C700italic&#038;subset=latin%2Clatin-ext"
+        type="text/css" media="all" />
+    <link rel="stylesheet" id="bootstrap-css"
+        href="/site/public/themes/arter/assets/css/bootstrap.css%3Fver=6.6.2.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" id="arter-fontawesome-css"
+        href="/site/public/themes/arter/assets/fonts/font-awesome/css/font-awesome.css%3Fver=6.6.2.css"
+        type="text/css" media="all" />
+    <link rel="stylesheet" id="arter-swiper-css"
+        href="/site/public/themes/arter/assets/css/swiper.css%3Fver=6.6.2.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" id="magnific-popup-css"
+        href="/site/public/themes/arter/assets/css/magnific-popup.css%3Fver=6.6.2.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" id="arter-style-css"
+        href="/site/public/themes/arter/style.css%3Fver=6.6.2.css" type="text/css" media="all" />
+    <link rel="stylesheet" id="elementor-frontend-css"
+        href="/site/public/plugins/elementor/assets/css/frontend.min.css%3Fver=3.24.3.css"
+        type="text/css" media="all" />
+    <link rel="stylesheet" id="swiper-css"
+        href="/site/public/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css%3Fver=8.4.5.css"
+        type="text/css" media="all" />
+    <link rel="stylesheet" id="e-swiper-css"
+        href="/site/public/plugins/elementor/assets/css/conditionals/e-swiper.min.css%3Fver=3.24.3.css"
+        type="text/css" media="all" />
+    <link rel="stylesheet" id="elementor-post-45-css"
+        href="/site/public/uploads/elementor/css/post-45.css%3Fver=1721951380.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" id="elementor-post-214-css"
+        href="/site/public/uploads/elementor/css/post-214.css%3Fver=1721951381.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" id="google-fonts-1-css"
+        href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap&#038;ver=6.6.2"
+        type="text/css" media="all" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <script type="text/javascript" src="/site/public/js/jquery/jquery.min.js%3Fver=3.7.1"
+        id="jquery-core-js"></script>
+    <script type="text/javascript" src="/site/public/js/jquery/jquery-migrate.min.js%3Fver=3.4.1"
+        id="jquery-migrate-js"></script>
+
+    <!-- Google tag (gtag.js) snippet added by Site Kit -->
+
+    <!-- Fragmento de código de Google Analytics añadido por Site Kit -->
+    <script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=GT-WFMP3PT" id="google_gtagjs-js"
+        async></script>
+    <script type="text/javascript" id="google_gtagjs-js-after">
+        /* <![CDATA[ */
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag("set", "linker", { domains: ["gervisbermudez.github.io/site"] });
+        gtag("js", new Date());
+        gtag("set", "developer_id.dZTNiMT", true);
+        gtag("config", "GT-WFMP3PT");
+        /* ]]> */
+    </script>
+
+    <link rel="canonical" href="https://gervisbermudez.github.io/site/journey/" />
+    <link rel="shortlink" href="https://gervisbermudez.github.io/site/journey/" />
+    <link rel="stylesheet" href="/site/public/css/styles.css?v=20260907-interests-courses" type="text/css" media="all" />
+    <link rel="stylesheet" id="code-block-for-elementor-okaidia-css"
+        href="/site/public/plugins/code-block-for-elementor/assets/prism-okaidia.css" type="text/css"
+        media="all" />
+    <link rel="stylesheet" id="code-block-for-elementor-toolbar-css"
+        href="/site/public/plugins/code-block-for-elementor/assets/prism-toolbar.css" type="text/css"
+        media="all" />
+    <link rel="icon" href="/site/public/uploads/2024/03/Vectorized-Logo-150x150.png" sizes="32x32" />
+    <link rel="icon" href="/site/public/uploads/2024/03/Vectorized-Logo-300x300.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/site/public/uploads/2024/03/Vectorized-Logo-300x300.png" />
+    <meta name="msapplication-TileImage"
+        content="/site/public/uploads/2024/03/Vectorized-Logo-300x300.png" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Gervis Bermudez | Blog" />
+    <meta property="og:title" content="The journey behind the commits &#8211; Gervis Bermudez" />
+    <meta property="og:url" content="https://gervisbermudez.github.io/site/journey/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description"
+        content="A personal timeline of the people, teams, and tools behind the CV — photos from WebFindYou to Santander Tecnología." />
+    <meta itemprop="name" content="The journey behind the commits &#8211; Gervis Bermudez" />
+    <meta itemprop="headline" content="The journey behind the commits &#8211; Gervis Bermudez" />
+    <meta itemprop="description"
+        content="A personal timeline of the people, teams, and tools behind the CV — photos from WebFindYou to Santander Tecnología." />
+    <meta itemprop="author" content="Gervis Bermudez" />
+    <meta name="twitter:title" content="The journey behind the commits &#8211; Gervis Bermudez" />
+    <meta name="twitter:url" content="https://gervisbermudez.github.io/site/journey/" />
+    <meta name="twitter:description"
+        content="A personal timeline of the people, teams, and tools behind the CV — photos from WebFindYou to Santander Tecnología." />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta property="og:image" content="https://gervisbermudez.github.io/site/public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg" />
+    <meta name="twitter:image" content="https://gervisbermudez.github.io/site/public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg" />
+
+</head>
+
+<body
+  class="home page-template page-template-template-layout-builder page-template-template-layout-builder-php page page-id-214 wp-custom-logo default--scrolling elementor-default elementor-kit-45 elementor-page elementor-page-214">
+  <!-- app -->
+  <div class="art-app">
+    <!-- mobile top bar -->
+    <div class="art-mobile-top-bar"></div>
+
+    <!-- app wrapper -->
+    <div class="art-app-wrapper">
+      <!-- app container end -->
+      <div class="art-app-container">
+        <!-- info bar -->
+        <div class="art-info-bar">
+    <!-- menu bar frame -->
+    <div class="art-info-bar-frame">
+        <!-- info bar header -->
+        <div class="art-info-bar-header">
+            <!-- info bar button -->
+            <a class="art-info-bar-btn">
+                <!-- icon -->
+                <i class="fas fa-ellipsis-v"></i>
+            </a>
+            <!-- info bar button end -->
+        </div>
+        <!-- info bar header end -->
+
+        <!-- info bar header -->
+        <div class="art-header">
+            <!-- avatar -->
+            <div class="art-avatar">
+                <a data-no-swup href="/site/public/img/profile.jpg" class="art-avatar-curtain">
+                    <img src="/site/public/img/profile-thumb.jpg" alt="avatar"
+                        data-magnific-image="true" />
+                    <i class="fas fa-expand"></i>
+                </a>
+                <!-- available -->
+                <div class="art-lamp-light">
+                    <!-- add class 'art-not-available' if not available-->
+                    <div class="art-available-lamp" title="I am available for freelance hire"></div>
+                </div>
+            </div>
+            <!-- avatar end -->
+            <!-- name -->
+            <h5 class="art-name mb-10">
+                <a href="/site/">Gervis Bermudez</a>
+            </h5>
+            <!-- post -->
+            <div class="art-sm-text mb-4">
+                Full-Stack Engineer | React, Next.js, Node.js and Digital Product Development
+            </div>
+
+        </div>
+        <!-- info bar header end -->
+
+        <!-- sidebar social -->
+        <div class="art-ls-social">
+            <!-- social link -->
+            <a href="https://www.linkedin.com/in/gervisbermudez/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <!-- social link -->
+            <!-- social link -->
+            <a href="https://github.com/gervisbermudez" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <!-- social link -->
+            <!-- social link -->
+            <a href="https://twitter.com/gervisbermudez" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <!-- social link -->
+            <!-- social link -->
+            <a href="https://www.instagram.com/gervisbermudez" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <!-- social link -->
+        </div>
+        <!-- sidebar social end -->
+
+        <!-- scroll frame -->
+        <div id="scrollbar2" class="art-scroll-frame">
+            <!-- links frame -->
+            <div class="art-links-frame p-15-15 text-center">
+                <!-- download cv button -->
+                <a href="/site/public/uploads/Gervis-Bermudez-CV-en.pdf" class="art-link">
+                    See my full resume
+                </a>
+            </div>
+            <!-- links frame end -->
+            <!-- info bar about -->
+            <div class="art-table p-15-15">
+                <!-- about text -->
+                <ul>
+                    <li>
+                        <h6>Residence:</h6>
+                        <span>Argentina</span>
+                    </li>
+                    <li>
+                        <h6>City:</h6>
+                        <span>Buenos Aires</span>
+                    </li>
+                    <li>
+                        <h6>Age:</h6>
+                        <span id="dynamic-age">33</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- info bar about end -->
+
+            <!-- knowledge list -->
+            <ul class="art-knowledge-list p-15-0">
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>Next.js &amp; TailwindCSS</li>
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>Docker, Kubernetes, OpenShift</li>
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>CI/CD &amp; Git workflows</li>
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>GraphQL &amp; REST APIs</li>
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>Grafana, Dynatrace, SonarQube</li>
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>Flutter (Mobile)</li>
+                <!-- list item -->
+                <li><i class="fas fa-check"></i>Agile / Scrum</li>
+            </ul>
+            <!-- knowledge list end -->
+
+            <!-- divider -->
+            <div class="art-ls-divider"></div>
+
+            <!-- hard skills -->
+            <div class="art-hard-skills p-30-15">
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                    <div class="art-skill-heading">
+                        <!-- title -->
+                        <h6>React / Next.js</h6>
+                    </div>
+                    <!-- progressbar frame -->
+                    <div class="art-line-progress">
+                        <!-- progressbar -->
+                        <div id="lineprog2-1" data-type="progress" data-value="95" class="art-skills-progress"></div>
+                    </div>
+                    <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                    <div class="art-skill-heading">
+                        <!-- title -->
+                        <h6>TypeScript / Node.js</h6>
+                    </div>
+                    <!-- progressbar frame -->
+                    <div class="art-line-progress">
+                        <!-- progressbar -->
+                        <div id="lineprog2-2" data-type="progress" data-value="92" class="art-skills-progress"></div>
+                    </div>
+                    <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                    <div class="art-skill-heading">
+                        <!-- title -->
+                        <h6>PHP / Laravel</h6>
+                    </div>
+                    <!-- progressbar frame -->
+                    <div class="art-line-progress">
+                        <!-- progressbar -->
+                        <div id="lineprog2-3" data-type="progress" data-value="80" class="art-skills-progress"></div>
+                    </div>
+                    <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                    <div class="art-skill-heading">
+                        <!-- title -->
+                        <h6>Docker / Kubernetes</h6>
+                    </div>
+                    <!-- progressbar frame -->
+                    <div class="art-line-progress">
+                        <!-- progressbar -->
+                        <div id="lineprog2-4" data-type="progress" data-value="75" class="art-skills-progress"></div>
+                    </div>
+                    <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
+                <!-- skill -->
+                <div class="art-hard-skills-item">
+                    <div class="art-skill-heading">
+                        <!-- title -->
+                        <h6>MongoDB / Redis</h6>
+                    </div>
+                    <!-- progressbar frame -->
+                    <div class="art-line-progress">
+                        <!-- progressbar -->
+                        <div id="lineprog2-5" data-type="progress" data-value="82" class="art-skills-progress"></div>
+                    </div>
+                    <!-- progressbar frame end -->
+                </div>
+                <!-- skill end -->
+            </div>
+            <!-- language skills end -->
+
+
+            <div class="art-ls-divider"></div>
+
+            <!-- language skills -->
+            <div class="art-lang-skills p-30-15">
+                <!-- skill -->
+                <div class="art-lang-skills-item">
+                    <div id="circleprog1-1" data-type="circles" data-value="85"
+                        class="art-cirkle-progress art-skills-progress"></div>
+                    <!-- title -->
+                    <h6>English (B2+)</h6>
+                </div>
+                <!-- skill end -->
+            </div>
+            <!-- language skills end -->
+
+
+
+            <!-- divider -->
+            <div class="art-ls-divider"></div>
+
+
+        </div>
+        <!-- scroll frame end -->
+    </div>
+    <!-- menu bar frame end -->
+</div>
+        <!-- info bar end -->
+        <!-- menu bar -->
+        <div class="art-menu-bar-fix">
+          <div class="art-menu-bar">
+            <!-- menu bar frame -->
+            <div class="art-menu-bar-frame">
+              <!-- Woocommerce cart -->
+              <!-- menu bar header -->
+              <div class="art-menu-bar-header">
+                <!-- menu bar button -->
+                <a class="art-menu-bar-btn">
+                  <!-- icon -->
+                  <span></span>
+                </a>
+                <!-- menu bar button end -->
+              </div>
+              <!-- menu bar header end -->
+              <!-- current page title -->
+              <div class="art-current-page"></div>
+              <!-- current page title end -->
+              <!-- scroll frame -->
+              <div class="art-scroll-frame">
+                <!-- menu -->
+                <nav id="swupMenu">
+    <!-- menu list -->
+    <ul id="menu-main-menu" class="main-menu">
+        <li id="menu-item-194"
+            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-214 current_page_item">
+            <a href="/site/">Home</a>
+        </li>
+        <li id="menu-item-547" class="menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/site/contact/">Contact</a>
+        </li>
+        <li id="menu-item-203" class="menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/site/portfolio/">Portfolio</a>
+        </li>
+        <li id="menu-item-199" class="menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/site/about-me/">About</a>
+        </li>
+        <li id="menu-item-195" class="menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/site/blog/">Blog</a>
+        </li>
+    </ul>
+    <!-- menu list end -->
+</nav>
+                <!-- menu end -->
+              </div>
+              <!-- scroll frame end -->
+            </div>
+            <!-- menu bar frame -->
+          </div>
+        </div>
+        <!-- menu bar end -->
+        <!-- content -->
+        <div class="art-content">
+  <!-- curtain -->
+  <div class="art-curtain"></div>
+
+  <!-- top background -->
+  <div class="art-top-bg" style="
+      background-image: url(/site/public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg);
+    ">
+    <!-- overlay -->
+    <div class="art-top-bg-overlay"></div>
+    <!-- overlay end -->
+  </div>
+  <!-- top background end -->
+
+  <!-- swup container -->
+  <div class="transition-fade" id="swup">
+    <!-- scroll frame -->
+    <div id="scrollbar" class="art-scroll-frame">
+
+      <!-- container -->
+      <div class="container-fluid">
+        <!-- row -->
+        <div class="row p-30-0">
+          <!-- col -->
+          <div class="col-lg-12">
+            <!-- section title -->
+            <div class="art-section-title">
+              <!-- title frame -->
+              <div class="art-title-frame">
+                <!-- title -->
+                <h1>The journey behind the commits</h1>
+              </div>
+              <!-- title frame end -->
+            </div>
+            <!-- section title end -->
+          </div>
+          <!-- col end -->
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+
+      <!-- container -->
+      <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+          <!-- col -->
+          <div class="col-lg-12">
+            <div class="art-a art-card journey">
+              <div class="journey-intro">
+                <p class="journey-lead">The CV is the résumé version. This is the hallway version — offices, teammates, late deploys, and the stuff I actually learned along the way. Captions are still a WIP; the photos are the first draft. 📸</p>
+              </div>
+
+              <div class="journey-timeline">
+                
+                
+                <article class="journey-chapter" id="santander">
+  <div class="journey-chapter__mark" aria-hidden="true"></div>
+  <header class="journey-chapter__header">
+    <div class="journey-chapter__heading">
+      <h2 class="journey-chapter__title">
+        <span class="journey-chapter__emoji" aria-hidden="true">🏦</span>
+        Santander Tecnología
+      </h2>
+      <p class="journey-chapter__role">Software Engineer · Investments tribe</p>
+    </div>
+    <span class="journey-chapter__period">Sep 2023 — May 2026</span>
+  </header>
+  <div class="journey-chapter__story">
+    <p>Investments tribe, microfrontends, and a lot of coffee. React + TypeScript at bank scale — corporate funds, a digital-signature flow that could not go down, plus the people who made OpenShift, Grafana, and Dynatrace feel less scary.</p>
+
+<p>Observability stopped being optional. Neither did the after-office photos.</p>
+
+  </div>
+  
+  <ul class="journey-stack">
+    
+    <li class="journey-stack__tag">React</li>
+    
+    <li class="journey-stack__tag">TypeScript</li>
+    
+    <li class="journey-stack__tag">Microfrontends</li>
+    
+    <li class="journey-stack__tag">OpenShift</li>
+    
+    <li class="journey-stack__tag">Kubernetes</li>
+    
+  </ul>
+  
+  
+  <div class="journey-gallery wp-block-gallery">
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-23-09-04-15-23-50-802_deco.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-23-09-04-15-23-50-802_deco.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230904_090655.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230904_090655.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230904_103550.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230904_103550.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230904_142832.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230904_142832.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230919_140947.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230919_140947.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnolsogia-20230929_094511.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnolsogia-20230929_094511.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/20230929_100146.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/20230929_100146.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230929_103821.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230929_103821.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230929_104327.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230929_104327.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230929_104342.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230929_104342.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230929_113141.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230929_113141.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20230929_114629~2.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20230929_114629~2.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20231115_135743.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20231115_135743.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20231115_182304.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20231115_182304.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20231123_205549.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20231123_205549.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20231123_210035.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20231123_210035.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20250521_202107.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20250521_202107.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20250724_142948.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20250724_142948.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20251127_222740.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20251127_222740.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20251127_225446.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20251127_225446.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-20251127_234201.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-20251127_234201.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-Image.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-Image.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/santander-tecnologia-Multimedia.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/santander-tecnologia-Multimedia.jpg" alt="Santander Tecnología"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+  </div>
+  
+</article>
+
+                
+                <article class="journey-chapter" id="tsoft-telefonica">
+  <div class="journey-chapter__mark" aria-hidden="true"></div>
+  <header class="journey-chapter__header">
+    <div class="journey-chapter__heading">
+      <h2 class="journey-chapter__title">
+        <span class="journey-chapter__emoji" aria-hidden="true">📱</span>
+        Tsoft × Telefónica / Tuenti
+      </h2>
+      <p class="journey-chapter__role">Frontend Web Developer</p>
+    </div>
+    <span class="journey-chapter__period">Oct 2021 — Sep 2023</span>
+  </header>
+  <div class="journey-chapter__story">
+    <p>Tsoft was the badge; Tuenti (Telefónica) was the product. Official app, React + React Native, TypeScript everywhere, Node APIs, and CI/CD on OpenShift/Kubernetes. First time “enterprise infra” stopped being a slide and started being my Tuesday.</p>
+
+<p>Two folders of photos, one chapter — that’s how contractor life looks from the inside.</p>
+
+  </div>
+  
+  <ul class="journey-stack">
+    
+    <li class="journey-stack__tag">React</li>
+    
+    <li class="journey-stack__tag">React Native</li>
+    
+    <li class="journey-stack__tag">TypeScript</li>
+    
+    <li class="journey-stack__tag">Node.js</li>
+    
+    <li class="journey-stack__tag">OpenShift</li>
+    
+  </ul>
+  
+  
+  <div class="journey-gallery wp-block-gallery">
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20220214_150740.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20220214_150740.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20220617_214727.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20220617_214727.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20220617_223744.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20220617_223744.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20220908_161743.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20220908_161743.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/tsoft-20221004_200746.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/tsoft-20221004_200746.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/tsoft-20221130_211426.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/tsoft-20221130_211426.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/tsoft-20221130_234127.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/tsoft-20221130_234127.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20221221_220740.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20221221_220740.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-IMG-20221221-WA0057(1).jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-IMG-20221221-WA0057(1).jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20230419_174256.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20230419_174256.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20230419_174308.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20230419_174308.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/telefonica-20230630_204424.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/telefonica-20230630_204424.jpg" alt="Tsoft × Telefónica / Tuenti"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+  </div>
+  
+</article>
+
+                
+                <article class="journey-chapter" id="netglobal">
+  <div class="journey-chapter__mark" aria-hidden="true"></div>
+  <header class="journey-chapter__header">
+    <div class="journey-chapter__heading">
+      <h2 class="journey-chapter__title">
+        <span class="journey-chapter__emoji" aria-hidden="true">🛰️</span>
+        Netglobal Solutions
+      </h2>
+      <p class="journey-chapter__role">Software Engineer / Frontend</p>
+    </div>
+    <span class="journey-chapter__period">Jul 2020 — Oct 2021</span>
+  </header>
+  <div class="journey-chapter__story">
+    <p>DirecTV’s fleet dashboard, Figma to pixels. React + Angular + TypeScript, a CSS renovation that the legacy stylesheets did not ask for, and a ~30% load-time win that made the ops team slightly less grumpy.</p>
+
+<p>A few photos leaked into 2022/2024. Some crews don’t really end when the contract does.</p>
+
+  </div>
+  
+  <ul class="journey-stack">
+    
+    <li class="journey-stack__tag">React</li>
+    
+    <li class="journey-stack__tag">Angular</li>
+    
+    <li class="journey-stack__tag">TypeScript</li>
+    
+    <li class="journey-stack__tag">Figma</li>
+    
+  </ul>
+  
+  
+  <div class="journey-gallery wp-block-gallery">
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-IMG-20200409-WA0027.jpeg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/netglobal-IMG-20200409-WA0027.jpeg" alt="Netglobal Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-IMG_20200430_183555.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/netglobal-IMG_20200430_183555.jpg" alt="Netglobal Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-IMG-20200617-WA0050.jpeg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/netglobal-IMG-20200617-WA0050.jpeg" alt="Netglobal Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-IMG_20210121_090804.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/netglobal-IMG_20210121_090804.jpg" alt="Netglobal Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-20211029_101416.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/netglobal-20211029_101416.jpg" alt="Netglobal Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-20211101_113507.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/netglobal-20211101_113507.jpg" alt="Netglobal Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-20220909_225831.jpg" data-no-swup data-magnific-gallery
+        title="Later — 2022">
+        <img src="/site/public/personal-timeline/netglobal-20220909_225831.jpg" alt="Later — 2022"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-20220909_230241.jpg" data-no-swup data-magnific-gallery
+        title="Later — 2022">
+        <img src="/site/public/personal-timeline/netglobal-20220909_230241.jpg" alt="Later — 2022"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/netglobal-20240503_171807.jpg" data-no-swup data-magnific-gallery
+        title="Later — 2024">
+        <img src="/site/public/personal-timeline/netglobal-20240503_171807.jpg" alt="Later — 2024"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+  </div>
+  
+</article>
+
+                
+                <article class="journey-chapter" id="quares">
+  <div class="journey-chapter__mark" aria-hidden="true"></div>
+  <header class="journey-chapter__header">
+    <div class="journey-chapter__heading">
+      <h2 class="journey-chapter__title">
+        <span class="journey-chapter__emoji" aria-hidden="true">⚡</span>
+        Quares IT Solutions
+      </h2>
+      <p class="journey-chapter__role">Frontend Developer</p>
+    </div>
+    <span class="journey-chapter__period">Sep 2019 — Jul 2020</span>
+  </header>
+  <div class="journey-chapter__story">
+    <p>Experta Seguros and other “please don’t break production” accounts. Agile cadence, product sitting next to engineering, and a 20% speed bump that came from sweating the UI instead of adding another library.</p>
+
+<p>Short chapter, dense photos — this team took a lot of pictures. I’m not complaining.</p>
+
+  </div>
+  
+  <ul class="journey-stack">
+    
+    <li class="journey-stack__tag">Frontend</li>
+    
+    <li class="journey-stack__tag">Agile</li>
+    
+    <li class="journey-stack__tag">UI/UX</li>
+    
+    <li class="journey-stack__tag">Performance</li>
+    
+  </ul>
+  
+  
+  <div class="journey-gallery wp-block-gallery">
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20190917-WA0002.jpeg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20190917-WA0002.jpeg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20190917-WA0004.jpeg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20190917-WA0004.jpeg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20190917-WA0006.jpeg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20190917-WA0006.jpeg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20190930-WA0048.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20190930-WA0048.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG_20191023_202800.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG_20191023_202800.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191126-WA0064.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191126-WA0064.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191127-WA0093.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191127-WA0093.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191128-WA0047.jpeg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191128-WA0047.jpeg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191216-WA0018.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191216-WA0018.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191216-WA0020.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191216-WA0020.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191217-WA0041.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191217-WA0041.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191218-WA0033.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191218-WA0033.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG-20191220-WA0066.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG-20191220-WA0066.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/Quares-IMG_20200228_150408.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/Quares-IMG_20200228_150408.jpg" alt="Quares IT Solutions"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+  </div>
+  
+</article>
+
+                
+                <article class="journey-chapter" id="xyclon">
+  <div class="journey-chapter__mark" aria-hidden="true"></div>
+  <header class="journey-chapter__header">
+    <div class="journey-chapter__heading">
+      <h2 class="journey-chapter__title">
+        <span class="journey-chapter__emoji" aria-hidden="true">🌍</span>
+        Xyclon
+      </h2>
+      <p class="journey-chapter__role">Full Stack Web Developer</p>
+    </div>
+    <span class="journey-chapter__period">Aug 2018 — Sep 2019</span>
+  </header>
+  <div class="journey-chapter__story">
+    <p>Full stack, for real. Laravel on the back, React on the front, and international accounts like Natura. Database migrations, UI rewrites, and that satisfying moment when the platform stops feeling like a museum.</p>
+
+<p>A couple of these shots are later hangouts (2022). Once a team, always a WhatsApp group. 😄</p>
+
+  </div>
+  
+  <ul class="journey-stack">
+    
+    <li class="journey-stack__tag">PHP</li>
+    
+    <li class="journey-stack__tag">Laravel</li>
+    
+    <li class="journey-stack__tag">React</li>
+    
+    <li class="journey-stack__tag">MySQL</li>
+    
+  </ul>
+  
+  
+  <div class="journey-gallery wp-block-gallery">
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/xyclon-.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/xyclon-.jpg" alt="Xyclon"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/xyclon-IMAG0123.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/xyclon-IMAG0123.jpg" alt="Xyclon"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/xyclon-19-02-01-14-38-05-152_deco.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/xyclon-19-02-01-14-38-05-152_deco.jpg" alt="Xyclon"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/xyclon-20221222_231947.jpg" data-no-swup data-magnific-gallery
+        title="Later hangout — 2022">
+        <img src="/site/public/personal-timeline/xyclon-20221222_231947.jpg" alt="Later hangout — 2022"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/xyclon-IMG-20221223-WA0020.jpg" data-no-swup data-magnific-gallery
+        title="Later hangout — 2022">
+        <img src="/site/public/personal-timeline/xyclon-IMG-20221223-WA0020.jpg" alt="Later hangout — 2022"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+  </div>
+  
+</article>
+
+                
+                <article class="journey-chapter" id="webfindyou">
+  <div class="journey-chapter__mark" aria-hidden="true"></div>
+  <header class="journey-chapter__header">
+    <div class="journey-chapter__heading">
+      <h2 class="journey-chapter__title">
+        <span class="journey-chapter__emoji" aria-hidden="true">🚀</span>
+        WebFindYou
+      </h2>
+      <p class="journey-chapter__role">Team Leader | Frontend</p>
+    </div>
+    <span class="journey-chapter__period">Jun 2015 — Apr 2018</span>
+  </header>
+  <div class="journey-chapter__story">
+    <p>First real arena. Agency speed, a proprietary CMS, and more landing pages than I can count. I went from shipping layouts to leading a frontend crew — React components, mobile-first, and keeping marketing sites fast enough that SEO didn’t hate us.</p>
+
+<p>Also: a lot of late nights, a lot of clients, and the first time I understood that “the CMS is the product.”</p>
+
+  </div>
+  
+  <ul class="journey-stack">
+    
+    <li class="journey-stack__tag">React</li>
+    
+    <li class="journey-stack__tag">Responsive UI</li>
+    
+    <li class="journey-stack__tag">Agency CMS</li>
+    
+    <li class="journey-stack__tag">SEO</li>
+    
+  </ul>
+  
+  
+  <div class="journey-gallery wp-block-gallery">
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/webfindyou-IMG_20161220_062507.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/webfindyou-IMG_20161220_062507.jpg" alt="WebFindYou"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/webfindyou-IMG-20171111-WA0057.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/webfindyou-IMG-20171111-WA0057.jpg" alt="WebFindYou"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/webfindyou-IMG-20171128-WA0007.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/webfindyou-IMG-20171128-WA0007.jpg" alt="WebFindYou"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+    
+    <div class="art-grid-item">
+      <a class="journey-gallery__item" href="/site/public/personal-timeline/webfindyou-IMG-20180316-WA0003.jpg" data-no-swup data-magnific-gallery
+        >
+        <img src="/site/public/personal-timeline/webfindyou-IMG-20180316-WA0003.jpg" alt="WebFindYou"
+          loading="lazy" decoding="async" width="400" height="400" />
+        <span class="journey-gallery__zoom" aria-hidden="true"><i class="fas fa-expand"></i></span>
+      </a>
+    </div>
+    
+  </div>
+  
+</article>
+
+                
+              </div>
+            </div>
+          </div>
+          <!-- col end -->
+        </div>
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+
+      <!-- container -->
+      <div class="container-fluid">
+        <!-- footer -->
+        <footer class="footer">
+    <!-- copyright -->
+    <div>© 2024 All Rights Reserved.</div>
+    <div>
+        Email:
+        <a href="mailto:gervisbermudez@outlook.com" target="_blank">gervisbermudez@outlook.com</a>
+    </div>
+</footer>
+        <!-- footer end -->
+      </div>
+      <!-- container end -->
+    </div>
+    <!-- scroll frame end -->
+  </div>
+  <!-- swup container end -->
+</div>
+
+        <!-- content end -->
+      </div>
+      <!-- app container end -->
+    </div>
+    <!-- app wrapper end -->
+  </div>
+  <!-- app end -->
+  <!-- scripts -->
+  <script type="text/javascript">
+    const lazyloadRunObserver = () => {
+        const lazyloadBackgrounds = document.querySelectorAll(
+            `.e-con.e-parent:not(.e-lazyloaded)`
+        );
+        const lazyloadBackgroundObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        let lazyloadBackground = entry.target;
+                        if (lazyloadBackground) {
+                            lazyloadBackground.classList.add("e-lazyloaded");
+                        }
+                        lazyloadBackgroundObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { rootMargin: "200px 0px 200px 0px" }
+        );
+        lazyloadBackgrounds.forEach((lazyloadBackground) => {
+            lazyloadBackgroundObserver.observe(lazyloadBackground);
+        });
+    };
+    const events = ["DOMContentLoaded", "elementor/lazyload/observe"];
+    events.forEach((event) => {
+        document.addEventListener(event, lazyloadRunObserver);
+    });
+</script>
+
+<script type="text/javascript" src="/site/public/plugins/code-block-for-elementor/assets/prism.js"
+    id="code-block-for-elementor-prismjs-js"></script>
+<script type="text/javascript"
+    src="/site/public/plugins/code-block-for-elementor/assets/prism-toolbar.js"
+    id="code-block-for-elementor-toolbarjs-js"></script>
+<script type="text/javascript"
+    src="/site/public/themes/arter/assets/js/skip-link-focus-fix.js%3Fver=20151215"
+    id="arter-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/anime.js%3Fver=1.0.0"
+    id="anime-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/progressbar.js%3Fver=1.0.0"
+    id="progressbar-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/typing.js%3Fver=1.0.0"
+    id="typing-js"></script>
+<script type="text/javascript" src="/site/public/js/imagesloaded.min.js%3Fver=5.0.0"
+    id="imagesloaded-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/isotope.js%3Fver=1.0.0"
+    id="isotope-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/magnific-popup.js%3Fver=1.0.0"
+    id="magnific-popup-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/swiper.js%3Fver=1.0.0"
+    id="swiper-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/rrssb.js%3Fver=1.0.0"
+    id="rrssb-js"></script>
+<script type="text/javascript" src="/site/public/themes/arter/assets/js/main.js?v=20260908-counters"
+    id="arter-main-js"></script>
+<script type="text/javascript" src="/site/public/js/jquery/ui/core.min.js%3Fver=1.13.3"
+    id="jquery-ui-core-js"></script>
+  <!-- scripts end -->
+</body>
+
+</html>

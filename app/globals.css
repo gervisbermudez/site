@@ -15,14 +15,6 @@
   height: 3px;
 }
 
-.art-line-progress .progressbar-text {
-  position: absolute;
-  right: 0;
-  top: -6px;
-  width: 100%;
-  text-align: right;
-}
-
 .art-line-progress svg {
   width: 100%;
   height: 100%;

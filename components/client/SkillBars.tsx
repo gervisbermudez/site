@@ -1,5 +1,20 @@
 "use client";
 
+function SkillValue({ value }: { value: number }) {
+  return (
+    <span className="art-skill-value">
+      {String(value)
+        .split("")
+        .map((digit, index) => (
+          <span className="art-skill-ch" key={index}>
+            {digit}
+          </span>
+        ))}
+      <span className="art-skill-pct"> %</span>
+    </span>
+  );
+}
+
 export function SkillBars({
   skills,
 }: {
@@ -11,6 +26,7 @@ export function SkillBars({
         <div className="art-hard-skills-item" key={skill.label}>
           <div className="art-skill-heading">
             <h6>{skill.label}</h6>
+            <SkillValue value={skill.value} />
           </div>
           <div className="art-line-progress">
             <div
@@ -26,7 +42,6 @@ export function SkillBars({
                   strokeDasharray={`${skill.value} 100`}
                 />
               </svg>
-              <div className="progressbar-text">{skill.value} %</div>
             </div>
           </div>
         </div>

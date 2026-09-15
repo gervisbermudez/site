@@ -36,7 +36,7 @@ a,
 .art-preloader .art-preloader-content .art-preloader-load .progressbar-text,
 .art-info-bar .art-header .art-avatar .art-lamp-light .art-available-lamp:after,
 .art-info-bar .art-lang-skills .art-lang-skills-item .art-cirkle-progress .progressbar-text,
-.art-info-bar .art-hard-skills .art-hard-skills-item .art-line-progress .progressbar-text,
+.art-info-bar .art-hard-skills .art-hard-skills-item .art-skill-heading .art-skill-value,
 .art-info-bar .art-knowledge-list li,
 .art-info-bar .art-ls-social a,
 .art-menu-bar nav .main-menu .menu-item a,
@@ -54,6 +54,26 @@ a,
 .comment-info,
 .art-blog-card .art-project-category {
   color: #8c8c8e;
+}
+
+/* Skill percentages sit in the heading row (Arter already flexes it). */
+.art-info-bar .art-hard-skills .art-hard-skills-item .art-skill-heading {
+  align-items: baseline;
+}
+
+.art-info-bar .art-hard-skills .art-hard-skills-item .art-skill-heading .art-skill-value {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #cacace;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.art-info-bar .art-hard-skills .art-hard-skills-item .art-skill-heading .art-skill-ch {
+  display: inline-block;
+  width: 0.66em;
+  text-align: center;
 }
 
 .art-menu-bar-btn span,

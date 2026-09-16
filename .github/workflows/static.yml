@@ -5,6 +5,9 @@ on:
     branches:
       - main # Cambia esto si tu rama principal tiene otro nombre
 
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -24,6 +27,15 @@ jobs:
 
       - name: Build Jekyll site with production config
         run: bundle exec jekyll build --config _config_prod.yml
+
+      - name: Verify GitHub Pages 404
+        run: |
+          set -euo pipefail
+          test -f _site/404.html
+          test ! -d _site/404
+          grep -q 'This page is missing' _site/404.html
+          grep -q '/site/public/css/styles.css' _site/404.html
+          touch _site/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

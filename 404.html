@@ -1,0 +1,95 @@
+---
+layout: default
+title: Page not found | Gervis Bermudez
+description: That URL is missing. Head home, or continue to the blog, portfolio, or contact.
+robots: noindex, follow
+# GitHub Pages only uses a root file named 404.html (not /404/).
+permalink: /404.html
+sitemap: false
+---
+
+<div class="art-content">
+  <div class="art-curtain"></div>
+
+  <div class="art-top-bg" style="
+      background-image: url({{ 'public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg' | relative_url }});
+    ">
+    <div class="art-top-bg-overlay"></div>
+  </div>
+
+  <div class="transition-fade" id="swup">
+    <div id="scrollbar" class="art-scroll-frame">
+      <div class="container-fluid">
+        <div class="row p-30-0">
+          <div class="col-lg-12">
+            <div class="art-section-title">
+              <div class="art-title-frame">
+                <h1>This page is missing</h1>
+              </div>
+              <div class="art-right-frame">
+                <div class="art-project-category">404</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="art-a art-card art-not-found">
+              <div class="art-not-found__layout">
+                <div class="art-not-found__figure-wrap">
+                  <img class="art-not-found__figure"
+                    src="{{ 'public/uploads/2026/09/404-broken-robot.svg' | relative_url }}"
+                    alt=""
+                    role="presentation"
+                    width="500"
+                    height="500" />
+                </div>
+                <div class="art-not-found__body">
+                  <p class="art-not-found__lead">
+                    The link may be old, renamed, or mistyped. These still work.
+                  </p>
+
+                  <a href="{{ '/' | relative_url }}" class="art-btn art-btn-md art-not-found__cta" data-no-swup>
+                    <span>Take me home</span>
+                  </a>
+
+                  <h5 class="art-not-found__heading">Continue here</h5>
+                  <ul class="art-not-found__links">
+                    <li>
+                      <a href="{{ '/blog/' | relative_url }}" class="art-link art-color-link art-w-chevron" data-no-swup>Blog</a>
+                      <span class="art-not-found__hint">notes on process and code</span>
+                    </li>
+                    <li>
+                      <a href="{{ '/portfolio/' | relative_url }}" class="art-link art-color-link art-w-chevron" data-no-swup>Portfolio</a>
+                      <span class="art-not-found__hint">selected work</span>
+                    </li>
+                    <li>
+                      <a href="{{ '/contact/' | relative_url }}" class="art-link art-color-link art-w-chevron" data-no-swup>Contact</a>
+                      <span class="art-not-found__hint">if you were looking for me</span>
+                    </li>
+                  </ul>
+
+                  <h5 class="art-not-found__heading">Latest from the blog</h5>
+                  <ul class="art-not-found__links">
+                    {% for post in site.posts limit:3 %}
+                    <li>
+                      <a href="{{ post.url | relative_url }}" class="art-link art-color-link art-w-chevron" data-no-swup>{{ post.title }}</a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid">
+        {% include footer.html %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1069,6 +1069,82 @@ form.post-password-form input[type="submit"],
   }
 }
 
+.art-not-found__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.art-not-found__figure-wrap {
+  flex-shrink: 0;
+  width: min(100%, 420px);
+  background: #f4f7fb;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.art-not-found__figure {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.art-not-found__body {
+  width: 100%;
+  max-width: 32rem;
+  text-align: center;
+}
+
+.art-not-found__lead {
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #8c8c8e;
+}
+
+.art-not-found__cta {
+  display: inline-flex;
+  margin: 0 0 0.5rem;
+}
+
+.art-not-found__heading {
+  margin: 1.75rem 0 0.7rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.art-not-found__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.art-not-found__links li {
+  margin: 0 0 0.85rem;
+}
+
+.art-not-found__links li:last-child {
+  margin-bottom: 0;
+}
+
+.art-not-found__hint {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #6c6c6e;
+}
+
+@media (min-width: 768px) {
+  .art-not-found__figure-wrap {
+    width: min(100%, 480px);
+  }
+}
+
 @media (min-width: 992px) {
   .home-interests__grid {
     grid-template-columns: repeat(6, 1fr);

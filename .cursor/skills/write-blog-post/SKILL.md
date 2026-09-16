@@ -42,7 +42,7 @@ tags: ["Vue.js", "TypeScript"]
 
 `thumbnail` is the blog grid image. `banner` is the post cover. `contact_banner` is optional (falls back to `banner`). Paths **start with** `/public/uploads/`.
 
-`category` is a display string (existing: `Web Development`). `tags` is a YAML list.
+`category` is a display string (existing: `Web Development`). `tags` is a YAML list. Do not add category archive pages; parent permalink folders redirect to `/blog/`.
 
 ## Body
 

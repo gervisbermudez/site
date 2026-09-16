@@ -43,7 +43,8 @@ Output is `_site/`. With prod config, asset URLs must start with `/site/`. Do no
 
 ## Verify after a change
 
-- New post: `/blog/` (thumbnail + description) and the post permalink.
+- New post: `/blog/` (thumbnail + description) and the post permalink. Parent folders of the permalink should redirect to `/blog/`.
+- Unknown URL: `/404.html` (GitHub Pages serves this for missing paths).
 - New case study: `/portfolio/` (filter + card) and `portfolio/<slug>/`.
 - Layout/CSS: home, blog, one post, portfolio, contact — Arter chrome (sidebar + menu) still renders.
 - Broken images almost always mean a missing `| relative_url` or a path without `/public/uploads/...`.

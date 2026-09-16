@@ -1,0 +1,46 @@
+<section
+  class="elementor-section elementor-top-section elementor-element elementor-element-a7c4e21 elementor-section-full_width elementor-section-height-default elementor-section-height-default home-journey"
+  data-id="a7c4e21" data-element_type="section">
+  <div class="elementor-container elementor-column-gap-no">
+    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-b18f3d0"
+      data-id="b18f3d0" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+        <div class="elementor-element elementor-element-c92d6e4 elementor-widget"
+          data-id="c92d6e4" data-element_type="widget">
+          <div class="elementor-widget-container">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="art-section-title">
+                    <div class="art-title-frame">
+                      <h4 class="art-title-h">
+                        <span> My journey 📸 </span>
+                      </h4>
+                    </div>
+                    <div class="art-right-frame">
+                      <a class="art-link art-color-link art-w-chevron" data-no-swup
+                        href="{{ 'journey/' | relative_url }}">See the photos</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="home-journey__grid">
+                    {% for photo in site.data.personal_timeline.home_preview reversed %}
+                    {% assign photo_path = 'public/personal-timeline/' | append: photo.file %}
+                    <a class="home-journey__item" data-no-swup
+                      href="{{ 'journey/' | relative_url }}#{{ photo.chapter }}">
+                      <img src="{{ photo_path | relative_url }}" alt="{{ photo.alt | escape }}"
+                        width="400" height="400" decoding="async"
+                        {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %} />
+                    </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

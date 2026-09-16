@@ -15,7 +15,9 @@ Personal site of **Gervis Bermudez**: blog + portfolio. Jekyll 4.4 with Arter/El
 | Path | Role |
 | --- | --- |
 | `_posts/` | Blog posts (`YYYY-MM-DD-slug.html`) |
-| `_layouts/` | `default.html`, `post.html` |
+| `_layouts/` | `default.html`, `post.html`, `redirect.html` |
+| `_plugins/` | Parent-folder redirects for post permalinks |
+| `404.html` | Custom GitHub Pages 404 |
 | `_includes/` | Shared chrome (head, menu, sidebar, footer, banners) |
 | `_data/portfolio.yml` | Portfolio grid source of truth |
 | `portfolio/` | One folder per case study (`index.html`) |
@@ -29,7 +31,8 @@ Personal site of **Gervis Bermudez**: blog + portfolio. Jekyll 4.4 with Arter/El
 - `_config.yml` — local. `url` and `baseurl` are empty.
 - `_config_prod.yml` — production. `url: https://gervisbermudez.github.io`, `baseurl: /site`.
 - Timezone: `America/Argentina/Buenos_Aires`.
-- Permalink: `/blog/:categories/:year/:month/:day/:title`.
+- Permalink: `/blog/:categories/:year/:month/:day/:title` (do not change — already published).
+- Parent folders of that permalink (category / year / month / day) redirect to `/blog/`. There are no category or date archive pages.
 - Pagination: 6 posts, path `/blog/page:num/`.
 
 Never copy production `url`/`baseurl` into `_config.yml`. Always prefix asset and internal links with `| relative_url` so they work locally and on GitHub Pages.

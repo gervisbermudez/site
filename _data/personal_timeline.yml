@@ -1,6 +1,38 @@
 title: "The journey behind the commits"
 lead: "The CV is the résumé version. This is the hallway version — offices, teammates, late deploys, and the stuff I actually learned along the way. Captions are still a WIP; the photos are the first draft. 📸"
 
+home_preview:
+  - file: "webfindyou-IMG_20161220_062507.jpg"
+    chapter: webfindyou
+    alt: "WebFindYou mug on the desk"
+  - file: "xyclon-IMAG0123.jpg"
+    chapter: xyclon
+    alt: "Xyclon desk selfie"
+  - file: "Quares-IMG-20190917-WA0006.jpeg"
+    chapter: quares
+    alt: "Quares notebook and desk chick"
+  - file: "netglobal-IMG_20200430_183555.jpg"
+    chapter: netglobal
+    alt: "Laptop at sunset during Netglobal"
+  - file: "Quares-IMG-20191216-WA0018.jpg"
+    chapter: quares
+    alt: "Laptop covered in language stickers"
+  - file: "santander-tecnolsogia-20230929_094511.jpg"
+    chapter: santander
+    alt: "NERDEARLA stage at Santander"
+  - file: "telefonica-20230419_174256.jpg"
+    chapter: tsoft-telefonica
+    alt: "Outside Telefónica"
+  - file: "santander-tecnologia-20231123_210035.jpg"
+    chapter: santander
+    alt: "Santander after-office party"
+  - file: "santander-tecnologia-20230929_113141.jpg"
+    chapter: santander
+    alt: "At Santander Tecnología"
+  - file: "santander-tecnologia-20231115_182304.jpg"
+    chapter: santander
+    alt: "Santander office event"
+
 chapters:
   - id: webfindyou
     emoji: "🚀"

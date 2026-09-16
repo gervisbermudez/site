@@ -764,20 +764,32 @@ form.post-password-form input[type="submit"],
 }
 
 .journey-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.65rem;
+  --journey-cols: 4;
+  column-count: var(--journey-cols);
+  column-gap: 0.65rem;
+}
+
+.journey-gallery--2col {
+  --journey-cols: 2;
+}
+
+.journey-gallery--3col {
+  --journey-cols: 3;
 }
 
 .journey-gallery .art-grid-item {
-  width: auto;
-  margin: 0;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 0.65rem;
+  vertical-align: top;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .journey-gallery__item {
   position: relative;
   display: block;
-  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 8px;
   background: #191923;
@@ -786,8 +798,7 @@ form.post-password-form input[type="submit"],
 .journey-gallery__item img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   transition: transform 0.35s ease;
 }
 
@@ -828,13 +839,13 @@ form.post-password-form input[type="submit"],
 
 @media (max-width: 992px) {
   .journey-gallery {
-    grid-template-columns: repeat(3, 1fr);
+    column-count: min(3, var(--journey-cols));
   }
 }
 
 @media (max-width: 768px) {
   .journey-gallery {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: min(2, var(--journey-cols));
   }
 
   .journey-chapter__title {
@@ -844,7 +855,7 @@ form.post-password-form input[type="submit"],
 
 @media (max-width: 480px) {
   .journey-gallery {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 
   .journey-timeline {
@@ -852,73 +863,103 @@ form.post-password-form input[type="submit"],
   }
 }
 
-/* Home Interests: bento cards */
+/* Home journey teaser */
+.home-journey__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.home-journey__item {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #191923;
+}
+
+.home-journey__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.home-journey__item:hover img {
+  transform: scale(1.06);
+}
+
+@media (max-width: 992px) {
+  .home-journey__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-journey__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-journey__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Home Interests: Arter service cards */
+.home-interests {
+  margin-bottom: 30px;
+}
+
 .home-interests__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.15rem;
+  gap: 30px;
+  align-items: stretch;
 }
 
 .home-interest-card {
-  --interest-accent: #149ddd;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  align-self: stretch;
   width: 100%;
+  height: 100%;
   margin-bottom: 0;
-  padding: 1.45rem 1.5rem 1.35rem;
+  padding: 0;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 14px;
-  box-shadow: none;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  background: linear-gradient(159deg, #2d2d3a 0%, #2b2b35 100%);
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 3px 8px 0 rgba(15, 15, 20, 0.2);
 }
 
-.home-interest-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 58%);
-  pointer-events: none;
-}
-
+.home-interest-card::before,
 .home-interest-card::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--interest-accent);
-  opacity: 0.85;
-}
-
-.home-interest-card:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.055);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  display: none;
 }
 
 .home-interest-card__icon {
-  position: relative;
-  z-index: 1;
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  position: absolute;
+  right: 8px;
+  bottom: -36px;
+  z-index: 0;
+  width: 110px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  color: #ffffff;
-  background: linear-gradient(135deg, #149ddd, #0f7ab0);
-  transition: transform 0.28s ease;
-}
-
-.home-interest-card:hover .home-interest-card__icon {
-  transform: scale(1.08);
+  font-size: 88px;
+  color: #fafafc;
+  background: none;
+  border-radius: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  line-height: 1;
 }
 
 .home-interest-card .home-interest-card__body {
@@ -927,145 +968,72 @@ form.post-password-form input[type="submit"],
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0;
+  padding: 30px;
 }
 
 .home-interest-card__kicker {
   display: inline-block;
-  margin-bottom: 0.45rem;
+  margin-bottom: 8px;
   font-family: "Poppins", sans-serif;
-  font-size: 0.68rem;
+  font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--interest-accent);
+  color: #149ddd;
 }
 
 .home-interest-card h5 {
-  margin: 0 0 0.65rem;
+  margin: 0 0 15px;
   color: #ffffff;
 }
 
 .home-interest-card p {
-  margin: 0 0 1rem;
+  margin: 0 0 15px;
   color: #8c8c8e;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .home-interest-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  align-items: center;
+  gap: 0;
   margin-top: auto;
+  color: #8c8c8e;
 }
 
 .home-interest-card__tags span {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.22rem 0.6rem;
-  border-radius: 999px;
+  display: inline;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
   font-family: "Poppins", sans-serif;
-  font-size: 0.72rem;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.01em;
-  color: #d8d8dc;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #8c8c8e;
+}
+
+.home-interest-card__tags span:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.45rem;
+  color: #5c5c60;
 }
 
 .home-interest-card__link {
   display: inline-flex;
   align-items: center;
-  margin-top: 0.85rem;
-  font-size: 0.82rem;
-}
-
-.home-interest-card a.art-link {
-  color: var(--interest-accent);
-}
-
-.home-interest-card--ai {
-  --interest-accent: #8b5cf6;
-}
-
-.home-interest-card--ai .home-interest-card__icon {
-  background: linear-gradient(135deg, #8b5cf6, #5b21b6);
-}
-
-.home-interest-card--cloud {
-  --interest-accent: #06b6d4;
-}
-
-.home-interest-card--cloud .home-interest-card__icon {
-  background: linear-gradient(135deg, #06b6d4, #0e7490);
-}
-
-.home-interest-card--web {
-  --interest-accent: #149ddd;
-}
-
-.home-interest-card--web .home-interest-card__icon {
-  background: linear-gradient(135deg, #149ddd, #0f7ab0);
-}
-
-.home-interest-card--design {
-  --interest-accent: #f59e0b;
-}
-
-.home-interest-card--design .home-interest-card__icon {
-  background: linear-gradient(135deg, #f59e0b, #b45309);
-}
-
-.home-interest-card--product {
-  --interest-accent: #25d366;
-}
-
-.home-interest-card--product .home-interest-card__icon {
-  background: linear-gradient(135deg, #25d366, #128c7e);
-}
-
-.home-interest-card--ai:hover {
-  border-color: rgba(139, 92, 246, 0.45);
-  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.16);
-}
-
-.home-interest-card--cloud:hover {
-  border-color: rgba(6, 182, 212, 0.45);
-  box-shadow: 0 12px 40px rgba(6, 182, 212, 0.14);
-}
-
-.home-interest-card--web:hover {
-  border-color: rgba(20, 157, 221, 0.45);
-  box-shadow: 0 12px 40px rgba(20, 157, 221, 0.14);
-}
-
-.home-interest-card--design:hover {
-  border-color: rgba(245, 158, 11, 0.45);
-  box-shadow: 0 12px 40px rgba(245, 158, 11, 0.13);
-}
-
-.home-interest-card--product:hover {
-  border-color: rgba(37, 211, 102, 0.45);
-  box-shadow: 0 12px 40px rgba(37, 211, 102, 0.12);
+  align-self: flex-start;
+  margin-top: 15px;
+  white-space: nowrap;
 }
 
 @media (min-width: 768px) {
   .home-interests__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .home-interest-card--ai {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5rem;
-    padding: 1.7rem 1.75rem 1.5rem;
-  }
-
-  .home-interest-card--ai .home-interest-card__icon {
-    width: 56px;
-    height: 56px;
-    font-size: 1.4rem;
   }
 }
 
@@ -1147,17 +1115,71 @@ form.post-password-form input[type="submit"],
 
 @media (min-width: 992px) {
   .home-interests__grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
+}
 
-  .home-interest-card--ai {
-    grid-column: span 4;
-  }
+/* Equal-height blog cards (home carousel + blog grid) */
+.art-blog-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  .home-interest-card--cloud,
-  .home-interest-card--web,
-  .home-interest-card--design,
-  .home-interest-card--product {
-    grid-column: span 2;
-  }
+.art-blog-card > .post {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.art-blog-card .art-post-description {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.art-blog-card h5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.art-blog-card .art-el-description {
+  flex: 1 1 auto;
+}
+
+.art-blog-card .art-el-description p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.art-blog-slider .swiper-wrapper {
+  align-items: stretch;
+}
+
+.art-blog-slider .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.art-blog-slider .art-blog-card {
+  width: 100%;
+}
+
+.elementor-widget-arter-blog-grid .row > .col-lg-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.elementor-widget-arter-blog-grid .art-blog-card {
+  width: 100%;
+  flex: 1 1 auto;
 }

@@ -1,2097 +1,418 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://gervisbermudez.github.io/site/feed.xml" rel="self" type="application/atom+xml" /><link href="https://gervisbermudez.github.io/site/" rel="alternate" type="text/html" /><updated>2026-09-17T11:53:21-03:00</updated><id>https://gervisbermudez.github.io/site/feed.xml</id><title type="html">Gervis Bermudez | Blog</title><subtitle>I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.</subtitle><entry><title type="html">Technical Challenge: Vue 3 Button Architecture with TypeScript</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture" rel="alternate" type="text/html" title="Technical Challenge: Vue 3 Button Architecture with TypeScript" /><published>2026-09-07T00:00:00-03:00</published><updated>2026-09-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture"><![CDATA[<div class="page-body">
-    <p class="">
-        Hello everyone! I wanted to share how I tackled a technical test for a
-        job application: a reusable <code>&lt;MyButton&gt;</code> in Vue 3 and
-        TypeScript.<br /><br />
-        I&#8217;ll be honest: at first I sat there staring at a point in space.
-        Enable, disable, change the color. It looked too simple, and that felt
-        strange. I thought maybe I was missing something. So I decided not to
-        take it lightly.<br /><br />
-        My thesis was this: build a quality component by extending the APIs
-        Vue already gives you. I did not want to overcomplicate the button that
-        already exists in HTML. A regular HTML button already has properties,
-        events, keyboard behavior. It is already accessible. It is already
-        battle-tested.<br /><br />
-        The brief was small. Vue 3, TypeScript, enable and disable, change
-        color, extras welcome. I think what they wanted to see was how I use
-        TypeScript, accessibility, UX, tests, and how I work with AI — not a
-        circus of variants.
-        I could have done many things: animations, thousands of colors, a
-        Storybook. The reality is that we developers often build things nobody
-        asked for. I wanted to keep it simple.<br /><br />
-        The button looks small. What I want to show is the process: spec-driven
-        development with AI. Specs first. Then the agents. I did not paste the
-        brief into a model and send whatever it generated.
-    </p>
-    <h2 class="">
-        Improve, don&#8217;t replace
-    </h2>
-    <p class="">
-        Everything a developer already knows about
-        <code>&lt;button&gt;</code> has to keep working. Focus, keyboard,
-        <code>disabled</code>, <code>type</code>, form, <code>aria-*</code>,
-        <code>@click</code>. My own API sits on top:
-        <code>variant</code>, <code>size</code>, <code>loading</code>, and an
-        <code>#icon</code> slot.<br /><br />
-        The less we overwrite native behavior, the less probability we have of
-        shipping a bug. That is why the root is a real
-        <code>&lt;button&gt;</code>, not a
-        <code>&lt;div role=&quot;button&quot;&gt;</code>.
-    </p>
-    <h2 class="">
-        Spec-driven development, with AI
-    </h2>
-    <p class="">
-        I&#8217;ll be honest: I used AI to help me approach the problem.
-        Cursor is my editor right now. I wanted a clear perspective before
-        installing anything.<br /><br />
-        The method has a name I like: spec-driven development, SDD. Specs
-        first. Then implement. The spec is not a forty-page document. It is
-        the thesis, and the things that cannot move: a real HTML
-        <code>&lt;button&gt;</code>, no custom click emit, loading is state
-        not a spinner, TypeScript extends what Vue already typed.<br /><br />
-        I wrote the requirements as a template for the agents. Then I went in
-        stages. One agent implements against the spec. Another agent, with a
-        different context, reviews the diff. Then fixes. Then tests. Then a
-        pass for UX and accessibility. I do not let the same chat do all of
-        it. Fresh context is the point. The first agent is proud of the
-        spinner it invented. The second one can see that the spinner breaks
-        the thesis.
-    </p>
-    <figure class="image">
-        <a href="/site/public/uploads/2026/09/vue-3-spec-driven-ai-flow.svg" data-magnific-image data-no-swup>
-            <img src="/site/public/uploads/2026/09/vue-3-spec-driven-ai-flow.svg"
-                alt="Spec-driven AI flow: brief, spec, implement, review with fresh context, fixes, tests, accessibility, then me in the browser"
-                title="Spec-driven development with AI" />
-        </a>
-        <figcaption>The spec is the steering wheel. The agents are not.</figcaption>
-    </figure>
-    <p class="">
-        What I keep checking is that the AI does not break the thesis. A
-        built-in spinner or a custom click emit looks helpful. It is not. I
-        also commit in small steps, so if I hit a bug I can isolate it. And I
-        still open the browser myself. Specs do not replace that.
-    </p>
-    <h2 class="">
-        How I structured the component
-    </h2>
-    <p class="">
-        Let me show you a bit of the code. No big dependencies: Vue,
-        TypeScript, Vite, Vitest. One folder per component.
-        <code>MyButton.types.ts</code> is the contract,
-        <code>MyButton.vue</code> is the native button,
-        <code>MyButton.test.ts</code> is what cannot break.<br /><br />
-        <code>App.vue</code> is not the component. I used it as a living
-        catalog, with a few SVG icons — an arrow, a trash can, a bookmark —
-        so you can see every capability without reading the source first.
-        Vue 3 already forwards undeclared attrs and native listeners to that
-        single root. I did not proxy <code>$attrs</code> by hand.
-    </p>
-    <figure class="image">
-        <a href="/site/public/uploads/2026/09/vue-3-mybutton-architecture.svg" data-magnific-image data-no-swup>
-            <img src="/site/public/uploads/2026/09/vue-3-mybutton-architecture.svg"
-                alt="MyButton architecture: App.vue catalog, types, native button, tests, defineProps versus Vue 3 fallthrough"
-                title="MyButton architecture" />
-        </a>
-        <figcaption>One folder. Three files. A real HTML button.</figcaption>
-    </figure>
-    <h2 class="">
-        TypeScript: extend the native API, don&#8217;t swallow it
-    </h2>
-    <p class="">
-        I imported <code>ButtonHTMLAttributes</code> from Vue and extended
-        that. I did not copy the HTML catalog by hand. On top I added what I
-        thought was enough: three sizes, an icon slot left or right, four
-        colors. Primary is a pretty standard blue.<br /><br />
-        There is a trap. If you do
-        <code>defineProps&lt;ButtonHTMLAttributes &amp; …&gt;()</code>, Vue
-        treats <code>onClick</code> as a prop, and <code>@click</code> stops
-        being a native listener. So I split the types. I also did not
-        <code>defineEmits([&#x27;click&#x27;])</code>: a custom emit can fire
-        even when the native button is disabled.
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
-<code class="language-typescript">export interface MyButtonOwnProps {
-  variant?: ButtonVariant
-  size?: ButtonSize
-  loading?: boolean
-  iconPosition?: ButtonIconPosition
-}
+<?xml version="1.0" encoding="utf-8"?>
 
-export interface MyButtonProps extends MyButtonOwnProps {
-  disabled?: boolean
-  type?: NativeButtonProps[&#x27;type&#x27;]
-}
-
-export type MyButtonPublicProps = MyButtonOwnProps &amp; NativeButtonProps</code></pre>
-        </div>
-    </div>
-    <p class="">
-        <code>MyButtonProps</code> goes to <code>defineProps</code>.
-        <code>MyButtonPublicProps</code> is the conceptual contract — including
-        <code>id</code>, <code>aria-*</code>, <code>@click</code>. I do not
-        pass that one to <code>defineProps</code>. In the template the thesis
-        has to be visible:
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
-<code class="language-typescript">const isDisabled = computed(() =&gt; !!props.disabled || props.loading)</code></pre>
-        </div>
-    </div>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
-<code class="language-html">&lt;button
-  :type=&quot;type&quot;
-  :disabled=&quot;isDisabled&quot;
-  :aria-busy=&quot;loading ? true : undefined&quot;
-&gt;
-  &lt;span v-if=&quot;hasIconSlot&quot; class=&quot;my-button__icon&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;slot name=&quot;icon&quot; :loading=&quot;loading&quot; /&gt;
-  &lt;/span&gt;
-  &lt;span v-if=&quot;hasContentSlot&quot; class=&quot;my-button__content&quot;&gt;
-    &lt;slot /&gt;
-  &lt;/span&gt;
-&lt;/button&gt;</code></pre>
-        </div>
-    </div>
-    <h2 class="">
-        Loading is a state, not a spinner
-    </h2>
-    <p class="">
-        <code>loading</code> disables the native button, sets
-        <code>aria-busy</code>, and leaves the text on the button. A screen
-        reader still has a name — &quot;Guardar&quot; — not an anonymous
-        glyph. The drawing lives in <code>#icon=&quot;{ loading }&quot;</code>.
-        If I baked one spinner into MyButton, I would couple the component to
-        one idea of loading.<br /><br />
-        In the catalog I have a Save button I like a lot. It simulates a call
-        with <code>setTimeout</code>. Native <code>@click</code>. No custom
-        event.
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
-<code class="language-html">&lt;MyButton
-  variant=&quot;primary&quot;
-  :loading=&quot;isSaving&quot;
-  @click=&quot;simulateSave&quot;
-&gt;
-  &lt;template #icon=&quot;{ loading }&quot;&gt;
-    &lt;span v-if=&quot;loading&quot; class=&quot;docs-spinner&quot; /&gt;
-    &lt;DocsIcon v-else :d=&quot;iconPaths.bookmark&quot; /&gt;
-  &lt;/template&gt;
-  &#123;&#123; isSaving ? &#x27;Guardando…&#x27; : &#x27;Guardar (2s)&#x27; &#125;&#125;
-&lt;/MyButton&gt;</code></pre>
-        </div>
-    </div>
-    <h2 class="">
-        Why the default type is &quot;button&quot;
-    </h2>
-    <p class="">
-        This is the only place where I lie to HTML on purpose. In HTML, a
-        <code>&lt;button&gt;</code> without <code>type</code> is
-        <code>submit</code>. In a reusable component that is a trap: Cancel
-        inside a form would send the form.<br /><br />
-        So MyButton defaults to <code>type=&quot;button&quot;</code>. Enviar
-        asks for <code>type=&quot;submit&quot;</code>. Cancelar does not
-        declare <code>type</code>, and the form does not send. You can try it
-        in the live playground:
-        <a href="https://btn-arq-challenge.vercel.app/"><i class="fas fa-rocket"></i> btn-arq-challenge.vercel.app</a>.
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-html" data-show-toolbar="yes">
-<code class="language-html">&lt;form @submit=&quot;handleSubmit&quot;&gt;
-  &lt;MyButton type=&quot;submit&quot;&gt;Enviar&lt;/MyButton&gt;
-  &lt;MyButton variant=&quot;secondary&quot; @click=&quot;handleCancel&quot;&gt;
-    Cancelar
-  &lt;/MyButton&gt;
-&lt;/form&gt;</code></pre>
-        </div>
-    </div>
-    <figure class="image">
-        <iframe
-            style="border: 1px solid rgba(0, 0, 0, 0.1); width: 100%; max-width: 800px; height: 450px;"
-            src="https://btn-arq-challenge.vercel.app/"
-            title="Form playground with Enviar submit and Cancelar default type button"
-            allowfullscreen></iframe>
-        <figcaption>
-            Live playground:
-            <a href="https://btn-arq-challenge.vercel.app/">Enviar vs Cancelar</a>
-        </figcaption>
-    </figure>
-    <h2 class="">
-        Tests, and testing it myself in the browser
-    </h2>
-    <p class="">
-        There are 27 tests. They cover the contract, not the paint: the root
-        is a <code>&lt;button&gt;</code>, <code>loading</code> disables for
-        real, <code>variant</code> does not leak as an HTML attribute, the
-        default <code>type</code> does not submit a form.<br /><br />
-        Vue Test Utils <code>trigger(&#x27;click&#x27;)</code> on a disabled
-        button, in jsdom, still fires. In the browser it does not. So when
-        the real block matters, I use <code>element.click()</code>.
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-typescript" data-show-toolbar="yes">
-<code class="language-typescript">it(&#x27;does not invoke the native click listener when disabled&#x27;, async () =&gt; {
-  const onClick = vi.fn()
-  const wrapper = mount(MyButton, {
-    props: { disabled: true },
-    attrs: { onClick },
-    slots: { default: &#x27;Guardar&#x27; },
-    attachTo: document.body,
-  })
-
-  wrapper.get(&#x27;button&#x27;).element.click()
-  await wrapper.vm.$nextTick()
-
-  expect(onClick).not.toHaveBeenCalled()
-  wrapper.unmount()
-})</code></pre>
-        </div>
-    </div>
-    <p class="">
-        I also tested it in the browser myself: Enviar and Cancelar, mouse
-        and keyboard. Accessibility is not a badge. Native controls already
-        work with keyboards, screen readers, people who confuse colors, people
-        who cannot see the screen. Overwriting that is how you ship bugs.
-        Maybe a full a11y pass was a bit outside the scope. I still did not
-        want to skip it: <code>:focus-visible</code>,
-        <code>prefers-reduced-motion</code>, <code>aria-busy</code> only when
-        loading is true.
-    </p>
-    <h2 class="">
-        The extra: a module you can install
-    </h2>
-    <p class="">
-        The brief also asked to share the component with other developers. I
-        did not want to overcomplicate the main solution, so I put this extra
-        on another branch: <code>feat/library-package</code>. Same source, two
-        outputs: the playground in <code>dist-app/</code>, and an ESM module
-        in <code>dist/</code>. Vue is a peer dependency. CSS is a separate
-        import. Types are flattened into one <code>index.d.ts</code> so a
-        consumer <code>declare module &#x27;*.vue&#x27;</code> does not
-        clobber the props. <code>private: true</code> so I do not publish by
-        accident.
-    </p>
-    <figure class="image">
-        <a href="/site/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg" data-magnific-image data-no-swup>
-            <img src="/site/public/uploads/2026/09/vue-3-mybutton-npm-build-publish.svg"
-                alt="Dual Vite build to dist-app playground and dist ESM package, then npm pack or npm publish"
-                title="Build, pack, publish" />
-        </a>
-        <figcaption>Playground to Vercel. Library to a tarball. Registry only if I drop private.</figcaption>
-    </figure>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia language-json" data-show-toolbar="yes">
-<code class="language-json">{
-  &quot;exports&quot;: {
-    &quot;.&quot;: {
-      &quot;types&quot;: &quot;./dist/index.d.ts&quot;,
-      &quot;import&quot;: &quot;./dist/my-button.js&quot;
-    },
-    &quot;./style.css&quot;: &quot;./dist/my-button.css&quot;
-  },
-  &quot;peerDependencies&quot;: {
-    &quot;vue&quot;: &quot;^3.5.0&quot;
-  }
-}</code></pre>
-        </div>
-    </div>
-    <p class="">
-        <code>import { MyButton } from &#x27;btn-arq-challenge&#x27;</code><br />
-        <code>import &#x27;btn-arq-challenge/style.css&#x27;</code><br /><br />
-        If you skip the CSS, the button still works. It just has no styles.
-        For the test, <code>npm pack</code> was enough to prove the extra. I
-        could have added Storybook, tokens, infinite variants. The requirement
-        was a reusable button, not a design system. Keep it simple.
-    </p>
-    <h2 class="">
-        Takeaways
-    </h2>
-    <p class="">
-        Improve the native control. Do not replace it. Specs first. Then the
-        agents. Then I still test it in the browser. TypeScript should
-        extend what Vue already typed. Loading is state. Events are the DOM
-        events. Tests should match the browser.<br /><br />
-        The library lives on
-        <a href="https://github.com/gervisbermudez/btn-arq-challenge/tree/feat/library-package"><i class="fab fa-github"></i> feat/library-package</a>
-        until I merge it to <code>main</code>. The playground is
-        <a href="https://btn-arq-challenge.vercel.app/"><i class="fas fa-rocket"></i> here</a>.<br /><br />
-        I had a good time with this one, even if it started looking too easy.
-        I&#8217;m always open to feedback. If you&#8217;re a recruiter or a
-        potential client looking for a developer with experience in Vue,
-        TypeScript, and this kind of AI-assisted component work, let&#8217;s
-        connect.
-    </p>
-</div>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="Vue.js" /><category term="TypeScript" /><category term="AI" /><category term="Accessibility" /><category term="Component Design" /><summary type="html"><![CDATA[Spec-driven development with AI: a Vue 3 + TypeScript button that improves native HTML instead of replacing it, then ships as an ESM package.]]></summary></entry><entry><title type="html">From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker" rel="alternate" type="text/html" title="From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind" /><published>2025-03-24T00:00:00-03:00</published><updated>2025-03-24T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker"><![CDATA[<div class="page-body">
-    <p class="">
-        I everyone, I recently undertook a fascinating project: building a
-        SpaceX launch tracker using Next.js and Tailwind CSS. The aim was to
-        create a clean, responsive application that pulls data from the SpaceX
-        API, enabling users to explore launch information and curate their
-        favorite launches. This project provided a fantastic opportunity to
-        delve deeper into Next.js&#x27;s app router and the utility-first
-        approach of Tailwind. Let&#x27;s explore the development process and
-        some key insights gained.<br /><br />
-    </p>
-    <h2 class="">
-        The technical test:
-    </h2>
-    <p class=""></p>
-    <p>
-        <strong>FRONTEND EXERCISE</strong><br />
-        The exercise consists of building an
-        application to view Spacex’s latest launches, and being able to
-        add them to a “favourite” list to revisit them later.<br />The
-        application should be developed using React 16.8.4 or further.
-        <br />
-        <br />
-        <strong>Expectations</strong><br />On the first app load the candidate should hit the following endpoints
-        from SpaceX to retrieve information about rockets and
-        launches:<br /><br />
-        <a href="https://api.spacexdata.com/v3/rockets">https://api.spacexdata.com/v3/rockets</a>
-        <a href="https://api.spacexdata.com/v3/launches">https://api.spacexdata.com/v3/launches</a>
-
-        <br /><br />
-        Information about API usage can be found here:<br />
-        <a href="https://docs.spacexdata.com/">https://docs.spacexdata.com</a><br /><br />
-        
-        The candidate should combine the information to get a result similar to the following:<br />
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class='language-javascript'>{
-	flight_number: 39,
-	mission_name: &quot;NROL-76&quot;,
-	launch_date_unix: 1493637300,
-	details: &quot;launch details&quot;,
-	mission_patch: &lt;image_URL&gt;,
-	rocket: {
-		rocket_id: &quot;falcon1&quot;,
-		rocket_name: &quot;Falcon 1&quot;,
-		active: true,
-		cost_per_launch: 6700000,
-		company: &quot;SpaceX&quot;
-	}
-}</code></pre>
-        </div>
-    </div>
-    <br />
-    This is a list of functionality the candidate needs to include in
-    the app order by priority,<br />there’s no need to do everything,
-    let’s include as much as you can: <br />
-
-    <p class=""></p>
-    <ul class="bulleted-list">
-        <li>
-            Fetch endpoints and merge arrays (we need to populate the rocket
-            data of the<br />launches with the rockets array) <br />
-        </li>
-        <li>Display launches</li>
-        <li>
-            Favourite functionality (persist them on local storage)
-        </li>
-        <li>Search by mission name</li>
-        <li>
-            Inspect a specific launch detail
-        </li>
-        <li>Pagination<br /></li>
-    </ul>
-    <p class="">
-        Wireframes: <a href="https://www.figma.com/file/QRhWGaLdAzle61hLRUFW3L/SpaceX?node-id=354%3A1"><i class="fab fa-figma"></i> SpaceX Figma</a>
-    </p>
-  <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
-    src="https://embed.figma.com/design/MEn0A0HsDA6PBwoTyFvtfH/SpaceX?node-id=234-766&embed-host=share"
-    allowfullscreen></iframe>
-    <p class="">
-        Let&#x27;s break down how we&#x27;ll implement this SpaceX launch
-        tracker using NextJS and Tailwind CSS. We&#x27;ll follow the
-        wireframes as a guide while adding our own modern touches to create an
-        engaging user experience. Our focus will be on building a responsive,
-        performant application that makes it easy to explore and track SpaceX
-        launches.
-    </p>
-    <h2 class="">
-        Setting Up the Foundation - Tech Stack and Initial Steps
-    </h2>
-    <p class="">
-        <br />I started by setting up a fresh Next.js project with TypeScript
-        and ESLint, following the official documentation. Then came the
-        integration of Tailwind CSS, which proved to be incredibly efficient
-        for styling. I extended the Tailwind theme to match the color palette
-        specified in the Figma wireframes, ensuring a consistent and visually
-        appealing design. For custom fonts, I leveraged Next.js&#x27;s <code>localFont</code> package to include the D-DIN font
-        family.<br /><br />
-    </p>
-    <p class="">
-        Let&#x27;s start from the beginning, Installing the NextJs and
-        Tailwind with dependencies, as it’s described by the documentation in
-    </p>
-    <p class="">
-        <a
-            href="https://nextjs.org/docs/app/getting-started/installation">https://nextjs.org/docs/app/getting-started/installation</a>
-    </p>
-    <p class="">
-        <a
-            href="https://tailwindcss.com/docs/installation/framework-guides/nextjs">https://tailwindcss.com/docs/installation/framework-guides/nextjs</a>
-    </p>
-    <p class=""></p>
-        <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-            data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-            <div class="elementor-widget-container">
-                <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
- <code class="language-bash">npx create-next-app@latest spacex-launches-webapp --typescript --eslint --app
- cd spacex-launches-webapp</code></pre>
-            </div></div>
-    <p class="">
-        At this point we get the initial scaffolding of a nextjs app, so the
-        next steps is install tailwind
-    </p>
-        <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-            data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-            <div class="elementor-widget-container">
-                <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class="language-bash">npm install tailwindcss @tailwindcss/postcss postcss</code></pre></div></div>
-    <h2 class="">
-        Component-Driven UI Development
-    </h2>
-    <p class="">
-        I adopted a component-driven architecture, building reusable
-        components like buttons, icons, paginators, and tabs. This approach
-        not only made the code more maintainable but also accelerated the UI
-        development process. Tailwind&#x27;s utility classes were instrumental
-        in creating a clean and responsive design, allowing me to translate
-        the Figma wireframes into reality efficiently. I paid close attention
-        to the details of the UI, to make it as close as possible to the figma
-        design, and still keep it responsive
-    </p>
-    <p class=""></p>
-    <p class="">
-        Updating the tailwind config json and add the colors describe in the
-        figma components to maintain an consisten palete color - theme:
-    </p>
-    <figure class="image">
-        <a href="/site/public/uploads/2025/03/SpaceX-blog-post-colors.png">
-            <img src="/site/public/uploads/2025/03/SpaceX-blog-post-colors.png"
-                title="colors in figma" />
-        </a>
-        <figcaption>colors in figma</figcaption>
-    </figure>
-    <p class="">
-        The tailwind theme result:
-    </p>
-    <p class=""></p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class='language-javascript'> colors: {
-      &quot;app-bg&quot;: &quot;#121212&quot;,
-      &quot;app-surface&quot;: &quot;#2C2C2E&quot;,
-      &quot;app-white&quot;: &quot;#ffffffde&quot;,
-      &quot;app-gray&quot;: {
-        100: &quot;rgba(255, 255, 255, 0.77)&quot;,
-        200: &quot;rgba(255, 255, 255, 0.67)&quot;,
-        300: &quot;rgba(255, 255, 255, 0.57)&quot;,
-        400: &quot;rgba(255, 255, 255, 0.47)&quot;,
-        500: &quot;rgba(255, 255, 255, 0.37)&quot;,
-        600: &quot;rgba(255, 255, 255, 0.27)&quot;,
-        700: &quot;rgba(255, 255, 255, 0.17)&quot;,
-      },
-      &quot;app-dp&quot;: {
-        100: &quot;rgba(30, 30, 30, 1)&quot;,
-        200: &quot;rgba(35, 35, 35, 1)&quot;,
-        600: &quot;rgba(63, 63, 63, 1)&quot;,
-        280: &quot;rgba(70, 70, 70, 1)&quot;,
-        300: &quot;rgba(75, 75, 75, 1)&quot;,
-      },
-    },
-    extend: {
-      backgroundImage: {
-        &quot;app-gradient&quot;: &quot;linear-gradient(180deg, #121212 64.11%, #1E1E1E 100%)&quot;,
-        &quot;detail-gradient&quot;: &quot;linear-gradient(0deg, #00000075, #ffffff26)&quot;,
-      }</code></pre>
-        </div>
-    </div>
-    <p class="">
-        <br /><br />To implement the fonts specified in the Figma design, use
-        the Next.js localFont package as shown below: <br /><br />
-    </p>
-    <figure class="image">
-        <a href="/site/public/uploads/2025/03/SpaceX-blog-post-fonts.png"><img
-                src="/site/public/uploads/2025/03/SpaceX-blog-post-fonts.png"
-                alt="fonts in figma" /></a>
-        <figcaption>fonts in figma</figcaption>
-    </figure>
-    <p class="">
-        Son we need to set the D-Din Regular and Bold font, so we are going to
-        use the nextjs font package, as following:
-    </p>
-    <p class=""></p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class='language-javascript'>import localFont from "@next/font/local";
-
-// Font files can be colocated inside of `assets`
-
-const dDinFont = localFont({
-  src: [
-    {
-      path: "../assets/fonts/d-din/D-DIN.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/d-din/D-DIN-Bold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-});
-</code></pre>
-        </div>
-    </div>
-    <p class="">
-        <br />We have to define the global context to manage and transversal
-        state, here we have the minimum defined stated that the app need to
-        works as MVP:<br />
-    </p>
-    <p class=""></p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-javascript">export interface LaunchesContextProps {
-  launches: Launch[];
-  paginatedLaunches: Launch[];
-  setLaunches: React.Dispatch<React.SetStateAction<Launch[]>>;
-  currentPage: number;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  totalPages: number;
-  isLoading: boolean;
-  favorites: Launch[];
-  setFavorites: React.Dispatch<React.SetStateAction<Launch[]>>;
-  addFavorite: (launch: Launch) => void;
-  removeFavorite: (flightNumber: number) => void;
-}
-
-const LaunchesContext = createContext<LaunchesContextProps | undefined>(
-  undefined
-);
-
-export const useLaunches = () => {
-  const context = useContext(LaunchesContext);
-  if (!context) {
-    throw new Error("useLaunches must be used within a LaunchesProvider");
-  }
-  return context;
-};</code></pre>
-        </div>
-    </div>
-    <p class=""></p>
-    <h2 class="">
-        API Integration and Data Management: 🚀
-    </h2>
-    <p class="">
-        A crucial part of the project was fetching and merging data from
-        the SpaceX API. I created a dedicated <code>fetchLaunches</code>
-        function with flexible query parameters to handle various API
-        requests. To manage the application&#x27;s state, I implemented a
-        global context using React&#x27;s <code>useContext</code> hook. This
-        allowed for seamless data sharing across components, including launch
-        data, pagination, and favorites.
-    </p>
-    <p class="">
-        I defined and single function to access to the api of SpaceX:
-    </p>
-    <p class=""></p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes">
-<code class="language-javascript">export const fetchLaunches = async (
-  options: FetchLaunchesOptions = {}
-): Promise&lt;FetchLaunchesResponse&gt; =&gt; {
-  const { id, limit, offset, sort, order } = options;
-  const queryParams = new URLSearchParams();
-
-  if (id !== undefined) queryParams.append(&quot;id&quot;, String(id));
-  if (limit !== undefined) queryParams.append(&quot;limit&quot;, String(limit));
-  if (offset !== undefined) queryParams.append(&quot;offset&quot;, String(offset));
-  if (sort !== undefined) queryParams.append(&quot;sort&quot;, sort);
-  if (order !== undefined) queryParams.append(&quot;order&quot;, order);
-
-  const queryString = queryParams.toString();
-  const url = `${config.API_URL}/launches${
-    queryString ? `?${queryString}` : &quot;&quot;
-  }`;
-
-  try {
-    const response = await fetch(url);
-    const data: Launch[] = await response.json();
-    const totalPages = Math.ceil(190 / (limit ?? 1));
-    return { launches: data, totalPages };
-  } catch (error) {
-    console.error(&quot;Failed to fetch launches&quot;, error);
-    throw error;
-  }
-};</code></pre>
-        </div>
-    </div>
-    <p class="">
-        One of the main challenges was handling API errors gracefully
-        and implementing robust loading states. I added error handling to the
-        <code>fetchLaunches</code> function and implemented loading
-        indicators to provide a smooth user experience. Additionally, I
-        focused on optimizing the pagination logic and search functionality to
-        ensure efficient data retrieval and filtering. Managing local storage
-        for favorites was another key aspect, requiring careful serialization
-        and deserialization of data.
-    </p>
-    <h2 class="">Components</h2>
-    <p class="">
-        I develop the commons components for this app, that includes Buttons,
-        Icons, Paginator, Tabs, ect.<br />
-    </p>
-    <figure class="image">
-        <a href="/site/public/uploads/2025/03/SpaceX-blog-post-components.png"><img
-                src="/site/public/uploads/2025/03/SpaceX-blog-post-components.png" /></a>
-        <figcaption>The components</figcaption>
-    </figure>
-    <p class=""></p>
-    <p class="">
-        At this point we have everything that we need to start the UI
-        development, so I define 2 main pages: Home with the list of Launches
-        that we obtain from the API with a search input to filter the results,
-        pagination and two tabs with results and favorites and the Details
-        Page to show the details of the Rocket of the Launch selected.
-    </p>
-    <p class=""></p>
-    <figure class="image" style="text-align: left">
-        <a href="/site/public/uploads/2025/03/SpaceX-blog-post-folders.png"><img
-                src="/site/public/uploads/2025/03/SpaceX-blog-post-folders.png" /></a>
-    </figure>
-    <p class=""></p>
-    <h2 class="">
-        Using Tailwind to define the UI
-    </h2>
-    <p class="">
-        The most important thing I learned this time is just get fun while use
-        predefined tailwind classes to develop the UI of the app, it’s fun and
-        easy (Once you understand it lol), for example look at how I define
-        the background defined on theme config: <br />
-    </p>
-    <div class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-        data-id="a108a0e" data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-        <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class="language-jsx">return (
-    &lt;header className=&quot;relative&quot; style=&#123;&#123; aspectRatio: "1440 / 555" &#125;&#125; &gt;
-      &lt;nav className=&quot;container flex justify-between items-center relative z-30 h-20&quot;&gt;
-        &lt;button
-          className=&quot;rounded-full w-10 h-10 bg-app-surface flex justify-center items-center&quot;
-          onClick={goBack}
-        &gt;
-          &lt;ArrowBackIcon /&gt;
-        &lt;/button&gt;
-        &lt;button
-          className=&quot;rounded-full w-10 h-10 bg-app-surface flex justify-center items-center&quot;
-          onClick={handleFavoriteClick}
-        &gt;
-          &lt;StarIcon isActive={isFavorite} /&gt;
-        &lt;/button&gt;
-      &lt;/nav&gt;
-      &lt;div className=&quot;container m-auto max-w-3xl top-64 relative z-30 text-white mt-20&quot;&gt;
-        &lt;div className=&quot;launch-date&quot;&gt;{launchDate}&lt;/div&gt;
-        &lt;h1 className=&quot;text-4xl font-bold text-white uppercase&quot;&gt;
-          {launchName}
-        &lt;/h1&gt;
-        &lt;div className=&quot;text-2xl max-w-3xl overflow-hidden text-ellipsis whitespace-nowrap max-h-12&quot;&gt;
-          {launchDescription}
-        &lt;/div&gt;
-      &lt;/div&gt;
-      &lt;div className=&quot;absolute w-full h-full bg-detail-gradient z-20 top-0&quot;&gt;&lt;/div&gt;
-      &lt;div
-        className=&quot;launch-image absolute w-full h-full bg-cover bg-center z-10 top-0&quot;
-    style=&#123;&#123; backgroundImage: `url(&#123;&#123;launchImage&#125;&#125;)` &#125;&#125;
-      &gt;&lt;/div&gt;
-    &lt;/header&gt;
-  );</code></pre>
-        </div>
-    </div>
-    <p class=""></p>
-    <h2 class="">
-        Learnings and Takeaways:
-    </h2>
-    <p class="">
-        <br />This project reinforced the power of Next.js and Tailwind CSS in
-        building modern web applications. The app router of Nextjs is very
-        powerful, and easy to use. I also gained valuable experience in API
-        integration, state management, and component-driven development. I
-        learned that having a well defined type system using typescript is
-        very important to avoid bugs. I also learned to use tailwind
-        efficiently, and how fast I can create a UI that looks great. I&#x27;m
-        excited to apply these learnings to future projects.<br />
-    </p>
-    <p class="">
-        Feel free to explore the project on
-        <a
-            href="https://github.com/gervisbermudez/spacex-launches-webapp"><i class="fab fa-github"></i> spacex-launches-webapp</a>.
-        <br />
-        I deployed the app on Vercel, you can check it out <a href="https://spacex-launches-webapp.vercel.app/"><i class="fas fa-rocket"></i> here</a>.
-        <br />
-        <br />
-            
-        I&#x27;m always open to feedback and collaboration. If you&#x27;re
-        a recruiter or potential client looking for a developer with
-        experience in Next.js, Tailwind CSS, and API integration, let&#x27;s
-        connect!
-    </p>
-    <p class=""></p>
-</div>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="Next.js" /><category term="Tailwind CSS" /><category term="SpaceX" /><category term="API Integration" /><summary type="html"><![CDATA[A detailed guide on building a SpaceX launch tracker using Next.js and Tailwind CSS]]></summary></entry><entry><title type="html">Solving the Hotel Reservation Problem using Vue js with Vite</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue js with Vite" /><published>2025-02-07T00:00:00-03:00</published><updated>2025-02-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite"><![CDATA[<div class="single-post-text">
-  <div data-elementor-type="wp-post" data-elementor-id="662" class="elementor elementor-662">
-    <div class="elementor-element elementor-element-d172505 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-eff346e elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              Hello everyone! I wanted to share how I tackled the technical test
-              for hotel reservation, which I completed as part of a job
-              application process. Here&#8217;s the problem:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-e5bdadb e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-8c3a2b0 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <blockquote>
-              <p><em>Hotel Reservation problem:</em></p>
-              <p><em>Some points we evaluate include:</em></p>
-              <ul>
-                <li><em>Solution design</em></li>
-                <li><em>Readability</em></li>
-                <li>
-                  <em>Ease of installation, maintenance, and application
-                    extension</em>
-                </li>
-                <li><em>TDD (Test Driven Development)</em></li>
-                <li><em>Layout</em></li>
-                <li><em>Use of Agile best practices</em></li>
-                <li><em>Operational features</em></li>
-                <li><em>Application architecture</em></li>
-              </ul>
-              <p><em>Please consider:</em></p>
-              <ul>
-                <li>
-                  <em>For the solution, we require you to use JavaScript and
-                    Vue.js.</em>
-                </li>
-                <li><em>The application must run.</em></li>
-                <li>
-                  <em>There should be sufficient evidence that the solution is
-                    complete and functions correctly with the provided test
-                    data.</em>
-                </li>
-                <li>
-                  <em>This is a great opportunity for us to closely assess your
-                    technical skills and potential. Please refrain from using
-                    elements not authored by you in the construction of the
-                    source code unless absolutely necessary, and if so, specify
-                    the source reference.</em>
-                </li>
-              </ul>
-              <p><em>Rules:</em></p>
-              <ul>
-                <li><em>Do not use CSS frameworks.</em></li>
-                <li><em>Send the project&#8217;s URL in a repository.</em></li>
-                <li>
-                  <em>In addition to the code, please attach a README with an
-                    explanation of your solution&#8217;s design, your
-                    assumptions about the problem, and detailed instructions on
-                    how to run your application.</em>
-                </li>
-                <li>
-                  <em>We request that you submit the solution to the chosen
-                    problem within three days from the time of receipt.</em>
-                </li>
-              </ul>
-              <p><em>Introduction to the Problem:</em></p>
-              <p>
-                <em>The application must run. You should provide sufficient
-                  evidence that your solution is complete by indicating that it
-                  works correctly against the supplied test data, at a minimum.
-                  Please note that you will be assessed on your judgment as well
-                  as your execution. The visual design of the app is
-                  optional.</em>
-              </p>
-              <p><em>Hotel Reservation Problem:</em></p>
-              <p>
-                <em>A hotel chain operating in Miami wants to offer room
-                  reservation services over the internet. They operate three
-                  hotels in Miami: Lakewood, Bridgewood, and Ridgewood. Each
-                  hotel has separate weekday and weekend (Saturday and Sunday)
-                  rates, with special rates for rewards customers as part of a
-                  loyalty program. Each hotel also has an assigned rating.</em>
-              </p>
-              <ul>
-                <li>
-                  <em>Lakewood, with a rating of 3, has weekday rates of $110 for
-                    regular customers and $80 for rewards customers. Weekend
-                    rates are $90 for regular customers and $80 for rewards
-                    customers.</em>
-                </li>
-                <li>
-                  <em>Bridgewood, with a rating of 4, has weekday rates of $160
-                    for regular customers and $110 for rewards customers.
-                    Weekend rates are $60 for regular customers and $50 for
-                    rewards customers.</em>
-                </li>
-                <li>
-                  <em>Ridgewood, with a rating of 5, has weekday rates of $220
-                    for regular customers and $100 for rewards customers.
-                    Weekend rates are $150 for regular customers and $40 for
-                    rewards customers.</em>
-                </li>
-              </ul>
-              <p><em>Design:</em></p>
-              <ul>
-                <li><em>Input should allow entry of various dates.</em></li>
-                <li>
-                  <em>Provide a toggle to allow users to select between regular
-                    and reward.</em>
-                </li>
-                <li><em>Each hotel card should contain:</em></li>
-              </ul>
-              <p><em>&#8211; Hotel name</em></p>
-              <p><em>&#8211; Rating displayed visually as stars</em></p>
-              <p>
-                <em>&#8211; Display all possible price options for regular,
-                  reward, weekday, and weekend (the output card should only
-                  display the selected date&#8217;s price)</em>
-              </p>
-              <p>
-                <em>Write a program to assist an online customer in finding the
-                  cheapest hotel. Initially, display all hotels as a grid of
-                  cards. The input can be one or more dates for a regular or
-                  rewards customer. The output should be the cheapest available
-                  hotel based on customer type and dates. In case of a tie,
-                  return the hotel with the highest rating. The answer should
-                  stand out from the list of hotels.</em>
-              </p>
-              <p><em>Input Format:</em></p>
-              <p>
-                <em>&lt;customer_type&gt; &lt;date1&gt; &lt;date2&gt; &#8230;</em>
-              </p>
-              <p><em>Output Format:</em></p>
-              <p><em>&lt;card_of_the_cheapest_hotel&gt;</em></p>
-              <p><em>Input 1:</em></p>
-              <p>
-                <em>Regular: 16Mar2009(mon), 17Mar2009(tues), 18Mar2009(wed)</em>
-              </p>
-              <p><em>Output 1:</em></p>
-              <p><em>Lakewood</em></p>
-              <p><em>Input 2:</em></p>
-              <p>
-                <em>Rewards: 26Mar2009(thur), 27Mar2009(fri), 28Mar2009(sat)</em>
-              </p>
-              <p><em>Output 2:</em></p>
-              <p><em>Ridgewood</em></p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-444fc6b e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-3a7891f elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <h3 class="elementor-heading-title elementor-size-default">
-              Resolution
-            </h3>
-            <p>
-              The challenge at hand involved developing an algorithm capable of
-              recommending the most economical option among several hotels,
-              considering different variables such as hotel prices, user types
-              (regular or not), and normal versus weekend rates. Below,
-              I&#8217;ve broken down the variables:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-e590147 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-7c0f9ac elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>Hotel</th>
-                  <th>Estrellas</th>
-                  <th>Normal Customer</th>
-                  <th> </th>
-                  <th>Rewards customers</th>
-                  <th> </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> </td>
-                  <td> </td>
-                  <td>Weekdays</td>
-                  <td>Weekends</td>
-                  <td>Weekdays</td>
-                  <td>Weekends</td>
-                </tr>
-                <tr>
-                  <td>Lakewood</td>
-                  <td>3</td>
-                  <td>110</td>
-                  <td>90</td>
-                  <td>80</td>
-                  <td>80</td>
-                </tr>
-                <tr>
-                  <td>Bridgewood</td>
-                  <td>4</td>
-                  <td>160</td>
-                  <td>60</td>
-                  <td>110</td>
-                  <td>50</td>
-                </tr>
-                <tr>
-                  <td>Ridgewood</td>
-                  <td>5</td>
-                  <td>220</td>
-                  <td>150</td>
-                  <td>100</td>
-                  <td>40</td>
-                </tr>
-              </tbody>
-            </table>
-            <p><!-- notionvc: 8c5ae137-746e-4c46-8943-47a9bede1baf --></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-fe84710 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-b3c8999 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              To tackle this challenge, I decided to start by defining an
-              interface containing relevant information for each hotel.
-              Here&#8217;s how I structured the interface:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-663bf25 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div
-          class="elementor-element elementor-element-a108a0e elementor-widget elementor-widget-code-block-for-elementor"
-          data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-          <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class='language-javascript'>export interface Hotel {
-  id: number;
-  name: string;
-  location: string;
-  rating: number;
-  weekdayRates: {
-    regular: number;
-    rewards: number;
-  };
-  weekendRates: {
-    regular: number;
-    rewards: number;
-  };
-  photos: string[];
-}
-
-</code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-54cefb2 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-2f7e5bb elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              Once the interface was established, I moved on to develop the
-              algorithm itself. Basically, the process involved looping through
-              each day between the start date and the end date, evaluating
-              whether it was a weekend and whether the user had selected the
-              rewards program. Below, I provide a detailed flowchart of the
-              algorithm:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-842bda6 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-972d67d elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg">
-              <img decoding="async" width="820" height="1024"
-                src="/site/public/uploads/2024/04/grafico1-hotel-reservation-1-820x1024.jpg"
-                class="attachment-large size-large wp-image-678" alt="flow diagram" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-592f6e6 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-fbcb563 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              Translating this algorithm into code, I obtained the following:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-a105f09 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div
-          class="elementor-element elementor-element-f38047f elementor-widget elementor-widget-code-block-for-elementor"
-          data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-          <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class='language-javascript'>async calculateTotalCost(
-    userType: "regular" | "rewards",
-    startDate: Date,
-    endDate: Date
-): Promise<TotalCost[] | undefined> {
-    this.loading = true;
-    try {
-        const response = await getHotels();
-        let hotels = response;
-        let resultByHotels: TotalCost[] = [];
-        hotels.forEach((hotel: Hotel) => {
-            let totalCost = 0;
-            let countWeekends = 0;
-            let countWeekDays = 0;
-            const currentDate = new Date(startDate);
-            while (currentDate <= endDate) {
-                const isWeekend =
-                    currentDate.getDay() === 0 || currentDate.getDay() === 6; // 0: Sunday, 6: Saturday
-                const rate = isWeekend
-                    ? hotel.weekendRates[userType]
-                    : hotel.weekdayRates[userType];
-                totalCost += rate;
-                currentDate.setDate(currentDate.getDate() + 1); // Move to the next day
-                isWeekend ? countWeekends++ : countWeekDays++;
-            }
-            resultByHotels.push({
-                hotel,
-                totalCost,
-                countWeekends,
-                countWeekDays,
-            });
-        });
-        return resultByHotels.sort((a, b) => {
-            if (a.totalCost === b.totalCost) {
-                return b.hotel.rating - a.hotel.rating;
-            }
-            return a.totalCost - b.totalCost;
-        });
-    } catch (error) {
-        console.error("Error fetching data:", error);
-    } finally {
-        this.loading = false;
-    }
-}
-</code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-492dfd0 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-f8b586c elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              With the function in place, it was time to embark on the most
-              exciting part of the process: application development.
-            </p>
-            <h3>Interface Design: Inspiration and Execution</h3>
-            <p>
-              Since this was a web application for hotel booking, I dedicated
-              time to analyzing current interfaces to draw inspiration from
-              common user experiences. Here&#8217;s what I discovered:
-            </p>
-            <p>
-              <strong>Color Palette:</strong> Interfaces in this domain often
-              use blue tones as primary colors and yellow tones as secondary
-              ones. Based on this observation, I selected the following color
-              palette:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-5956d1d e-grid e-con-boxed e-con e-parent">
-      <div class="e-con-inner"
-        style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr; gap: 20px;">
-        <div class="elementor-element elementor-element-4649e58 elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/Untitled-1.png" data-elementor-open-lightbox="yes"
-              data-elementor-lightbox-title="Untitled (1)"
-              data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgxLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtMS5wbmcifQ%3D%3D">
-              <img decoding="async" width="900" height="480"
-                src="/site/public/uploads/2024/04/Untitled-1-1024x546.png"
-                class="attachment-large size-large wp-image-681" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="elementor-element elementor-element-3e365c2 elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/Untitled-2-1024x426.png"
-              data-elementor-open-lightbox="yes" data-elementor-lightbox-title="Untitled (2)"
-              data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgwLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtMi5wbmcifQ%3D%3D">
-              <img loading="lazy" decoding="async" width="900" height="374"
-                src="/site/public/uploads/2024/04/Untitled-2-1024x426.png"
-                class="attachment-large size-large wp-image-680" alt="" />
-            </a>
-          </div>
-        </div>
-        <div class="elementor-element elementor-element-036f0f5 elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/Untitled-3-1024x766.png"
-              data-elementor-open-lightbox="yes" data-elementor-lightbox-title="Untitled (3)">
-              <img loading="lazy" decoding="async" width="900" height="673"
-                src="/site/public/uploads/2024/04/Untitled-3-1024x766.png"
-                class="attachment-large size-large wp-image-679" alt="" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-13019d5 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-575e9ab elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/Untitled-4.png" data-elementor-open-lightbox="yes"
-              data-elementor-lightbox-title="Untitled (4)"
-              data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgyLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvVW50aXRsZWQtNC5wbmcifQ%3D%3D">
-              <img loading="lazy" decoding="async" width="900" height="374"
-                src="/site/public/uploads/2024/04/Untitled-4.png"
-                class="attachment-large size-large wp-image-682" alt="" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-48c0835 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-07e23b1 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>Based on the above, I selected the following colors:</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-4b5a640 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-e51a535 elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion.png"
-              data-elementor-open-lightbox="yes" data-elementor-lightbox-title="paleta-de-colores-hotel-reservacion"
-              data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjgzLCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvcGFsZXRhLWRlLWNvbG9yZXMtaG90ZWwtcmVzZXJ2YWNpb24ucG5nIn0%3D">
-              <img loading="lazy" decoding="async" width="900" height="182"
-                src="/site/public/uploads/2024/04/paleta-de-colores-hotel-reservacion-1024x207.png"
-                class="attachment-large size-large wp-image-683" alt="" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-4385b22 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-913b460 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              <strong>Content Distribution:</strong> Booking websites typically
-              feature a large header with images and 3 to 4 input fields for
-              search criteria. Inspired by this common layout, I designed the
-              following content distribution, which you can see in full on
-              Figma: 
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-1fbef2f e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-b2573d4 elementor-widget elementor-widget-html"
-          data-element_type="widget" data-widget_type="html.default">
-          <div class="elementor-widget-container">
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1)" width="800" height="450"
-              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FGUIAyDNZFzeP1pILyqUfgg%2FHotel-Booking%3Ftype%3Ddesign%26node-id%3D0%253A1%26mode%3Ddesign%26t%3DhD2egdDVF5lBH9h1-1"
-              allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-200a71a e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-248e89f elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              As you can see, I prioritized the search criteria input fields at
-              the top of the screen, followed by the results. Initially, all
-              hotels are displayed without any additional filtering criteria.
-            </p>
-            <h3>Application Development: Configuration and Structure</h3>
-            <p>
-              I started by creating a new project with Vue.js and using Pinia as
-              the state manager. The installation details can be found in the
-              official documentation here, and the resulting folder structure is
-              as follows:
-            </p>
-            <p><strong>Project Structure:</strong></p>
-            <ul>
-              <li>
-                <strong>public/:</strong> Contains the application&#8217;s
-                static files.
-              </li>
-              <li>
-                <strong>src/:</strong> Contains the application&#8217;s source
-                code.
-                <ul>
-                  <li>
-                    <strong>assets/:</strong> Resource files such as images,
-                    icons, etc.
-                  </li>
-                  <li>
-                    <strong>components/:</strong> Reusable components of the
-                    application.
-                  </li>
-                  <li>
-                    <strong>store/:</strong> Configuration and Pinia modules for
-                    state management.
-                  </li>
-                  <li>
-                    <strong>utils/:</strong> Utility and helper functions.
-                  </li>
-                  <li>
-                    <strong>App.vue:</strong> Main component of the application.
-                  </li>
-                  <li>
-                    <strong>main.ts:</strong> Entry point of the application.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <p>
-              Additionally, I developed common components such as buttons,
-              cards, headers, footers, input fields, selections, loading
-              spinners, etc., resulting in the following:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-a3307b4 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-84a9ee0 elementor-widget elementor-widget-image"
-          data-element_type="widget" data-widget_type="image.default">
-          <div class="elementor-widget-container">
-            <a href="/site/public/uploads/2024/04/components-vue-278x300.png"
-              data-elementor-open-lightbox="yes" data-elementor-lightbox-title="components-vue"
-              data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6Njg4LCJ1cmwiOiJodHRwczpcL1wvZ2VydmlzYmVybXVkZXouY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wNFwvY29tcG9uZW50cy12dWUucG5nIn0%3D">
-              <img loading="lazy" decoding="async" width="278" height="300"
-                src="/site/public/uploads/2024/04/components-vue-278x300.png"
-                class="attachment-medium size-medium wp-image-688" alt="" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-e9ba20f e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-782e454 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p><strong>Global Storage Implementation:</strong></p>
-            <p>
-              The official state management tool of Vue.js is Pinia.
-              Here&#8217;s how I did it:
-            </p>
-            <p>
-              Using <code>defineStore</code>, I initialized the global storage
-              of the application, passing it the initial state and actions that
-              would interact with the global state, resulting in the following:
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-ae1dc47 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div
-          class="elementor-element elementor-element-2a365df elementor-widget elementor-widget-code-block-for-elementor"
-          data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-          <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class='language-javascript'>// src/stores/hotels.store.ts
-import { defineStore } from "pinia";
-import { Hotel, TotalCost } from "../models/Hotels";
-import { getHotels, getReviews } from "../services";
-import { Review } from "../models/Review";
-
-export interface State {
-    hotels: Hotel[];
-    hotel: Hotel | null;
-    reviews: Review[];
-    loading: boolean;
-}
-
-export const useHotelsStore = defineStore("store", {
-    state: (): State => {
-        return {
-            hotels: [],
-            hotel: null,
-            reviews: [],
-            loading: false,
-        };
-    },
-    actions: {
-        async fetchData() {
-            // Implementation here
-        },
-        async calculateTotalCost() {
-            // Implementation here
-        },
-        async fetchReviews() {
-            // Implementation here
-        },
-        async fetchReviewsByHotelID(hotel_id: number) {
-            // Implementation here
-        },
-    },
-});</code></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-7ab870c e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-4236199 elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              This way, we were able to consume the functions provided by the
-              global storage in our application.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-34bce9b e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div
-          class="elementor-element elementor-element-dd995a7 elementor-widget elementor-widget-code-block-for-elementor"
-          data-element_type="widget" data-widget_type="code-block-for-elementor.default">
-          <div class="elementor-widget-container">
-            <pre class="line-numbers theme-okaidia" data-show-toolbar="yes"><code class='language-javascript'>// src/App.vue
-const store = useHotelsStore();
-const { loading } = storeToRefs(store);
-const userType = ref<"regular" | "rewards">("regular");
-const hotelsList = ref<Hotel[] | []>([]);
-const reviews = ref<Review[]>([]);
-const searchResult = ref<TotalCost | null>(null);
-const dates: Dates = reactive({
-  initial_date: null,
-  final_date: null,
-});
-
-onMounted(() => {
-  getHotels().then((result) => {
-    hotelsList.value = result;
-  });
-  getReviews().then((result) => {
-    reviews.value = result.splice(0, 6);
-  });
-});
-
-const handleSelectChange = (data: string) => {
-  userType.value = data as "regular" | "rewards";
-};
-
-const handleInputChange = (name: string, data: string) => {
-  dates[name] = data;
-};
-
-const handleSearchBooking = () => {
-  if (dates.initial_date && dates.final_date) {
-    store
-      .calculateTotalCost(userType.value, dates.initial_date, dates.final_date)
-      .then((result) => {
-        if (result) {
-          searchResult.value = result[0];
-        }
-      });
-  }
-};
-
-const resetSearch = () => {
-  searchResult.value = null;
-};
-</code>
-</pre>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="elementor-element elementor-element-7a12b32 e-flex e-con-boxed e-con e-parent"
-      data-element_type="container">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-element-4eccf3d elementor-widget elementor-widget-text-editor"
-          data-element_type="widget" data-widget_type="text-editor.default">
-          <div class="elementor-widget-container">
-            <p>
-              For those interested in reviewing the complete code, it&#8217;s
-              available on GitHub:  <a
-                href="https://github.com/gervisbermudez/hotel-booking-app">https://github.com/gervisbermudez/hotel-booking-app</a><br /><br /><span
-                style="text-align: var(--text-align); background-color: initial">With this, I conclude my process of
-                solving the hotel
-                reservation technical test. It has been an exciting and
-                enriching experience, and I look forward to continuing to
-                develop skills and facing new challenges in the future!</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="Vue.js" /><category term="Vite" /><category term="Hotel Reservation" /><summary type="html"><![CDATA[A detailed guide on solving the hotel reservation problem using Vue js and Vite]]></summary></entry><entry><title type="html">Building a Custom CMS - From Figma to CodeIgniter with Materialize</title><link href="https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize" rel="alternate" type="text/html" title="Building a Custom CMS - From Figma to CodeIgniter with Materialize" /><published>2024-12-07T00:00:00-03:00</published><updated>2024-12-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize"><![CDATA[<p class="has-medium-font-size">
-  <strong>From Concept to Creation: My Journey Building a Custom CMS<br /></strong><br />Hello everyone,
-</p>
-
-<p>
-  I'd like to share my experience in designing and developing a custom Content Management System (CMS). This project was
-  a comprehensive exercise in full-stack development, combining my design skills with robust backend implementation. I
-  aimed to create a flexible, user-friendly CMS tailored to specific content management needs.
-</p>
-
-<p>
-  The process began with meticulous planning and design in Figma. I focused on creating an intuitive user interface that
-  would streamline content management. This included designing dynamic forms, a customizable dashboard, media
-  organization tools, and an event management system.
-</p>
-
-<figure class="wp-block-image size-full">
-  <img decoding="async" width="797" height="560"
-    src="/site/public/uploads/2024/03/screenshot-5-2023-04-02-112409-2023-07-26-144436.jpg"
-    alt="Dashboard Widgets" class="wp-image-349" />
-  <figcaption>Dashboard Widgets</figcaption>
-</figure>
-
-<p>
-  <br /><strong>Backend Development with CodeIgniter</strong><br /><br />For the backend, I chose PHP CodeIgniter for
-  its lightweight framework and robust features. This allowed me to efficiently implement the core functionalities,
-  including user authentication, data management, and API integrations. Key features include:
-</p>
-
-<p>
-  <strong>Choosing CodeIgniter and MVC:</strong> I opted for PHP CodeIgniter for its simplicity, speed, and robust
-  community support. Its Model-View-Controller (MVC) architecture provided a clear separation of concerns, making the
-  codebase more organized and maintainable. This architectural pattern allowed me to develop features efficiently while
-  ensuring scalability and ease of future modifications.
-</p>
-
-<p>
-  <strong>Blade Templating:</strong> To enhance the rendering of views, I integrated Blade templating. Blade's
-  expressive syntax and template inheritance features significantly streamlined the process of creating dynamic and
-  reusable views, improving both development speed and code readability.
-</p>
-
-<ul>
-  <li><strong>Dynamic Forms:</strong> Enabling users to create and manage custom forms for data collection.</li>
-  <li><strong>Redesigned Dashboard:</strong> Providing an overview of key metrics and recent activities, enhanced with
-    customizable widgets.</li>
-  <li><strong>User Tracking:</strong> Implementing analytics to understand user interactions and improve site
-    engagement.</li>
-</ul>
-
-<figure class="wp-block-image size-full">
-  <img decoding="async" width="332" height="134" src="/site/public/uploads/2024/03/image.png"
-    alt="Notifications" class="wp-image-350" />
-  <figcaption>Notifications</figcaption>
-</figure>
-
-<p>
-  <strong>Styling with Materialize.css</strong><br /><br />To ensure a clean and responsive design, I utilized
-  Materialize.css, a modern responsive front-end framework based on Material Design. This choice facilitated the
-  creation of a visually appealing and user-friendly interface. Features styled with Materialize.css include:
-</p>
-
-<ul>
-  <li><strong>Media Management:</strong> Organizing photos and videos into albums for easy access.</li>
-  <li><strong>Calendar and Event Management:</strong> Providing a structured system for managing events.</li>
-  <li><strong>Data Export:</strong> Allowing users to export data for analysis and reporting.</li>
-</ul>
-
-<figure class="wp-block-image size-full">
-  <img loading="lazy" decoding="async" width="828" height="536"
-    src="/site/public/uploads/2024/03/screenshot-6-2023-04-02-112408-2023-07-26-144435.jpg"
-    alt="Calendar and Event Management" class="wp-image-351" />
-  <figcaption>Calendar and Event Management</figcaption>
-</figure>
-
-<p>
-  <br /><strong>Advanced Features and Scalability<br /></strong><br />Beyond the core functionalities, I integrated
-  features like:
-</p>
-
-<ul>
-  <li><strong>Categorization and Subcategorization:</strong> Enhancing content organization.</li>
-  <li><strong>Notification System:</strong> Keeping users informed of important updates.</li>
-  <li><strong>Role-Based Access Control:</strong> Implementing a user role system to manage permissions and access to
-    different sections of the CMS.</li>
-  <li><strong>SEO Optimization:</strong> Integrating tools to optimize content for search engines, including metadata
-    management and sitemap generation.</li>
-  <li><strong>Backup and Restore System:</strong> Ensuring data integrity with backup and restore functionalities.</li>
-</ul>
-
-<figure class="wp-block-image size-full">
-  <img loading="lazy" decoding="async" width="965" height="605"
-    src="/site/public/uploads/2024/03/descarga-2023-04-02-113258-2023-07-26-144433.png"
-    alt="Data Export Functionality" class="wp-image-352" />
-  <figcaption>Data Export Interface</figcaption>
-</figure>
-
-<p>
-  <strong>Database Design and Architecture: The Core of the Custom CMS</strong>
-</p>
-
-<p>
-  A critical component in the development of my custom CMS was the database design. I opted for a relational database,
-  using <strong>MySQL (MariaDB)</strong>, for its ability to ensure data integrity and efficiency in handling complex
-  data. The main objective was to create a robust structure capable of efficiently managing user information, posts, and
-  associated content.
-</p>
-
-<p>
-  The data model was carefully designed, following normalization principles, to avoid redundancy and optimize
-  performance. The main tables include:
-</p>
-
-<ul>
-  <li><strong>Users:</strong> Stores user information, including credentials and access roles.</li>
-  <li><strong>Posts:</strong> Contains post data, such as titles, content, categories, and publication dates.</li>
-  <li><strong>Content:</strong> Stores detailed post content, allowing flexible structure for different content types
-    (text, images, videos, etc.).</li>
-  <li><strong>Categories:</strong> Organizes posts into categories and subcategories for better management and
-    navigation.</li>
-  <li><strong>Tags:</strong> Allows tagging posts with keywords for easy searching and organization.</li>
-</ul>
-
-<p>
-  Relationships between these tables are crucial for CMS functionality. For example, the 'Users' table relates to the
-  'Posts' table in a one-to-many relationship, as one user can create multiple posts. The 'Posts' table relates to
-  'Categories' and 'Tags' tables in many-to-many relationships, enabling flexible content categorization and tagging.
-</p>
-
-<p>
-  Indexes were implemented on key columns to optimize queries and improve CMS performance. Foreign keys were defined to
-  ensure referential integrity and maintain consistency of related data.
-</p>
-
-<figure class="wp-block-image size-full">
-  <a href="/site/public/uploads/2024/03/gervisbermudez_db_prod-db.png">
-    <img loading="lazy" decoding="async" src="/site/public/uploads/2024/03/gervisbermudez_db_prod-db.png"
-     alt="Data Export Functionality" class="wp-image-352" />
-  </a>
-  <figcaption>Data Diagram</figcaption>
-</figure>
-
-<p>
-  The database diagram, generated with <strong>ChartDB</strong>, provides a clear visual representation of the structure
-  and relationships between tables. This diagram was an invaluable tool during development, allowing visualization and
-  optimization of the database architecture.
-</p>
-
-<p>
-  This database design not only supports the CMS's core functionalities but is also designed to be scalable, allowing
-  for future expansions and improvements.
-</p>
-
-<p>
-  <strong>API Architecture: The Engine of the CMS Frontend! </strong>
-</p>
-
-<p>
-  To provide a seamless and dynamic user experience, the CMS incorporates a robust RESTful API, designed to power the
-  frontend and enable efficient data management. This API, built with CodeIgniter, follows a logical structure and
-  exposes a comprehensive set of endpoints, allowing the frontend to interact with the CMS's core functionalities.
-</p>
-
-<p>
-  The API is organized into several key modules, each addressing a specific aspect of content and user management.
-  Here's a breakdown of the main modules and their functionalities:
-</p>
-
-<ul>
-  <li>
-    <strong>Users: </strong> This module handles user-related operations, including user creation, retrieval, and
-    deletion. It also manages user groups and permissions, ensuring secure access control.
-    <ul>
-      <li><code>GET /api/v1/users/:user_id</code>: Retrieves user information.</li>
-      <li><code>POST /api/v1/users/</code>: Creates a new user.</li>
-      <li><code>DELETE /api/v1/users/:id</code>: Deletes a user.</li>
-      <li><code>GET /api/v1/users/usergroups/:usergroup_id</code>: Retrieves user group information.</li>
-      <li><code>GET /api/v1/users/permissions</code>: Retrieves user permissions.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Login: </strong> Manages user authentication, allowing users to log in and log out securely.
-    <ul>
-      <li><code>POST /api/v1/login</code>: Authenticates a user.</li>
-      <li><code>GET /api/v1/login/logout</code>: Logs out a user.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Config: ⚙️</strong> Handles CMS configuration settings, including theme management, updates, database
-    backups, and system logging.
-    <ul>
-      <li><code>GET /api/v1/config/</code>: Retrieves CMS configuration.</li>
-      <li><code>GET /api/v1/config/themes</code>: Retrieves installed themes.</li>
-      <li><code>GET /api/v1/config/backup_database</code>: Creates a database backup.</li>
-      <li><code>GET /api/v1/config/systemlogger</code>: Retrieves system logs.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Files: </strong> Manages file uploads, retrieval, and deletion within the CMS's file manager.
-    <ul>
-      <li><code>GET /api/v1/files/:id?path</code>: Retrieves files.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Pages: </strong> Handles page creation, retrieval, and management, including page types and templates.
-    <ul>
-      <li><code>GET /api/v1/pages/:id</code>: Retrieves page information.</li>
-      <li><code>GET /api/v1/pages/types/:id</code>: Retrieves page types.</li>
-      <li><code>GET /api/v1/pages/templates</code>: Retrieves page templates.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Forms: </strong> Manages dynamic forms and form data, allowing users to create and retrieve form
-    submissions.
-    <ul>
-      <li><code>GET /api/v1/models/:form_id</code>: Retrieves form definitions.</li>
-      <li><code>GET /api/v1/models/data/:form_id</code>: Retrieves form data.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Categories: ️</strong> Manages content categories and subcategories, providing endpoints for filtering and
-    retrieving category data.
-    <ul>
-      <li><code>GET /api/v1/categorie/:categorie_id</code>: Retrieves category information.</li>
-      <li><code>GET /api/v1/categorie/type/:type_id</code>: Filters categories by type.</li>
-      <li><code>GET /api/v1/categorie/filter/?name=Web Design</code>: Filters categories by name.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Albums: ️</strong> Manages media albums, allowing retrieval of album data.
-    <ul>
-      <li><code>GET /api/v1/albumes/:album_id</code>: Retrieves album information.</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Menus: ☰</strong> Handles menu creation, retrieval, and deletion, including menu templates.
-    <ul>
-      <li><code>GET /api/v1/menus/:menu_id</code>: Retrieves menu information.</li>
-      <li><code>GET /api/v1/menus/templates</code>: Retrieves menu templates.</li>
-      <li><code>DELETE /api/v1/menus/:id</code>: Deletes a menu.</li>
-    </ul>
-  </li>
-</ul>
-
-<p>
-  This API architecture ensures that the CMS is not only functional but also highly extensible, allowing for future
-  enhancements and integrations. By exposing these endpoints, the CMS provides a flexible and powerful interface for
-  frontend developers to build rich and interactive user experiences.
-</p>
-
-<p>
-  <br /><strong>Conclusion and Reflections<br /></strong><br />This project demonstrates my ability to handle the entire
-  development lifecycle, from initial design to final implementation. By leveraging Figma, CodeIgniter, and
-  Materialize.css, I created a robust and user-friendly CMS. The choice of CodeIgniter allowed me to structure the
-  backend efficiently, while Materialize.css helped me achieve a modern and responsive user interface.
-</p>
-
-<p>
-  Throughout the development, I faced several challenges, including implementing dynamic forms and optimizing
-  performance for large data volumes. Each challenge was an opportunity to learn and improve my skills. I am
-  particularly proud of the data export functionality, which provides users with the flexibility to analyze and utilize
-  their data outside the CMS.
-</p>
-
-<p>
-  For more detailed information about this project, please visit: <a title="Start CMS Project" href="/site/portfolio/start-cms/">Start CMS Project</a>
-</p>
-
-<p>
-  I am passionate about building scalable and efficient web solutions, and I am eager to contribute my skills to
-  challenging projects. I believe my experience in full-stack design and development allows me to approach complex
-  projects with a comprehensive perspective, ensuring that both functionality and user experience are top-notch.
-</p>
-
-<p>
-  Thank you for taking the time to review my work. I look forward to potential opportunities where I can apply my
-  expertise to create impactful web applications.
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Development" /><category term="CMS" /><category term="PHP" /><category term="CodeIgniter" /><category term="Figma" /><category term="Materialize.css" /><category term="Web Development" /><category term="Portfolio" /><summary type="html"><![CDATA[A comprehensive guide on building a custom CMS from Figma designs to a CodeIgniter-powered backend, styled with Materialize.css.]]></summary></entry><entry><title type="html">The Developer’s Superpower: AI + GitHub Copilot = Unstoppable Code</title><link href="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code" rel="alternate" type="text/html" title="The Developer’s Superpower: AI + GitHub Copilot = Unstoppable Code" /><published>2024-10-07T00:00:00-03:00</published><updated>2024-10-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code"><![CDATA[<p>
-  Hey everyone! 🤠 <br /><br /> As a front-end developer, I'm always looking for ways to optimize my workflow and be
-  more efficient.
-  Recently, I thoroughly explored Microsoft 365 Copilot and was amazed by its potential. But that was just the
-  beginning!
-  I discovered an arsenal of AI tools that have revolutionized my way of working: GitHub Copilot, ChatGPT, and Gemini.
-  Get
-  ready for a journey through my experience and how these tools have quadrupled my productivity!
-</p>
-
-<figure class="wp-block-image size-full">
-  <img decoding="async" width="1000" height="563" src="/site/public/uploads/2024/03/github-copilot.png"
-    alt="" class="wp-image-21" />
-</figure>
-
-
-<p>
-  One of the main benefits of Copilot is its ability to generate code snippets
-  and suggestions based on natural language prompts. This can be incredibly
-  helpful when working on a complex project or trying to solve a difficult
-  problem. For example, if I&#8217;m struggling to write a particular function
-  or design a specific layout, I can simply ask Copilot for suggestions and see
-  what it comes up with.
-</p>
-
-<p>
-  Another potential use for Copilot in web development is its ability to analyze
-  chat threads, emails, and meetings to provide insights and suggestions based
-  on user input. This could be especially useful when collaborating with team
-  members or working with clients. By using Copilot to analyze and interpret
-  their feedback, I can quickly make changes and adjustments to my code to
-  better meet their needs.
-</p>
-
-<figure class="wp-block-image size-large">
-  <img decoding="async" width="1024" height="576"
-    src="/site/public/uploads/2024/03/m365copilot-business-1920x1080-web-2023-03-16-213513.jpg" alt=""
-    class="wp-image-22" />
-</figure>
-
-<p>
-  Overall, I&#8217;m excited to continue exploring the potential applications of
-  Microsoft 365 Copilot in web development. With its ability to generate code
-  snippets, analyze user input, and streamline the development process, I
-  believe it has the potential to be a valuable tool for developers at all
-  levels of experience.
-</p>
-
-
-<p>
-  As a web developer, I can see how Microsoft 365 Copilot can be a game-changer
-  in creating content for websites. With Copilot&#8217;s ability to write,
-  summarize, and edit text based on prompts, I can easily generate content for
-  web pages and blog posts. Copilot can also help me improve my writing by
-  suggesting ways to strengthen my arguments or make my language more concise.
-
-  <br /><br />
-
-  For example, I could prompt Copilot to create a landing page draft based on
-  certain data or to summarize a blog post for me. Copilot&#8217;s ability to
-  suggest different tones, from professional to casual, can also help me tailor
-  my writing to different audiences. Overall, I can see how Copilot can be a
-  valuable tool in streamlining the content creation process for web
-  development.
-</p>
-
-
-<figure class="wp-block-image size-large">
-  <img loading="lazy" decoding="async" width="1024" height="576"
-    src="/site/public/uploads/2024/03/chat-gpt.png" alt="" class="wp-image-23" />
-</figure>
-
-<p>
-  ChatGPT has become my personal assistant for everything. Do I need to research a complex technical topic? ChatGPT
-  provides me with clear and concise information. Do I need to generate content for a landing page? ChatGPT helps me
-  write persuasive and engaging texts. Do I need to debug an error? ChatGPT gives me suggestions and potential
-  solutions. It's
-  like having an expert in any area at my disposal, 24/7!
-</p>
-
-<h2>
-  Gemini: The Ultimate Multitasker 🪄
-</h2>
-<p>
-
-  Gemini has been a fantastic addition to my workflow, especially for tasks that involve integrating various types of
-  information. Its ability to analyze data, generate visualizations, and create presentations has allowed me to save
-  time
-  and effort. It's like having a multifunctional assistant who helps me connect the dots and present my ideas
-  effectively!
-
-  <br />
-
-  For a presentation on website performance, I used Gemini to analyze Google Analytics data, generate charts, and create
-  slides with relevant content. All in one place!
-</p>
-
-
-<p>
-
-  The combination of Microsoft Copilot, GitHub Copilot, ChatGPT, and Gemini has transformed my workflow and allowed me
-  to
-  increase my productivity exponentially. Now, I can focus on the more creative and strategic tasks, while AI takes care
-  of the repetitive and tedious ones. If you are a developer, I invite you to explore these tools and discover how they
-  can revolutionize your way of working!
-</p>
-
-
-<p>
-  If you have any questions or want to learn more about how this tool can be
-  utilized in your development projects, please don&#8217;t hesitate to <a href="/site/contact"
-    data-type="page" data-id="25">contact me</a>. As a frontend developer, I&#8217;m always excited to explore new tools
-  and
-  technologies that can help streamline and improve the development process.
-</p>
-<p>
-  I&#8217;m also available for <a href="/site/portfolio/" data-type="page" data-id="162">freelance
-    projects</a>, so feel free to reach out if you&#8217;re in need of development
-  assistance. Looking forward to hearing from you!
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Technology" /><category term="Microsoft 365" /><category term="Copilot" /><category term="Web Development" /><category term="Productivity" /><summary type="html"><![CDATA[Discover how AI tools like GitHub Copilot, ChatGPT, and Gemini have revolutionized my web development workflow, boosting productivity and creativity 🚀]]></summary></entry><entry><title type="html">Designing a Note-Taking Web App with Google Material Design</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google" rel="alternate" type="text/html" title="Designing a Note-Taking Web App with Google Material Design" /><published>2024-06-08T00:00:00-03:00</published><updated>2024-06-08T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google"><![CDATA[<p>Hey there! 😎
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   
-  <br /><br />
-  Today, I’m super excited to walk you through how I designed a note-taking web app using Google’s Material Design in Figma. Let’s dive in and see how to make clean and user-friendly interfaces together!</p>
+  <link href="https://gervisbermudez.dev/feed.xml" rel="self" type="application/atom+xml" />
+  
+  
+  <link href="https://gervisbermudez.dev/" rel="alternate" type="text/html" />
+  
+  <updated>2026-11-25T12:28:31-03:00</updated>
+  <id>https://gervisbermudez.github.io/site/feed.xml</id>
 
-<p>
-  As a designer, I'm always looking for ways to create intuitive and user-friendly interfaces. Recently, I embarked on a
-  project to design a note-taking web application, leveraging the power of Google's Material Design system within Figma.
-</p>
+  
+  
+  
 
-<p>
-  Material Design, with its emphasis on clean aesthetics and user-centric principles, provided a solid foundation for
-  this project. Its structured approach to layout, typography, and interaction design helped me create a consistent and
-  visually appealing user experience.
-</p>
+  
+    <title type="html">Gervis Bermudez | Blog</title>
+  
 
-<p>
-  One of the key aspects of Material Design is its focus on real-world metaphors, using concepts like elevation and
-  depth to create a sense of familiarity for users. This translated well into the design of my note-taking app, where I
-  utilized cards and subtle shadows to organize and prioritize content.
-</p>
+  
+    <subtitle>I develop creative solutions to complex problems, from challenging technical tests to building custom CMSs. I explore the world of code and graphic design to turn ideas into reality.</subtitle>
+  
 
-<figure class="wp-block-image size-large">
-  <img decoding="async" width="1024" height="542"
-    src="/site/public/uploads/2024/03/vuenote_www.figma.com.jpeg"
-    alt="Figma Design of Note-Taking Web App" class="wp-image-15" />
-  <figcaption>Design of Note-Taking Web App in Figma</figcaption>
-</figure>
+  
 
-<p>
-  Material Design's responsiveness was also crucial in ensuring that the app would adapt seamlessly to various screen
-  sizes. Figma's auto-layout features allowed me to create flexible components that could easily adjust to different
-  viewports.
-</p>
+  
+  
+  
+  
+  
+  
+    <entry>
+      
 
-<p>
-  Consistency was another key factor in this project. Material Design's predefined components and styles helped me
-  maintain a cohesive visual language throughout the app. This not only improved the user experience but also
-  streamlined the design process.
-</p>
+      <title type="html">Technical Challenge: Vue 3 Button Architecture with TypeScript</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2026/09/07/improve-dont-replace-a-vue-3-button-architecture/" rel="alternate" type="text/html" title="Technical Challenge: Vue 3 Button Architecture with TypeScript" />
+      <published>2026-09-07T00:00:00-03:00</published>
+      <updated>2026-09-07T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture</id>
+      
+      
 
-<p>
-  The versatility of Material Design allowed me to explore different layout options and interaction patterns. I was able
-  to create a clean and intuitive interface that prioritized content and user flow.
-</p>
+      
+      
+      
+      
+      
 
-<p>
-  See the result of the design implementation below:
-</p>
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
 
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450"
-  src="https://embed.figma.com/design/sePMgmi0kFBaQbzrOYLaCn/VueNotes?node-id=6-2&embed-host=share"
-  allowfullscreen></iframe>
+      
+        <category term="Web Development" />
+      
 
-<p>
-  In conclusion, using Material Design in Figma proved to be an effective approach for designing a user-friendly
-  note-taking web application. Its principles and components provided a solid foundation for creating a consistent,
-  responsive, and visually appealing interface.
-</p>
+      
+        <category term="Vue.js" />
+      
+        <category term="TypeScript" />
+      
+        <category term="AI" />
+      
+        <category term="Accessibility" />
+      
+        <category term="Component Design" />
+      
 
-<p>
-  For more details on this project, please visit: <a href="/site/portfolio/vuenotes-app-proposal/">VueNotes App Proposal</a>
-</p>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Material Design" /><category term="Google" /><category term="Web Design" /><category term="Design System" /><category term="Responsive Design" /><summary type="html"><![CDATA[Exploring the process of designing a user-friendly note-taking web application using Google's Material Design principles within Figma 🤖]]></summary></entry><entry><title type="html">Lightweight and powerful - CodeIgniter the php framework</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework" rel="alternate" type="text/html" title="Lightweight and powerful - CodeIgniter the php framework" /><published>2024-05-07T00:00:00-03:00</published><updated>2024-05-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework"><![CDATA[<div class="single-post-text">
-  <p>
-    CodeIgniter is a powerful PHP framework that is still a top choice for many
-    web developers when it comes to creating new websites. Despite being around
-    for over a decade, CodeIgniter has continued to evolve and adapt to the
-    changing landscape of web development, making it a versatile and reliable
-    option for building modern websites.
-  </p>
+      
+      
+        <summary type="html"><![CDATA[Spec-driven development with AI: a Vue 3 + TypeScript button that improves native HTML instead of replacing it, then ships as an ESM package.]]></summary>
+      
 
-  <p>
-    One of the main reasons why CodeIgniter is still an excellent choice for
-    developing a new website is its simplicity and ease of use. Unlike other
-    frameworks, CodeIgniter has a shallow learning curve, allowing even novice
-    developers to quickly get up and running with the framework. This simplicity
-    also makes it easier for developers to focus on the core functionality of
-    their website, rather than spending time learning complex frameworks.
-  </p>
+      
+      
+    </entry>
+  
+    <entry>
+      
 
-  <p>
-    Another advantage of CodeIgniter is its performance and scalability. The
-    framework is built on a lightweight architecture, which allows for fast and
-    efficient website development. Additionally, CodeIgniter&#8217;s modular
-    design allows developers to easily add additional features and functionality
-    to their website as needed, without sacrificing performance. This makes it a
-    great option for websites that are expected to grow and evolve over time.
-  </p>
+      <title type="html">From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker/" rel="alternate" type="text/html" title="From API to UI: Building a SpaceX Launch Tracker with NextJs and Tailwind" />
+      <published>2025-03-24T00:00:00-03:00</published>
+      <updated>2025-03-24T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20development/2025/03/24/next-js-and-tailwind-building-a-dynamic-space-x-launch-tracker</id>
+      
+      
 
-  <p>
-    CodeIgniter also has a robust and active community of developers who are
-    constantly working to improve the framework and develop new tools and
-    resources. This community support is a valuable resource for developers,
-    providing them with access to a wealth of knowledge and expertise.
-    Additionally, the CodeIgniter community is known for being welcoming and
-    supportive, which can be especially helpful for newer developers who are
-    just starting out with the framework.
-  </p>
+      
+      
+      
+      
+      
 
-  <p>
-    Finally, CodeIgniter is an open-source framework, which means that it is
-    freely available for anyone to use and modify. This not only makes it an
-    affordable option for web development, but it also allows developers to
-    customize the framework to fit their specific needs. This flexibility is
-    essential for building websites that are unique and tailored to the needs of
-    their users.
-  </p>
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
 
-  <p>
-    In conclusion, CodeIgniter is still a top choice for many web developers due
-    to its simplicity, performance, and community support. Whether you are a
-    seasoned developer or just starting out, CodeIgniter is an excellent option
-    for building modern, scalable websites.
-  </p>
-</div>]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Materialize CSS" /><category term="Material Design" /><category term="Web Development" /><category term="Responsive Design" /><summary type="html"><![CDATA[Learn about Materialize CSS, a sleek and modern library for creating responsive websites with Google's Material Design principles.]]></summary></entry><entry><title type="html">Materialize CSS the little library for Material Design</title><link href="https://gervisbermudez.github.io/site/blog/web%20design/2024/03/07/materialize-css-the-little-library-for-material-design" rel="alternate" type="text/html" title="Materialize CSS the little library for Material Design" /><published>2024-03-07T00:00:00-03:00</published><updated>2024-03-07T00:00:00-03:00</updated><id>https://gervisbermudez.github.io/site/blog/web%20design/2024/03/07/materialize-css-the-little-library-for-material-design</id><content type="html" xml:base="https://gervisbermudez.github.io/site/blog/web%20design/2024/03/07/materialize-css-the-little-library-for-material-design"><![CDATA[<!-- wp:paragraph -->
-<p><strong>What does Materialize CSS give us in Web Development?</strong></p>
-<!-- /wp:paragraph --><!-- wp:paragraph -->
-<p>
-  Materialize CSS is a fantastic option for developing websites due to its sleek
-  and modern design aesthetic. With Materialize CSS, you can easily create
-  beautiful and responsive websites that adhere to the principles of
-  Google&#8217;s Material Design.
-</p>
-<!-- /wp:paragraph --><!-- wp:paragraph -->
-<p>
-  One of the standout features of Materialize CSS is its intuitive and
-  user-friendly interface. This makes it easy for even beginners to quickly get
-  up and running with the library, and to create professional-looking websites
-  without the need for extensive coding knowledge.
-</p>
-<!-- /wp:paragraph --><!-- wp:paragraph -->
-<p>
-  In addition to its user-friendly interface, Materialize CSS also offers a wide
-  range of pre-designed components that can be easily integrated into your
-  website. This includes buttons, cards, forms, navbars, and much more, all of
-  which are designed to look great and function smoothly on any device.
-</p>
-<!-- /wp:paragraph --><!-- wp:image {"id":11,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image size-full">
-  <img
-    decoding="async"
-    class="alignnone wp-image-584 size-full"
-    src="https://gervisbermudez.github.io/site/dev/public/uploads/2024/03/banner-materialzecss.png"
-    alt=""
-    width="1920"
-    height="1080"
-    srcset="
-      ../../../../public/uploads/2024/03/banner-materialzecss.png          1920w,
-      ../../../../public/uploads/2024/03/banner-materialzecss-300x169.png   300w,
-      ../../../../public/uploads/2024/03/banner-materialzecss-1024x576.png 1024w,
-      ../../../../public/uploads/2024/03/banner-materialzecss-768x432.png   768w,
-      ../../../../public/uploads/2024/03/banner-materialzecss-1536x864.png 1536w,
-      ../../../../public/uploads/2024/03/banner-materialzecss-512x288.png   512w,
-      ../../../../public/uploads/2024/03/banner-materialzecss-950x534.png   950w
-    "
-    sizes="(max-width: 1920px) 100vw, 1920px"
-  />
-</figure>
-<!-- /wp:image --><!-- wp:paragraph -->
-<p>
-  Another advantage of Materialize CSS is its compatibility with a variety of
-  popular frameworks and libraries. This includes popular options like Angular,
-  React, and Vue, so you can easily incorporate Materialize CSS into your
-  existing workflow without any headaches.
-</p>
-<!-- /wp:paragraph --><!-- wp:paragraph -->
-<p>
-  Overall, Materialize CSS is a fantastic option for developing modern,
-  responsive, and beautiful websites. Its intuitive interface, pre-designed
-  components, and compatibility with popular frameworks make it a great choice
-  for anyone looking to create professional-looking websites with ease.
-</p>
-<!-- /wp:paragraph -->]]></content><author><name>Gervis Bermudez</name></author><category term="Web Design" /><category term="Materialize CSS" /><category term="Material Design" /><category term="Web Development" /><category term="Responsive Design" /><summary type="html"><![CDATA[Learn about Materialize CSS, a sleek and modern library for creating responsive websites with Google's Material Design principles.]]></summary></entry></feed>
+      
+        <category term="Web Development" />
+      
+
+      
+        <category term="Next.js" />
+      
+        <category term="Tailwind CSS" />
+      
+        <category term="SpaceX" />
+      
+        <category term="API Integration" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[A detailed guide on building a SpaceX launch tracker using Next.js and Tailwind CSS]]></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      
+
+      <title type="html">Solving the Hotel Reservation Problem using Vue js with Vite</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite/" rel="alternate" type="text/html" title="Solving the Hotel Reservation Problem using Vue js with Vite" />
+      <published>2025-02-07T00:00:00-03:00</published>
+      <updated>2025-02-07T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20development/2025/02/07/solving-the-hotel-reservation-problem-using-vue-js-with-vite</id>
+      
+      
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
+
+      
+        <category term="Web Development" />
+      
+
+      
+        <category term="Vue.js" />
+      
+        <category term="Vite" />
+      
+        <category term="Hotel Reservation" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[A detailed guide on solving the hotel reservation problem using Vue js and Vite]]></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      
+
+      <title type="html">Building a Custom CMS - From Figma to CodeIgniter with Materialize</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize/" rel="alternate" type="text/html" title="Building a Custom CMS - From Figma to CodeIgniter with Materialize" />
+      <published>2024-12-07T00:00:00-03:00</published>
+      <updated>2024-12-07T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20development/2024/12/07/building-a-custom-cms-from-figma-to-code-igniter-with-materialize</id>
+      
+      
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
+
+      
+        <category term="Web Development" />
+      
+
+      
+        <category term="CMS" />
+      
+        <category term="PHP" />
+      
+        <category term="CodeIgniter" />
+      
+        <category term="Figma" />
+      
+        <category term="Materialize.css" />
+      
+        <category term="Web Development" />
+      
+        <category term="Portfolio" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[A comprehensive guide on building a custom CMS from Figma designs to a CodeIgniter-powered backend, styled with Materialize.css.]]></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      
+
+      <title type="html">The Developer’s Superpower: AI + GitHub Copilot = Unstoppable Code</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code/" rel="alternate" type="text/html" title="The Developer’s Superpower: AI + GitHub Copilot = Unstoppable Code" />
+      <published>2024-10-07T00:00:00-03:00</published>
+      <updated>2024-10-07T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/technology/2024/10/07/the-developer-s-superpower-ai-git-hub-copilot-unstoppable-code</id>
+      
+      
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
+
+      
+        <category term="Technology" />
+      
+
+      
+        <category term="Microsoft 365" />
+      
+        <category term="Copilot" />
+      
+        <category term="Web Development" />
+      
+        <category term="Productivity" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[Discover how AI tools like GitHub Copilot, ChatGPT, and Gemini have revolutionized my web development workflow, boosting productivity and creativity 🚀]]></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      
+
+      <title type="html">Designing a Note-Taking Web App with Google Material Design</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2024/06/08/meet-material-design-the-design-system-of-google/" rel="alternate" type="text/html" title="Designing a Note-Taking Web App with Google Material Design" />
+      <published>2024-06-08T00:00:00-03:00</published>
+      <updated>2024-06-08T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20design/2024/06/08/meet-material-design-the-design-system-of-google</id>
+      
+      
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
+
+      
+        <category term="Web Design" />
+      
+
+      
+        <category term="Material Design" />
+      
+        <category term="Google" />
+      
+        <category term="Web Design" />
+      
+        <category term="Design System" />
+      
+        <category term="Responsive Design" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[Exploring the process of designing a user-friendly note-taking web application using Google's Material Design principles within Figma 🤖]]></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      
+
+      <title type="html">Lightweight and powerful - CodeIgniter the php framework</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2024/08/07/lightweight-and-powerful-codeigniter-the-php-framework/" rel="alternate" type="text/html" title="Lightweight and powerful - CodeIgniter the php framework" />
+      <published>2024-05-07T00:00:00-03:00</published>
+      <updated>2024-05-07T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20design/2024/05/07/lightweight-and-powerful-codeigniter-the-php-framework</id>
+      
+      
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
+
+      
+        <category term="Web Design" />
+      
+
+      
+        <category term="Materialize CSS" />
+      
+        <category term="Material Design" />
+      
+        <category term="Web Development" />
+      
+        <category term="Responsive Design" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[Learn about Materialize CSS, a sleek and modern library for creating responsive websites with Google's Material Design principles.]]></summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      
+
+      <title type="html">Materialize CSS the little library for Material Design</title>
+      
+      <link href="https://gervisbermudez.dev/blog/2024/03/07/materialize-css-the-little-library-for-material-design/" rel="alternate" type="text/html" title="Materialize CSS the little library for Material Design" />
+      <published>2024-03-07T00:00:00-03:00</published>
+      <updated>2024-03-07T00:00:00-03:00</updated>
+      <id>https://gervisbermudez.github.io/site/blog/web%20design/2024/03/07/materialize-css-the-little-library-for-material-design</id>
+      
+      
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Gervis Bermudez</name>
+        
+        
+      </author>
+
+      
+        <category term="Web Design" />
+      
+
+      
+        <category term="Materialize CSS" />
+      
+        <category term="Material Design" />
+      
+        <category term="Web Development" />
+      
+        <category term="Responsive Design" />
+      
+
+      
+      
+        <summary type="html"><![CDATA[Learn about Materialize CSS, a sleek and modern library for creating responsive websites with Google's Material Design principles.]]></summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>

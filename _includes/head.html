@@ -6,7 +6,7 @@
     <link rel="profile" href="https://gmpg.org/xfn/11" />
 
     <title>{{page.title}}</title>
-    <meta name="robots" content="{% if page.robots %}{{ page.robots }}{% else %}max-image-preview:large{% endif %}" />
+    <meta name="robots" content="{% if page.new_url %}noindex{% elsif page.robots %}{{ page.robots }}{% else %}max-image-preview:large{% endif %}" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com/" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
     <link rel="alternate" type="application/rss+xml" title="{{page.title}} &#8211; Feed"
@@ -70,8 +70,14 @@
         /* ]]> */
     </script>
 
+    {% if page.new_url %}
+    <link rel="canonical" href="{{ page.new_url }}" />
+    <meta http-equiv="refresh" content="0; url={{ page.new_url }}" />
+    <script>location.replace({{ page.new_url | jsonify }});</script>
+    {% else %}
     <link rel="canonical" href="{{site.url}}{{ site.baseurl }}{{page.url}}" />
-    <link rel="shortlink" href="{{site.url}}{{ site.baseurl }}{{page.url}}" />
+    {% endif %}
+    <link rel="shortlink" href="{% if page.new_url %}{{ page.new_url }}{% else %}{{site.url}}{{ site.baseurl }}{{page.url}}{% endif %}" />
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/styles.css?v=20260916-home-spacing" type="text/css" media="all" />
     <link rel="stylesheet" id="code-block-for-elementor-okaidia-css"
         href="{{ '/public/plugins/code-block-for-elementor/assets/prism-okaidia.css' | relative_url }}" type="text/css"
@@ -87,7 +93,7 @@
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="{{site.title}}" />
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
-    <meta property="og:url" content="{{site.url}}{{ site.baseurl }}{{page.url}}" />
+    <meta property="og:url" content="{% if page.new_url %}{{ page.new_url }}{% else %}{{site.url}}{{ site.baseurl }}{{page.url}}{% endif %}" />
     <meta property="og:type" content="website" />
     <meta property="og:description"
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
@@ -97,7 +103,7 @@
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta itemprop="author" content="{% if page.author %}{{ page.author }}{% else %}{{site.default_author}}{% endif %}" />
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{site.title}}{% endif %}" />
-    <meta name="twitter:url" content="{{site.url}}{{ site.baseurl }}{{page.url}}" />
+    <meta name="twitter:url" content="{% if page.new_url %}{{ page.new_url }}{% else %}{{site.url}}{{ site.baseurl }}{{page.url}}{% endif %}" />
     <meta name="twitter:description"
         content="{% if page.description %}{{ page.description }}{% else %}{{site.description}}{% endif %}" />
     <meta name="twitter:card" content="summary_large_image" />

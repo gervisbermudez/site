@@ -31,13 +31,19 @@ default_banner: /public/uploads/2024/03/luca-bravo-XJXWbfSo2f0-unsplash-2.jpg
 timezone: America/Argentina/Buenos_Aires
 permalink: /blog/:categories/:year/:month/:day/:title
 default_author: Gervis Bermudez
+redirect_to_new_site: true
+new_site_url: https://gervisbermudez.dev
+feed:
+  excerpt_only: true
 # Build settings
 # theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate # Paginación de publicaciones
   - jekyll-seo-tag # SEO
-  - jekyll-sitemap # Sitemap
+  - jekyll-sitemap # Sitemap lists the old URLs so crawlers recrawl the redirects
+exclude:
+  - graphify-out
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

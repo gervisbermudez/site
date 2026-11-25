@@ -110,8 +110,8 @@ const projects: TimelineItem[] = [
     date: "Project",
     body: (
       <p>
-        End-to-end application developed with Next.js and Tailwind CSS. Includes
-        API integration and a documented case study on personal blog.
+        End-to-end Next.js + Tailwind app around the SpaceX API, with a write-up
+        of the tradeoffs on the blog.
       </p>
     ),
   },
@@ -121,8 +121,8 @@ const projects: TimelineItem[] = [
     date: "Project",
     body: (
       <p>
-        Solution for stay management built with Vue.js and Vite, optimizing
-        business logic and loading speed.
+        Vue.js + Vite booking flow focused on the business rules — availability,
+        conflicts, and speed — not just the UI.
       </p>
     ),
   },
@@ -132,8 +132,8 @@ const projects: TimelineItem[] = [
     date: "Project",
     body: (
       <p>
-        End-to-end development from Figma design to functional code using
-        CodeIgniter and Materialize, allowing for personalized content management.
+        Figma to CodeIgniter + Materialize: a CMS I actually used to manage
+        content, not a tutorial clone.
       </p>
     ),
   },
@@ -143,8 +143,8 @@ const projects: TimelineItem[] = [
     date: "Article",
     body: (
       <p>
-        Author of publications on optimizing the development lifecycle through the
-        use of AI tools like GitHub Copilot and Gemini.
+        Notes on using Copilot, Gemini, and similar tools to speed up the loop
+        without outsourcing the thinking.
       </p>
     ),
   },
@@ -152,18 +152,46 @@ const projects: TimelineItem[] = [
 
 const experience: TimelineItem[] = [
   {
+    title: "Dinardi Project",
+    subtitle: "Software Engineer",
+    date: "jun 2026 - present",
+    body: (
+      <>
+        <p>
+          I built the Technical Service module in CRM Tharsa end to end — tickets
+          through role-based repair closure — on Next.js 15, React,
+          Node.js/Express/TypeScript, and Chakra UI.
+        </p>
+        <p>
+          I designed the inventory architecture and Finnegans ERP integrations
+          (Sequelize/MySQL) so stock, branch replenishment, and labor stay in sync
+          without disrupting sales or customers.
+        </p>
+        <p>
+          I shipped real-time updates with Socket.IO, logistics integrations (DHL,
+          Sindel/Southpost), and a Docker demo environment on AWS EC2.
+        </p>
+      </>
+    ),
+  },
+  {
     title: "Santander Tecnología",
     subtitle: "Software Engineer",
     date: "sep 2023 - may 2026",
     body: (
       <>
         <p>
-          Developed large-scale features for corporate fund management using React
-          and TypeScript (Microfrontends).
+          I designed and shipped high-performance Node.js services and APIs in the
+          Investment Tribe, keeping latency low under concurrent financial traffic.
         </p>
         <p>
-          Ensured observability and infrastructure using OpenShift, Kubernetes,
-          Grafana, and Dynatrace.
+          I led backend work on digital signature and corporate fund redemption —
+          TDD, strict validation, and query optimization included, not bolted on.
+        </p>
+        <p>
+          I ran containerization and CI/CD on Docker, OpenShift, and Kubernetes,
+          with Grafana and Dynatrace on the backend so we could hold 99.9%
+          availability.
         </p>
       </>
     ),
@@ -175,12 +203,12 @@ const experience: TimelineItem[] = [
     body: (
       <>
         <p>
-          Contributed to the development and maintenance of the official Tuenti
-          app using React, React Native, and TypeScript.
+          I built and maintained the official Tuenti app (Telefónica) with React,
+          React Native, and TypeScript.
         </p>
         <p>
-          Created APIs in Node.js and integrated CI/CD pipelines in
-          OpenShift/Kubernetes environments.
+          I wrote Node.js APIs and wired CI/CD on OpenShift/Kubernetes, with
+          automated tests as the quality bar.
         </p>
       </>
     ),
@@ -192,12 +220,12 @@ const experience: TimelineItem[] = [
     body: (
       <>
         <p>
-          Designed and developed the main dashboard for DirecTV&apos;s critical
-          fleet management system, using React and Angular.
+          I designed DirecTV&apos;s fleet-management dashboard from Figma to UI, in
+          React, Angular, and TypeScript.
         </p>
         <p>
-          Modernized legacy CSS design and optimized application performance and
-          loading speed by 30%.
+          I componentized the frontend, replaced the legacy CSS, and cut load time
+          by about 30%.
         </p>
       </>
     ),
@@ -209,12 +237,12 @@ const experience: TimelineItem[] = [
     body: (
       <>
         <p>
-          Developed critical applications and frontend functionalities for
-          accounts like Experta Seguros under agile methodologies.
+          I shipped frontend for accounts like Experta Seguros — including
+          WordPress/Elementor work — in a tight loop with product.
         </p>
         <p>
-          Optimized UI/UX for client systems, achieving a 20% improvement in loading
-          speed and performance.
+          I tightened UI/UX on client systems and picked up a 20% improvement in
+          load speed.
         </p>
       </>
     ),
@@ -226,12 +254,12 @@ const experience: TimelineItem[] = [
     body: (
       <>
         <p>
-          Developed internal full-stack applications using PHP, Laravel, and React
-          for international accounts like Natura.
+          I built internal full-stack apps in PHP, Laravel, and React for
+          international accounts such as Natura.
         </p>
         <p>
-          Managed database migration and frontend improvements, optimizing
-          platform efficiency by 25%.
+          I handled database migration and frontend/backend cleanup, reducing
+          technical debt and improving platform efficiency by about 25%.
         </p>
       </>
     ),
@@ -243,12 +271,12 @@ const experience: TimelineItem[] = [
     body: (
       <>
         <p>
-          Developed modern interfaces, interactive components with React, and
-          responsive layouts.
+          I led frontend work: React components, responsive layouts, and the
+          agency&apos;s proprietary CMS.
         </p>
         <p>
-          Optimized the agency&apos;s proprietary CMS and built web ecosystems for
-          regional marketing campaigns.
+          I built campaign ecosystems — landing pages, forms, email — with
+          performance and SEO as constraints, not afterthoughts.
         </p>
       </>
     ),
@@ -264,13 +292,14 @@ export function AboutPage() {
           <div className="col-lg-12">
             <h2>About</h2>
             <p>
-              I&apos;m a Full Stack Developer with over 10 years of experience building
-              scalable, modern web applications.
+              I&apos;m a senior full-stack engineer with over 10 years designing and
+              shipping web applications — high-availability Node.js services, APIs,
+              and the React/Next.js interfaces that sit on top.
             </p>
             <p>
-              My goal is to combine frontend and backend development with product
-              vision to create solid, maintainable solutions, while incorporating
-              AI-assisted tools to optimize development processes and productivity.
+              I care about systems that stay maintainable: clean APIs, solid data
+              models, and the Docker/Kubernetes/CI/CD layer that keeps them honest.
+              AI-assisted workflows are part of how I ship, not a novelty.
             </p>
           </div>
         </div>
@@ -304,10 +333,12 @@ export function AboutPage() {
             />
           </div>
           <div className="col-lg-7">
-            <h3>Full-Stack Engineer</h3>
+            <h3>Senior Full-Stack Engineer</h3>
             <p>
-              I have experience working on financial platforms, CMSs, enterprise
-              systems, and high-performance applications.
+              I&apos;ve shipped financial platforms, CRMs, fleet dashboards, and
+              high-traffic marketing sites. The through-line is the same: understand
+              the business constraint, then build something that holds up on a
+              Tuesday.
             </p>
             <div className="row">
               <div className="col-lg-6">
@@ -349,11 +380,10 @@ export function AboutPage() {
           </div>
         </div>
         <p>
-          I specialize in React, Next.js, Node.js, and Laravel, combining frontend
-          and backend development with product vision. I am obsessed with
-          building robust, high-performance applications that are useful for
-          users, utilizing enterprise environments like Kubernetes, Docker, and
-          CI/CD pipelines to help companies achieve their goals.
+          I specialize in Node.js, React, and Next.js, with Laravel when the stack
+          calls for it. Most of my recent work lives in enterprise environments —
+          Kubernetes, OpenShift, Docker, Grafana, Dynatrace, CI/CD — where tests
+          and observability ship with the feature, not as a later ticket.
         </p>
       </div>
       <div className="container-fluid">

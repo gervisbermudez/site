@@ -5,10 +5,10 @@ const HERO_BG =
   "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=2070&auto=format&fit=crop";
 
 const phrases = [
-  "web applications",
-  "ios and android applications.",
-  "design mockups.",
-  "automation tools.",
+  "web applications.",
+  "AI agents.",
+  "cloud platforms.",
+  "digital products.",
 ];
 
 export function HeroBanner() {

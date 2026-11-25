@@ -22,9 +22,17 @@ export type TimelineChapter = {
   photos: TimelinePhoto[];
 };
 
+export type HomePreviewPhoto = {
+  file: string;
+  chapter: string;
+  alt: string;
+  src: string;
+};
+
 export type PersonalTimeline = {
   title: string;
   lead: string;
+  homePreview: HomePreviewPhoto[];
   chapters: TimelineChapter[];
 };
 
@@ -33,6 +41,7 @@ const DATA_FILE = path.join(process.cwd(), "_data/personal_timeline.yml");
 type TimelineYaml = {
   title: string;
   lead: string;
+  home_preview?: Array<{ file: string; chapter: string; alt?: string }>;
   chapters: Array<{
     id: string;
     emoji: string;
@@ -67,9 +76,20 @@ export function getPersonalTimeline(): PersonalTimeline {
     }),
   }));
 
+  const homePreview = (data.home_preview ?? []).map((photo) => {
+    const publicPath = `public/personal-timeline/${photo.file}`;
+    return {
+      file: photo.file,
+      chapter: photo.chapter,
+      alt: photo.alt ?? "",
+      src: toImageSrc(publicPath),
+    };
+  });
+
   return {
     title: data.title,
     lead: data.lead,
+    homePreview,
     chapters: [...chapters].reverse(),
   };
 }

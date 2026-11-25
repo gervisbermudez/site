@@ -6,6 +6,7 @@ import { HeroBanner } from "@/components/home/HeroBanner";
 import { Counters } from "@/components/home/Counters";
 import { RecentPosts } from "@/components/home/RecentPosts";
 import { Interests } from "@/components/home/Interests";
+import { HomeJourney } from "@/components/home/HomeJourney";
 import { PortfolioGrid } from "@/components/portfolio/PortfolioGrid";
 import { getPosts } from "@/lib/posts";
 import { getPortfolio } from "@/lib/portfolio";
@@ -27,14 +28,14 @@ export default function HomePage() {
         <div className="row">
           <div className="col-lg-12">
             <p>
-              I&apos;m a Full Stack Developer with over 10 years of experience building
-              scalable, modern web applications.
+              I&apos;m a senior full-stack engineer with over 10 years designing and
+              shipping web applications — high-availability Node.js services, APIs,
+              and the React/Next.js interfaces that sit on top.
             </p>
             <p>
-              My goal is to combine frontend and backend development with product
-              vision to create solid, maintainable solutions, while incorporating
-              AI-assisted tools to optimize development processes and
-              productivity.
+              I care about systems that stay maintainable: clean APIs, solid data
+              models, and the Docker/Kubernetes/CI/CD layer that keeps them honest.
+              AI-assisted workflows are part of how I ship, not a novelty.
               <br />
               <br />
               <Link className="art-link art-color-link art-w-chevron" href="/about-me/">
@@ -44,6 +45,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+      <HomeJourney />
       <Counters />
       <RecentPosts posts={posts} />
       <br />

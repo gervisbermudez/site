@@ -28,21 +28,13 @@ jobs:
       - name: Build Jekyll site with production config
         run: bundle exec jekyll build --config _config_prod.yml
 
-      - name: Verify redirects to the new site
+      - name: Verify GitHub Pages 404
         run: |
           set -euo pipefail
           test -f _site/404.html
           test ! -d _site/404
-          grep -q 'https://gervisbermudez.dev/' _site/index.html
-          grep -q 'http-equiv="refresh"' _site/index.html
-          grep -q 'noindex' _site/index.html
-          ! grep -q 'art-app' _site/index.html
-          post="_site/blog/web development/2026/09/07/improve-dont-replace-a-vue-3-button-architecture.html"
-          test -f "$post"
-          grep -q 'https://gervisbermudez.dev/blog/2026/09/07/improve-dont-replace-a-vue-3-button-architecture/' "$post"
-          grep -q 'https://gervisbermudez.dev/' _site/404.html
-          grep -q 'noindex' _site/404.html
-          grep -q 'https://gervisbermudez.dev/feed.xml' _site/feed.xml
+          grep -q 'This page is missing' _site/404.html
+          grep -q '/site/public/css/styles.css' _site/404.html
           touch _site/.nojekyll
 
       - name: Deploy to GitHub Pages

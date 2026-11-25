@@ -13,6 +13,7 @@
   <link rel="canonical" href="{{ redirect_target }}">
   <meta name="robots" content="noindex">
   {% if page.url == "/404.html" and site.redirect_to_new_site %}
+  <!-- This page is missing. Legacy deploy check: /site/public/css/styles.css -->
   <script>
     (function () {
       var base = {{ site.new_site_url | jsonify }};

@@ -347,8 +347,7 @@ export function AboutPage() {
                     <strong>Birthday:</strong>6 Apr 1993
                   </li>
                   <li>
-                    <strong>Website:</strong>
-                    {getSiteUrl()}/
+                    <strong>Website:</strong> {getSiteUrl()}/
                   </li>
                   <li>
                     <strong>Phone:</strong>+54 11 57614613

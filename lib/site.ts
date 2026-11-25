@@ -22,10 +22,12 @@ export const site = {
   birthday: "1993-04-06",
 } as const;
 
+const PREVIEW_ORIGIN = "https://gervis-bermudez-site.vercel.app";
+
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
   if (fromEnv) return fromEnv.replace(/\/$/, "");
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  if (process.env.VERCEL_URL) return PREVIEW_ORIGIN;
   return "http://localhost:3000";
 }
 
